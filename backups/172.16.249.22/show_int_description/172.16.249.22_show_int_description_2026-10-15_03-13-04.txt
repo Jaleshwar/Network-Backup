@@ -1,0 +1,1168 @@
+show int description
+Thu Oct 15 03:24:09.168 IST
+Interface          Status      Protocol    Description
+--------------------------------------------------------------------------------
+BV1002             down        down        BVI1002 changed demo testing
+BV8331             down        down        TMKR-ML3-10-2201-MUSE-TEST-Telemedia-8331-04092025
+BV10001            down        down        #DSLAM#TMKK-ML3-76-70001#443456##29092026#MOBILE_SITE_ID#
+BV10002            down        down        TMKK-ML3-76-290001-Telemedia-290001-07102026
+BV10003            down        down        #DSLAM#TMKK-ML3-76-290002#290002##05102026#MOBILE_SITE_ID#
+BV10006            down        down        this is a test
+BV10008            down        down        MWRUE-ML3-19-295567-AOIP_P-GB-UPE_GB-438002-02022025
+BV10014            down        down        MWRUE-ML3-19-159626-AOIP_P-GB-UPE_GB-366215-19012025
+BV10016            down        down        TMKK-ML3-76-879307-Telemedia-372914-01092025
+BV10028            down        down        TMKK-ML3-76-392358-Telemedia-244655-02022025
+BV10030            down        down        TMKK-ML3-76-208863-Telemedia-216350-02022025
+BV10031            down        down        TMKK-ML3-76-596306-Telemedia-339845-02022025
+BV10034            down        down        TMKK-ML3-76-470390-Telemedia-470390-13022025
+BV10037            down        down        TMKK-ML3-76-377594-Telemedia-377594-13022025
+BV10039            down        down        TMKK-ML3-76-542604-Telemedia-417314-26052026
+BV10042            down        down        #DSLAM#DYNAMIC#TMKK-ML3-76-DYNAMIC-70002#435674##29092026#MOBILE_SITE_ID#
+BV10043            down        down        TMKK-ML3-76-DYNAMIC-70005-Telemedia-435674-29092026
+BV10044            down        down        TMKK-ML3-76-70008-Telemedia-435674-29092026
+BV10045            down        down        #DSLAM#DYNAMIC#TMKK-ML3-76-DYNAMIC-70006#435456##30092026#MOBILE_SITE_ID#
+BV10049            down        down        TMKK-ML3-76-493694-Telemedia-493694-13022025
+BV10050            down        down        TMKK-ML3-76-296417-Telemedia-296417-13022025
+BV10053            down        down        TMKK-ML3-76-229787-Telemedia-229787-13022025
+BV10056            down        down        TMKK-ML3-76-477131-Telemedia-477131-13022025
+BV10060            down        down        TMKK-ML3-76-400025-Telemedia-400025-13022025
+BV10061            down        down        TMKK-ML3-76-377756-Telemedia-377756-13022025
+BV10069            down        down        TMKK-ML3-76-306839-Telemedia-306839-13022025
+BV10071            down        down        TMKK-ML3-76-427937-Telemedia-427937-13022025
+BV10074            down        down        TMKK-ML3-76-492509-Telemedia-492509-13022025
+BV10075            down        down        TMKK-ML3-76-297875-Telemedia-297875-13022025
+BV10076            down        down        TMKK-ML3-76-494111-Telemedia-494111-13022025
+BV10082            down        down        TMKK-ML3-76-454940-Telemedia-454940-14022025
+BV10083            down        down        TMKK-ML3-76-441272-Telemedia-441272-14022025
+BV10086            down        down        TMKK-ML3-76-592613-Telemedia-451577-20052025
+BV10088            down        down        TMKK-ML3-76-538016-Telemedia-291242-20052025
+BV10093            down        down        TMKK-ML3-76-398292-MGMT-P-NC-Telemedia-350357-23062026
+BV11432            down        down        TMKK-ML3-76-1111-MUSE-TEST-Telemedia-11432-04032026
+BV20001            down        down        TEST-BULK-CONFIG-BLOCK-BVI20001
+BV20002            down        down        TEST-BULK-CONFIG-BLOCK-BVI20002
+BV20003            down        down        TEST-BULK-CONFIG-BLOCK-BVI20003
+BV20004            down        down        TEST-BULK-CONFIG-BLOCK-BVI20004
+BV20005            down        down        TEST-BULK-CONFIG-BLOCK-BVI20005
+BV20006            down        down        BSEM-ML3-1-22002-kjajj-19000k-BSEM-ML3-1-22002-24082026
+BV20008            down        down        MLOL-ML3-51-101135-kjajj-6817k-Spoke-Mult-403352-26052026
+BV20010            down        down        HNSA-ML3-1-957053-kjajj-5120k-HNSA-ML3-1-320225-26052026
+BV20012            down        down        MSHA-ML3-1-860219-kjajj-5120k-MSHA-ML3-1-430430-26052026
+BV20013            down        down        POLS-ML3-10-50001-rework-testing-5120k-POLS-ML3-10-650001-15092026
+BV20014            down        down        HNSA-ML3-1-395011-kjajj-4396k-HNSA-ML3-1-424364-26052026
+BV20015            down        down        BALW-ML3-1-126738-kjajj-6474k-WI-MAX-MANAGEMENT-202733-26052026
+BV20016            down        down        MLOL-ML3-51-878949-kjajj-5754k-Spoke-Mult-286406-26052026
+BV20018            down        down        MSHA-ML3-1-219328-kjajj-4486k-MSHA-ML3-1-218417-26052026
+BV20020            down        down        BOBA-ML3-10-658677-kjajj-5120k-test-address-492653-31072026
+BV20023            down        down        HNSA-ML3-1-123035-kjajj-5120k-HNSA-ML3-1-414674-26052026
+BV20024            down        down        BOBA-ML3-11-90003-kjajj-5120k-BOBA-ML3-11-900003-12082026
+BV20025            down        down        BOBA-ML3-11-90004-kjajj-5120k-BOBA-ML3-11-900004-14082026
+BV20026            down        down        BSEM-ML3-1-65001-kjajj-5120k-BSEM-ML3-1-650991-14082026
+BV20027            down        down        BSEM-ML3-1-65006-kjajj-5120k-BSEM-ML3-1-650006-14082026
+BV20028            down        down        BSEM-ML3-1-65001-kjajj-5120k-BSEM-ML3-1-650001-17082026
+BV20041            down        down        MSHA-ML3-1-715571-kjajj-5120k-MSHA-ML3-1-258011-01102026
+BV20054            down        down        BSEM-ML3-1-11001-kjajj-10088k-BSEM-ML3-1-900011-19082026
+BV20099            down        down        HNSA-ML3-1-221660-kjajj-10240k-hnsa-240801-29012025
+BV20124            down        down        BALW-ML3-1-314475-kjajj-1877k-WI-MAX-MANAGEMENT-202424-19012025
+BV20125            down        down        MSHA-ML3-1-467364-kjajj-5120k-MSHA-ML3-1-351671-20012025
+BV20126            down        down        MSHA-ML3-1-560219-kjajj-2905k-MSHA-ML3-1-466286-20012025
+BV20127            down        down        MSHA-ML3-1-314118-kjajj-5120k-MSHA-ML3-1-494318-20012025
+BV20129            down        down        HNSA-ML3-1-784344-kjajj-10240k-HNSA-ML3-1-338684-02022025
+BV20131            down        down        MSHA-ML3-1-573513-kjajj-7214k-MSHA-ML3-1-334658-02022025
+BV20132            down        down        HNSA-ML3-1-221662-kjajj-10240k-HNSA-ML3-1-240802-29012025
+BV20134            down        down        HNSA-ML3-1-875906-kjajj-5120k-HNSA-ML3-1-203867-02022025
+BV20137            down        down        MSHA-ML3-1-131826-kjajj-8864k-MSHA-ML3-1-380447-02022025
+BV20141            down        down        HNSA-ML3-1-339714-kjajj-4700k-HNSA-ML3-1-441074-02022025
+BV20143            down        down        MSHA-ML3-1-871387-kjajj-2634k-MSHA-ML3-1-266543-02022025
+BV20144            down        down        MSHA-ML3-1-360416-kjajj-8160k-MSHA-ML3-1-315956-02022025
+BV20145            down        down        MSHA-ML3-1-541053-kjajj-5120k-MSHA-ML3-1-354908-03022025
+BV20147            down        down        MSHA-ML3-1-851085-kjajj-5084k-MSHA-ML3-1-219314-03022025
+BV20148            down        down        MSHA-ML3-1-725305-kjajj-1740k-MSHA-ML3-1-434879-03022025
+BV20149            down        down        MSHA-ML3-1-993157-kjajj-8079k-MSHA-ML3-1-436268-03022025
+BV20152            down        down        MSHA-ML3-1-528551-kjajj-8375k-MSHA-ML3-1-316157-03022025
+BV20155            down        down        MLOL-ML3-5-662468-kjajj-6659k-Multicast-spoke-377090-03022025
+BV20161            down        down        SUYA-ML3-1-498497-kjajj-8799k-CHITFUND-498497-13022025
+BV20162            down        down        SUYA-ML3-1-387977-kjajj-8586k-CHITFUND-387977-13022025
+BV20163            down        down        SUYA-ML3-1-237275-kjajj-1657k-CHITFUND-237275-13022025
+BV20164            down        down        SUYA-ML3-1-254360-kjajj-3861k-CHITFUND-254360-13022025
+BV20166            down        down        HNSA-ML3-1-696745-kjajj-4421k-HNSA-ML3-1-471368-13022025
+BV20167            down        down        SUYA-ML3-1-292010-kjajj-5466k-nikk-292010-13022025
+BV20168            down        down        SUYA-ML3-1-429953-kjajj-6620k-nikk-429953-13022025
+BV20169            down        down        SUYA-ML3-1-451397-kjajj-1932k-nikk-451397-13022025
+BV20170            down        down        SUYA-ML3-1-419309-kjajj-8619k-nikk-419309-13022025
+BV20174            down        down        SUYA-ML3-1-356417-kjajj-5188k-nikk-356417-13022025
+BV20176            down        down        SUYA-ML3-1-218591-kjajj-2213k-nikk-218591-13022025
+BV20179            down        down        SUYA-ML3-1-202436-kjajj-2293k-nikk-202436-13022025
+BV20196            down        down        SUYA-ML3-1-458846-kjajj-8626k-nikk-458846-13022025
+BV20197            down        down        SUYA-ML3-1-244154-kjajj-4478k-nikk-244154-13022025
+BV20198            down        down        SUYA-ML3-1-389531-kjajj-7860k-nikk-389531-13022025
+BV20199            down        down        SUYA-ML3-1-276764-kjajj-8749k-nikk-276764-13022025
+BV20204            down        down        SUYA-ML3-1-350906-kjajj-2706k-nikk-350906-13022025
+BV20206            down        down        SUYA-ML3-1-218132-kjajj-4932k-nikk-218132-13022025
+BV20208            down        down        SUYA-ML3-1-470579-kjajj-1517k-nikk-470579-13022025
+BV20213            down        down        SUYA-ML3-1-424931-kjajj-2896k-nikk-424931-13022025
+BV20215            down        down        SUYA-ML3-1-348251-kjajj-1109k-nikk-348251-13022025
+BV20217            down        down        SUYA-ML3-1-253676-kjajj-5505k-nikk-253676-14022025
+BV20219            down        down        SUYA-ML3-1-497738-kjajj-7157k-nikk-497738-14022025
+BV20221            down        down        SUYA-ML3-1-465638-kjajj-7719k-nikk-465638-14022025
+BV20222            down        down        SUYA-ML3-1-363269-kjajj-7492k-nikk-363269-14022025
+BV20223            down        down        SUYA-ML3-1-324020-kjajj-8288k-CHITFUND-324020-14022025
+BV20226            down        down        SUYA-ML3-1-247682-kjajj-2187k-CHITFUND-247682-14022025
+BV20228            down        down        SUYA-ML3-1-212639-kjajj-3387k-CHITFUND-212639-14022025
+BV20229            down        down        SUYA-ML3-1-447083-kjajj-3064k-CHITFUND-447083-14022025
+BV20231            down        down        SUYA-ML3-1-277265-kjajj-6648k-CHITFUND-277265-14022025
+BV20233            down        down        SUYA-ML3-1-464888-kjajj-7710k-CHITFUND-464888-14022025
+BV20234            down        down        SUYA-ML3-1-249053-kjajj-10163k-CHITFUND-249053-14022025
+BV20238            down        down        HNSA-ML3-1-809757-kjajj-7507k-HNSA-ML3-1-333776-21022025
+BV20240            down        down        MSHA-ML3-1-972487-kjajj-5120k-MSHA-ML3-1-216278-21022025
+BV20242            down        down        MSHA-ML3-1-331349-kjajj-4195k-MSHA-ML3-1-410030-21022025
+BV20243            down        down        HNSA-ML3-1-270778-kjajj-5786k-HNSA-ML3-1-407852-21022025
+BV20244            down        down        MSHA-ML3-1-103464-kjajj-4656k-MSHA-ML3-1-241667-21022025
+BV20245            down        down        MSHA-ML3-1-376416-kjajj-5120k-MSHA-ML3-1-312509-21022025
+BV20247            down        down        HNSA-ML3-1-747576-kjajj-6540k-hnsa-419150-21022025
+BV20248            down        down        MSHA-ML3-1-677285-kjajj-4356k-MSHA-ML3-1-295007-21022025
+BV20253            down        down        MSHA-ML3-1-296292-kjajj-3574k-MSHA-ML3-1-456887-23042025
+BV20254            down        down        MLOL-ML3-1-212150-kjajj-7591k-MLOL-ML-203828-23042025
+BV20257            down        down        MSHA-ML3-1-913048-kjajj-6466k-MSHA-ML3-1-356432-23042025
+BV20259            down        down        HNSA-ML3-1-107591-kjajj-5120k-HNSA-ML3-1-341036-23042025
+BV20260            down        down        MSHA-ML3-1-426958-kjajj-9250k-MSHA-ML3-1-496571-23042025
+BV20263            down        down        MSHA-ML3-1-751149-kjajj-7933k-MSHA-ML3-1-437528-23042025
+BV20264            down        down        MLOL-ML3-1-300743-kjajj-3251k-MLOL-ML-442028-23042025
+BV20268            down        down        MSHA-ML3-1-206443-kjajj-9144k-MSHA-ML3-1-308843-23042025
+BV20270            down        down        MSHA-ML3-1-579538-kjajj-4567k-MSHA-ML3-1-340256-23042025
+BV20272            down        down        HNSA-ML3-1-340533-kjajj-5120k-HNSA-ML3-1-223196-23042025
+BV20279            down        down        HNSA-ML3-1-499219-kjajj-5120k-HNSA-ML3-1-388304-15052025
+BV20284            down        down        MLOL-ML3-5-974442-kjajj-3730k-Multicast-spoke-479744-20052025
+BV20285            down        down        MSHA-ML3-1-904294-kjajj-5120k-MSHA-ML3-1-466052-20012026
+BV20287            down        down        MSHA-ML3-1-698723-kjajj-4379k-MSHA-ML3-1-219695-19012026
+BV20290            down        down        HNSA-ML3-1-348195-kjajj-1589k-HNSA-ML3-1-209441-04022026
+BV20291            down        down        MSHA-ML3-1-888642-kjajj-4166k-MSHA-ML3-1-343442-04022026
+BV20293            down        down        MSHA-ML3-1-680997-kjajj-7385k-MSHA-ML3-1-414725-04022026
+BV22221            down        down        #AMBITION PAPER TECH PRIVATE LIMITED#AMBIT-ILL-22221#22221#5412k#2#140525#UMNG#
+BV22222            down        down        #AMBITION PAPER TECH PRIVATE LIMITED#AMBIT-ILL-22222#22222#5414k#2#140525#UMNG#
+BV22223            down        down        #AMBITION PAPER TECH PRIVATE LIMITED#AMBIT-ILL-22223#22223#5414k#2#140525#UMNG#
+BV33003            down        down        BSEM-ML3-1-33003-hqos-test-1900k-BSEM-ML3-1-33003-26082026
+BV33133            down        down        TMMH-ML3-111-3333-MUSE-Telemedia-33133-05052026
+BV40015            down        down        #SUPER SMELTERS LTD#UNMAN-ISP-4015#40015#2048k#2#050226#UMNG#
+BV40018            down        down        #SUPER SMELTERS LTD#UNMAN-ISP-4018#40018#2048k#2#050226#UMNG#
+BV80100            down        down        #SUPER SMELTERS LTD#PIML-ISP-70001#80100#60720k#2#090725#MNG#
+BV101321           down        down        TMKK-ML3-76-86522-MUSE-TT-Telemedia-101321-09062026
+BV102872           down        down        #TEST FINANCE LIMITED#SHA-ISP-250218389#102872#4096k#2#130525#UMNG#
+BV105322           down        down        TMKK-ML3-76-18603-MUSE-Telemedia-105322-20042026
+BV105386           down        down        #DSLAM#IMS#TMKK-ML3-10-108522-IMS-P-NC#105386#18062026##
+BV112013           down        down        MSHA-ML3-1-112013-kjajj-2048k-MSHA-ML3-1-112013-16102025
+BV112014           down        down        MSHA-ML3-1-112014-kjajj-2048k-MSHA-ML3-1-112014-16102025
+BV112016           down        down        MSHA-ML3-1-112016-kjajj-2048k-MSHA-ML3-1-112016-16102025
+BV112017           down        down        MSHA-ML3-1-112017-kjajj-2048k-MSHA-ML3-1-112017-16102025
+BV112019           down        down        MSHA-ML3-1-112019-kjajj-2048k-MSHA-ML3-1-112019-16102025
+BV112092           down        down        MSHA-ML3-1-112092-kjajj-2048k-MSHA-ML3-1-112092-22102025
+BV112419           down        down        MSHA-ML3-1-112419-kjajj-2048k-MSHA-ML3-1-112419-14102025
+BV112429           down        down        MSHA-ML3-1-112429-kjajj-2048k-MSHA-ML3-1-112429-14102025
+BV113479           down        down        MSHA-ML3-1-113479-kjajj-2048k-MSHA-ML3-1-113479-14102025
+BV117119           down        down        MSHA-ML3-1-117119-kjajj-2048k-MSHA-ML3-1-117119-14102025
+BV117129           down        down        MSHA-ML3-1-117129-kjajj-2048k-MSHA-ML3-1-117129-14102025
+BV142538           down        down        #SUPER SMELTERS LTD#UNMAN-ILP-142538#142538#2048k#2#100925#UMNG#
+BV142539           down        down        #SUPER SMELTERS LTD#UNMAN-ILL-142539#142539#2048k#2#100925#UMNG#
+BV142567           down        down        #SUPER SMELTERS LTD#UNMAN-ILL-142567#142567#2048k#2#150925#UMNG#
+BV146820           down        down        TMKK-ML3-10-1121-MUSE-NSO-Telemedia-146820-29082025
+BV180019           down        down        TMPB-ML3-111-190001-MUSE-TEST800-Telemedia-180019-09102026
+BV190096           down        down        TMPB-ML3-111-19004-MUSE-TEST909-Telemedia-190096-08102026
+BV190099           down        down        TMPB-ML3-111-190009-MUSE-TEST909-Telemedia-190099-09102026
+BV200660           down        down        MLOL-ML3-1-287848-kjajj-1255k-MLOL-ML-200660-03022025
+BV201758           down        down        MSHA-ML3-1-910913-kjajj-4292k-MSHA-ML3-1-201758-26052026
+BV203282           down        down        MSHA-ML3-1-260114-kjajj-5400k-MSHA-ML3-1-203282-08082025
+BV204299           down        down        #SUPER SMELTERS LTD#UNMAN-ISP-91621#204299#2048k#2#100926#UMNG#
+BV213956           down        down        #SUPER SMELTERS LTD#UNMAN-ISP-43370#213956#2048k#2#100926#UMNG#
+BV218465           down        down        HNSA-ML3-1-784911-kjajj-3076k-HNSA-ML3-1-218465-05112025
+BV219053           down        down        NEWS-ML3-1-270053-kjajj-2048k-My-New-VPN-219053-20082026
+BV219460           down        down        NEWS-ML3-1-270154-TEST-kjajj-2048k-My-New-VPN-219460-07052026
+BV219732           down        down        #SUPER SMELTERS LTD#UNMAN-ISP-81921#219732#30720k#2#200825#UMNG#
+BV222194           down        down        TMKK-ML3-76-983226-Telemedia-222194-05112025
+BV227183           down        down        #SUPER SMELTERS LTD#UNMAN-ISP-46716#227183#2048k#2#090925#UMNG#
+BV229208           down        down        #SUPER SMELTERS LTD#UNMAN-ISP-87943#229208#2048k#2#270526#UMNG#
+BV230045           down        down        TMKK-ML3-76-104583-Telemedia-230045-26052026
+BV231377           down        down        HNSA-ML3-1-441066-kjajj-10240k-HNSA-ML3-1-231377-08092025
+BV232136           down        down        NASA-ML3-2-477527-AOIP-S-C-hdfcc-232136-02022025
+BV232169           down        down        MLOL-ML3-1-180058-kjajj-4834k-Multicast-Mesh-232169-061224
+BV233006           down        down        MSHA-ML3-1-933578-kjajj-3482k-MSHA-ML3-1-233006-08092025
+BV233900           down        down        #SUPER SMELTERS LTD#UNMAN-ISP-71249#233900#2048k#2#100926#UMNG#
+BV235550           down        down        TMKK-ML3-76-445379-Telemedia-235550-08092025
+BV236048           down        down        #SUPER SMELTERS LTD#UNMAN-ISP-51849#236048#2048k#2#200126#UMNG#
+BV236516           down        down        MSHA-ML3-1-804731-kjajj-9973k-MSHA-ML3-1-236516-03022025
+BV237701           down        down        #SUPER SMELTERS LTD#UNMAN-ISP-56927#237701#2048k#2#200126#UMNG#
+BV238616           down        down        HNSA-ML3-1-651980-kjajj-4929k-hnsa-238616-29012025
+BV240123           down        down        NEWS-ML3-1-240123-kjajj-2048k-My-New-VPN-240123-17032026
+BV241127           down        down        TMKK-ML3-76-832474-MGMT-P-NC-Telemedia-241127-23062026
+BV247112           down        down        HNSA-ML3-1-760928-kjajj-5120k-HNSA-ML3-1-247112-01092025
+BV249101           down        down        MLOL-ML3-11-590549-kjajj-2534k-Mesh-Mult-249101-26052026
+BV249599           down        down        MSHA-ML3-1-625447-kjajj-7323k-MSHA-ML3-1-249599-29012025
+BV250040           down        down        MSHA-ML3-1-997452-kjajj-5120k-MSHA-ML3-1-250040-03022025
+BV253985           down        down        TMKK-ML3-76-277778-Telemedia-253985-29012025
+BV255977           down        down        MSHA-ML3-1-956258-kjajj-5120k-MSHA-ML3-1-255977-23042025
+BV256454           down        down        MSHA-ML3-1-815265-kjajj-3810k-MSHA-ML3-1-256454-02022025
+BV256580           down        down        MSHA-ML3-1-799840-kjajj-2870k-MSHA-ML3-1-256580-02092025
+BV259268           down        down        NASA-ML3-2-110691-AOIP-S-C-hdfcc-259268-30012025
+BV260960           down        down        #SUPER SMELTERS LTD#UNMAN-ISP-14261#260960#2048k#2#200126#UMNG#
+BV263879           down        down        #SUPER SMELTERS LTD#UNMAN-ISP-63594#263879#2048k#2#090925#UMNG#
+BV267554           down        down        NASA-ML3-2-389488-AOIP-S-C-hdfcc-267554-20052025
+BV268160           down        down        #SUPER SMELTERS LTD#UNMAN-ISP-76546#268160#2048k#2#270526#UMNG#
+BV268505           down        down        MSHA-ML3-1-175907-kjajj-20480k-MSHA-ML3-1-210391-30102025
+BV269474           down        down        MSHA-ML3-1-886029-kjajj-3723k-MSHA-ML3-1-269474-03022025
+BV272909           down        down        MSHA-ML3-1-819996-kjajj-7325k-MSHA-ML3-1-272909-03022025
+BV272969           down        down        MSHA-ML3-1-212526-kjajj-3534k-MSHA-ML3-1-272969-26052026
+BV281921           down        down        #SUPER SMELTERS LTD#UNMAN-ISP-94788#281921#2048k#2#100926#UMNG#
+BV282440           down        down        #SUPER SMELTERS LTD#UNMAN-ISP-43625#282440#2048k#2#200825#UMNG#
+BV285662           down        down        #SUPER SMELTERS LTD#UNMAN-ISP-58318#285662#30720k#2#200825#UMNG#
+BV285664           down        down        #SUPER SMELTERS LTD#UNMAN-ISP-58320#285664#30720k#2#200825#UMNG#
+BV285671           down        down        #SUPER SMELTERS LTD#UNMAN-ISP-58326#285671#30720k#2#200825#UMNG#
+BV289340           down        down        HNSA-ML3-1-430311-kjajj-2048k-HNSA-ML3-1-289340-06112025
+BV293348           down        down        HNSA-ML3-1-572380-kjajj-9145k-HNSA-ML3-1-293348-26052026
+BV295321           down        down        TMKK-ML3-76-118522-MUSE-TEST-Telemedia-295321-08062026
+BV295790           down        down        BALW-ML3-1-341891-kjajj-5443k-WI-MAX-MANAGEMENT-295790-02022025
+BV298739           down        down        #SUPER SMELTERS LTD#UNMAN-ISP-10956#298739#2048k#2#270526#UMNG#
+BV300365           down        down        #SUPER SMELTERS LTD#UNMAN-ISP-17880#300365#2048k#2#260526#UMNG#
+BV301445           down        down        MSHA-ML3-1-107155-kjajj-6511k-MSHA-ML3-1-301445-15052025
+BV312161           down        down        #SUPER SMELTERS LTD#UNMAN-ISP-33823#312161#2048k#2#100926#UMNG#
+BV312215           down        down        MLOL-ML3-11-515818-kjajj-1895k-Mesh-Mult-312215-26052026
+BV312818           down        down        NASA-ML3-2-977597-AOIP-S-C-hdfcc-312818-20052025
+BV316397           down        down        MSHA-ML3-1-883061-kjajj-4647k-MSHA-ML3-1-316397-02022025
+BV319706           down        down        BALW-ML3-1-923711-kjajj-10240k-WI-MAX-MANAGEMENT-319706-22102025
+BV334760           down        down        HNSA-ML3-1-429901-kjajj-5120k-HNSA-ML3-1-334760-26052026
+BV335261           down        down        #SUPER SMELTERS LTD#UNMAN-ISP-39984#335261#2048k#2#260526#UMNG#
+BV336623           down        down        MLOL-ML3-51-375913-kjajj-3316k-Spoke-Mult-336623-08092025
+BV339521           down        down        #SUPER SMELTERS LTD#UNMAN-ISP-71598#339521#2048k#2#090925#UMNG#
+BV344801           down        down        MSHA-ML3-1-600935-kjajj-5120k-MSHA-ML3-1-344801-08082025
+BV349937           down        down        #SUPER SMELTERS LTD#UNMAN-ISP-48691#349937#2048k#2#270526#UMNG#
+BV351494           down        down        HNSA-ML3-1-450852-kjajj-10240k-HNSA-ML3-1-351494-22102025
+BV353117           down        down        MSHA-ML3-1-900429-kjajj-8017k-MSHA-ML3-1-353117-26052026
+BV355577           down        down        MLOL-ML3-11-914067-kjajj-2048k-Mesh-Mult-355577-26052026
+BV356006           down        down        HNSA-ML3-1-689208-kjajj-7003k-HNSA-ML3-1-356006-19012025
+BV357185           down        down        MSHA-ML3-1-768170-kjajj-2048k-MSHA-ML3-1-357185-20012026
+BV361151           down        down        TMKK-ML3-76-889019-Telemedia-361151-08092025
+BV361790           down        down        #SUPER SMELTERS LTD#UNMAN-ISP-60899#361790#2048k#2#291025#UMNG#
+BV363680           down        down        #SUPER SMELTERS LTD#UNMAN-ISP-10703#363680#2048k#2#090925#UMNG#
+BV367025           down        down        #SUPER SMELTERS LTD#UNMAN-ISP-29602#367025#2048k#2#260526#UMNG#
+BV368588           down        down        TMKK-ML3-76-999862-Telemedia-368588-02022025
+BV369926           down        down        #SUPER SMELTERS LTD#UNMAN-ISP-27095#369926#2048k#2#100926#UMNG#
+BV379105           down        down        MSHA-ML3-1-318105-kjajj-2370k-MSHA-ML3-1-379105-14082025
+BV379238           down        down        MSHA-ML3-1-574969-kjajj-3105k-MSHA-ML3-1-379238-23042025
+BV380159           down        down        TMKK-ML3-76-595332-Telemedia-380159-26052026
+BV381323           down        down        TMKK-ML3-76-142996-Telemedia-381323-08092025
+BV383810           down        down        #SUPER SMELTERS LTD#UNMAN-ISP-42244#383810#2048k#2#100926#UMNG#
+BV393026           down        down        MLOL-ML3-11-643718-kjajj-10240k-Mesh-Mult-393026-22102025
+BV394961           down        down        #SUPER SMELTERS LTD#UNMAN-ISP-46284#394961#2048k#2#270526#UMNG#
+BV395279           down        down        #SUPER SMELTERS LTD#UNMAN-ISP-11907#395279#2048k#2#090925#UMNG#
+BV397223           down        down        MSHA-ML3-1-693339-kjajj-10240k-MSHA-ML3-1-397223-22102025
+BV397250           down        down        #SUPER SMELTERS LTD#UNMAN-ISP-52190#397250#2048k#2#100926#UMNG#
+BV399635           down        down        #SUPER SMELTERS LTD#UNMAN-ISP-14467#399635#2048k#2#100926#UMNG#
+BV400583           down        down        MSHA-ML3-1-528192-kjajj-8895k-MSHA-ML3-1-400583-08092025
+BV402233           down        down        #SUPER SMELTERS LTD#UNMAN-ISP-17035#402233#2048k#2#270526#UMNG#
+BV404063           down        down        HNSA-ML3-1-925754-kjajj-10240k-HNSA-ML3-1-404063-02022025
+BV404654           down        down        MSHA-ML3-1-697654-kjajj-5791k-MSHA-ML3-1-404654-08082025
+BV404828           down        down        #SUPER SMELTERS LTD#UNMAN-ISP-78355#404828#30720k#2#190525#UMNG#
+BV405554           down        down        MSHA-ML3-1-863483-kjajj-5120k-MSHA-ML3-1-405554-08092025
+BV407420           down        down        HNSA-ML3-1-833576-kjajj-2625k-HNSA-ML3-1-407420-23042025
+BV409049           down        down        HNSA-ML3-1-734715-kjajj-9038k-HNSA-ML3-1-409049-08092025
+BV410327           down        down        MSHA-ML3-1-513938-kjajj-5120k-MSHA-ML3-1-410327-29012025
+BV413201           down        down        TMKK-ML3-76-231999-MGMT-P-NC-Telemedia-413201-23062026
+BV413378           down        down        MSHA-ML3-1-181298-kjajj-9171k-MSHA-ML3-1-413378-15052025
+BV418298           down        down        MSHA-ML3-1-271693-kjajj-9509k-MSHA-ML3-1-418298-08092025
+BV419240           down        down        MSHA-ML3-1-468973-kjajj-5643k-MSHA-ML3-1-419240-08092025
+BV420050           down        down        HNSA-ML3-1-348568-kjajj-10240k-HNSA-ML3-1-277538-24102025
+BV420092           down        down        TMKK-ML3-76-854543-Telemedia-420092-19012025
+BV420222           down        down        #SUPER SMELTERS LTD#SUYA-ISP-916121#420222#2048k#2#241025#MNG#
+BV422837           down        down        #SUPER SMELTERS LTD#SUYA-ISP-72797#422837#2048k#2#29102025#UMNG#
+BV423227           down        down        NASA-ML3-2-645660-AOIP-S-C-hdfcc-423227-15052025
+BV424658           down        down        MLOL-ML3-51-286034-kjajj-3841k-Spoke-Mult-424658-26052026
+BV431723           down        down        #SUPER SMELTERS LTD#UNMAN-ISP-83314#431723#2048k#2#100926#UMNG#
+BV432110           down        down        MSHA-ML3-1-939083-kjajj-6882k-MSHA-ML3-1-432110-08082025
+BV432977           down        down        HNSA-ML3-1-550942-kjajj-10240k-HNSA-ML3-1-432977-15052025
+BV433247           down        down        MSHA-ML3-1-137306-kjajj-6144k-MSHA-ML3-1-406820-23102025
+BV433538           down        down        TMKK-ML3-76-139129-Telemedia-433538-20052025
+BV434900           down        down        MSHA-ML3-1-392203-kjajj-6577k-MSHA-ML3-1-434900-26052026
+BV435614           down        down        HNSA-ML3-1-766444-kjajj-9758k-HNSA-ML3-1-435614-15052025
+BV436805           down        down        #SUPER SMELTERS LTD#UNMAN-ISP-27926#436805#33333k#2#210825#UMNG#
+BV436810           down        down        #SUPER SMELTERS LTD#UNMAN-ISP-279210#436810#33333k#2#210825#UMNG#
+BV438901           down        down        TMKK-ML3-76-774521-Telemedia-438901-08092025
+BV438917           down        down        #SUPER SMELTERS LTD#UNMAN-ISP-33523#438917#2048k#2#100926#UMNG#
+BV440333           down        down        HNSA-ML3-1-366472-kjajj-10240k-HNSA-ML3-1-440333-08092025
+BV441305           down        down        #SUPER SMELTERS LTD#UNMAN-ISP-60668#441305#2048k#2#061125#UMNG#
+BV443750           down        down        TMKK-ML3-76-338411-Telemedia-443750-07112025
+BV448931           down        down        MSHA-ML3-1-891100-kjajj-6663k-MSHA-ML3-1-448931-20052025
+BV450068           down        down        MSHA-ML3-1-703040-kjajj-2048k-MSHA-ML3-1-450068-21082025
+BV450209           down        down        MSHA-ML3-1-816772-kjajj-2048k-MSHA-ML3-1-450209-26052026
+BV450215           down        down        NASA-ML3-2-195904-AOIP-S-C-hdfcc-450215-29012025
+BV450341           down        down        TMKK-ML3-76-824178-Telemedia-450341-26052026
+BV456137           down        down        BALW-ML3-1-699681-kjajj-2307k-WI-MAX-MANAGEMENT-456137-23042025
+BV459872           down        down        MSHA-ML3-1-494933-kjajj-1197k-MSHA-ML3-1-459872-03022025
+BV460718           down        down        #SUPER SMELTERS LTD#UNMAN-ISP-90969#460718#2048k#2#190126#UMNG#
+BV462473           down        down        #SUPER SMELTERS LTD#UNMAN-ISP-31840#462473#2048k#2#080925#UMNG#
+BV463412           down        down        TMKK-ML3-76-155798-Telemedia-463412-06112025
+BV463658           down        down        TMKK-ML3-76-232980-Telemedia-463658-26052026
+BV464717           down        down        MSHA-ML3-1-652779-kjajj-5120k-MSHA-ML3-1-464717-26052026
+BV467948           down        down        #SUPER SMELTERS LTD#UNMAN-ISP-75072#467948#2048k#2#100926#UMNG#
+BV470105           down        down        TMKK-ML3-76-746707-Telemedia-470105-20012026
+BV470408           down        down        MSHA-ML3-1-225512-kjajj-8398k-MSHA-ML3-1-470408-02022025
+BV473897           down        down        MSHA-ML3-1-294570-kjajj-5120k-MSHA-ML3-1-473897-02022025
+BV474266           down        down        #SUPER SMELTERS LTD#UNMAN-ISP-83937#474266#2048k#2#260526#UMNG#
+BV474647           down        down        MSHA-ML3-1-828225-kjajj-8274k-MSHA-ML3-1-474647-03022025
+BV476789           down        down        MLOL-ML3-1-775853-kjajj-4589k-MLOL-ML-476789-15052025
+BV478727           down        down        BALW-ML3-1-157075-kjajj-1758k-WI-MAX-MANAGEMENT-478727-08092025
+BV481841           down        down        TMKK-ML3-76-909838-Telemedia-481841-12052026
+BV483644           down        down        TMKK-ML3-76-879185-Telemedia-483644-01072025
+BV486704           down        down        TMKK-ML3-76-348056-Telemedia-486704-08092025
+BV488780           down        down        #SUPER SMELTERS LTD#UNMAN-ISP-26530#488780#2048k#2#100926#UMNG#
+BV493781           down        down        MSHA-ML3-1-106760-kjajj-4152k-MSHA-ML3-1-493781-23042025
+BV494060           down        down        NASA-ML3-2-729824-AOIP-S-C-hdfcc-494060-20052025
+BV498080           down        down        #SUPER SMELTERS LTD#UNMAN-ISP-23848#498080#2048k#2#200825#UMNG#
+BV500010           down        down        "TEST"
+BV534443           down        down        TMKK-ML3-76-60005-Telemedia-534443-29092026
+BV565443           down        down        #DSLAM#DYNAMIC#TMKK-ML3-76-DYNAMIC-60002#565443##29092026#MOBILE_SITE_ID#
+BV594443           down        down        #DSLAM#DYNAMIC#TMKK-ML3-76-DYNAMIC-60007#594443##01102026#MOBILE_SITE_ID#
+BV600700           down        down        #DSLAM#STATIC#TMPB-ML3-10-STATIC-60070#600700#0#14102026#9H1-B7#
+BV605601           down        down        #DSLAM#TMKK-ML3-76-60001#605601##28092026#MOBILE_SITE_ID#
+BV654821           down        down        TMKK-ML3-76-127922-MUSE-TEST-Telemedia-654821-29102025
+BV740321           down        down        #DSLAM#MGMT#TMKK-ML3-76-18522-MGMT-P-NC#740321#14082026##
+BV780007           down        down        #TESTINGLUX#TESTLUX-ISP-500084#780007#67441k#2#141026#UMNG#
+BV810001           down        down        #SUPER SMELTERS LTD#PIML-ISP-99901#810001#60720k#2#250825#MNG#
+BV900332           down        down        HDFC-ML3-1-113311-TEST-QA-5120k-HDFC-ML3-1-900332-15092025
+BV1972541          down        down        TMKK-ML3-76-280712-MUSE-TEST-Telemedia-1972541-16062026
+BV2144322          down        down        HDFC-ML3-1-216722-kjajj-2048k-HDFC-ML3-1-2144322-21102025
+BV2144325          down        down        HDFC-ML3-1-216725-kjajj-6144k-HDFC-ML3-1-451868-23102025
+BV2194851          down        down        NEWS-ML3-1-278123-TEST-kjajj-2048k-My-New-VPN-2194851-07052026
+BV2194973          down        down        NEWS-ML3-1-270844-kjajj-2048k-My-New-VPN-2194973-30042026
+BV2835732          down        down        NEWS-ML3-1-2835732-kjajj-2048k-My-New-VPN-2835732-06032026
+BV2918191          down        down        TMMH-ML3-111-827272-MUSE-Telemedia-2918191-06052026
+BV3000453          down        down        #HDFC BANK LIMITED#HDFC-ILL-260827100279097#3000453#2048k#2#16092026#UMNG#
+BV3187012          down        down        #TESTING#PIML-ISP-1708312#3187012#2048k#2#020326#UMNG#
+BV3215453          down        down        #HDFC BANK LIMITED#HDFC-ILL-260827100279096#3215453#2048k#2#16092026#UMNG#
+BV3215455          down        down        #HDFC BANK LIMITED#HDFC-ILL-260827100279095#3215455#2048k#2#16092026#UMNG#
+BV3215475          down        down        #HDFC BANK LIMITED#HDFC-ILL-260827100279092#3215475#2048k#2#16092026#UMNG#
+BV3215476          down        down        #HDFC BANK LIMITED#HDFC-ILL-260827100279093#3215476#2048k#2#16092026#UMNG#
+BV3581993          down        down        #SUPER SMELTERS LTD#SUYA-ISP-898173#3581993#30710k#2#120525#UMNG#
+BV3581997          down        down        #SUPER SMELTERS LTD#SUYA-ISP-898177#3581997#2048k#2#120525#UMNG#
+BV4747922          down        down        HDFC-ML3-1-49090-NSO-kjajj-2048k-HDFC-ML3-1-4747922-08102026
+BV5871712          down        down        #SUPER SMELTERS LTD#UNMAN-ISP-58717#5871712#30720k#2#210825#UMNG#
+BV5872012          down        down        #SUPER SMELTERS LTD#UNMAN-ISP-58720#5872012#30720k#2#210825#UMNG#
+BV6707482          down        down        TMMH-ML3-111-11924-MUSE-TEST-Telemedia-6707482-30042026
+BV6786858          down        down        TMKK-ML3-10-11922-MUSE-TEST-Telemedia-6786858-31102025
+BV7343971          down        down        #DSLAM#MGMT#TMKK-ML3-10-288643-MGMT-P-NC#7343971#17062026##
+BV7667263          down        down        NEWS-ML3-1-2701-P-NC-kjajj-2048k-My-New-VPN-7667263-18092026
+BV7668643          down        down        TMKK-ML3-76-87402-MUSE-TEST-Telemedia-7668643-15062026
+BV7800001          down        down        #TESTINGLUX#TESTLUX-ISP-500083#7800001#60720k#2#111026#UMNG#
+BV9010102          down        down        #SUPER SMELTERS LTD#PIML-ISP-9010101#9010102#30770k#2#240926#UMNG#
+BV9452232          down        down        TMKK-ML3-76-945221-MUSE-TEST-Telemedia-9452232-10032026
+BV12376338         down        down        #TESTING#PIML-ISP-TCPBUGS#12376338#60720k#2#081026#UMNG#
+BV58729103         down        down        #SUPER SMELTERS LTD#UNMAN-ISP-58729103#58729103#30720k#2#210825#UMNG#
+BV58729105         down        down        #SUPER SMELTERS LTD#UNMAN-ISP-58729105#58729105#30720k#2#210825#UMNG#
+BV58729106         down        down        #SUPER SMELTERS LTD#UNMAN-ISP-58729106#58729106#30720k#2#210825#UMNG#
+BV100000185        down        down        TMKK-ML3-76-776101-Telemedia-6786886-16012025
+BV100000256        down        down        #DSLAM#TMKK-ML3-76-11911#611786820#5120#05102026#MOBILE_SITE_ID#
+BV100000258        down        down        TMKK-ML3-76-11534343-Telemedia-67845760-16092026
+BV100000260        down        down        TMKK-ML3-76-22922-Telemedia-22922-05102026
+BV100000262        down        down        TMKK-ML3-76-856030-Telemedia-499439-26052026
+BV100000270        down        down        TMKK-ML3-76-478572-MGMT-P-NC-Telemedia-276314-05102026
+BV100001002        down        down        #DSLAM#TMHP-ML3-95-1689011#611786820#5120#14102026#MOBILE_SITE_ID#
+BV100050077        down        down        HNS-ML3-1-320372-kjajj-10218k-HNS-ML3-1-320372-16012025
+BV100050081        down        down        HNS-ML3-1-497207-kjajj-2988k-HNS-ML3-1-497207-16012025
+BV100050083        down        down        HNS-ML3-1-327320-kjajj-5113k-HNS-ML3-1-327320-16012025
+BV100050087        down        down        HNS-ML3-1-298307-kjajj-9611k-HNS-ML3-1-298307-16012025
+BV100050089        down        down        MSHA-ML3-1-763762-kjajj-5120k-MSHA-ML3-1-292515-17012025
+BV100050091        down        down        MSHA-ML3-1-358825-kjajj-4151k-MSHA-ML3-1-364775-29012025
+BV100050097        down        down        RUBI-ML3-1-220274-kjajj-2774k-RUBI-ML3-1-220274-12022025
+BV100050105        down        down        RUBI-ML3-1-485072-kjajj-5415k-RUBI-ML3-1-485072-13022025
+BV100050107        down        down        RUBI-ML3-1-293876-kjajj-7517k-RUBI-ML3-1-293876-13022025
+BV100050109        down        down        RUBI-ML3-1-241247-kjajj-6569k-RUBI-ML3-1-241247-13022025
+BV100050111        down        down        RUBI-ML3-1-241718-kjajj-2657k-RUBI-ML3-1-241718-13022025
+BV100050115        down        down        RUBI-ML3-1-324950-kjajj-1885k-RUBI-ML3-1-324950-13022025
+BV100050117        down        down        RUBI-ML3-1-385532-kjajj-6040k-RUBI-ML3-1-385532-13022025
+BV100050903        down        down        BALW-ML3-1-800886-kjajj-2286k-WI-MAX-MANAGEMENT-339737-19012025
+BV100050905        down        down        MSHA-ML3-1-465639-kjajj-8576k-MSHA-ML3-1-457595-02022025
+BV100050907        down        down        HNSA-ML3-1-616527-kjajj-3621k-HNSA-ML3-1-338573-02022025
+BV100050911        down        down        BALW-ML3-1-383533-kjajj-6761k-WI-MAX-MANAGEMENT-319385-02022025
+BV100050919        down        down        HNSA-ML3-1-255098-kjajj-10240k-HNSA-ML3-1-338765-03022025
+BV100050921        down        down        MSHA-ML3-1-721551-kjajj-5120k-MSHA-ML3-1-285155-03022025
+BV100050923        down        down        HNSA-ML3-1-648420-kjajj-5120k-HNSA-ML3-1-291833-03022025
+BV100050925        down        down        MLOL-ML3-1-107708-kjajj-10118k-MLOL-ML-413738-03022025
+BV100050931        down        down        HNSA-ML3-1-5568001-kjajj-10240k-HNSA-ML3-1-4778391-12022025
+BV100050933        down        down        RUBI-ML3-1-393182-kjajj-2083k-RUBI-ML3-1-393182-13022025
+BV100050937        down        down        RUBI-ML3-1-226349-kjajj-4535k-RUBI-ML3-1-226349-13022025
+BV100050941        down        down        RUBI-ML3-1-254534-kjajj-3687k-RUBI-ML3-1-254534-13022025
+BV100050947        down        down        RUBI-ML3-1-438161-kjajj-10036k-RUBI-ML3-1-438161-13022025
+BV100050949        down        down        RUBI-ML3-1-203414-kjajj-6875k-RUBI-ML3-1-203414-13022025
+BV100050957        down        down        RUBI-ML3-1-463634-kjajj-5171k-RUBI-ML3-1-463634-13022025
+BV100050961        down        down        RUBI-ML3-1-244025-kjajj-8960k-RUBI-ML3-1-244025-13022025
+BV100050965        down        down        RUBI-ML3-1-271076-kjajj-7152k-RUBI-ML3-1-271076-13022025
+BV100050967        down        down        RUBI-ML3-1-391202-kjajj-4930k-RUBI-ML3-1-391202-13022025
+BV100050971        down        down        RUBI-ML3-1-214298-kjajj-4303k-RUBI-ML3-1-214298-13022025
+BV100050977        down        down        RUBI-ML3-1-405341-kjajj-2949k-RUBI-ML3-1-405341-13022025
+BV100050979        down        down        RUBI-ML3-1-381869-kjajj-7406k-RUBI-ML3-1-381869-13022025
+BV100050981        down        down        RUBI-ML3-1-370136-kjajj-9963k-RUBI-ML3-1-370136-13022025
+BV100050983        down        down        RUBI-ML3-1-360464-kjajj-5230k-RUBI-ML3-1-360464-13022025
+BV100050985        down        down        RUBI-ML3-1-496760-kjajj-3837k-RUBI-ML3-1-496760-13022025
+BV100050987        down        down        RUBI-ML3-1-288935-kjajj-2583k-RUBI-ML3-1-288935-13022025
+BV100050993        down        down        RUBI-ML3-1-238283-kjajj-2946k-RUBI-ML3-1-238283-13022025
+BV100050995        down        down        RUBI-ML3-1-413429-kjajj-3410k-RUBI-ML3-1-413429-13022025
+BV100050999        down        down        RUBI-ML3-1-372527-kjajj-8550k-RUBI-ML3-1-372527-14022025
+BV100051001        down        down        RUBI-ML3-1-470975-kjajj-7154k-RUBI-ML3-1-470975-14022025
+BV100051003        down        down        RUBI-ML3-1-243539-kjajj-2472k-RUBI-ML3-1-243539-14022025
+BV100051007        down        down        RUBI-ML3-1-378932-kjajj-3992k-RUBI-ML3-1-378932-14022025
+BV100051011        down        down        RUBI-ML3-1-404294-kjajj-4035k-RUBI-ML3-1-404294-14022025
+BV100051013        down        down        RUBI-ML3-1-253073-kjajj-5416k-RUBI-ML3-1-253073-14022025
+BV100051015        down        down        RUBI-ML3-1-264899-kjajj-8350k-RUBI-ML3-1-264899-14022025
+BV100051017        down        down        RUBI-ML3-1-340310-kjajj-1664k-RUBI-ML3-1-340310-14022025
+BV100051019        down        down        RUBI-ML3-1-339071-kjajj-7785k-RUBI-ML3-1-339071-14022025
+BV100051027        down        down        RUBI-ML3-1-445094-kjajj-2747k-RUBI-ML3-1-445094-14022025
+BV100051041        down        down        HNSA-ML3-1-179221-kjajj-10240k-HNSA-ML3-1-420392-25022025
+BV100051050        down        down        HNSA-ML3-1-507323-kjajj-3920k-HNSA-ML3-1-455045-01092025
+BV100051056        down        down        MSHA-ML3-1-101944-kjajj-3789k-MSHA-ML3-1-246881-26052026
+BV100051064        down        down        MLOL-ML3-51-483395-kjajj-4246k-Spoke-Mult-313604-26052026
+BV100051066        down        down        MSHA-ML3-1-360241-kjajj-7492k-MSHA-ML3-1-265643-26052026
+BV100051078        down        down        HNSA-ML3-1-977279-kjajj-5120k-HNSA-ML3-1-386942-26052026
+BV100051080        down        down        MSHA-ML3-1-694636-kjajj-8078k-MSHA-ML3-1-286557-22062026
+BE2                down        down        test
+BE2.104            down        down        #SUPER SMELTERS LTD#UNMAN-ISP-64762#368900#2048k#2#100926#UMNG#
+BE2.120            down        down        #SUPER SMELTERS LTD#UNMAN-ISP-78343#461072#2048k#2#190126#UMNG#
+BE2.132            down        down        #SUPER SMELTERS LTD#UNMAN-ISP-94455#422519#2048k#2#200126#UMNG#
+BE2.206            down        down        #SUPER SMELTERS LTD#UNMAN-ISP-93688#378686#2048k#2#291025#UMNG#
+BE2.216            down        down        #SUPER SMELTERS LTD#UNMAN-ISP-97164#413381#2048k#2#100926#UMNG#
+BE2.246            down        down        #SUPER SMELTERS LTD#UNMAN-ISP-83166#203477#2048k#2#260526#UMNG#
+BE2.268            down        down        HNSA-ML3-1-963599-kjajj-9191k-HNSA-ML3-1-208178-04022026
+BE2.370            down        down        MSHA-ML3-1-257075-kjajj-5120k-MSHA-ML3-1-467057-04022026
+BE2.378            down        down        #QA-Testing#TEST-ISP-100010#100001#20480k#2#030326#UMNG#
+BE2.394            down        down        #SUPER SMELTERS LTD#UNMAN-ISP-79219#225362#2048k#2#260526#UMNG#
+BE2.511            down        down        MANP-ML2-1105368-manesar-678368-16052026
+BE2.514            down        down        MANP-ML2-111011-manesar-2988211-16052026
+BE2.804            down        down        MSHA-ML3-1-789124-kjajj-2983k-MSHA-ML3-1-409217-04022026
+BE2.852            down        down        MSHA-ML3-1-732651-kjajj-8785k-MSHA-ML3-1-456347-12052026
+BE2.1102           down        down        MSHA-ML3-1-143261-kjajj-9213k-MSHA-ML3-1-307862-04022026
+BE2.1184           down        down        MSHA-ML3-1-748991-kjajj-5279k-MSHA-ML3-1-477344-04022026
+BE2.1228           down        down        MSHA-ML3-1-222414-kjajj-7095k-MSHA-ML3-1-246662-04022026
+BE2.2030           down        down        MWRUE-ML3-11-952657-4G_P-Sig-bharti-Internal-Mobility-309329-26052026
+BE2.2170           down        down        MSHA-ML3-1-22652-kjajj-4225k-MSHA-ML3-1-12456-27012026
+BE2.2171           down        down        MSHA-ML3-1-22653-kjajj-4225k-MSHA-ML3-1-223344-27012026
+BE2.2172           down        down        MSHA-ML3-1-22165-kjajj-4225k-MSHA-ML3-1-221344-27012026
+BE2.2173           down        down        MSHA-ML3-1-22116-kjajj-4225k-MSHA-ML3-1-114411-27012026
+BE2.2174           down        down        MSHA-ML3-1-22112-kjajj-4225k-MSHA-ML3-1-114412-27012026
+BE2.2175           down        down        MSHA-ML3-1-21113-kjajj-4225k-MSHA-ML3-1-114113-27012026
+BE2.2176           down        down        MSHA-ML3-1-21114-kjajj-4225k-MSHA-ML3-1-114114-27012026
+BE2.2177           down        down        MSHA-ML3-1-22113-kjajj-4225k-MSHA-ML3-1-114412-28012026
+BE2.2180           down        down        MSHA-ML3-1-22117-kjajj-4225k-MSHA-ML3-1-114412-28012026
+BE2.2182           down        down        MSHA-ML3-1-22114-kjajj-4225k-MSHA-ML3-1-114412-28012026
+BE2.2271           down        down        MSHA-ML3-1-54149-kjajj-4225k-MSHA-ML3-1-12119-03022026
+BE2.2502           down        down        MSHA-ML3-1-627205-kjajj-6540k-MSHA-ML3-1-444707-04022026
+BE2.2876           down        down        MWRUE-ML3-11-957041-4G_P-Sig-bharti-Internal-Mobility-434360-12052026
+BE2.2992           down        down        BALW-ML3-1-173011-kjajj-5936k-WI-MAX-MANAGEMENT-260108-04022026
+BE2.3026           down        down        #DSLAM#MGMT#TMKK-ML3-76-781428-MGMT-P-NC#465065#30072026##
+BE2.3324           down        down        MWRUE-ML3-11-154950-4G_P-Sig-bharti-Internal-Mobility-206495-26052026
+BE2.3500           down        down        TMKK-ML3-76-510001-Telemedia-50012-22092026
+BE2.3732           down        down        MWRUE-ML3-11-372398-4G_P-Sig-bharti-Internal-Mobility-268064-26052026
+BE2.5001           down        down        #SUPER SMELTERS LTD#UNMAN-ISP-82434#308720#2048k#2#291025#UMNG#
+BE2.5002           down        down        #SUPER SMELTERS LTD#UNMAN-ISP-31835#499793#2048k#2#291025#UMNG#
+BE2.5003           down        down        #SUPER SMELTERS LTD#SUYA-ISP-94109#239591#2048k#2#291025#MNG#
+BE2.5004           down        down        #SUPER SMELTERS LTD#UNMAN-ISP-88877#294875#2048k#2#200126#UMNG#
+BE2.5005           down        down        #SUPER SMELTERS LTD#UNMAN-ISP-92427#302756#2048k#2#050226#UMNG#
+BE2.5006           down        down        #SUPER SMELTERS LTD#STKS-ISP-999090#297971#30720k#2#280426#MNG#
+BE2.5007           down        down        #SUPER SMELTERS LTD#STKS-ISP-999091#997971#30720k#2#300426#MNG#
+BE2.5008           down        down        #SUPER SMELTERS LTD#UNMAN-ISP-7580#421521#30720k#2#300426#UMNG#
+BE2.5009           down        down        #SUPER SMELTERS LTD#UNMAN-ISP-99983#359834#2048k#2#120526#UMNG#
+BE2.5010           down        down        #SUPER SMELTERS LTD#UNMAN-ISP-758094#421594#30720k#2#190526#UMNG#
+BE2.5011           down        down        #SUPER SMELTERS LTD#SIVT-ISP-900057#900757#2048k#2#190526#MNG#
+BE2.5012           down        down        #SUPER SMELTERS LTD#SUYA-ISP-91713#484949#2048k#2#210526#MNG#
+BE2.5013           down        down        #SUPER SMELTERS LTD#UNMAN-ISP-73277#323654#2048k#2#210526#UMNG#
+BE2.5014           down        down        #SUPER SMELTERS LTD#UNMAN-ISP-39820#218471#2048k#2#260526#UMNG#
+BE2.5015           down        down        #SUPER SMELTERS LTD#UNMAN-ISP-10704#467585#2048k#2#260526#UMNG#
+BE2.5016           down        down        #SUPER SMELTERS LTD#UNMAN-ISP-91688#454247#2048k#2#100926#UMNG#
+BE3                down        down
+BE3.3029           down        down        MANP-ML2-1-12345-SIT-12345-24092026
+BE3.3122           down        down        MWRUE-ML3-15-872337-4G_P-Sig-bharti-Internal-Mobility-361424-08092026
+BE3.3123           down        down        MWRUE-ML3-11-872337-4G_P-Sig-bharti-Internal-Mobility-361424-08092026
+BE3.3124           down        down        MWRUE-ML3-12-872337-4G_P-Sig-5002-361424-08092026
+BE3.3132           down        down        MWRUE-ML3-15-872331-4G_P-Sig-bharti-Internal-Mobility-361424-08092026
+BE3.3133           down        down        MWRUE-ML3-11-872331-4G_P-Sig-bharti-Internal-Mobility-361424-08092026
+BE3.3134           down        down        MWRUE-ML3-12-872331-4G_P-Sig-5002-361424-08092026
+BE3.3232           down        down        MWRUE-ML3-15-872341-4G_P-Sig-bharti-Internal-Mobility-361424-08092026
+BE3.3233           down        down        MWRUE-ML3-11-872341-4G_P-Sig-bharti-Internal-Mobility-361424-08092026
+BE3.3234           down        down        MWRUE-ML3-12-872341-4G_P-Sig-5002-361424-08092026
+BE3.3500           down        down        TMKK-ML3-76-510002-Telemedia-50012-22092026
+BE3.5005           down        down        BSEM-ML3-1-2021-TEST-QA-10240k-BSEM-ML3-1-2593610-13022026
+BE3.5006           down        down        BSEM-ML3-1-2024-TEST-QA-10240k-BSEM-ML3-1-2593611-13022026
+BE3.5007           down        down        #QA-Testing#TEST-ISP-100090#100009#20480k#2#120326#MNG#
+BE5                down        down
+BE5.5000           down        down        MSHA-ML3-1-329460-TEST-123-kjajj-4646k-MSHA-ML3-1-256005-24012025
+BE7                down        down
+BE7.5000           down        down        MSHA-ML3-1-329465-TEST-kjajj-4646k-MSHA-ML3-1-256006-24012025
+BE8                down        down
+BE10               down        down
+BE10.10            down        down
+BE10.11            down        down
+BE10.12            down        down
+BE10.13            down        down
+BE10.14            down        down
+BE10.15            down        down
+BE10.16            down        down
+BE10.17            down        down
+BE10.18            down        down
+BE10.19            down        down
+BE10.20            down        down
+BE10.21            down        down
+BE10.22            down        down
+BE10.23            down        down
+BE10.24            down        down
+BE10.25            down        down
+BE10.26            down        down
+BE10.27            down        down
+BE10.28            down        down
+BE10.29            down        down
+BE10.30            down        down
+BE10.31            down        down
+BE10.32            down        down
+BE10.33            down        down
+BE10.34            down        down
+BE10.35            down        down
+BE10.36            down        down
+BE10.37            down        down
+BE10.38            down        down
+BE10.39            down        down
+BE10.40            down        down
+BE10.41            down        down
+BE10.42            down        down
+BE10.43            down        down
+BE10.44            down        down
+BE10.45            down        down
+BE10.46            down        down
+BE10.47            down        down
+BE10.48            down        down
+BE10.49            down        down
+BE10.50            down        down
+BE10.51            down        down
+BE10.52            down        down
+BE10.53            down        down
+BE10.54            down        down
+BE10.55            down        down
+BE10.56            down        down
+BE10.57            down        down
+BE10.58            down        down
+BE10.59            down        down
+BE10.60            down        down
+BE10.61            down        down
+BE10.62            down        down
+BE10.63            down        down
+BE10.64            down        down
+BE10.65            down        down
+BE10.66            down        down
+BE10.67            down        down
+BE10.68            down        down
+BE10.69            down        down
+BE10.70            down        down
+BE10.71            down        down
+BE10.72            down        down
+BE10.73            down        down
+BE10.74            down        down
+BE10.75            down        down
+BE10.76            down        down
+BE10.77            down        down
+BE10.78            down        down
+BE10.79            down        down
+BE10.80            down        down
+BE10.81            down        down
+BE10.82            down        down
+BE10.83            down        down
+BE10.84            down        down
+BE10.85            down        down
+BE10.86            down        down
+BE10.87            down        down
+BE10.88            down        down
+BE10.89            down        down
+BE10.90            down        down
+BE10.91            down        down
+BE10.92            down        down
+BE10.93            down        down
+BE10.94            down        down
+BE10.95            down        down
+BE10.96            down        down
+BE10.97            down        down
+BE10.98            down        down
+BE10.99            down        down
+BE10.100           down        down
+BE10.101           down        down
+BE10.102           down        down
+BE10.103           down        down
+BE10.104           down        down
+BE10.105           down        down
+BE10.106           down        down
+BE10.107           down        down
+BE10.108           down        down
+BE10.109           down        down
+BE10.110           down        down
+BE10.111           down        down
+BE10.112           down        down
+BE10.113           down        down
+BE10.114           down        down
+BE10.115           down        down
+BE10.116           down        down
+BE10.117           down        down
+BE10.118           down        down
+BE10.119           down        down
+BE10.120           down        down
+BE10.121           down        down
+BE10.122           down        down
+BE10.123           down        down
+BE10.124           down        down
+BE10.125           down        down
+BE10.126           down        down
+BE10.127           down        down
+BE10.128           down        down
+BE10.129           down        down
+BE10.130           down        down
+BE10.131           down        down
+BE10.132           down        down
+BE10.133           down        down
+BE10.134           down        down
+BE10.135           down        down
+BE10.136           down        down
+BE10.137           down        down
+BE10.138           down        down
+BE10.139           down        down
+BE10.140           down        down
+BE10.141           down        down
+BE10.142           down        down
+BE10.143           down        down
+BE10.144           down        down
+BE10.145           down        down
+BE10.146           down        down
+BE10.147           down        down
+BE10.148           down        down
+BE10.149           down        down
+BE10.150           down        down
+BE10.151           down        down
+BE10.152           down        down
+BE10.153           down        down
+BE10.154           down        down
+BE10.155           down        down
+BE10.156           down        down
+BE10.157           down        down
+BE10.158           down        down
+BE10.159           down        down
+BE10.160           down        down
+BE10.161           down        down
+BE10.162           down        down
+BE10.163           down        down
+BE10.164           down        down
+BE10.165           down        down
+BE10.166           down        down
+BE10.167           down        down
+BE10.168           down        down
+BE10.169           down        down
+BE10.170           down        down
+BE10.171           down        down
+BE10.172           down        down
+BE10.173           down        down
+BE10.174           down        down
+BE10.175           down        down
+BE10.176           down        down
+BE10.177           down        down
+BE10.178           down        down
+BE10.179           down        down
+BE10.180           down        down
+BE10.181           down        down
+BE10.182           down        down
+BE10.183           down        down
+BE10.184           down        down
+BE10.185           down        down
+BE10.186           down        down
+BE10.187           down        down
+BE10.188           down        down
+BE10.189           down        down
+BE10.190           down        down
+BE10.191           down        down
+BE10.192           down        down
+BE10.193           down        down
+BE10.194           down        down
+BE10.195           down        down
+BE10.196           down        down
+BE10.197           down        down
+BE10.198           down        down
+BE10.199           down        down
+BE10.200           down        down
+BE10.201           down        down
+BE10.202           down        down
+BE10.203           down        down
+BE10.204           down        down
+BE10.205           down        down
+BE10.206           down        down
+BE10.207           down        down
+BE10.208           down        down
+BE10.209           down        down
+BE10.210           down        down
+BE10.211           down        down
+BE10.212           down        down
+BE10.213           down        down
+BE10.214           down        down
+BE10.215           down        down
+BE10.216           down        down
+BE10.217           down        down
+BE10.218           down        down
+BE10.219           down        down
+BE10.220           down        down
+BE10.221           down        down
+BE10.222           down        down
+BE10.223           down        down
+BE10.224           down        down
+BE10.225           down        down
+BE10.226           down        down
+BE10.227           down        down
+BE10.228           down        down
+BE10.229           down        down
+BE10.230           down        down
+BE10.231           down        down
+BE10.232           down        down
+BE10.233           down        down
+BE10.234           down        down
+BE10.235           down        down
+BE10.236           down        down
+BE10.237           down        down
+BE10.238           down        down
+BE10.239           down        down
+BE10.240           down        down
+BE10.241           down        down
+BE10.242           down        down
+BE10.243           down        down
+BE10.244           down        down
+BE10.245           down        down
+BE10.246           down        down
+BE10.247           down        down
+BE10.248           down        down
+BE10.249           down        down
+BE10.250           down        down
+BE10.2172          down        down        #DSLAM#IMS#TMTN-CISCOXR-IMS-76651#647322#07082026#H68-Z1#
+BE10.2174          down        down        #DSLAM#IMS#TMTN-CEN3-D-8989-IMS-P-NC#647324#09082026#H68-Z1#
+BE10.2175          down        down        #DSLAM#IMS#TMTN-CEN3-D-89981-IMS-P-NC#647325#09082026#H68-Z1#
+BE10.2176          down        down        #DSLAM#IMS#TMTN-CEN3-D-89982-IMS-P-NC#647325#09082026#H68-Z1#
+BE10.2500          down        down        #DSLAM#DYNAMIC#TMKK-ML3-76-DYNAMIC-510004#50012##22092026#MOBILE_SITE_ID#
+BE10.3500          down        down        TMKK-ML3-76-510003-Telemedia-50012-22092026
+BE10.3881          down        down        #DSLAM#IMS#TMKK-ML3-76-IMS-50004#78004#0#14102026#0B1-Y7#
+BE10.3890          down        down        #DSLAM#TMKK-ML3-76-50000#78000##13102026#MOBILE-SITE-ID#
+BE10.5000          down        down        ACLE-ML3-1-TCPCREATE02-TEST-5840k-ACLE-ML3-1-19082026-21082026
+BE11               down        down
+BE11.5000          down        down        MSHA-ML3-1-329460-TEST-kjajj-1510k-MSHA-ML3-1-256003-24012025
+BE15               down        down        testing
+BE15.2180          down        down        MSHA-ML3-1-544193-kjajj-4225k-MSHA-ML3-1-121343-28012026
+BE15.2181          down        down        MSHA-ML3-1-544194-kjajj-4225k-MSHA-ML3-1-121344-28012026
+BE15.2182          down        down        MSHA-ML3-1-544195-kjajj-4225k-MSHA-ML3-1-121345-28012026
+BE15.2183          down        down        MSHA-ML3-1-544196-kjajj-4225k-MSHA-ML3-1-121346-28012026
+BE15.2191          down        down        MSHA-ML3-1-544396-kjajj-4225k-MSHA-ML3-1-125544-30012026
+BE15.2192          down        down        MSHA-ML3-1-544397-kjajj-4225k-MSHA-ML3-1-125547-30012026
+BE15.2193          down        down        MSHA-ML3-1-544398-kjajj-4225k-MSHA-ML3-1-125548-30012026
+BE15.2194          down        down        MSHA-ML3-1-544399-kjajj-4225k-MSHA-ML3-1-125549-30012026
+BE15.2195          down        down        MSHA-ML3-1-544400-kjajj-4225k-MSHA-ML3-1-125550-30012026
+BE15.2196          down        down        MSHA-ML3-1-544401-kjajj-4225k-MSHA-ML3-1-125551-30012026
+BE15.2199          down        down        MSHA-ML3-1-544402-kjajj-4225k-MSHA-ML3-1-125552-30012026
+BE15.2200          down        down        MSHA-ML3-1-544403-kjajj-4225k-MSHA-ML3-1-125553-30012026
+BE15.5000          down        down        SUYA-ML3-1-306323-kjajj-7657k-nikk-306323-22012025
+BE15.5001          down        down        SUYA-ML3-1-391148-kjajj-9958k-nikk-391148-22012025
+BE15.5002          down        down        SUYA-ML3-1-433577-kjajj-9284k-nikk-433577-22012025
+BE15.5003          down        down        SUYA-ML3-1-496238-kjajj-1943k-nikk-496238-22012025
+BE15.5004          down        down        SUYA-ML3-1-231239-kjajj-2450k-nikk-231239-22012025
+BE15.5005          down        down        SUYA-ML3-1-389468-kjajj-8806k-nikk-389468-22012025
+BE15.5006          down        down        SUYA-ML3-1-310148-kjajj-7346k-nikk-310148-22012025
+BE15.5007          down        down        SUYA-ML3-1-307799-kjajj-9660k-nikk-307799-22012025
+BE15.5008          down        down        SUYA-ML3-1-440822-kjajj-1322k-nikk-440822-22012025
+BE15.5009          down        down        SUYA-ML3-1-461072-kjajj-4086k-nikk-461072-24012025
+BE15.5010          down        down        SUYA-ML3-1-215960-kjajj-3787k-nikk-215960-24012025
+BE15.5011          down        down        SUYA-ML3-1-252890-kjajj-2186k-nikk-252890-24012025
+BE15.5012          down        down        SUYA-ML3-1-324569-kjajj-5138k-nikk-324569-24012025
+BE15.5013          down        down        SUYA-ML3-1-429173-kjajj-7985k-nikk-429173-24012025
+BE15.5014          down        down        SUYA-ML3-1-274055-kjajj-7975k-nikk-274055-24012025
+BE15.5015          down        down        SUYA-ML3-1-384461-kjajj-2970k-nikk-384461-24012025
+BE15.5016          down        down        SUYA-ML3-1-305657-kjajj-4216k-nikk-305657-24012025
+BE15.5017          down        down        SUYA-ML3-1-417227-kjajj-8181k-nikk-417227-24012025
+BE15.5018          down        down        SUYA-ML3-1-480983-kjajj-1528k-nikk-480983-24012025
+BE15.5019          down        down        SUYA-ML3-1-351329-kjajj-9663k-nikk-351329-27012025
+BE15.5020          down        down        SUYA-ML3-1-221561-kjajj-8214k-nikk-221561-27012025
+BE15.5021          down        down        SUYA-ML3-1-483851-kjajj-7154k-nikk-483851-27012025
+BE15.5022          down        down        SUYA-ML3-1-352568-kjajj-5864k-nikk-352568-27012025
+BE15.5023          down        down        SUYA-ML3-1-383771-kjajj-9938k-nikk-383771-27012025
+BE15.5024          down        down        SUYA-ML3-1-200831-kjajj-6022k-nikk-200831-27012025
+BE15.5025          down        down        SUYA-ML3-1-428717-kjajj-9073k-nikk-428717-27012025
+BE15.5026          down        down        SUYA-ML3-1-491930-kjajj-7017k-nikk-491930-27012025
+BE15.5027          down        down        SUYA-ML3-1-407429-kjajj-1410k-nikk-407429-27012025
+BE15.5028          down        down        SUYA-ML3-1-278549-kjajj-2856k-nikk-278549-27012025
+BE15.5029          down        down        SUYA-ML3-1-465425-kjajj-2766k-nikk-465425-27012025
+BE15.5030          down        down        SUYA-ML3-1-397286-kjajj-1395k-nikk-397286-27012025
+BE15.5031          down        down        SUYA-ML3-1-274136-kjajj-1420k-nikk-274136-27012025
+BE15.5032          down        down        SUYA-ML3-1-447110-kjajj-6260k-nikk-447110-27012025
+BE15.5033          down        down        SUYA-ML3-1-268826-kjajj-6208k-nikk-268826-27012025
+BE15.5034          down        down        SUYA-ML3-1-249866-kjajj-8977k-nikk-249866-27012025
+BE15.5035          down        down        SUYA-ML3-1-319727-kjajj-5756k-nikk-319727-27012025
+BE15.5036          down        down        SUYA-ML3-1-494192-kjajj-1651k-nikk-494192-27012025
+BE15.5037          down        down        SUYA-ML3-1-328292-kjajj-4455k-nikk-328292-27012025
+BE15.5038          down        down        SUYA-ML3-1-467540-kjajj-3629k-nikk-467540-27012025
+BE15.5039          down        down        SUYA-ML3-1-250838-kjajj-6834k-nikk-250838-28012025
+BE15.5040          down        down        SUYA-ML3-1-249827-kjajj-9018k-nikk-249827-28012025
+BE15.5041          down        down        SUYA-ML3-1-384410-kjajj-3252k-nikk-384410-28012025
+BE15.5042          down        down        SUYA-ML3-1-224630-kjajj-7129k-nikk-224630-28012025
+BE15.5043          down        down        SUYA-ML3-1-491024-kjajj-8845k-nikk-491024-28012025
+BE15.5044          down        down        SUYA-ML3-1-492842-kjajj-9484k-nikk-492842-28012025
+BE15.5045          down        down        SUYA-ML3-1-263969-kjajj-2809k-nikk-263969-28012025
+BE15.5046          down        down        SUYA-ML3-1-422030-kjajj-3148k-nikk-422030-28012025
+BE15.5047          down        down        SUYA-ML3-1-353063-kjajj-4296k-nikk-353063-28012025
+BE15.5048          down        down        SUYA-ML3-1-390779-kjajj-10064k-nikk-390779-28012025
+BE21               down        down        toward spirent
+BE21.101           down        down
+BE44               up          up          #MPLS#CEN-Topology#CONNECTED-TO-NPE-1$ASR-9912(172.16.254.75)$-$TenGigE0/7/1/7$
+BE50               down        down        #MPLS#BACK-TO-BACK##CONNECTED-TO-$NRR-LAB-1$-$Bundle-Ether50$#CMR:CMR#
+BE50.2             down        down        #MPLS#BACK-TO-BACK##CONNECTED-TO-$NRR-LAB-1$-$te0/0/0/20$#CMR:CMR#
+BE50.6             down        down        #MPLS#BACK-TO-BACK##CONNECTED-TO-$NRR-LAB-1$-$te0/0/0/20$#CMR:CMR#
+BE51               down        down        #MPLS#BACK-TO-BACK##CONNECTED-TO-$NCOR-T1-LAB-1$-$BE51$#CMR:CMR#
+BE51.2             down        down        #MPLS#BACK-TO-BACK##CONNECTED-TO-$NCOR-T1-LAB-1$-$te0/0/0/5$#CMR:CMR#
+BE51.4             down        down        #MPLS#BACK-TO-BACK##CONNECTED-TO-$NCOR-T1-LAB-1$-$te0/0/0/5$#CMR:CMR#
+BE51.6             down        down        #MPLS#BACK-TO-BACK##CONNECTED-TO-$NCOR-T1-LAB-1$-$te0/0/0/5$#CMR:CMR#
+BE53               up          up          #MPLS#BACK-TO-BACK##CONNECTED-TO-$Z2-T2-LAB-1$-$BE53$#CMR:CMR#
+BE53.2             up          up          #MPLS#BACK-TO-BACK##CONNECTED-TO-$Z2-T2-LAB-1$-$hu0/2/0/0$#CMR:CMR#
+BE53.4             up          up          #MPLS#BACK-TO-BACK##CONNECTED-TO-$Z2-T2-LAB-1$-$hu0/2/0/0$#CMR:CMR#
+BE53.6             up          up          #MPLS#BACK-TO-BACK##CONNECTED-TO-$Z2-T2-LAB-1$-$hu0/2/0/0$#CMR:CMR#
+BE54               up          up          #MPLS#BACK-TO-BACK##CONNECTED-TO-$Y2-T2-LAB-1$-$BE54$#CMR:CMR#
+BE54.2             up          up          #MPLS#BACK-TO-BACK##CONNECTED-TO-$Y2-T2-LAB-1$-$te0/0/0/18$#CMR:CMR#
+BE54.4             up          up          #MPLS#BACK-TO-BACK##CONNECTED-TO-$Y2-T2-LAB-1$-$te0/0/0/18$#CMR:CMR#
+BE55               down        down        #MPLS#BACK-TO-BACK##CONNECTED-TO-$Y3-T3-LAB-1$-$BE55$#CMR:CMR#
+BE55.2             down        down        #MPLS#BACK-TO-BACK##CONNECTED-TO-$Y3-T3-LAB-1$-$te0/0/0/7$#CMR:CMR#
+BE55.4             down        down        #MPLS#BACK-TO-BACK##CONNECTED-TO-$Y3-T3-LAB-1$-$te0/0/0/7$#CMR:CMR#
+BE56               down        down        #MPLS#BACK-TO-BACK##CONNECTED-TO-$X2-T2-LAB-1$-$BE56$#CMR:CMR#
+BE56.2             down        down        #MPLS#BACK-TO-BACK##CONNECTED-TO-$X2-T2-LAB-1$-$te0/0/0/19$#CMR:CMR#
+BE56.4             down        down        #MPLS#BACK-TO-BACK##CONNECTED-TO-$X2-T2-LAB-1$-$te0/0/0/19$#CMR:CMR#
+BE76               down        down        POI_10G_MPLS_L2_P_-CBT-MPL-LTE-PE-RTR-165-100GigabitEthernetBE76-_CBT_DMR_901_2NP_HCX6H8XR001-100GE6/1/0-CRQ000002269728
+BE76.511           down        down        #DSLAM#DYNAMIC#BNLT-ANG16237#1646073#1000000#130416#
+BE76.512           down        down        #DSLAM#DYNAMIC#BNLT-ANG16237#1646073#1000000#130416#
+BE76.513           down        down        #DSLAM#DYNAMIC#BNLT-ANG16237#1646073#1000000#130416#
+BE76.514           down        down        #DSLAM#DYNAMIC#BNLT-ANG16237#1646073#1000000#130416#
+BE76.515           down        down        #DSLAM#DYNAMIC#BNLT-ANG16237#1646073#1000000#130416#
+BE76.516           down        down        #DSLAM#DYNAMIC#BNLT-ANG16237#1646073#1000000#130416#
+BE76.517           down        down        #DSLAM#DYNAMIC#BNLT-ANG16237#1646073#1000000#130416#
+BE76.518           down        down        #DSLAM#DYNAMIC#BNLT-ANG16237#1646073#1000000#130416#
+BE76.519           down        down        #DSLAM#DYNAMIC#TMTN-ML2-2-6439-DYNAMIC-P-C#533860#06032022#EPM-H1#
+BE76.1403          down        down        #POI_10G_MPLS_L3_S_CBT-MPL-PE-RTR-166_Gi0/0/0/9_CBT_DMR_901_1NP_Gi3/0/7_BNLT-ANG1594597_3105717#
+BE76.5001          down        down        #QA-Testing#TEST-ISP-1000905#100009#20480k#2#090326#UMNG#
+BE404              down        down
+BE404.10           down        down        for isis limit metric
+BE404.20           down        down        for isis limit metric
+BE507              down        down        OLD_TEST
+BE509              down        down        TEST
+BE900              down        down
+BE900.4052         down        down        GDM-BCLGJ-RRD-CSR-ER16.174
+BE901              down        down
+BE901.855          down        down        KFX-BCLHR-UGS-CSR-ER9.241
+BE1200             up          up
+BE1200.500         up          up
+BE1200.501         up          up
+BE1200.3884        up          up          #DSLAM#IMS#TMKK-ML3-76-IMS-50006#78006#0#14102026#0B1-Y9#
+BE1234             down        down        LAG_BUNDLE-(CEN-MPLS)
+BE1234.500         down        down
+BE1234.701         down        down
+BE1234.1200        down        down
+BE1234.1300        down        down
+Lo0                up          up          Core Infra Loopback
+Lo1                admin-down  admin-down
+Lo100              up          up          loopbackforNRRpeering
+Lo200              up          up
+Lo300              admin-down  admin-down
+Lo600              admin-down  admin-down  CSR
+Lo601              admin-down  admin-down  CSR_1
+Lo1111             admin-down  admin-down
+Nu0                up          up
+tt3                admin-down  admin-down  towards 10.1.1.3
+tt4                admin-down  admin-down
+tt6                down        down        towards 10.1.1.6
+tt7                down        down        towards 10.1.1.7
+tt10               down        down        towards 10.1.1.10
+tt11               down        down        towards 10.1.1.11
+Mg0/RP0/CPU0/0     up          up
+Mg0/RP1/CPU0/0     admin-down  admin-down
+Hu0/0/0/0          admin-down  admin-down
+Hu0/0/0/1          up          up
+Hu0/0/0/2          up          up          #MPLS#BACK-TO-BACK##CONNECTED-TO-$Z2-T2-LAB-1$-$hu0/2/0/0$#CMR:CMR#
+Hu0/0/0/3          down        down        Cisco_AG2Hu0/0/0/3-Cisco_AG1Hu0/0/0/3R001
+Hu0/0/0/4          down        down        STC Port 6/5- QoS
+Hu0/0/0/4.1        down        down        "STC Port 6/5 (QoS)"
+Hu0/0/0/5          admin-down  admin-down
+Hu0/0/0/6          up          up          #MPLS#CEN-Topology#CONNECTED-TO-AGG2_ASR-9k1-lower(172.16.254.73)$-$HundredGigE0/2/0/6$
+Hu0/0/0/7          admin-down  admin-down
+Hu0/0/0/8          down        down        for isis limit metric
+Hu0/0/0/8.72       down        down
+Hu0/0/0/8.1990     down        down        MWRGJ-ML3-11-156416-4G_P-Sig-bharti-Internal-Mobility-480467-02022025
+Hu0/0/0/8.1991     down        down        MWRUE-ML3-11-126416-4G_P-Sig-bharti-Internal-Mobility-480467-02022025
+Hu0/0/0/9          admin-down  admin-down
+Hu0/0/0/11         down        down
+Hu0/0/0/11.3883    down        down        #DSLAM#IMS#TMKK-ML3-76-IMS-50005#78005#0#14102026#0B1-Y9#
+Hu0/0/0/12         admin-down  admin-down
+Hu0/0/0/13         admin-down  admin-down
+Hu0/0/0/15         admin-down  admin-down
+Te0/0/0/16         up          up          #MPLS#CEN-Topology#CONNECTED-TO-NPE-1$ASR-9912(172.16.254.75)$-$TenGigE0/7/1/7$
+Te0/0/0/17         down        down        #MPLS#BACK-TO-BACK##CONNECTED-TO-$Y3-T3-LAB-1$-$te0/0/0/7$#CMR:CMR#
+Te0/0/0/18         up          up          #MPLS#BACK-TO-BACK##CONNECTED-TO-$Y2-T2-LAB-1$-$te0/0/0/18$#CMR:CMR#
+Te0/0/0/19         down        down        #MPLS#BACK-TO-BACK##CONNECTED-TO-$X2-T2-LAB-1$-$te0/0/0/19$#CMR:CMR#
+Te0/0/0/20         down        down        #MPLS#BACK-TO-BACK##CONNECTED-TO-$NCOR-T1-LAB-1$-$te0/1/0/16$#CMR:CMR#
+Te0/0/0/21         down        down        #MPLS#BACK-TO-BACK##CONNECTED-TO-$RRR-SR-LAB-1$-$te0/0/12$#CMR:CMR#
+Te0/0/0/22         down        down
+Te0/0/0/23         up          up          Towards-P16
+Te0/0/0/24         admin-down  admin-down  for isis limit metric
+Te0/0/0/25         down        down
+Te0/0/0/25.502     down        down
+Te0/0/0/25.503     down        down
+Te0/0/0/25.504     down        down
+Te0/0/0/25.505     down        down
+Te0/0/0/25.506     down        down
+Te0/0/0/25.507     down        down
+Te0/0/0/25.508     down        down
+Te0/0/0/25.509     down        down
+Te0/0/0/25.510     down        down
+Te0/0/0/25.511     down        down
+Te0/0/0/25.512     down        down
+Te0/0/0/25.513     down        down
+Te0/0/0/25.514     down        down
+Te0/0/0/25.515     down        down
+Te0/0/0/25.516     down        down
+Te0/0/0/25.517     down        down
+Te0/0/0/25.518     down        down
+Te0/0/0/25.519     down        down
+Te0/0/0/25.520     down        down
+Te0/0/0/25.521     down        down
+Te0/0/0/25.522     down        down
+Te0/0/0/25.523     down        down
+Te0/0/0/25.524     down        down
+Te0/0/0/25.525     down        down
+Te0/0/0/25.526     down        down
+Te0/0/0/25.527     down        down
+Te0/0/0/25.528     down        down
+Te0/0/0/25.529     down        down
+Te0/0/0/25.530     down        down
+Te0/0/0/25.531     down        down
+Te0/0/0/25.532     down        down
+Te0/0/0/25.533     down        down
+Te0/0/0/25.534     down        down
+Te0/0/0/25.535     down        down
+Te0/0/0/25.536     down        down
+Te0/0/0/25.537     down        down
+Te0/0/0/25.538     down        down
+Te0/0/0/25.539     down        down
+Te0/0/0/25.540     down        down
+Te0/0/0/25.541     down        down
+Te0/0/0/25.542     down        down
+Te0/0/0/25.543     down        down
+Te0/0/0/25.544     down        down
+Te0/0/0/25.545     down        down
+Te0/0/0/25.546     down        down
+Te0/0/0/25.547     down        down
+Te0/0/0/25.548     down        down
+Te0/0/0/25.549     down        down
+Te0/0/0/25.550     down        down
+Te0/0/0/25.551     down        down
+Te0/0/0/25.552     down        down
+Te0/0/0/25.553     down        down
+Te0/0/0/25.554     down        down
+Te0/0/0/25.555     down        down
+Te0/0/0/25.556     down        down
+Te0/0/0/25.557     down        down
+Te0/0/0/25.558     down        down
+Te0/0/0/25.559     down        down
+Te0/0/0/25.560     down        down
+Te0/0/0/25.561     down        down
+Te0/0/0/25.562     down        down
+Te0/0/0/25.563     down        down
+Te0/0/0/25.564     down        down
+Te0/0/0/25.565     down        down
+Te0/0/0/25.566     down        down
+Te0/0/0/25.567     down        down
+Te0/0/0/25.568     down        down
+Te0/0/0/25.569     down        down
+Te0/0/0/25.570     down        down
+Te0/0/0/25.571     down        down
+Te0/0/0/25.572     down        down
+Te0/0/0/25.573     down        down
+Te0/0/0/25.574     down        down
+Te0/0/0/25.575     down        down
+Te0/0/0/25.576     down        down
+Te0/0/0/25.577     down        down
+Te0/0/0/25.578     down        down
+Te0/0/0/25.579     down        down
+Te0/0/0/25.580     down        down
+Te0/0/0/25.581     down        down
+Te0/0/0/25.582     down        down
+Te0/0/0/25.583     down        down
+Te0/0/0/25.584     down        down
+Te0/0/0/25.585     down        down
+Te0/0/0/25.586     down        down
+Te0/0/0/25.587     down        down
+Te0/0/0/25.588     down        down
+Te0/0/0/25.589     down        down
+Te0/0/0/25.590     down        down
+Te0/0/0/25.591     down        down
+Te0/0/0/25.592     down        down
+Te0/0/0/25.593     down        down
+Te0/0/0/25.594     down        down
+Te0/0/0/25.595     down        down
+Te0/0/0/25.596     down        down
+Te0/0/0/25.597     down        down
+Te0/0/0/25.598     down        down
+Te0/0/0/25.599     down        down
+Te0/0/0/25.600     down        down
+Te0/0/0/25.601     down        down
+Te0/0/0/25.602     down        down
+Te0/0/0/25.603     down        down
+Te0/0/0/25.604     down        down
+Te0/0/0/25.605     down        down
+Te0/0/0/25.606     down        down
+Te0/0/0/25.607     down        down
+Te0/0/0/25.608     down        down
+Te0/0/0/25.609     down        down
+Te0/0/0/25.610     down        down
+Te0/0/0/25.611     down        down
+Te0/0/0/25.612     down        down
+Te0/0/0/25.613     down        down
+Te0/0/0/25.614     down        down
+Te0/0/0/25.615     down        down
+Te0/0/0/25.616     down        down
+Te0/0/0/25.617     down        down
+Te0/0/0/25.618     down        down
+Te0/0/0/25.619     down        down
+Te0/0/0/25.620     down        down
+Te0/0/0/25.621     down        down
+Te0/0/0/25.622     down        down
+Te0/0/0/25.623     down        down
+Te0/0/0/25.624     down        down
+Te0/0/0/25.625     down        down
+Te0/0/0/25.626     down        down
+Te0/0/0/25.627     down        down
+Te0/0/0/25.628     down        down
+Te0/0/0/25.629     down        down
+Te0/0/0/25.630     down        down
+Te0/0/0/25.631     down        down
+Te0/0/0/25.632     down        down
+Te0/0/0/25.633     down        down
+Te0/0/0/25.634     down        down
+Te0/0/0/25.635     down        down
+Te0/0/0/25.636     down        down
+Te0/0/0/25.637     down        down
+Te0/0/0/25.638     down        down
+Te0/0/0/25.639     down        down
+Te0/0/0/25.640     down        down
+Te0/0/0/25.641     down        down
+Te0/0/0/25.642     down        down
+Te0/0/0/25.643     down        down
+Te0/0/0/25.644     down        down
+Te0/0/0/25.645     down        down
+Te0/0/0/25.646     down        down
+Te0/0/0/25.647     down        down
+Te0/0/0/25.648     down        down
+Te0/0/0/25.649     down        down
+Te0/0/0/25.650     down        down
+Te0/0/0/25.651     down        down
+Te0/0/0/25.652     down        down
+Te0/0/0/25.653     down        down
+Te0/0/0/25.654     down        down
+Te0/0/0/25.655     down        down
+Te0/0/0/25.656     down        down
+Te0/0/0/25.657     down        down
+Te0/0/0/25.658     down        down
+Te0/0/0/25.659     down        down
+Te0/0/0/25.660     down        down
+Te0/0/0/25.661     down        down
+Te0/0/0/25.662     down        down
+Te0/0/0/25.663     down        down
+Te0/0/0/25.664     down        down
+Te0/0/0/25.665     down        down
+Te0/0/0/25.666     down        down
+Te0/0/0/25.667     down        down
+Te0/0/0/25.668     down        down
+Te0/0/0/25.669     down        down
+Te0/0/0/25.670     down        down
+Te0/0/0/25.671     down        down
+Te0/0/0/25.672     down        down
+Te0/0/0/25.673     down        down
+Te0/0/0/25.674     down        down
+Te0/0/0/25.675     down        down
+Te0/0/0/25.676     down        down
+Te0/0/0/25.677     down        down
+Te0/0/0/25.678     down        down
+Te0/0/0/25.679     down        down
+Te0/0/0/25.680     down        down
+Te0/0/0/25.681     down        down
+Te0/0/0/25.682     down        down
+Te0/0/0/25.683     down        down
+Te0/0/0/25.684     down        down
+Te0/0/0/25.685     down        down
+Te0/0/0/25.686     down        down
+Te0/0/0/25.687     down        down
+Te0/0/0/25.688     down        down
+Te0/0/0/25.689     down        down
+Te0/0/0/25.690     down        down
+Te0/0/0/25.691     down        down
+Te0/0/0/25.692     down        down
+Te0/0/0/25.693     down        down
+Te0/0/0/25.694     down        down
+Te0/0/0/25.695     down        down
+Te0/0/0/25.696     down        down
+Te0/0/0/25.697     down        down
+Te0/0/0/25.698     down        down
+Te0/0/0/25.699     down        down
+Te0/0/0/25.700     down        down
+Te0/0/0/25.701     down        down
+Te0/0/0/25.702     down        down
+Te0/0/0/25.703     down        down
+Te0/0/0/25.704     down        down
+Te0/0/0/25.705     down        down
+Te0/0/0/25.706     down        down
+Te0/0/0/25.707     down        down
+Te0/0/0/25.708     down        down
+Te0/0/0/25.709     down        down
+Te0/0/0/25.710     down        down
+Te0/0/0/25.711     down        down
+Te0/0/0/25.712     down        down
+Te0/0/0/25.713     down        down
+Te0/0/0/25.714     down        down
+Te0/0/0/25.715     down        down
+Te0/0/0/25.716     down        down
+Te0/0/0/25.717     down        down
+Te0/0/0/25.718     down        down
+Te0/0/0/25.719     down        down
+Te0/0/0/25.720     down        down
+Te0/0/0/25.721     down        down
+Te0/0/0/25.722     down        down
+Te0/0/0/25.723     down        down
+Te0/0/0/25.724     down        down
+Te0/0/0/25.725     down        down
+Te0/0/0/25.726     down        down
+Te0/0/0/25.727     down        down
+Te0/0/0/25.728     down        down
+Te0/0/0/25.729     down        down
+Te0/0/0/25.730     down        down
+Te0/0/0/25.731     down        down
+Te0/0/0/25.732     down        down
+Te0/0/0/25.733     down        down
+Te0/0/0/25.734     down        down
+Te0/0/0/25.735     down        down
+Te0/0/0/25.736     down        down
+Te0/0/0/25.737     down        down
+Te0/0/0/25.738     down        down
+Te0/0/0/25.739     down        down
+Te0/0/0/25.740     down        down
+Te0/0/0/25.741     down        down
+Te0/0/0/25.742     down        down
+Te0/0/0/25.743     down        down
+Te0/0/0/25.744     down        down
+Te0/0/0/25.745     down        down
+Te0/0/0/25.746     down        down
+Te0/0/0/25.747     down        down
+Te0/0/0/25.748     down        down
+Te0/0/0/25.749     down        down
+Te0/0/0/25.750     down        down
+Te0/0/0/26         admin-down  admin-down
+Te0/0/0/27         admin-down  admin-down
+Te0/0/0/28         admin-down  admin-down
+Te0/0/0/29         admin-down  admin-down
+Te0/0/0/30         admin-down  admin-down  OLD_TEST
+Te0/0/0/31         admin-down  admin-down
+Te0/0/0/32         admin-down  admin-down
+Te0/0/0/33         admin-down  admin-down
+Te0/0/0/34         admin-down  admin-down
+Te0/0/0/35         down        down        ***DN DNOR Port 2, DO NOT REMOVE***
+RP/0/RP0/CPU0:NDL-MPL-PE-RTR-196#

@@ -1,0 +1,186 @@
+show int description
+Tue Oct 13 03:14:06.407 IST
+Interface          Status      Protocol    Description
+--------------------------------------------------------------------------------
+BV246              down        down        #DSLAM#MGMT#TMGJ-DSLAM-CISCO-CEN3-7001#70001#17072026#H51-Z1#
+BV302              down        down        #MOB#4G#MWRTN-CEN3-D-178857-4G-P-C#3026#13022025#
+BV475              down        down
+BV666              down        down        #DSLAM#IMS#TMGJ-DSLAM-CISCO-CENL3-10006#10006#19082026#H51-Z1#
+BV667              down        down        #DSLAM#IMS#TMGJ-DSLAM-CISCO-CENL3-3009#30018#23072026#H51-Z1#
+BV889              down        down        #DSLAM#MGMT#TMGJ-DSLAM-CISCO-CEN3-70015#700015#19082026#H51-Z1#
+BV1790             down        down        #DSLAM#IMS#TMGJ-DSLAM-CISCO-CENL3-1982#21111#17122025#H51-Z1#
+BV1799             down        down        #DSLAM#IMS#TMTN-DSLAM-CISCO-CENL3-1985#980919#02072026#H51-Z1#
+BV2169             down        down        MWRWB-ML3-11-103591-4G-P-NC-bharti-Internal-Mobility-1022107-17072024
+BV3000             down        down        #MOB#4G#MWRTN-CEN3-D-866868-4G-P-C#432956#17022025#
+BV3014             down        down        #MOB#4G#MWRTN-CEN3-D-973316-4G-P-C#3014#13022025#
+BV3026             down        down        #MOB#4G#MWRTN-CEN3-D-278857-4G-P-C#432956#17022025#
+BV3042             down        down        #MOB#4G#MWRTN-CEN3-D-573146-4G-P-C#3042#13022025#
+BV3070             down        down        #MOB#4G#MWRTN-CEN3-D-442639-4G-P-C#3070#14022025#
+BV3078             down        down        #MOB#4G#MWRTN-CEN3-D-241536-4G-P-C#3078#14022025#
+BV3086             down        down        #MOB#4G#MWRTN-CEN3-D-241671-4G-P-C#3086#13022025#
+BV3096             down        down        #MOB#4G#MWRTN-CEN3-D-181482-4G-P-C#3096#14022025#
+BV3132             down        down        #MOB#4G#MWRTN-CEN3-D-495409-4G-P-C#432956#17022025#
+BV3144             down        down        #MOB#4G#MWRTN-CEN3-D-570800-4G-P-C#3144#13022025#
+BV3160             down        down        #MOB#4G#MWRTN-CEN3-D-556609-4G-P-C#3160#13022025#
+BV3218             down        down        #MOB#4G#MWRTN-CEN3-D-229631-4G-P-C#3218#13022025#
+BV3228             down        down        #MOB#4G#MWRTN-CEN3-D-793507-4G-P-C#432956#17022025#
+BV3230             down        down        #MOB#4G#MWRTN-CEN3-D-215897-4G-P-C#3230#14022025#
+BV3242             down        down        #MOB#4G#MWRTN-CEN3-D-963026-4G-P-C#3242#13022025#
+BV3262             down        down        #MOB#4G#MWRTN-CEN3-D-775994-4G-P-C#3262#14022025#
+BV3294             down        down        #MOB#4G#MWRTN-CEN3-D-854237-4G-P-C#3294#14022025#
+BV3338             down        down        #MOB#4G#MWRTN-CEN3-D-127374-4G-P-C#432956#17022025#
+BV3344             down        down        #MOB#4G#MWRTN-CEN3-D-597988-4G-P-C#3344#13022025#
+BV3374             down        down        #MOB#4G#MWRTN-CEN3-D-265764-4G-P-C#3374#14022025#
+BV3380             down        down        #MOB#4G#MWRTN-CEN3-D-770087-4G-P-C#432956#17022025#
+BV3392             down        down        #MOB#4G#MWRTN-CEN3-D-506436-4G-P-C#432956#17022025#
+BV3440             down        down        #MOB#4G#MWRTN-CEN3-D-295551-4G-P-C#3440#14022025#
+BV3442             down        down        #MOB#4G#MWRTN-CEN3-D-959112-4G-P-C#3442#13022025#
+BV3462             down        down        #MOB#4G#MWRTN-CEN3-D-424462-4G-P-C#432956#17022025#
+BV3472             down        down        #MOB#4G#MWRTN-CEN3-D-120725-4G-P-C#432956#17022025#
+BV3490             down        down        #MOB#4G#MWRTN-CEN3-D-244775-4G-P-C#3490#14022025#
+BV3496             down        down        #MOB#4G#MWRTN-CEN3-D-550693-4G-P-C#432956#17022025#
+BV3542             down        down        #MOB#4G#MWRTN-CEN3-D-310363-4G-P-C#3542#14022025#
+BV3580             down        down        #MOB#4G#MWRTN-CEN3-D-610928-4G-P-C#3580#13022025#
+BV3618             down        down        #MOB#4G#MWRTN-CEN3-D-263951-4G-P-C#3618#13022025#
+BV3632             down        down        #MOB#4G#MWRTN-CEN3-D-883358-4G-P-C#432956#17022025#
+BV3642             down        down        #MOB#4G#MWRTN-CEN3-D-604615-4G-P-C#3642#13022025#
+BV3654             down        down        #MOB#4G#MWRTN-CEN3-D-890405-4G-P-C#432956#17022025#
+BV3710             down        down        #MOB#4G#MWRTN-CEN3-D-979035-4G-P-C#3710#13022025#
+BV3754             down        down        #MOB#4G#MWRTN-CEN3-D-504813-4G-P-C#432956#17022025#
+BV3758             down        down        #MOB#4G#MWRTN-CEN3-D-802732-4G-P-C#3758#13022025#
+BV3778             down        down        #MOB#4G#MWRTN-CEN3-D-121912-4G-P-C#3778#13022025#
+BV3796             down        down        #MOB#4G#MWRTN-CEN3-D-672134-4G-P-C#3796#13022025#
+BV3990             down        down        #DSLAM#MGMT#TMGJ-DSLAM-CISCO-CEN3-6001#60001#17072026#H54-D1#
+BV35323            up          up          HDFC-M
+BV3907314          down        down        BOIL-ML3-2-361-KRU-2048k-BANK-OF-INDIA-3907314-25112023
+BE1                down        down        #DSLAM#IMS#TMGJ-DSLAM-CISCO-CENL3-100088#100088#19082026#H51-Z1#
+BE1.666            down        down        #DSLAM#IMS#TMGJ-DSLAM-CISCO-CENL3-100088#100088#19082026#H51-Z1#
+BE21               up          up          Mobility bundle towards tester_1/2/6
+BE21.74            up          up          BCLR-ML3-11-96-PTN-BAL-IT-BIHAR-JHARKHAND-2412830-01032022
+BE21.174           up          up          BCLR-ML3-12-177-PATNA-BAL-IT-BIHAR-AND-JHARKHAND-2412945-010318
+BE21.474           up          up          BCLR-ML3-13-104-PATNA-BAL-IT-BIHAR-AND-JHARKHAND-2412963-010318
+BE21.475           up          up          VPLS_TEST_T3YtoT3X
+BE21.476           up          up          VPLS_TEST_T4YtoT3X
+BE21.477           up          up          VPLS_TEST_T3ZtoT3Y
+BE21.555           up          up          TEST-T3X-T3Y
+BE21.777           up          up          BBNL_fullroutingtable
+BE21.978           up          up          MSEI-ML3-1-77-ATI-2048k-METROPOLITAN-STOCK-4814309-230824
+BE21.1187          up          up          MULT-ML3-2-853-ATI-10240k-MULTICOMODITY-EXCHANGE-2-4929737-20072025
+BE21.1488          up          up          DBS-BANK-SPOKE
+BE21.1636          up          up          NCDX-ML3-1-250111100137085-MUM-4096k-NATIONAL-COMMODITY-2207323-21022025
+BE21.1849          up          up          HDFC-M
+BE21.5056          up          up          #ICICI Bank Ltd.#ICIB-ISP-1600723#4673226#4096k#2#17012024#UMNG#
+BE21.5063          up          up          HPCL-ML3-6-1037-FBG-8192k-HINDUSTAN-PETROLEUM-6-3960978-01092021
+BE21.5065          up          up          HPCL-ML3-6-1037-FBG-8192k-HINDUSTAN-PETROLEUM-6-3960978-01092021
+BE50               up          up          #MPLS#BACK-TO-BACK##CONNECTED-TO-$Y2-T2-LAB-1$-$Bundle-Ether50$#CMR:CMR#
+BE50.2             up          up          #MPLS#BACK-TO-BACK##CONNECTED-TO-$Y2-T2-LAB-1$-$te0/0/0/16$#CMR:CMR#
+BE50.4             up          up          #MPLS#BACK-TO-BACK##CONNECTED-TO-$Y2-T2-LAB-1$-$te0/0/0/16$#CMR:CMR#
+BE55               down        down        #MPLS#BACK-TO-BACK##CONNECTED-TO-$SCOR-T1-LAB-1$-$Bundle-Ether55$#CMR:CMR#
+BE55.2             down        down        #MPLS#BACK-TO-BACK##CONNECTED-TO-$SCOR-T1-LAB-1$-$te0/0/0/17$#CMR:CMR#
+BE55.4             down        down        #MPLS#BACK-TO-BACK##CONNECTED-TO-$SCOR-T1-LAB-1$-$te0/0/0/17$#CMR:CMR#
+BE100              up          up          towards_T4_CIRCLE_Y_LAB_2_249_19_hu0/0/1/0
+Lo0                up          up          Core Infra Loopback
+Lo100              up          up          Infrastructure Loopback for T4 domain
+Lo110              admin-down  admin-down  for CEN-MPLS
+Lo200              up          up
+Lo300              up          up
+Lo302              up          up
+Nu0                up          up
+tt4                down        down        towards 10.1.1.4
+tt5                admin-down  admin-down  towards 10.1.1.5
+Mg0/RP0/CPU0/0     up          up
+Gi0/0/0/0          down        down
+Gi0/0/0/1          down        down
+Gi0/0/0/1.1790     down        down        #DSLAM#IMS#TMGJ-DSLAM-CISCO-CENL3-1982#21111#17122025#H51-Z1#
+Gi0/0/0/2          down        down
+Gi0/0/0/3          down        down
+Gi0/0/0/3.5        down        down
+Gi0/0/0/3.100      down        down        ERPS_CONTROLLER
+Gi0/0/0/3.302      down        down        #MOB#4G#MWRTN-CEN3-D-178857-4G-P-C#3026#13022025#
+Gi0/0/0/3.666      down        down        #DSLAM#IMS#TMGJ-DSLAM-CISCO-CENL3-3002#30009#15072026#H51-Z1#
+Gi0/0/0/3.667      down        down        #DSLAM#IMS#TMGJ-DSLAM-CISCO-CENL3-3009#30018#23072026#H51-Z1#
+Gi0/0/0/3.1799     down        down        #DSLAM#IMS#TMGJ-DSLAM-CISCO-CENL3-1989#980919#13072026#H51-Z1#
+Gi0/0/0/3.3000     down        down        #MOB#4G#MWRTN-CEN3-D-866868-4G-P-C#432956#17022025#
+Gi0/0/0/3.3014     down        down        #MOB#4G#MWRTN-CEN3-D-973316-4G-P-C#3014#13022025#
+Gi0/0/0/3.3026     down        down        #MOB#4G#MWRTN-CEN3-D-278857-4G-P-C#432956#17022025#
+Gi0/0/0/3.3042     down        down        #MOB#4G#MWRTN-CEN3-D-573146-4G-P-C#3042#13022025#
+Gi0/0/0/3.3086     down        down        #MOB#4G#MWRTN-CEN3-D-241671-4G-P-C#3086#13022025#
+Gi0/0/0/3.3132     down        down        #MOB#4G#MWRTN-CEN3-D-495409-4G-P-C#432956#17022025#
+Gi0/0/0/3.3144     down        down        #MOB#4G#MWRTN-CEN3-D-570800-4G-P-C#3144#13022025#
+Gi0/0/0/3.3160     down        down        #MOB#4G#MWRTN-CEN3-D-556609-4G-P-C#3160#13022025#
+Gi0/0/0/3.3218     down        down        #MOB#4G#MWRTN-CEN3-D-229631-4G-P-C#3218#13022025#
+Gi0/0/0/3.3228     down        down        #MOB#4G#MWRTN-CEN3-D-793507-4G-P-C#432956#17022025#
+Gi0/0/0/3.3242     down        down        #MOB#4G#MWRTN-CEN3-D-963026-4G-P-C#3242#13022025#
+Gi0/0/0/3.3338     down        down        #MOB#4G#MWRTN-CEN3-D-127374-4G-P-C#432956#17022025#
+Gi0/0/0/3.3344     down        down        #MOB#4G#MWRTN-CEN3-D-597988-4G-P-C#3344#13022025#
+Gi0/0/0/3.3380     down        down        #MOB#4G#MWRTN-CEN3-D-770087-4G-P-C#432956#17022025#
+Gi0/0/0/3.3392     down        down        #MOB#4G#MWRTN-CEN3-D-506436-4G-P-C#432956#17022025#
+Gi0/0/0/3.3442     down        down        #MOB#4G#MWRTN-CEN3-D-959112-4G-P-C#3442#13022025#
+Gi0/0/0/3.3462     down        down        #MOB#4G#MWRTN-CEN3-D-424462-4G-P-C#432956#17022025#
+Gi0/0/0/3.3472     down        down        #MOB#4G#MWRTN-CEN3-D-120725-4G-P-C#432956#17022025#
+Gi0/0/0/3.3496     down        down        #MOB#4G#MWRTN-CEN3-D-550693-4G-P-C#432956#17022025#
+Gi0/0/0/3.3580     down        down        #MOB#4G#MWRTN-CEN3-D-610928-4G-P-C#3580#13022025#
+Gi0/0/0/3.3618     down        down        #MOB#4G#MWRTN-CEN3-D-263951-4G-P-C#3618#13022025#
+Gi0/0/0/3.3632     down        down        #MOB#4G#MWRTN-CEN3-D-883358-4G-P-C#432956#17022025#
+Gi0/0/0/3.3642     down        down        #MOB#4G#MWRTN-CEN3-D-604615-4G-P-C#3642#13022025#
+Gi0/0/0/3.3654     down        down        #MOB#4G#MWRTN-CEN3-D-890405-4G-P-C#432956#17022025#
+Gi0/0/0/3.3710     down        down        #MOB#4G#MWRTN-CEN3-D-979035-4G-P-C#3710#13022025#
+Gi0/0/0/3.3754     down        down        #MOB#4G#MWRTN-CEN3-D-504813-4G-P-C#432956#17022025#
+Gi0/0/0/3.3758     down        down        #MOB#4G#MWRTN-CEN3-D-802732-4G-P-C#3758#13022025#
+Gi0/0/0/3.3778     down        down        #MOB#4G#MWRTN-CEN3-D-121912-4G-P-C#3778#13022025#
+Gi0/0/0/3.3796     down        down        #MOB#4G#MWRTN-CEN3-D-672134-4G-P-C#3796#13022025#
+Gi0/0/0/3.3990     down        down        #DSLAM#MGMT#TMGJ-DSLAM-CISCO-CEN3-6002#60001#17072026#H54-D2#
+Gi0/0/0/5          down        down        towards_POC-SWH2-ROW-H-251-4_Gi1/0/34
+Gi0/0/0/5.202      down        down        for_AgenticAI_connectivity_towards3rdfloor
+Gi0/0/0/9          down        down        connected to Spirent 4/9
+Gi0/0/0/9.2169     down        down        MWRWB-ML3-11-103591-4G-P-NC-bharti-Internal-Mobility-1022107-17072024
+Gi0/0/0/11         down        down
+Gi0/0/0/11.100     down        down        ERPS_CONTROLLER
+Gi0/0/0/11.666     down        down        #DSLAM#IMS#TMGJ-DSLAM-CISCO-CENL3-3002#30009#15072026#H51-Z1#
+Gi0/0/0/11.667     down        down        #DSLAM#IMS#TMGJ-DSLAM-CISCO-CENL3-3009#30018#23072026#H51-Z1#
+Gi0/0/0/11.1799    down        down        #DSLAM#IMS#TMGJ-DSLAM-CISCO-CENL3-1989#980919#13072026#H51-Z1#
+Gi0/0/0/11.3990    down        down        #DSLAM#MGMT#TMGJ-DSLAM-CISCO-CEN3-6002#60001#17072026#H54-D2#
+Hu0/0/0/28         up          up          towards_T4_CIRCLE_Y_LAB_2_249_19_hu0/0/1/0
+Hu0/0/0/29         up          up          Towards T1/T2-Router_249.15
+Te0/0/0/4          up          up          #MPLS#BACK-TO-BACK##CONNECTED-TO-$Y2-T2-LAB-1$-$te0/0/0/16$#CMR:CMR#
+Te0/0/0/6          up          up          towards_Y4-T4-LAB-1_te1/2/4
+Te0/0/0/7          down        down        #MPLS#BACK-TO-BACK##CONNECTED-TO-$SCOR-T1-LAB-1$-$te0/0/0/17$#CMR:CMR#
+Te0/0/0/8          up          up          MWRBJ-ML3-66-60841-NNI-S-NC-LTE-TRUNK-INFRA-XGB-BAL-TECH-X-<LOCAL-MUX-PTN_BCLBR_PIA_P_C71456/PORT:1-4-11>-PRI-<PTN-PIA-MPL-LTE-PE-RTR-43-30$SEC HundredGigE0/3/0/1>-<SEC MUX/PORT:SEC PTN_BCLBR_PIA_P_C71455/PORT:1-4-11>-125988-061218<CMR:2043450>
+Te0/0/0/10         up          up          #DSLAM#IMS#TMGJ-DSLAM-CISCO-CENL3-100088#100088#19082026#H51-Z1#
+Te0/0/0/12         down        down        #DSLAM#MGMT#TMGJ-DSLAM-CISCO-CEN3-9001#90001#17072026#H51-Z3#
+Te0/0/0/12.100     down        down        ERPS_CONTROLLER
+Te0/0/0/12.246     down        down        #DSLAM#MGMT#TMGJ-DSLAM-CISCO-CEN3-7004#70003#17072026#H51-Z4#
+Te0/0/0/12.666     down        down        #DSLAM#IMS#TMGJ-DSLAM-CISCO-CENL3-10009#10008#19082026#H51-Z1#
+Te0/0/0/13         down        down        #DSLAM#MGMT#TMGJ-DSLAM-CISCO-CEN3-9001#90001#17072026#H51-Z3#
+Te0/0/0/13.100     down        down        ERPS_CONTROLLER
+Te0/0/0/13.246     down        down        #DSLAM#MGMT#TMGJ-DSLAM-CISCO-CEN3-7004#70003#17072026#H51-Z4#
+Te0/0/0/13.666     down        down        #DSLAM#IMS#TMGJ-DSLAM-CISCO-CENL3-10009#10008#19082026#H51-Z1#
+Te0/0/0/14         down        down        #DSLAM#IMS#TMGJ-DSLAM-CISCO-CENL3-3003#30011#16072026#H51-Z1#
+Te0/0/0/14.100     down        down        ERPS_CONTROLLER
+Te0/0/0/14.246     down        down        #DSLAM#MGMT#TMGJ-DSLAM-CISCO-CEN3-7002#70001#17072026#H51-Z2#
+Te0/0/0/14.666     down        down        #DSLAM#IMS#TMGJ-DSLAM-CISCO-CENL3-3003#30011#16072026#H51-Z1#
+Te0/0/0/14.889     down        down        #DSLAM#MGMT#TMGJ-DSLAM-CISCO-CEN3-70015#700015#19082026#H51-Z1#
+Te0/0/0/15         down        down        #DSLAM#IMS#TMGJ-DSLAM-CISCO-CENL3-3003#30011#16072026#H51-Z1#
+Te0/0/0/15.100     down        down        ERPS_CONTROLLER
+Te0/0/0/15.246     down        down        #DSLAM#MGMT#TMGJ-DSLAM-CISCO-CEN3-7002#70001#17072026#H51-Z2#
+Te0/0/0/15.666     down        down        #DSLAM#IMS#TMGJ-DSLAM-CISCO-CENL3-3003#30011#16072026#H51-Z1#
+Te0/0/0/15.889     down        down        #DSLAM#MGMT#TMGJ-DSLAM-CISCO-CEN3-70015#700015#19082026#H51-Z1#
+Te0/0/0/16         down        down        #DSLAM#IMS#TMGJ-DSLAM-CISCO-CENL3-3004#30012#16072026#H51-Z1#
+Te0/0/0/16.100     down        down        ERPS_CONTROLLER
+Te0/0/0/16.246     down        down        #DSLAM#MGMT#TMGJ-DSLAM-CISCO-CEN3-7006#70005#17072026#H51-Z5#
+Te0/0/0/16.666     down        down        #DSLAM#IMS#TMGJ-DSLAM-CISCO-CENL3-10007#10006#19082026#H51-Z1#
+Te0/0/0/17         down        down        #DSLAM#IMS#TMGJ-DSLAM-CISCO-CENL3-3004#30012#16072026#H51-Z1#
+Te0/0/0/17.100     down        down        ERPS_CONTROLLER
+Te0/0/0/17.246     down        down        #DSLAM#MGMT#TMGJ-DSLAM-CISCO-CEN3-7006#70005#17072026#H51-Z5#
+Te0/0/0/17.666     down        down        #DSLAM#IMS#TMGJ-DSLAM-CISCO-CENL3-10007#10006#19082026#H51-Z1#
+Te0/0/0/18         down        down        #DSLAM#IMS#TMGJ-DSLAM-CISCO-CENL3-100088#100088#19082026#H51-Z1#
+Te0/0/0/19         down        down        Towards T1/T2-Router
+TF0/0/0/20         admin-down  admin-down
+TF0/0/0/21         admin-down  admin-down
+TF0/0/0/22         admin-down  admin-down
+TF0/0/0/23         admin-down  admin-down
+TF0/0/0/24         admin-down  admin-down
+TF0/0/0/25         admin-down  admin-down
+TF0/0/0/26         admin-down  admin-down
+TF0/0/0/27         admin-down  admin-down
+RP/0/RP0/CPU0:CHN_CEN_NCS540#

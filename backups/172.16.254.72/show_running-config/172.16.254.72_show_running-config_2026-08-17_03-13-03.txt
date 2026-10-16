@@ -1,0 +1,9488 @@
+show running-config
+Mon Aug 17 03:16:21.504 IST
+!! Building configuration...
+!! IOS XR Configuration 24.4.30
+!
+service unsupported-transceiver
+hostname I-AM-9K2-UPPER
+group IGP-TI-LFA-GCT
+ hostname I-AM-9K2-UPPER
+end-group
+group LABEL-MODE-PER-VRF
+ vrf '.*'
+  address-family ipv4 unicast
+  !
+ !
+ router bgp '9730'
+ !
+ service unsupported-transceiver
+end-group
+taskgroup readonly
+ task read fr
+ task read li
+ task read acl
+ task read atm
+ task read bfd
+ task read bgp
+ task read cdp
+ task read cef
+ task read cgn
+ task read eem
+ task read nps
+ task read otn
+ task read pbr
+ task read ppp
+ task read qos
+ task read rib
+ task read rip
+ task read sbc
+ task read ancp
+ task read bcdl
+ task read boot
+ task read diag
+ task read dwdm
+ task read hdlc
+ task read hsrp
+ task read ipv4
+ task read ipv6
+ task read isis
+ task read lisp
+ task read lpts
+ task read nacm
+ task read ospf
+ task read ouni
+ task read rcmd
+ task read snmp
+ task read vlan
+ task read vpdn
+ task read vrrp
+ task read admin
+ task read eigrp
+ task read l2vpn
+ task read bundle
+ task read crypto
+ task read fabric
+ task read static
+ task read sysmgr
+ task read system
+ task read tunnel
+ task read drivers
+ task read logging
+ task read monitor
+ task read mpls-te
+ task read netflow
+ task read network
+ task read pos-dpt
+ task read firewall
+ task read mpls-ldp
+ task read pkg-mgmt
+ task read call-home
+ task read fault-mgr
+ task read interface
+ task read inventory
+ task read multicast
+ task read route-map
+ task read sonet-sdh
+ task read transport
+ task read ext-access
+ task read filesystem
+ task read tty-access
+ task read config-mgmt
+ task read ip-services
+ task read mpls-static
+ task read route-policy
+ task read host-services
+ task read basic-services
+ task read config-services
+ task read ethernet-services
+!
+usergroup priv15
+ taskgroup root-lr
+!
+usergroup readonly
+ taskgroup readonly
+!
+clock timezone IST Asia/Kolkata
+logging console debugging
+logging monitor debugging
+tacacs source-interface MgmtEth0/RSP0/CPU0/0 vrf mgmt
+tacacs-server host 172.16.251.199 port 49
+ single-connection
+!
+tacacs-server key 7 096D471B0D001B325A5E57
+tacacs-server timeout 3
+username cisco
+ group root-lr
+ group netadmin
+ group sysadmin
+ group serviceadmin
+ group cisco-support
+ secret 10 $6$cxu7f1jSmubgCf1.$ScAz0St.4L9EKUPI3Zk2x.V9lApOXjqjHj4cxVRfo0NpghI7y0n1ImCsqT1OiT5aYljZ4.1xCJVstcoX58vmT1
+!
+username ac
+ group root-lr
+ group netadmin
+ group sysadmin
+ group serviceadmin
+ group cisco-support
+ secret 10 $6$GKSgZ/Z5PNlK4Z/.$1qn5RNeueF/rS1xKxzenaeff7tzis1raqGvsWW7vZ88HBbl0gz9cRq1eHUFi9XSfrLhJmOxy5hnLODgpARs3I1
+!
+username transportpoc
+ group root-lr
+ group netadmin
+ group sysadmin
+ secret 10 $6$8t0gGi.f2k8/G...$MiU2tHHafTrQKQ6ZhfYyNdD7Hu6hJl5xiU2JA7OCmUbb6Ff3KGVf68rO21gMGLgPn16HRyDKNBCy4rL62FkWK0
+!
+username rooto
+ group root-lr
+ secret 10 $6$ACYWs01d6i8W9s0.$8Ul2SnIWiunkpr82XUajUmuUE.tD3r.j2r.VHogvC36zwrsYzgM6qIX9Qxmhz.iGU9BXiBYvYT6fqXPecixgi.
+!
+aaa accounting exec default start-stop group tacacs+
+aaa accounting commands default start-stop group tacacs+
+aaa authorization exec default group tacacs+ none
+aaa authorization commands default group tacacs+ none
+aaa authorization eventmanager default local
+aaa authentication login default group tacacs+ local
+cdp
+telemetry model-driven
+!
+explicit-path name 15
+ index 1 exclude-address ipv4 unicast 203.203.199.1
+!
+explicit-path name 82
+ index 1 exclude-address ipv4 unicast 203.203.203.1
+!
+explicit-path name ex75
+ index 10 exclude-address ipv4 unicast 192.169.99.2
+!
+explicit-path name 82-test
+ index 1 next-address strict ipv4 unicast 203.203.203.2
+!
+explicit-path name 15-backup
+ index 1 exclude-address ipv4 unicast 193.169.99.2
+!
+explicit-path name 82-backup
+ index 1 exclude-address ipv4 unicast 200.200.200.1
+!
+explicit-path name CISCO-ECI-1
+ index 1 exclude-address ipv4 unicast 203.203.203.1
+!
+explicit-path name CISCO-ECI-2
+ index 1 next-address strict ipv4 unicast 10.83.197.1
+!
+explicit-path name CISCO-AGG-141
+ index 1 exclude-address ipv4 unicast 192.168.21.2
+!
+explicit-path name BACKUP1_IXR128
+ index 1 next-address strict ipv4 unicast 10.15.0.0
+ index 2 next-address strict ipv4 unicast 10.12.0.0
+!
+explicit-path name BACKUP2_IXR128
+ index 1 next-address strict ipv4 unicast 10.25.0.0
+!
+explicit-path name BACKUP-CISCO-AGG
+ index 1 exclude-address ipv4 unicast 192.169.99.2
+!
+explicit-path name BACKUP-CISCO-ECI-1
+ index 1 exclude-address ipv4 unicast 200.200.200.1
+!
+explicit-path name BACKUP-CISCO-ECI-2
+ index 1 next-address strict ipv4 unicast 10.10.14.1
+ index 2 next-address strict ipv4 unicast 10.83.197.1
+!
+explicit-path name Connected_towards_75
+ index 10 next-address strict ipv4 unicast 223.1.1.1
+!
+explicit-path name Connected_towards_75_backup
+ index 10 exclude-address ipv4 unicast 223.1.1.1
+!
+ptp
+ clock
+  domain 24
+  profile g.8275.1 clock-type T-BC
+  time-source PTP
+ !
+ profile any
+  multicast target-address ethernet 01-1B-19-00-00-00
+  transport ethernet
+  port state any
+  sync frequency 16
+  announce frequency 8
+  delay-request frequency 16
+ !
+ profile slave
+  multicast target-address ethernet 01-1B-19-00-00-00
+  transport ethernet
+  port state slave-only
+  sync frequency 16
+  announce frequency 8
+  delay-request frequency 16
+ !
+ profile master
+  multicast target-address ethernet 01-1B-19-00-00-00
+  transport ethernet
+  port state master-only
+  sync frequency 16
+  announce frequency 8
+  delay-request frequency 16
+ !
+ physical-layer-frequency
+!
+vrf BTS
+ rd 1:1
+ address-family ipv6 unicast
+ !
+!
+vrf 2444
+ address-family ipv4 unicast
+  import route-target
+   2444:2442
+  !
+  export route-target
+   2444:2442
+  !
+ !
+!
+vrf BBNL
+ address-family ipv4 unicast
+  import route-target
+   235:235
+  !
+  export route-target
+   235:235
+  !
+ !
+!
+vrf mgmt
+ address-family ipv4 unicast
+ !
+!
+vrf MOB72
+ address-family ipv4 unicast
+  import route-target
+   72:72
+  !
+  export route-target
+   72:72
+  !
+ !
+!
+vrf MOB73
+ address-family ipv4 unicast
+  import route-target
+   73:73
+  !
+  export route-target
+   73:73
+  !
+ !
+!
+vrf TESTS
+ rd 100:9720
+!
+vrf ECI1100
+ address-family ipv4 unicast
+  import route-target
+   1100:2100
+  !
+  export route-target
+   1100:2100
+  !
+ !
+!
+vrf IRBLEAF
+ address-family ipv4 unicast
+  import route-target
+   9730:1005
+  !
+  export route-policy Default-HVPN-IRBLEAF
+ !
+!
+vrf juniper
+ address-family ipv4 unicast
+  import route-target
+   1234:9730
+  !
+  export route-target
+   1234:9730
+  !
+ !
+!
+vrf CISCOA-1
+ address-family ipv4 unicast
+  import route-target
+   9498:1
+  !
+  export route-target
+   9498:1
+  !
+ !
+ address-family ipv6 unicast
+  import route-target
+   9498:1
+  !
+  export route-target
+   9498:1
+  !
+ !
+!
+vrf CISCOA-2
+ address-family ipv4 unicast
+  import route-target
+   9498:2
+  !
+  export route-target
+   9498:2
+  !
+ !
+ address-family ipv6 unicast
+  import route-target
+   9498:2
+  !
+  export route-target
+   9498:2
+  !
+ !
+!
+vrf CISCOA-3
+ address-family ipv4 unicast
+  import route-target
+   9498:3
+  !
+  export route-target
+   9498:3
+  !
+ !
+ address-family ipv6 unicast
+  import route-target
+   9498:3
+  !
+  export route-target
+   9498:3
+  !
+ !
+!
+vrf CISCOA-4
+ address-family ipv4 unicast
+  import route-target
+   9498:4
+  !
+  export route-target
+   9498:4
+  !
+ !
+ address-family ipv6 unicast
+  import route-target
+   9498:4
+  !
+  export route-target
+   9498:4
+  !
+ !
+!
+vrf CISCOA-5
+ address-family ipv4 unicast
+  import route-target
+   9498:5
+  !
+  export route-target
+   9498:5
+  !
+ !
+ address-family ipv6 unicast
+  import route-target
+   9498:5
+  !
+  export route-target
+   9498:5
+  !
+ !
+!
+vrf npt_1186
+ address-family ipv4 unicast
+  import route-target
+   1186:1
+  !
+  export route-target
+   1186:1
+  !
+ !
+ address-family ipv6 unicast
+  import route-target
+   1186:1
+  !
+  export route-target
+   1186:1
+  !
+ !
+!
+vrf npt_1187
+ address-family ipv4 unicast
+  import route-target
+   1187:1
+  !
+  export route-target
+   1187:1
+  !
+ !
+ address-family ipv6 unicast
+  import route-target
+   1187:1
+  !
+  export route-target
+   1187:1
+  !
+ !
+!
+vrf npt_1188
+ address-family ipv4 unicast
+  import route-target
+   1188:1
+  !
+  export route-target
+   1188:1
+  !
+ !
+ address-family ipv6 unicast
+  import route-target
+   1188:1
+  !
+  export route-target
+   1188:1
+  !
+ !
+!
+vrf npt_1189
+ address-family ipv4 unicast
+  import route-target
+   1189:1
+  !
+  export route-target
+   1189:1
+  !
+ !
+ address-family ipv6 unicast
+  import route-target
+   1189:1
+  !
+  export route-target
+   1189:1
+  !
+ !
+!
+vrf npt_1190
+ address-family ipv4 unicast
+  import route-target
+   1190:1
+  !
+  export route-target
+   1190:1
+  !
+ !
+ address-family ipv6 unicast
+  import route-target
+   1190:1
+  !
+  export route-target
+   1190:1
+  !
+ !
+!
+vrf NOKIA-SIG
+ address-family ipv4 unicast
+  import route-target
+   9730:1111
+  !
+  export route-target
+   9730:1111
+  !
+ !
+!
+vrf NOKIA_OAM
+ address-family ipv4 unicast
+  import route-target
+   9730:22080
+   9730:22932
+   9730:71263
+  !
+  export route-target
+   9730:22080
+   9730:22932
+   9730:71266
+   9730:81868
+  !
+  maximum prefix 80000 80
+ !
+!
+vrf ciena_VRF
+ address-family ipv4 unicast
+  import route-target
+   98:98
+   298:298
+  !
+  export route-policy default-ONLY-FOR-HVPN_ciena
+  export route-target
+   98:98
+  !
+  maximum prefix 80000 80
+ !
+!
+vrf NPT-L3L2-1
+ remote-route-filtering disable
+ address-family ipv4 unicast
+  import route-target
+   9730:37
+  !
+  export route-target
+   9730:37
+  !
+  maximum prefix 8000
+ !
+ address-family ipv6 unicast
+  import route-target
+   9730:37
+  !
+  export route-target
+   9730:37
+  !
+  maximum prefix 2000
+ !
+!
+vrf Nokia_1002
+ address-family ipv6 unicast
+  import route-target
+   65101:1002
+  !
+  export route-target
+   65101:1002
+  !
+ !
+!
+vrf Nokia_2001
+ address-family ipv4 unicast
+  import route-target
+   9730:8100
+  !
+  export route-target
+   9730:8100
+   9730:8200
+  !
+ !
+!
+vrf Nokia_3002
+ address-family ipv6 unicast
+  import route-target
+   65001:3002
+   65001:3012
+  !
+  export route-policy DEFAULT-ONLY-FOR-HVPN_3002
+ !
+!
+vrf Nokia_4001
+ address-family ipv4 unicast
+  import route-target
+   65001:4001
+  !
+  export route-target
+   65001:4001
+  !
+ !
+ address-family ipv6 unicast
+  import route-target
+   65001:4001
+  !
+  export route-target
+   65001:4001
+  !
+ !
+!
+vrf Nokia_5001
+ address-family ipv4 unicast
+  import route-target
+   12345:9730
+  !
+  export route-target
+   12345:9730
+  !
+ !
+!
+vrf Nokia_HVPN
+ address-family ipv4 unicast
+  import route-target
+   65001:3331
+  !
+  export route-policy DEFAULT-Nokia_HVPN-ipv4
+ !
+ address-family ipv6 unicast
+  import route-target
+   65001:3331
+  !
+  export route-policy DEFAULT-Nokia_HVPN-ipv6
+ !
+!
+vrf ciena_VRF1
+ address-family ipv4 unicast
+  import route-target
+   198:198
+  !
+  export route-target
+   198:198
+  !
+ !
+!
+vrf nokia_mclag
+ address-family ipv4 unicast
+  import route-target
+   123:123
+  !
+  export route-target
+   123:123
+  !
+ !
+!
+vrf ECI_HVPN_NEW
+ address-family ipv4 unicast
+  import route-target
+   2222:2222
+  !
+ !
+!
+vrf ECI_OAM_HVPN
+ address-family ipv4 unicast
+  import route-target
+   9730:23234
+  !
+  export route-policy DEFAULT-ONLY-FOR-VPN_ECI_OAM_HVPN
+ !
+!
+vrf nokia_mclag2
+ address-family ipv4 unicast
+  import route-target
+   124:124
+  !
+  export route-target
+   124:124
+  !
+ !
+!
+vrf nokia_mclag3
+ address-family ipv4 unicast
+  import route-target
+   125:125
+  !
+  export route-target
+   125:125
+  !
+ !
+!
+vrf Nokia_EVPN_100
+ address-family ipv4 unicast
+  import route-target
+   9730:1000
+  !
+  export route-target
+   9730:1000
+  !
+ !
+ address-family ipv6 unicast
+  import route-target
+   9730:1000
+  !
+  export route-target
+   9730:1000
+  !
+ !
+!
+vrf Nokia_EVPN_500
+ address-family ipv4 unicast
+  import route-target
+   9730:5001
+  !
+  export route-target
+   9730:5001
+  !
+ !
+ address-family ipv6 unicast
+  import route-target
+   9730:5001
+  !
+  export route-target
+   9730:5001
+  !
+ !
+!
+vrf Nokia_EVPN_600
+ address-family ipv4 unicast
+  import route-target
+   9730:6001
+  !
+  export route-target
+   9730:6001
+  !
+ !
+ address-family ipv6 unicast
+  import route-target
+   9730:6001
+  !
+  export route-target
+   9730:6001
+  !
+ !
+!
+vrf ECI_VRF_2G_HVPN
+ address-family ipv4 unicast
+  import route-target
+   9730:23311
+  !
+  export route-policy DEFAULT-ONLY-FOR-VPN_ECI_VRF_2G_HVPN
+ !
+!
+vrf Nokia_VPN_Scale
+ address-family ipv4 unicast
+  import route-target
+   9100:100
+  !
+  export route-target
+   9100:100
+  !
+ !
+ address-family ipv6 unicast
+  import route-target
+   9100:100
+  !
+  export route-target
+   9100:100
+  !
+ !
+!
+vrf eci_mgmt_50_nni
+ address-family ipv4 unicast
+  import route-target
+   50:50
+  !
+  export route-target
+   50:50
+  !
+ !
+!
+vrf CEN-Acess-1100-1
+ address-family ipv4 unicast
+  import route-policy 9912_rej_15_1
+  import route-target
+   9730:1001
+  !
+  export route-policy Default-HVPN-NPT1100-1
+ !
+!
+vrf CEN-Acess-1100-2
+ address-family ipv4 unicast
+  import route-target
+   9730:1002
+  !
+  export route-policy Default-HVPN-NPT1100-2
+ !
+!
+vrf CEN-Acess-1100-3
+ address-family ipv4 unicast
+  import route-target
+   9730:1003
+  !
+  export route-policy Default-HVPN-NPT1100-3
+ !
+!
+vrf CEN-Acess-1100-4
+ address-family ipv4 unicast
+  import route-target
+   9730:1004
+  !
+  export route-policy Default-HVPN-NPT1100-4
+ !
+!
+vrf ciena_VRF_xgspon
+ address-family ipv4 unicast
+  import route-target
+   298:298
+  !
+  export route-target
+   298:298
+  !
+ !
+!
+vrf npt_MP-ABIS-2G-1
+ address-family ipv4 unicast
+  import route-target
+   9730:37693
+  !
+  export route-policy DEFAULT-HVPN_npt_MP-ABIS-2G-1
+ !
+ address-family ipv6 unicast
+  import route-target
+   9730:37693
+  !
+  export route-policy DEFAULT-HVPN_V6_npt_MP-ABIS-2G-1
+ !
+!
+vrf npt_MP-ABIS-2G-2
+ address-family ipv4 unicast
+  import route-target
+   9730:37694
+  !
+  export route-policy DEFAULT-HVPN_npt_MP-ABIS-2G-2
+ !
+ address-family ipv6 unicast
+  import route-target
+   9730:37694
+  !
+  export route-policy DEFAULT-HVPN_V6_npt_MP-ABIS-2G-2
+ !
+!
+vrf nokia_mgmt_52_nni
+ address-family ipv4 unicast
+  import route-target
+   52:52
+  !
+  export route-target
+   52:52
+  !
+ !
+!
+vrf ECI_SIGNALLING_HVPN
+ address-family ipv4 unicast
+  import route-target
+   9730:32144
+  !
+  export route-policy DEFAULT-ONLY-FOR-VPN_ECI_SIGNALLING_HVPN
+ !
+!
+vrf Nokia_COLO-BSC_2003
+ address-family ipv4 unicast
+  import route-target
+   9730:30214
+  !
+  export route-target
+   9730:30214
+  !
+  maximum prefix 10000000
+ !
+ address-family ipv6 unicast
+ !
+!
+vrf eci_service_700_nni
+ address-family ipv4 unicast
+  import route-target
+   700:700
+  !
+  export route-target
+   700:700
+  !
+ !
+!
+vrf nokia_service_80_nni
+ address-family ipv4 unicast
+  import route-target
+   80:80
+  !
+  export route-target
+   80:80
+  !
+ !
+!
+vrf Cisco-Automation-1000
+ address-family ipv4 unicast
+  import route-target
+   9498:1000
+  !
+  export route-target
+   9498:1000
+  !
+ !
+ address-family ipv6 unicast
+  import route-target
+   9498:1000
+  !
+  export route-target
+   9498:1000
+  !
+ !
+!
+vrf nokia_service_700_nni
+ address-family ipv4 unicast
+  import route-target
+   700:700
+  !
+  export route-target
+   700:700
+  !
+ !
+!
+address-family ipv4 unicast
+!
+ethernet sla
+ profile test type cfm-delay-measurement
+  probe
+   send burst every 3 seconds packet count 5 interval 100 milliseconds
+  !
+  schedule
+   every 3 minutes for 120 seconds
+  !
+  statistics
+   measure round-trip-delay
+   !
+   measure one-way-delay-sd
+   !
+   measure one-way-delay-ds
+   !
+  !
+ !
+ profile test-j type cfm-delay-measurement
+  probe
+   send burst once packet count 2 interval 100 milliseconds
+  !
+  schedule
+   every 1 minutes
+  !
+  statistics
+   measure round-trip-jitter
+   !
+   measure one-way-jitter-sd
+   !
+   measure one-way-jitter-ds
+   !
+  !
+ !
+ profile test-l type cfm-loss-measurement
+  probe
+   send burst every 10 seconds packet count 5 interval 1000 milliseconds
+   priority 6
+  !
+  schedule
+   every 5 minutes for 120 seconds
+  !
+  statistics
+   measure one-way-loss-sd
+    buckets archive 2
+   !
+   measure one-way-loss-ds
+    buckets archive 2
+   !
+  !
+ !
+ profile test-sl type cfm-synthetic-loss-measurement
+  probe
+   send burst every 10 seconds packet count 5 interval 1000 milliseconds
+   priority 6
+  !
+  schedule
+   every 5 minutes for 120 seconds
+  !
+  statistics
+   measure one-way-loss-sd
+    buckets archive 2
+   !
+   measure one-way-loss-ds
+    buckets archive 2
+   !
+  !
+ !
+!
+tcp ao
+ keychain bgp-key
+  key 1 SendID 1 ReceiveID 1
+ !
+!
+line template vty
+ exec-timeout 8 0
+ session-timeout 10
+ transport input ssh telnet
+ transport output all
+!
+line console
+ exec-timeout 0 0
+!
+line default
+ exec-timeout 10 0
+ session-limit 10
+ session-timeout 100
+!
+line template sanjeewa
+ exec-timeout 0 0
+ session-timeout 0
+ transport input all
+ transport output all
+!
+vty-pool default 0 99 line-template sanjeewa
+lpts punt excessive-flow-trap
+ exclude interface Bundle-Ether49
+ exclude interface Bundle-Ether54
+ exclude interface Bundle-Ether73
+ exclude interface Bundle-Ether54.2
+ exclude interface Bundle-Ether54.4
+!
+snmp-server ifmib ifalias long
+snmp-server ifindex persist
+snmp-server ifmib stats cache
+snmp-server interface subset 1 regular-expression Ten*
+ notification linkupdown
+!
+snmp-server interface subset 2 regular-expression Forty*
+ notification linkupdown
+!
+snmp-server interface subset 3 regular-expression Hun*
+ notification linkupdown
+!
+snmp-server interface subset 4 regular-expression TwoHun*
+ notification linkupdown
+!
+snmp-server interface subset 5 regular-expression FourHun*
+ notification linkupdown
+!
+snmp-server interface subset 6 regular-expression Loopb*
+ notification linkupdown
+!
+session-redundancy
+!
+snmp-server host 172.16.251.209 traps version 3 priv ac
+snmp-server host 172.16.251.209 traps version 3 priv transportpoc
+snmp-server host 191.168.1.2 traps version 3 priv RouteMon
+snmp-server user ac groupv3priv v3 auth md5 encrypted 110A0B0C14190E18 priv aes 128 encrypted 1511190507212E30
+snmp-server user RouteMon RouteMon v3 auth sha encrypted 047A02141B24406E584B56 priv aes 128 encrypted 0800455C1D1C093743595F
+snmp-server user transportpoc groupv3priv v3 auth md5 encrypted 13241E001F09080A7A767B priv aes 128 encrypted 01320F164F0E0A2F701E1D
+snmp-server view epnm 1.3.6 included
+snmp-server group RouteMon v3 priv
+snmp-server group groupv3priv v3 priv notify epnm read epnm
+snmp-server queue-length 1000
+snmp-server traps rf
+snmp-server traps bfd
+snmp-server traps ds3
+snmp-server traps ntp
+snmp-server traps copy-complete
+snmp-server traps snmp
+snmp-server traps snmp linkup
+snmp-server traps snmp linkdown
+snmp-server traps snmp coldstart
+snmp-server traps snmp warmstart
+snmp-server traps snmp authentication
+snmp-server traps flash removal
+snmp-server traps flash insertion
+snmp-server traps power
+snmp-server traps sonet
+snmp-server traps config
+snmp-server traps entity
+snmp-server traps selective-vrf-download role-change
+snmp-server traps syslog
+snmp-server traps system
+snmp-server traps frequency synchronization
+snmp-server traps bridgemib
+snmp-server traps optical
+snmp-server traps entity-state operstatus
+snmp-server traps entity-state switchover
+snmp-server traps entity-redundancy all
+snmp-server traps entity-redundancy status
+snmp-server traps entity-redundancy switchover
+snmp-server trap-source Loopback0
+monitor-session 15 ethernet
+ destination interface GigabitEthernet0/1/0/2
+!
+monitor-session LLF ethernet
+ destination interface GigabitEthernet0/1/0/16
+!
+monitor-session SPAN ethernet
+ destination file size 20000 buffer-type linear
+!
+monitor-session MCAST ethernet
+ destination interface TenGigE0/1/1/12
+!
+monitor-session test1 ethernet
+ destination interface GigabitEthernet0/0/0/1
+!
+monitor-session Test-ECI ethernet
+!
+monitor-session SPAN_TEST ethernet
+ destination file size 200000
+!
+monitor-session Ceina_Test ethernet
+ destination pseudowire
+!
+dhcp ipv4
+ profile LTE_RELAY1 relay
+  helper-address vrf LTE_S1-U 101.101.101.101
+ !
+ profile LTE_RELAY2 relay
+  helper-address vrf LTE_S1-U 12.101.101.101
+ !
+ profile LTE_RELAY3 relay
+  helper-address vrf LTE_S1-U 13.101.101.101
+ !
+ profile LTE_RELAY4 relay
+  helper-address vrf LTE_S1-U 12.12.12.12
+  helper-address vrf LTE_S1-U 13.13.13.13
+  helper-address vrf LTE_S1-U 13.101.101.101
+ !
+!
+ipv4 conflict-policy static
+ntp
+ server 172.16.103.1
+ server 172.16.103.3 prefer
+ source MgmtEth0/RSP0/CPU0/0
+ update-calendar
+!
+bfd
+ interface Bundle-Ether25
+ !
+ interface TenGigE0/0/0/0
+ !
+ interface Bundle-Ether102
+ !
+ interface TenGigE0/0/0/18
+ !
+ interface Bundle-Ether1000
+ !
+ interface Bundle-Ether102.2
+ !
+ interface HundredGigE0/2/0/12
+ !
+ interface FourHundredGigE0/2/0/0
+ !
+ multipath include location 0/0/CPU0
+ multipath include location 0/1/CPU0
+ multipath include location 0/2/CPU0
+ echo disable
+ ipv6 checksum disable
+ trap singlehop pre-mapped
+!
+alias last show configuration commit changes last
+alias exec sb show run router bgp
+alias exec si show ip int br | i Up
+alias exec ul undebug all
+alias exec sic show run router isis CORE
+alias exec sit show run router isis T4
+alias config si show ip int br | i Up
+alias config xx commit
+alias config commit xx
+configuration display interface slot-order
+ipv4 unnumbered mpls traffic-eng Loopback0
+ethernet cfm
+ domain md3 level 3
+  service ma3 xconnect group 2181 p2p 2181
+   continuity-check interval 100ms loss-threshold 3
+   mep crosscheck
+    mep-id 10
+   !
+   log continuity-check errors
+   log crosscheck errors
+   log continuity-check mep changes
+  !
+ !
+ domain Operator level 3
+  service LLCF6569-0 xconnect group DIAMOND101 p2p NLD-tunnel101
+   continuity-check interval 1s loss-threshold 3
+   csf
+   mep crosscheck
+    mep-id 2101
+   !
+   log continuity-check errors
+   log crosscheck errors
+   log continuity-check mep changes
+  !
+ !
+!
+frequency synchronization
+ quality itu-t option 1
+!
+key chain test
+ key 10
+  accept-lifetime 00:00:00 december 23 2019 infinite
+  key-string password 123456
+  send-lifetime 00:00:00 december 23 2019 infinite
+  cryptographic-algorithm HMAC-MD5
+ !
+!
+key chain bharti
+ key 100
+  accept-lifetime 00:00:00 january 01 2012 infinite
+  key-string password 02040C5A191206
+  send-lifetime 00:00:00 january 01 2012 infinite
+  cryptographic-algorithm HMAC-MD5
+ !
+!
+key chain bgp-key
+ key 1
+  accept-lifetime 00:00:00 september 23 2024 infinite
+  key-string password 055A545C7519
+ !
+!
+key chain pardeep
+ key 100
+  accept-lifetime 00:00:00 january 01 2012 infinite
+  send-lifetime 00:00:00 january 01 2012 infinite
+  cryptographic-algorithm HMAC-MD5
+ !
+!
+key chain isp-test-keychain
+!
+call-home
+ service active
+ contact smart-licensing
+ profile CiscoTAC-1
+  active
+  destination transport-method email disable
+  destination transport-method http
+ !
+!
+control-plane
+ management-plane
+  inband
+   interface TenGigE0/1/1/4
+    allow all
+   !
+   interface Bundle-Ether102.2
+    allow all
+   !
+   interface Bundle-Ether102.4
+    allow all
+   !
+   interface Bundle-Ether1300.1300
+    allow all
+   !
+   interface Bundle-Ether1300.1301
+    allow all
+   !
+  !
+ !
+!
+netconf-yang agent
+ ssh
+!
+ipv6 access-list mplsgre
+ 1 permit ipv6 any any
+!
+ipv4 access-list 65
+ 10 permit ipv4 host 10.5.185.209 any log
+ 20 permit ipv4 host 10.5.185.209 any
+ 30 permit ipv4 host 10.3.247.3 any
+ 40 permit ipv4 host 10.5.185.74 any log
+!
+ipv4 access-list rp1
+ 1 permit ipv4 13.3.3.0/24 any
+!
+ipv4 access-list rp2
+ 1 permit ipv4 123.23.3.0/24 any
+!
+ipv4 access-list rpp1
+ 1 permit ipv4 3.3.13.0/24 any
+!
+ipv4 access-list test
+ 10 remark Do not allow user to send Mail_SPAM
+ 20 permit ipv4 any any
+ 30 deny tcp 102.103.101.100 0.0.255.255 any eq 587
+ 35 deny tcp 102.103.101.100 0.0.255.255 any eq smtp
+ 40 deny tcp 102.103.101.100 0.0.255.255 any eq 2525
+ 45 deny tcp 102.103.101.100 0.0.255.255 any eq 465
+!
+ipv4 access-list TEST1
+ 10 permit ipv4 host 192.169.99.2 host 192.169.99.1
+ 20 permit ipv4 host 192.169.99.1 host 192.169.99.2
+ 30 permit ipv4 any any
+ 40 permit ipv4 any any
+!
+ipv4 access-list mofrr
+ 10 permit ipv4 232.0.0.0 0.255.255.255 any
+!
+ipv4 access-list AAD-1-A
+ 1 permit ipv4 20.80.116.80/30 any
+!
+ipv4 access-list SPAN_ECI
+ 30 permit ipv4 any any capture
+!
+ipv4 access-list mplsgre4
+ 1 permit ipv4 any any nexthop1 ipv4 203.1.1.2
+!
+ipv4 access-list SSM-RANGE
+ 10 permit ipv4 239.232.0.0 0.0.255.255 any
+ 20 permit ipv4 239.192.0.0 0.0.255.255 any
+!
+ipv4 access-list ssm-range
+ 10 permit ipv4 any 239.0.0.0/8
+!
+ipv4 access-list bhdfdg-1-A
+ 1 permit ipv4 10.22.21.0/24 any
+!
+ipv4 access-list DENY-ACCLIST
+ 10 permit ipv4 host 10.83.196.1 any
+ 20 permit ipv4 host 10.83.197.1 any
+ 30 permit ipv4 host 83.83.83.83 any
+ 40 permit ipv4 host 82.82.82.82 any
+!
+ipv4 access-list loopback_only
+ 10 permit ipv4 10.10.0.0 0.0.255.255 any
+ 30 permit ipv4 host 220.220.220.220 any
+ 40 permit ipv4 host 110.110.110.110 any
+ 70 permit ipv4 host 172.16.254.75 any
+ 80 permit ipv4 72.0.0.0 0.255.255.255 any
+ 90 permit ipv4 host 10.3.247.10 any
+ 100 permit ipv4 host 10.3.247.37 any
+ 110 permit ipv4 host 10.3.247.8 any
+ 111 permit ipv4 host 10.0.113.113 any
+ 112 permit ipv4 host 122.122.122.122 any
+ 113 permit ipv4 host 77.77.77.77 any
+ 114 permit ipv4 host 78.78.78.78 any
+ 115 permit ipv4 host 111.111.111.111 any
+ 116 permit ipv4 host 221.221.221.221 any
+ 117 permit ipv4 host 42.42.42.42 any
+ 119 permit ipv4 host 10.0.111.111 any
+ 120 permit ipv4 host 10.0.112.112 any
+ 130 permit ipv4 host 10.11.117.1 any
+ 140 permit ipv4 host 10.11.118.1 any
+ 150 permit ipv4 10.11.0.0 0.0.255.255 any
+ 160 permit ipv4 15.15.0.0 0.0.255.255 any
+ 170 permit ipv4 host 45.45.45.45 any
+ 180 permit ipv4 host 81.81.81.81 any
+ 190 permit ipv4 host 82.82.82.82 any
+ 191 permit ipv4 host 83.83.83.83 any
+ 192 permit ipv4 host 84.84.84.84 any
+ 200 permit ipv4 host 23.23.23.23 any
+ 210 permit ipv4 host 24.24.24.24 any
+!
+ipv4 access-list ASM-RP-RANGE-AAD
+ 1 permit ipv4 82.90.128.40/30 any
+!
+ipv4 access-list SSM-RANGE-BHARTI
+ 10 permit ipv4 232.0.0.0 0.0.0.255 any
+ 20 permit ipv4 239.192.0.0 0.0.255.255 any
+!
+ipv4 access-list Multicast-Noida-27-A
+ 1 permit ipv4 13.33.13.0/24 any
+!
+ipv4 access-list ASM-RP-RANGE-Multicast-Delhi
+ 1 permit ipv4 13.3.3.0/24 any
+!
+ipv4 prefix-list ECI
+ 10 deny 192.0.0.0/14 ge 14
+ 15 deny 130.0.0.0/14 ge 14
+ 20 deny 194.0.0.0/14 ge 14
+ 25 deny 195.0.0.0/14 ge 14
+ 30 deny 193.0.0.0/14 ge 14
+ 35 deny 196.0.0.0/14 ge 14
+ 40 deny 196.0.0.0/14 ge 14
+ 45 deny 199.0.0.0/14 ge 14
+ 50 deny 189.0.0.0/14 ge 14
+ 55 deny 188.0.0.0/14 ge 14
+ 60 deny 185.0.0.0/14 ge 14
+ 65 deny 182.0.0.0/14 ge 14
+ 70 deny 199.0.0.0/14 ge 14
+!
+ipv4 prefix-list Loopback-Adv
+ 10 permit 10.10.0.0/16 le 32
+!
+class-map match-any CORE_ONM
+ description [NETWORK - IP Prec=2 MPLS EXP = 2]
+ match mpls experimental topmost 2
+ match dscp af32 4
+ end-class-map
+!
+class-map match-any BUSINESS-T4
+ match mpls experimental topmost 1
+ match precedence 1
+ match dscp af23
+ end-class-map
+!
+class-map match-any CORE_SIGNAL
+ description [SIGNALING - MPLS EXP=1]
+ match mpls experimental topmost 1
+ match dscp ef af22
+ end-class-map
+!
+class-map match-any CORE_NETWORK
+ description [NETWORK - IP Prec=6 -7, MPLS EXP = 6-7]
+ match mpls experimental topmost 6 7
+ match dscp cs6 cs7
+ match precedence ipv4 6 7
+ end-class-map
+!
+class-map match-any CORE_BUSINESS
+ description [NETWORK - IP Prec=3 MPLS EXP = 3]
+ match mpls experimental topmost 3 6 7
+ match precedence ipv4 6 7
+ match dscp af12 af13 af23 cs3 af31 cs5
+ end-class-map
+!
+class-map match-any CORE_DATA_GOLD
+ description [MOBILITY DATA - MPLS EXP=4]
+ match precedence ipv4 4
+ match mpls experimental topmost 4
+ match dscp cs1 af11 af33 cs4 6
+ end-class-map
+!
+class-map match-any Premium_NRT-T4
+ match mpls experimental topmost 4
+ match precedence 4
+ match dscp ef
+ end-class-map
+!
+class-map match-any CORE_PREMIUM_RT
+ description [PREMIUM - MPLS EXP=5]
+ match mpls experimental topmost 5
+ match dscp af41 af21 cs2 42 44
+ end-class-map
+!
+policy-map max-queue
+ class class-default
+  queue-limit 85 packets
+ !
+ end-policy-map
+!
+policy-map CORE-MPLS-ASR9k-BHARTI_NEW
+ class CORE_NETWORK
+  bandwidth percent 5
+ !
+ class CORE_PREMIUM_RT
+  priority level 1
+  police rate percent 30
+  !
+ !
+ class CORE_SIGNAL
+  bandwidth percent 5
+ !
+ class CORE_DATA_GOLD
+  bandwidth percent 20
+ !
+ class CORE_ONM
+  bandwidth percent 5
+ !
+ class CORE_BUSINESS
+  bandwidth percent 30
+ !
+ class class-default
+  bandwidth percent 5
+  random-detect default
+ !
+ end-policy-map
+!
+flow exporter-map e-map
+ version v9
+  options interface-table
+  template data timeout 600
+ !
+ dscp 10
+ transport udp 1024
+ source Loopback0
+ destination 10.10.15.1
+!
+flow monitor-map m-map
+ record ipv4
+ exporter e-map
+ cache entries 10000
+ cache timeout active 15
+!
+flow monitor-map FNF_MONITOR_MAP
+ record ipv4 peer-as
+!
+sampler-map s-map
+ random 1 out-of 1000
+!
+sampler-map FNF_SAMPLER_MAP
+!
+hw-module location 0/2/CPU0 port 0 breakout 1xFourHundredGigE
+hw-module location 0/2/CPU0 port 7 breakout 1xHundredGigE
+hw-module location 0/2/CPU0 port 8 breakout 1xFourHundredGigE
+hw-module location 0/2/CPU0 port 12 breakout 1xHundredGigE
+interface BVI700
+ description for nokia testing uni to nni-service vlan 700
+ host-routing
+ mtu 9000
+ vrf nokia_service_700_nni
+ ipv4 address 11.213.214.1 255.255.255.0
+ arp timeout 300
+ mac-address 00a2.00a2.00a2
+ load-interval 30
+!
+interface BVI1000
+ description for nokia testing uni to nni-mgmt vlan 52
+ host-routing
+ mtu 9000
+ vrf nokia_mgmt_52_nni
+ ipv4 address 11.213.216.1 255.255.255.0
+ arp timeout 300
+ mac-address 00a2.00a2.00a2
+ load-interval 30
+!
+interface BVI1001
+ description for nokia testing uni to vpls_1001
+ host-routing
+ mtu 9000
+ vrf nokia_service_700_nni0_nni
+ ipv4 address 11.213.217.1 255.255.255.0
+ arp timeout 300
+ mac-address 00a2.00a2.00a2
+ load-interval 30
+!
+interface BVI1002
+ description for nokia testing uni to vpls_1002
+ host-routing
+ mtu 9000
+ vrf nokia_service_80_nni
+ ipv4 address 11.213.218.1 255.255.255.0
+ arp timeout 300
+ mac-address 00a2.00a2.00a2
+ load-interval 30
+!
+interface BVI1100
+ mtu 9216
+ vrf ECI1100
+ ipv4 address 192.73.72.1 255.255.255.0
+ arp timeout 300
+ mac-address 00a2.00a2.00a2
+ load-interval 30
+!
+interface BVI1250
+ description for stag ctag
+ host-routing
+ mtu 9186
+ vrf ciena_VRF1
+ ipv4 address 163.163.163.1 255.255.255.0
+ arp timeout 300
+ mac-address 00a2.00a2.00a2
+ load-interval 30
+!
+interface BVI1251
+ description for stag ctag
+ host-routing
+ mtu 9202
+ vrf ciena_VRF
+ ipv4 address 173.173.173.3 255.255.255.0
+ arp timeout 300
+ mac-address 00a2.00a2.00a2
+ load-interval 30
+!
+interface BVI2444
+ description for ios xr 2442
+ mtu 9216
+ vrf 2444
+ ipv4 address 24.244.243.1 255.255.255.0
+ arp timeout 300
+ mac-address 00a2.00a2.00a2
+ load-interval 30
+!
+interface Bundle-Ether2
+ mtu 9216
+!
+interface Bundle-Ether10
+ description ## For Juniper testing ##
+ ipv4 address 172.16.4.78 255.255.255.254
+ lacp period short
+!
+interface Bundle-Ether10.10
+ ipv4 address 100.64.8.1 255.255.255.254
+ encapsulation dot1q 10
+!
+interface Bundle-Ether11
+ description **towards Zeeshan OLT D-13 For Verizon link testing ##
+ mtu 9216
+ load-interval 30
+!
+interface Bundle-Ether11.1199 l2transport
+ description VLAN-1199
+ encapsulation dot1q 1199
+ mtu 9220
+!
+interface Bundle-Ether11.1200 l2transport
+ encapsulation dot1q 1200
+ rewrite ingress tag pop 1 symmetric
+!
+interface Bundle-Ether11.1234 l2transport
+ description ## AC for L2VPN service with New Nokia IXR-e3x ##
+ encapsulation dot1q 1234
+!
+interface Bundle-Ether11.1235 l2transport
+ description ## AC for L2VPN service with New Nokia IXR-e3x ##
+ encapsulation dot1q 1235
+!
+interface Bundle-Ether16
+ description **connected to Nokia R6d 172.16.251.129 @port-1/4/c1/1 **
+ bfd mode ietf
+ bfd address-family ipv4 timers start 60
+ bfd address-family ipv4 multiplier 3
+ bfd address-family ipv4 destination 10.0.0.9
+ bfd address-family ipv4 fast-detect
+ bfd address-family ipv4 minimum-interval 100
+ mtu 9216
+ ipv4 address 10.0.0.8 255.255.255.254
+ ipv6 address 2410::7/127
+ load-interval 30
+!
+interface Bundle-Ether17
+ description **connected to Nokia R6d 172.16.251.210 @port-1/1/c36 **
+ bfd mode ietf
+ bfd address-family ipv4 timers start 60
+ bfd address-family ipv4 multiplier 3
+ bfd address-family ipv4 destination 11.0.0.0
+ bfd address-family ipv4 fast-detect
+ bfd address-family ipv4 minimum-interval 100
+ mtu 9216
+ ipv4 address 11.0.0.1 255.255.255.254
+ load-interval 30
+!
+interface Bundle-Ether22
+ mtu 9216
+ ipv4 address 68.38.1.1 255.255.255.254
+ load-interval 30
+!
+interface Bundle-Ether102
+ description connected between IGP domain
+ bfd address-family ipv4 timers start 60
+ bfd address-family ipv4 multiplier 3
+ bfd address-family ipv4 destination 192.168.55.3
+ bfd address-family ipv4 fast-detect
+ bfd address-family ipv4 minimum-interval 50
+ mtu 9216
+ ipv4 address 192.168.55.2 255.255.255.254
+ lacp mode active
+ load-interval 30
+!
+interface Bundle-Ether102.2
+ description ****connecting to ASR_9K_1 ****
+ mtu 9216
+ ipv4 address 192.168.21.2 255.255.255.252
+ ipv6 address 2405:200:201:c00:192:168:21:0/127
+ load-interval 30
+ encapsulation dot1q 2
+!
+interface Bundle-Ether102.4
+ description ****connecting to ASR_9K_1 ****
+ mtu 9216
+ ipv4 address 99.99.0.2 255.255.255.252
+ ipv6 address 2405:200:201:c00:99:99:0:2/127
+ load-interval 30
+ encapsulation dot1q 4
+!
+interface Bundle-Ether102.5
+ description ****connecting to ASR_9K_1 ****
+ mtu 9216
+ ipv4 address 97.97.97.1 255.255.255.252
+ load-interval 30
+ encapsulation dot1q 5
+!
+interface Bundle-Ether102.6
+ description #$CEN-Topology$$Back-To-Back$Towards-9k1-lower$#
+ ipv4 address 192.192.0.2 255.255.255.252
+ ipv6 address 2001:d:e::/127
+ load-interval 30
+ encapsulation dot1q 6
+!
+interface Bundle-Ether102.14
+ ipv4 address 192.168.99.1 255.255.255.252
+ encapsulation dot1q 14
+!
+interface Bundle-Ether102.50 l2transport
+ encapsulation dot1q 50
+ rewrite ingress tag pop 1 symmetric
+ mtu 1518
+!
+interface Bundle-Ether404
+ description for epnm
+ mtu 9216
+ load-interval 30
+!
+interface Bundle-Ether404.10
+ description for isis limit metric
+ mtu 9216
+ ipv4 address 192.11.99.2 255.255.255.252
+ load-interval 30
+ encapsulation dot1q 10
+!
+interface Bundle-Ether411
+ description ACTIVE/STANDBY LAG toward CORE
+ mtu 9216
+ ipv4 address 29.30.40.1 255.255.255.252
+ bundle maximum-active links 1
+ bundle minimum-active links 1
+!
+interface Bundle-Ether1000
+ description towards 172.16.254.198 NCS540-SYS-ACC router
+ mtu 9216
+ ipv4 address 151.0.0.1 255.255.255.252
+ ipv6 address fc:a::/127
+ load-interval 30
+!
+interface Bundle-Ether1036
+ description Te0/0/0/17 BE1036 peto-ng
+ mtu 9216
+ ipv4 address 10.36.36.2 255.255.255.252
+ load-interval 30
+!
+interface Bundle-Ether4100
+ mtu 9216
+ ipv4 address 51.52.53.56 255.255.255.0
+ load-interval 30
+!
+interface Bundle-Ether7238
+!
+interface Bundle-Ether7260
+ description for juniper from .72 to .60
+ mtu 9216
+ load-interval 30
+!
+interface Bundle-Ether7260.12
+ description for juniper from .72 to .60 for IGP ring
+ mtu 9216
+ service-policy output CORE-MPLS-ASR9k-BHARTI_NEW
+ ipv4 address 192.163.0.3 255.255.255.254
+ load-interval 30
+ encapsulation dot1q 12
+!
+interface Bundle-Ether7260.17
+ description for juniper from .72 to .60 for T4 ring
+ ipv4 address 192.163.0.17 255.255.255.254
+ load-interval 30
+ encapsulation dot1q 17
+!
+interface Bundle-Ether7268
+ description -- NCS55A-1 Te0/0/0/0 --
+ mtu 9216
+ service-policy output CORE-MPLS-ASR9k-BHARTI_NEW
+ ipv4 address 192.168.7.1 255.255.255.252
+ ipv6 address 2405:200:201:c00:192:168:7:1/127
+ load-interval 30
+!
+interface Bundle-Ether7572
+ description connected towards 9912 port ten0/7/1/17
+ mtu 9216
+ ipv4 address 192.169.99.2 255.255.255.252
+ load-interval 30
+!
+interface Bundle-Ether13197
+ description towards 540 E2 bundle 13197 port T7 from 9K2 port T7 bundle 13197
+ mtu 9216
+ load-interval 30
+!
+interface Loopback0
+ description @@@@ Router-ID & Management Interface @@@@
+ ipv4 address 10.10.13.1 255.255.255.255
+ ipv6 address 2405:200:201:c00:10:10:13:1/128
+!
+interface Loopback2
+ description ** loopback for T4 Ring **
+ ipv4 address 10.10.130.1 255.255.255.255
+ load-interval 30
+!
+interface Loopback45
+ vrf BBNL
+ ipv4 address 10.13.10.1 255.255.255.255
+!
+interface Loopback72
+ ipv4 address 1.1.1.10 255.255.255.255
+!
+interface Loopback73
+ ipv4 address 12.12.23.12 255.255.255.255
+!
+interface Loopback111
+ vrf juniper
+ ipv4 address 111.1.1.1 255.255.255.255
+!
+interface Loopback150
+ description MPLS#$CEN-Topology$#$CEN-Infrastructure MGMT-Loopback$#
+ ipv4 address 101.101.101.101 255.255.255.255
+ ipv6 address 2001:b::b/128
+!
+interface Loopback301
+ vrf Nokia_HVPN
+ ipv4 address 1.1.13.1 255.255.255.255
+ ipv6 address 2444::13/128
+!
+interface Loopback2001
+ vrf NOKIA_OAM
+ ipv4 address 100.100.100.13 255.255.255.255
+!
+interface tunnel-te10
+ shutdown
+ load-interval 30
+ priority 1 1
+ autoroute announce
+ !
+ destination 10.10.14.1
+ fast-reroute
+ path-protection
+ !
+ path-option 1 dynamic
+ path-option 5 explicit name ex22 protected-by 10
+ path-option 10 explicit name ex75
+!
+interface tunnel-te15
+ description towards 10.10.15.1 connected interface
+ ipv4 unnumbered TenGigE0/1/1/4
+ shutdown
+!
+interface MgmtEth0/RSP0/CPU0/0
+ description Mgmt
+ ipv4 address 172.16.254.72 255.255.255.0
+!
+interface GigabitEthernet0/1/0/0
+ description ## Connected to NuvemLabs BGP MON Server ###
+ mtu 9216
+ ipv4 address 191.168.1.1 255.255.255.252
+ negotiation auto
+!
+interface GigabitEthernet0/1/0/1
+ description toward 4/11
+ mtu 9216
+ load-interval 30
+!
+interface GigabitEthernet0/1/0/1.10 l2transport
+ description ## Connected to OLT for Verizon Testing ##
+ encapsulation dot1q 10
+!
+interface GigabitEthernet0/1/0/1.20 l2transport
+ encapsulation dot1q 20
+!
+interface GigabitEthernet0/1/0/1.1199 l2transport
+ description ## Connected to OLT for Verizon Testing ##
+ encapsulation dot1q 1199
+!
+interface GigabitEthernet0/1/0/2
+ description ** Conneted to BTS for UBR Testing QinQ **
+ mtu 9216
+ load-interval 30
+!
+interface GigabitEthernet0/1/0/2.475
+ vrf BTS
+ ipv6 address 2401:4900:d0:40e4:0:13e1:0:6/64
+ encapsulation dot1q 475
+!
+interface GigabitEthernet0/1/0/3
+ description *** Connected to MSC-room fms:9,10 for UBR Testing QinQ ***
+ load-interval 30
+!
+interface GigabitEthernet0/1/0/3.100 l2transport
+ encapsulation dot1q 1102 second-dot1q 111
+ rewrite ingress tag pop 1 symmetric
+!
+interface GigabitEthernet0/1/0/4
+ shutdown
+!
+interface GigabitEthernet0/1/0/5
+ shutdown
+!
+interface GigabitEthernet0/1/0/6
+ shutdown
+!
+interface GigabitEthernet0/1/0/7
+ shutdown
+!
+interface GigabitEthernet0/1/0/8
+ shutdown
+!
+interface GigabitEthernet0/1/0/9
+ shutdown
+!
+interface GigabitEthernet0/1/0/10
+ shutdown
+!
+interface GigabitEthernet0/1/0/11
+ shutdown
+!
+interface GigabitEthernet0/1/0/12
+ shutdown
+!
+interface GigabitEthernet0/1/0/13
+ shutdown
+!
+interface GigabitEthernet0/1/0/14
+ shutdown
+!
+interface GigabitEthernet0/1/0/15
+ shutdown
+!
+interface GigabitEthernet0/1/0/17
+ shutdown
+!
+interface GigabitEthernet0/1/0/18
+ bundle id 11 mode active
+ load-interval 30
+!
+interface GigabitEthernet0/1/0/19
+ bundle id 11 mode active
+ load-interval 30
+!
+interface TenGigE0/1/1/0
+ description Te0/0/0/17 BE1036 peto-ng
+ bundle id 1036 mode active
+ load-interval 30
+!
+interface TenGigE0/1/1/1
+ description ** connected to Juniper BNG ***
+ load-interval 30
+!
+interface TenGigE0/1/1/1.3001 l2transport
+ description ## Juniper BNG to Nokia-ISAM-OLT Traffic flow testing ##
+ encapsulation dot1q 3001 second-dot1q 301
+!
+interface TenGigE0/1/1/2
+ mtu 9216
+ load-interval 30
+!
+interface TenGigE0/1/1/2.475
+ vrf BTS
+ ipv6 address 2401:4900:0:c003::cc77/127
+ encapsulation dot1q 475
+!
+interface TenGigE0/1/1/3
+ mtu 9216
+ load-interval 30
+!
+interface TenGigE0/1/1/3.1527 l2transport
+ encapsulation dot1q 527
+ mtu 9216
+ shutdown
+ ethernet loopback
+  permit internal
+ !
+!
+interface TenGigE0/1/1/4
+ description connected towards 9912 port ten0/7/1/17
+ bundle id 7572 mode active
+ lldp
+  enable
+ !
+ carrier-delay up 10000 down 0
+ load-interval 30
+!
+interface TenGigE0/1/1/5
+ description ## Connected to Spirent @ 0/4 ##
+ mtu 9216
+ ipv4 address 11.1.1.1 255.255.255.0
+ load-interval 30
+!
+interface TenGigE0/1/1/6
+ description ## Connected to Nokia-ISAM-OLT @ Port4 ##
+!
+interface TenGigE0/1/1/6.3001 l2transport
+ description ## Juniper BNG to Nokia-ISAM-OLT Traffic flow testing ##
+ encapsulation dot1q 3001 second-dot1q 301
+!
+interface TenGigE0/1/1/7
+ description ## Port 9/0 ## OLT ##
+ bundle id 11 mode active
+ load-interval 30
+!
+interface TenGigE0/1/1/8
+ description ### TWAMP TESTING ##
+ mtu 9216
+ ipv4 address 134.127.127.1 255.255.255.252
+!
+interface TenGigE0/1/1/9
+ loopback external
+!
+interface TenGigE0/1/1/10
+ description description -- NCS55A-1 Te0/0/0/2
+ bundle id 7268 mode active
+!
+interface TenGigE0/1/1/11
+ description ### Connected to STC Port 2/7 for Automation ###
+ mtu 9216
+ load-interval 30
+ l2transport
+  propagate remote-status
+ !
+!
+interface TenGigE0/1/1/12
+ description for Ceina Testing
+ mtu 9216
+ load-interval 30
+!
+interface TenGigE0/1/1/13
+ description ## Port 9/1 ##
+ bundle id 11 mode active
+ load-interval 30
+!
+interface TenGigE0/1/1/14
+ shutdown
+!
+interface TenGigE0/1/1/15
+ description To-Nokia-IXR-R6-37-1/2/1
+ carrier-delay up 1000 down 0
+ load-interval 30
+!
+interface TenGigE0/1/1/16
+ mtu 9216
+ carrier-delay up 0 down 0
+ load-interval 30
+ ethernet cfm
+  mep domain md3 service ma3 mep-id 10
+   propagate-remote-status
+  !
+ !
+ l2transport
+ !
+!
+interface TenGigE0/1/1/17
+ mtu 9216
+ load-interval 30
+ l2transport
+  propagate remote-status
+ !
+!
+interface TenGigE0/1/1/18
+ description connected towards Nokia SR12-2 port T10
+ bundle id 30 mode active
+ cdp
+ lacp period short
+ load-interval 30
+!
+interface TenGigE0/1/1/19
+ description ## towards 9903 172.16.249.22 << NSO >> T 19
+ mtu 9216
+ ipv4 address 194.154.22.2 255.255.255.252
+ shutdown
+ load-interval 30
+!
+controller Optics0/2/0/0
+ fec OFEC
+ dwdm-carrier 100MHz-grid frequency 1936000
+!
+interface HundredGigE0/2/0/4
+ description towards 172.16.254.198 NCS540-SYS-ACC router
+ bundle id 1000 mode active
+ load-interval 30
+!
+interface HundredGigE0/2/0/5
+ mtu 9216
+ ipv4 address 60.0.60.0 255.255.255.254
+ ipv6 address 2003:bb:cc::/127
+ carrier-delay up 100000 down 0
+ load-interval 30
+!
+interface HundredGigE0/2/0/5.40
+ mtu 9216
+ ipv4 address 40.0.40.1 255.255.255.0
+ ipv6 address fc00:cc::1/64
+ load-interval 30
+ encapsulation dot1q 282
+!
+controller Optics0/2/0/8
+ dwdm-carrier 100MHz-grid frequency 1931000
+!
+interface FourHundredGigE0/2/0/8
+ shutdown
+ load-interval 30
+!
+interface HundredGigE0/2/0/12
+ description -reserved for ciena testing
+ loopback internal
+!
+interface HundredGigE0/2/0/12.100 l2transport
+ encapsulation dot1q 100
+ rewrite ingress tag pop 1 symmetric
+!
+interface HundredGigE0/2/0/13
+ bundle id 102 mode active
+!
+interface HundredGigE0/2/0/14
+ description **connected to Nokia R6d 172.16.251.129 @port-1/4/c1 **
+ bundle id 16 mode active
+ load-interval 30
+!
+controller Optics0/2/0/15
+ fec CFEC
+!
+interface HundredGigE0/2/0/15
+ bundle id 10 mode active
+!
+interface HundredGigE0/2/0/16
+ description to_IXR-R6D-129_1/4/c1/1
+ load-interval 30
+!
+interface HundredGigE0/2/0/17
+ bundle id 17 mode active
+ load-interval 30
+!
+interface HundredGigE0/2/0/18
+ bundle id 10 mode active
+!
+interface HundredGigE0/2/0/19
+ description To-IXR-R6D-128
+ bundle id 35 mode active
+ load-interval 30
+!
+interface preconfigure MgmtEth0/RSP1/CPU0/0
+ vrf mgmt
+ ipv4 address 172.16.254.72 255.255.255.0
+!
+interface preconfigure TenGigE0/0/0/2
+!
+interface preconfigure TenGigE0/0/0/10
+ shutdown
+!
+interface preconfigure TenGigE0/0/0/11.1
+ description CISCOA-1
+ mtu 9216
+ vrf CISCOA-1
+ ipv4 address 192.168.20.0 255.255.255.254
+ ipv6 address fc00:0:0:20::/127
+ encapsulation dot1q 1
+!
+interface preconfigure TenGigE0/0/0/11.2
+ description CISCOA-2
+ mtu 9216
+ vrf CISCOA-2
+ ipv4 address 192.168.20.2 255.255.255.254
+ ipv6 address fc00:0:0:20::2/127
+ encapsulation dot1q 2
+!
+interface preconfigure TenGigE0/0/0/11.3
+ description CISCOA-3
+ mtu 9216
+ vrf CISCOA-3
+ ipv4 address 192.168.20.4 255.255.255.254
+ ipv6 address fc00:0:0:20::4/127
+ encapsulation dot1q 3
+!
+interface preconfigure TenGigE0/0/0/11.4
+ description CISCOA-4
+ mtu 9216
+ vrf CISCOA-4
+ ipv4 address 192.168.20.6 255.255.255.254
+ ipv6 address fc00:0:0:20::6/127
+ encapsulation dot1q 4
+!
+interface preconfigure TenGigE0/0/0/11.5
+ description CISCOA-5
+ mtu 9216
+ vrf CISCOA-5
+ ipv4 address 192.168.20.8 255.255.255.254
+ ipv6 address fc00:0:0:20::8/127
+ encapsulation dot1q 5
+!
+interface preconfigure TenGigE0/0/0/11.1001
+ ipv4 address 192.168.25.0 255.255.255.254
+ encapsulation dot1q 1001
+!
+interface preconfigure TenGigE0/0/0/11.1002
+ ipv4 address 192.168.25.2 255.255.255.254
+ encapsulation dot1q 1002
+!
+interface preconfigure TenGigE0/0/0/11.1003
+ ipv4 address 192.168.25.4 255.255.255.254
+ encapsulation dot1q 1003
+!
+interface preconfigure TenGigE0/0/0/11.1004
+ ipv4 address 192.168.25.6 255.255.255.254
+ encapsulation dot1q 1004
+!
+interface preconfigure TenGigE0/0/0/11.1005
+ ipv4 address 192.168.25.8 255.255.255.254
+ encapsulation dot1q 1005
+!
+interface preconfigure TenGigE0/0/0/11.1006
+ ipv4 address 192.168.25.10 255.255.255.254
+ encapsulation dot1q 1006
+!
+interface preconfigure TenGigE0/0/0/11.1007
+ ipv4 address 192.168.25.12 255.255.255.254
+ encapsulation dot1q 1007
+!
+interface preconfigure TenGigE0/0/0/11.1008
+ ipv4 address 192.168.25.14 255.255.255.254
+ encapsulation dot1q 1008
+!
+interface preconfigure TenGigE0/0/0/11.1009
+ ipv4 address 192.168.25.16 255.255.255.254
+ encapsulation dot1q 1009
+!
+interface preconfigure TenGigE0/0/0/11.1010
+ ipv4 address 192.168.25.18 255.255.255.254
+ encapsulation dot1q 1010
+!
+controller preconfigure dwdm0/1/0/0
+ g709 enable
+ admin-state in-service
+!
+interface preconfigure HundredGigE0/1/0/0
+!
+controller preconfigure dwdm0/1/0/1
+ g709 enable
+ admin-state in-service
+!
+controller preconfigure Optics0/1/0/1
+ fec EnhancedSD20
+!
+interface preconfigure HundredGigE0/1/0/1
+ ipv4 address 18.1.1.2 255.255.255.252
+ load-interval 30
+!
+interface preconfigure TenGigE0/1/0/6
+!
+interface preconfigure TenGigE0/1/0/10
+!
+interface preconfigure TenGigE0/1/0/19.3006 l2transport
+ encapsulation dot1q 3006
+ rewrite ingress tag pop 1 symmetric
+!
+interface preconfigure TenGigE0/1/0/19.3007 l2transport
+ encapsulation default
+!
+interface preconfigure HundredGigE0/2/0/0
+ description to_IXR-R6D-129_1/4/c1/1
+ bundle id 4100 mode active
+ load-interval 30
+!
+interface preconfigure HundredGigE0/2/0/0/0
+ bundle id 4100 mode active
+ load-interval 30
+!
+interface preconfigure HundredGigE0/2/0/0/1
+ description to_IXR-R6D-129_1/4/c1/1
+ bundle id 4100 mode active
+ load-interval 30
+!
+interface preconfigure HundredGigE0/2/0/0/2
+ bundle id 4100 mode active
+!
+interface preconfigure HundredGigE0/2/0/0/3
+ shutdown
+!
+interface preconfigure HundredGigE0/2/0/1
+!
+interface preconfigure HundredGigE0/2/0/2
+ shutdown
+!
+interface preconfigure HundredGigE0/2/0/3
+ shutdown
+!
+interface preconfigure FourHundredGigE0/2/0/7
+ transceiver permit pid all
+!
+interface preconfigure HundredGigE0/2/0/8
+ bundle id 16 mode active
+!
+interface preconfigure HundredGigE0/2/0/8/0
+ bundle id 16 mode active
+ load-interval 30
+!
+interface preconfigure HundredGigE0/2/0/8/1
+ bundle id 16 mode active
+ load-interval 30
+!
+interface preconfigure HundredGigE0/2/0/8/2
+ bundle id 16 mode active
+ load-interval 30
+!
+interface preconfigure HundredGigE0/2/0/8/3
+ bundle id 16 mode active
+ load-interval 30
+!
+interface preconfigure HundredGigE0/2/0/9
+ shutdown
+!
+interface preconfigure HundredGigE0/2/0/10
+ shutdown
+!
+interface preconfigure HundredGigE0/2/0/11
+ shutdown
+!
+interface preconfigure FourHundredGigE0/2/0/13
+ description connected towards sprient port no 6/1
+ ipv4 address 60.60.60.1 255.255.255.0
+!
+controller preconfigure HundredGigECtrlr0/2/0/15
+ fec standard
+!
+interface preconfigure HundredGigE0/2/0/29
+ description Primary-link
+ bundle id 411 mode active
+ bundle port-priority 100
+ shutdown
+!
+interface preconfigure TenGigE0/7/1/1
+!
+interface preconfigure TenGigE0/7/1/4
+ shutdown
+!
+interface preconfigure TenGigE0/7/1/6.10
+ description ciscoAutomation-1
+ mtu 9216
+ vrf Cisco-Automation-1
+ ipv4 address 192.168.10.0 255.255.255.254
+ ipv6 address fc00:0:0:10::/127
+ ipv6 address fc00:0:0:20::/127
+ encapsulation dot1q 10
+!
+interface preconfigure TenGigE0/7/1/6.11
+ description ciscoAutomation-2
+ mtu 9216
+ vrf Cisco-Automation-2
+ ipv4 address 192.168.10.2 255.255.255.254
+ ipv6 address fc00:0:0:10::2/127
+ ipv6 address fc00:0:0:20::2/127
+ encapsulation dot1q 11
+!
+interface preconfigure TenGigE0/7/1/6.12
+ description ciscoAutomation-3
+ mtu 9216
+ vrf Cisco-Automation-3
+ ipv4 address 192.168.10.4 255.255.255.254
+ ipv6 address fc00:0:0:10::4/127
+ ipv6 address fc00:0:0:20::4/127
+ encapsulation dot1q 12
+!
+interface preconfigure TenGigE0/7/1/6.13
+ description ciscoAutomation-4
+ mtu 9216
+ vrf Cisco-Automation-4
+ ipv4 address 192.168.10.6 255.255.255.254
+ ipv6 address fc00:0:0:10::6/127
+ ipv6 address fc00:0:0:20::6/127
+ encapsulation dot1q 13
+!
+interface preconfigure TenGigE0/7/1/6.14
+ description ciscoAutomation-5
+ mtu 9216
+ vrf Cisco-Automation-5
+ ipv4 address 192.168.10.8 255.255.255.254
+ ipv6 address fc00:0:0:10::8/127
+ ipv6 address fc00:0:0:20::8/127
+ encapsulation dot1q 14
+!
+interface preconfigure TenGigE0/7/1/6.15
+ description ciscoAutomation-6
+ mtu 9216
+ vrf Cisco-Automation-6
+ ipv4 address 192.168.10.10 255.255.255.254
+ ipv6 address fc00:0:0:10::a/127
+ ipv6 address fc00:0:0:20::a/127
+ encapsulation dot1q 15
+!
+interface preconfigure TenGigE0/7/1/6.16
+ description ciscoAutomation-7
+ mtu 9216
+ vrf Cisco-Automation-7
+ ipv4 address 192.168.10.12 255.255.255.254
+ ipv6 address fc00:0:0:10::c/127
+ ipv6 address fc00:0:0:20::c/127
+ encapsulation dot1q 16
+!
+interface preconfigure TenGigE0/7/1/6.17
+ description ciscoAutomation-8
+ mtu 9216
+ vrf Cisco-Automation-8
+ ipv4 address 192.168.10.14 255.255.255.254
+ ipv6 address fc00:0:0:10::e/127
+ ipv6 address fc00:0:0:20::e/127
+ encapsulation dot1q 17
+!
+interface preconfigure TenGigE0/7/1/6.18
+ description ciscoAutomation-9
+ mtu 9216
+ vrf Cisco-Automation-9
+ ipv4 address 192.168.10.16 255.255.255.254
+ ipv6 address fc00:0:0:10::10/127
+ ipv6 address fc00:0:0:20::10/127
+ encapsulation dot1q 18
+!
+interface preconfigure TenGigE0/7/1/6.19
+ description ciscoAutomation-10
+ mtu 9216
+ vrf Cisco-Automation-10
+ ipv4 address 192.168.10.18 255.255.255.254
+ ipv6 address fc00:0:0:10::12/127
+ ipv6 address fc00:0:0:20::12/127
+ encapsulation dot1q 19
+!
+interface preconfigure TenGigE0/7/1/6.20
+ description ciscoAutomation-11
+ mtu 9216
+ vrf Cisco-Automation-11
+ ipv4 address 192.168.10.20 255.255.255.254
+ ipv6 address fc00:0:0:10::14/127
+ encapsulation dot1q 20
+!
+interface preconfigure TenGigE0/7/1/6.21
+ description ciscoAutomation-12
+ mtu 9216
+ vrf Cisco-Automation-12
+ ipv4 address 192.168.10.22 255.255.255.254
+ ipv6 address fc00:0:0:10::16/127
+ encapsulation dot1q 21
+!
+interface preconfigure TenGigE0/7/1/6.22
+ description ciscoAutomation-13
+ mtu 9216
+ vrf Cisco-Automation-13
+ ipv4 address 192.168.10.24 255.255.255.254
+ ipv6 address fc00:0:0:10::18/127
+ encapsulation dot1q 22
+!
+interface preconfigure TenGigE0/7/1/6.23
+ description ciscoAutomation-14
+ mtu 9216
+ vrf Cisco-Automation-14
+ ipv4 address 192.168.10.26 255.255.255.254
+ ipv6 address fc00:0:0:10::1a/127
+ encapsulation dot1q 23
+!
+interface preconfigure TenGigE0/7/1/6.24
+ description ciscoAutomation-15
+ mtu 9216
+ vrf Cisco-Automation-15
+ ipv4 address 192.168.10.28 255.255.255.254
+ ipv6 address fc00:0:0:10::1c/127
+ encapsulation dot1q 24
+!
+interface preconfigure TenGigE0/7/1/6.25
+ description ciscoAutomation-16
+ mtu 9216
+ vrf Cisco-Automation-16
+ ipv4 address 192.168.10.30 255.255.255.254
+ ipv6 address fc00:0:0:10::1e/127
+ encapsulation dot1q 25
+!
+interface preconfigure TenGigE0/7/1/6.26
+ description ciscoAutomation-17
+ mtu 9216
+ vrf Cisco-Automation-17
+ ipv4 address 192.168.10.32 255.255.255.254
+ ipv6 address fc00:0:0:10::20/127
+ encapsulation dot1q 26
+!
+interface preconfigure TenGigE0/7/1/6.27
+ description ciscoAutomation-18
+ mtu 9216
+ vrf Cisco-Automation-18
+ ipv4 address 192.168.10.34 255.255.255.254
+ ipv6 address fc00:0:0:10::22/127
+ encapsulation dot1q 27
+!
+interface preconfigure TenGigE0/7/1/6.28
+ description ciscoAutomation-19
+ mtu 9216
+ vrf Cisco-Automation-19
+ ipv4 address 192.168.10.36 255.255.255.254
+ ipv6 address fc00:0:0:10::24/127
+ encapsulation dot1q 28
+!
+interface preconfigure TenGigE0/7/1/6.29
+ description ciscoAutomation-20
+ mtu 9216
+ vrf Cisco-Automation-20
+ ipv4 address 192.168.10.38 255.255.255.254
+ ipv6 address fc00:0:0:10::26/127
+ encapsulation dot1q 29
+!
+interface preconfigure TenGigE0/7/1/6.1000
+ description ciscoAutomation-1000
+ mtu 9216
+ vrf Cisco-Automation-1000
+ ipv4 address 192.168.0.1 255.255.240.0
+ ipv6 address fc00:0:0:40::2/64
+ encapsulation dot1q 1000
+!
+rd-set auto
+end-set
+!
+rd-set 100:10
+end-set
+!
+rd-set 111:111
+end-set
+!
+rd-set 65033:3
+end-set
+!
+rd-set 0:198:198
+end-set
+!
+extcommunity-set rt Export_HVPN_CEN
+  65033:236
+end-set
+!
+extcommunity-set rt Export_HVPN_3001
+  65001:3331
+end-set
+!
+extcommunity-set rt Export_HVPN_3002
+  65001:3012
+end-set
+!
+extcommunity-set rt Export_HVPN_CEN1
+  9730:101
+end-set
+!
+extcommunity-set rt Export_HVPN_CEN2
+  9730:102
+end-set
+!
+extcommunity-set rt Export_HVPN_CEN3
+  9730:103
+end-set
+!
+extcommunity-set rt Export_HVPN_CEN4
+  9730:104
+end-set
+!
+extcommunity-set rt Export_HVPN_C_CSR
+  65033:10
+end-set
+!
+extcommunity-set rt Export_HVPN_ciena
+  98:98
+end-set
+!
+extcommunity-set rt export_other_HVPN
+  1000:1000
+end-set
+!
+extcommunity-set rt DEFAULT-Nokia_HVPN
+  65001:3332
+end-set
+!
+extcommunity-set rt Export_HVPN_C_CSR2
+  65033:20
+end-set
+!
+extcommunity-set rt Export_HVPN_C_CSR3
+  65033:30
+end-set
+!
+extcommunity-set rt Export_HVPN_C_CSR4
+  65033:40
+end-set
+!
+extcommunity-set rt Export-HVPN-IRBLEAF
+  9730:1005
+end-set
+!
+extcommunity-set rt Export_HVPN_TEST_up
+  9730:200
+end-set
+!
+extcommunity-set rt WI-MAX-P2P-IP-MNGMT
+  9730:5299
+end-set
+!
+extcommunity-set rt default-RT-HVPN_CEN
+  65033:236
+end-set
+!
+extcommunity-set rt DEFAULT-RT-HVPN_3002
+  65001:3002
+end-set
+!
+extcommunity-set rt Default-HVPN-IRBLEAF
+  9730:1015
+end-set
+!
+extcommunity-set rt Export_HVPN_IPV6_CEN
+  65033:236
+end-set
+!
+extcommunity-set rt default-RT-HVPN_CEN1
+  9730:101
+end-set
+!
+extcommunity-set rt default-RT-HVPN_CEN2
+  9730:102
+end-set
+!
+extcommunity-set rt default-RT-HVPN_CEN3
+  9730:103
+end-set
+!
+extcommunity-set rt default-RT-HVPN_CEN4
+  9730:104
+end-set
+!
+extcommunity-set rt Export-HVPN-NPT1100-1
+  9730:1001
+end-set
+!
+extcommunity-set rt Export-HVPN-NPT1100-2
+  9730:1002
+end-set
+!
+extcommunity-set rt Export-HVPN-NPT1100-3
+  9730:1003
+end-set
+!
+extcommunity-set rt Export-HVPN-NPT1100-4
+  9730:1004
+end-set
+!
+extcommunity-set rt default-RT-HVPN_C_CSR
+  65033:10
+end-set
+!
+extcommunity-set rt default-RT-HVPN_ciena
+  98:98
+end-set
+!
+extcommunity-set rt export_other_ECI_HVPN
+  1000:1000
+end-set
+!
+extcommunity-set rt export_other_HVPN_NPT
+  1001:1001
+end-set
+!
+extcommunity-set rt export_other_NPT_HVPN
+  1002:1002
+end-set
+!
+extcommunity-set rt Default-HVPN-NPT1100-1
+  9730:1011
+end-set
+!
+extcommunity-set rt Default-HVPN-NPT1100-2
+  9730:1012
+end-set
+!
+extcommunity-set rt Default-HVPN-NPT1100-3
+  9730:1013
+end-set
+!
+extcommunity-set rt Default-HVPN-NPT1100-4
+  9730:1014
+end-set
+!
+extcommunity-set rt default-RT-HVPN_C_CSR2
+  65033:20
+end-set
+!
+extcommunity-set rt default-RT-HVPN_C_CSR3
+  65033:30
+end-set
+!
+extcommunity-set rt default-RT-HVPN_C_CSR4
+  65033:40
+end-set
+!
+extcommunity-set rt export_other_eci_smart
+  1003:1003
+end-set
+!
+extcommunity-set rt BHARTI-E-NOC-MANAGEMENT
+  9730:88
+end-set
+!
+extcommunity-set rt DEFAULT-RT-FOR-VPN_HVPN
+  100:100
+end-set
+!
+extcommunity-set rt default-RT-HVPN_TEST_up
+  9730:200
+end-set
+!
+extcommunity-set rt default-RT-HVPN_IPV6_CEN
+  65033:236
+end-set
+!
+extcommunity-set rt export_other_ECI_HVPN_NEW
+  2222:2222
+end-set
+!
+extcommunity-set rt export_other_ECI_OAM_HVPN
+  9730:23234
+end-set
+!
+extcommunity-set rt export_other_ECI_DATA_HVPN
+  9730:13511
+end-set
+!
+extcommunity-set rt DEFAULT-RT-FOR-VPN_ECI_HVPN
+  99:99
+end-set
+!
+extcommunity-set rt DEFAULT-RT-FOR-VPN_HVPN_NPT
+  101:101
+end-set
+!
+extcommunity-set rt DEFAULT-RT-FOR-VPN_NPT_HVPN
+  102:102
+end-set
+!
+extcommunity-set rt DEFAULT-RT_npt_MP-ABIS-2G-1
+  6363:37693
+end-set
+!
+extcommunity-set rt DEFAULT-RT_npt_MP-ABIS-2G-2
+  6363:37694
+end-set
+!
+extcommunity-set rt DEFAULT-RT-FOR-VPN_eci_smart
+  103:103
+end-set
+!
+extcommunity-set rt export_other_ECI_VRF_2G_HVPN
+  9730:23311
+end-set
+!
+extcommunity-set rt export_other_npt_MP-ABIS-2G-1
+  9730:37693
+end-set
+!
+extcommunity-set rt export_other_npt_MP-ABIS-2G-2
+  9730:37694
+end-set
+!
+extcommunity-set rt DEFAULT-RT-FOR-VPN_ECI_HVPN_NEW
+  222:222
+end-set
+!
+extcommunity-set rt export_other_ECI_SIGNALLING_HVPN
+  9730:32144
+end-set
+!
+extcommunity-set rt DEFAULT-ONLY-FOR-VPN_ECI_OAM_HVPN
+  9730:14513
+end-set
+!
+extcommunity-set rt DEFAULT-ONLY-FOR-VPN_ECI_DATA_HVPN
+  9730:23123
+end-set
+!
+extcommunity-set rt DEFAULT-ONLY-FOR-VPN_ECI_VRF_2G_HVPN
+  9730:17514
+end-set
+!
+extcommunity-set rt DEFAULT-ONLY-FOR-VPN_ECI_SIGNALLING_HVPN
+  9730:11612
+end-set
+!
+prefix-set HVRF
+  0.0.0.0/0
+end-set
+!
+prefix-set TEST
+  10.10.13.1/32,
+  10.10.14.1/32
+end-set
+!
+prefix-set LABEL
+  15.15.1.1/32,
+  15.15.0.0/16 ge 32,
+  10.11.0.0/16 ge 32,
+  10.10.0.0/16 ge 32,
+  172.16.254.75/32,
+  110.110.110.110/32,
+  220.220.220.220/32,
+  25.0.0.0/8 le 32,
+  77.77.77.77/32,
+  78.78.78.78/32,
+  42.42.42.42/32,
+  45.45.45.45/32,
+  20.20.20.1/32,
+  10.0.111.111,
+  10.0.111.111/32,
+  10.0.112.112/32,
+  10.0.113.113/32,
+  130.1.0.0/18 ge 32,
+  179.179.179.178/32,
+  179.179.179.179/32,
+  179.179.179.178/31,
+  10.10.196.1/32,
+  10.10.197.1/32,
+  81.81.81.81/32,
+  10.10.212.1/32,
+  10.10.214.1/32,
+  82.82.82.82/32,
+  10.10.96.1/32,
+  10.10.97.1/32,
+  23.23.23.23/32,
+  24.24.24.24/32,
+  10.10.130.2/32,
+  10.10.140.2/32,
+  81.81.81.81/32,
+  82.82.82.82/32,
+  83.83.83.83/32,
+  84.84.84.84/32,
+  10.15.3.141/32,
+  10.15.3.142/32,
+  192.0.0.0/24,
+  10.10.130.4/32
+end-set
+!
+prefix-set TEST1
+  10.10.13.1/32,
+  10.10.14.1/32
+end-set
+!
+prefix-set TEST2
+  10.10.13.1/32,
+  10.10.14.1/32
+end-set
+!
+prefix-set CEN-CSR
+  10.10.13.2/32
+end-set
+!
+prefix-set ecilist
+  23.23.23.23/32,
+  24.24.24.24/32
+end-set
+!
+prefix-set mplsgre
+  101.1.1.0/24
+end-set
+!
+prefix-set ECI-LU-T4
+  130.0.0.0/8 le 32
+end-set
+!
+prefix-set block1301
+  10.10.13.1/32,
+  10.10.14.1/32,
+  10.10.15.1/32
+end-set
+!
+prefix-set block1302
+  10.10.13.2/32,
+  10.10.14.2/32,
+  10.10.15.2/32
+end-set
+!
+prefix-set enoc_le28
+  172.34.0.0/16 le 28,
+  172.35.0.0/16 le 28,
+  172.36.0.0/16 le 28,
+  172.37.0.0/16 le 28,
+  172.38.0.0/16 le 28,
+  172.39.0.0/16 le 28,
+  172.40.0.0/16 le 28,
+  172.41.0.0/16 le 28,
+  172.42.0.0/16 le 28,
+  172.43.0.0/16 le 28,
+  172.44.0.0/16 le 28,
+  10.37.0.0/16 le 28,
+  10.38.0.0/16 le 28,
+  10.165.0.0/16 le 28,
+  10.200.0.0/16 le 28,
+  10.208.0.0/16 le 28
+end-set
+!
+prefix-set CEN-CSR-UP
+  82.82.82.82/32
+end-set
+!
+prefix-set scale_ipv6
+  2000::/64 ge 128
+end-set
+!
+prefix-set BLOCK_LOWER
+  10.10.14.2/32
+end-set
+!
+prefix-set CEN-CSR-IGP
+  10.10.212.1/32
+end-set
+!
+prefix-set CEN-NPT1100
+  82.82.82.82/32
+end-set
+!
+prefix-set Nokia-LU-T4
+  100.0.0.0/16 le 32
+end-set
+!
+prefix-set SPELOOPBACK
+  10.10.131.1/32 le 32,
+  10.10.13.1/32
+end-set
+!
+prefix-set bgp-to-isis
+  10.10.15.1/32
+end-set
+!
+prefix-set default-eci
+  0.0.0.0
+end-set
+!
+prefix-set switch-mgmt
+end-set
+!
+prefix-set ECI-VPNv4-T4
+  136.0.0.0/8 le 32,
+  134.0.0.0/8 le 32,
+  133.0.0.0/8 le 32,
+  135.0.0.0/8 le 32,
+  196.0.0.0/8 le 32,
+  162.0.0.0/8 le 32,
+  199.0.0.0/8 le 32,
+  199.0.0.0/14 le 32,
+  185.0.0.0/14 le 32,
+  182.0.0.0/14 le 32,
+  199.0.0.0/14 le 32,
+  192.0.0.0/8 le 32,
+  193.0.0.0/8 le 32,
+  195.0.0.0/8 le 32,
+  194.0.0.0/8 le 32,
+  180.0.0.0/14 le 32,
+  177.0.0.0/14 le 32,
+  135.0.0.0/14 le 32,
+  136.0.0.0/14 le 32,
+  133.0.0.0/14 le 32,
+  134.0.0.0/14 le 32,
+  181.0.0.0/8 le 32,
+  178.0.0.0/8 le 32,
+  81.23.22.0/30 le 32,
+  81.23.23.0/31 le 32,
+  10.11.11.0/30 le 32,
+  81.23.24.0/31 le 32,
+  60.61.61.0/30 le 32,
+  81.23.25.0/31 le 32,
+  61.62.62.0/30 le 32,
+  81.23.26.0/31 le 32,
+  0.0.0.0/0
+end-set
+!
+prefix-set Loopback-Adv
+  81.81.81.1/32,
+  82.82.82.1/32,
+  100.73.33.15/32,
+  100.73.33.16/32,
+  10.10.0.0/16 le 32
+end-set
+!
+prefix-set NPT1100-DOWN
+  10.10.13.2/32 le 32
+end-set
+!
+prefix-set 9912_rej_15_1
+  10.10.15.1/32 eq 32,
+  10.10.14.1/32 eq 32
+end-set
+!
+prefix-set TOWARDS-T3CORE
+  10.10.17.1/32,
+  10.10.18.1/32,
+  10.10.19.1/32,
+  10.10.10.1/32,
+  20.20.20.1/32
+end-set
+!
+prefix-set rejected-pools
+  0.0.0.0/0 ge 25,
+  10.0.0.0/8 le 32,
+  172.16.0.0/12 le 32,
+  192.168.0.0/16 le 32,
+  0.0.0.0/0
+end-set
+!
+prefix-set ECI-VPNv4-Routes
+end-set
+!
+prefix-set pfx_AMAN-ISP-173
+  192.168.12.0/22 le 24,
+  192.168.15.0/24
+end-set
+!
+prefix-set pfx_TEST-ISP-103
+  103.204.212.0/22,
+  103.204.216.0/24
+end-set
+!
+prefix-set sendpolicy_test1
+  131.1.1.1/32,
+  131.1.1.2/32,
+  131.1.1.3/32,
+  131.1.1.4/32,
+  131.1.1.128/25,
+  2000::/64
+end-set
+!
+prefix-set pfx_TEST-ISP-0001
+  103.204.216.0/24,
+  181.82.82.0/24 le 24
+end-set
+!
+prefix-set pfx_TEST-ISP-0030
+  59.144.193.16/29
+end-set
+!
+prefix-set pfx_TEST-ISP-1012
+  59.144.193.16/29
+end-set
+!
+prefix-set DEFAULT-Nokia_HVPN
+  0.0.0.0/0,
+  ::/0
+end-set
+!
+prefix-set IPv4-Default-Route
+  0.0.0.0/0
+end-set
+!
+prefix-set WI-MAX-P2P-IP-MNGMT
+  112.32.165.0/30,
+  174.81.37.8/29,
+  123.102.12.0/30,
+  163.112.121.12/30,
+  193.131.8.12/30,
+  172.23.21.0/30,
+  10.233.12.4/30,
+  176.53.35.24/29,
+  134.14.56.24/29,
+  22.1.35.64/29,
+  33.34.58.24/29,
+  10.10.10.8/29,
+  10.23.123.0/30,
+  10.23.222.0/30,
+  10.23.45.0/30,
+  10.242.12.0/30,
+  10.254.12.0/30,
+  10.61.149.104/29,
+  10.64.123.216/30,
+  10.76.123.64/30,
+  10.82.123.8/30,
+  101.148.128.108/30,
+  102.170.8.0/24,
+  103.148.103.108/30,
+  110.10.10.8/29,
+  110.123.123.0/30,
+  110.242.12.12/30,
+  112.123.123.12/30,
+  113.123.123.12/30,
+  114.123.123.12/30,
+  12.23.56.0/30,
+  12.23.56.12/30,
+  12.23.56.16/30,
+  12.23.56.4/30,
+  12.32.12.0/30,
+  120.95.14.0/30,
+  123.102.120.0/30,
+  123.102.120.12/30,
+  123.12.121.12/30,
+  123.152.12.12/30,
+  123.182.12.0/30,
+  123.56.23.0/30,
+  132.168.8.0/24,
+  167.211.221.12/30,
+  172.23.55.0/30,
+  176.78.56.8/29,
+  177.23.45.40/29,
+  179.64.54.8/29,
+  184.98.123.108/30,
+  192.112.8.0/24,
+  192.18.8.0/24,
+  193.171.8.0/24,
+  193.80.18.12/30,
+  193.81.8.12/30,
+  194.170.8.0/30,
+  86.55.123.16/30,
+  115.123.123.12/30,
+  163.12.121.12/30,
+  10.10.123.148/30,
+  10.18.123.132/30,
+  10.22.123.16/30,
+  10.26.123.228/30,
+  10.28.123.212/30,
+  10.38.123.176/30,
+  10.40.123.76/30,
+  10.60.123.104/30,
+  10.60.123.228/30,
+  10.62.123.148/30,
+  10.98.123.144/30,
+  118.18.123.132/30,
+  12.40.123.76/30,
+  10.74.123.216/30,
+  10.76.123.100/30,
+  10.82.123.12/30,
+  10.88.123.148/30,
+  10.98.123.12/30,
+  112.65.124.12/30,
+  112.65.124.128/30,
+  112.65.124.4/30,
+  123.142.12.12/30,
+  82.48.123.108/30
+end-set
+!
+prefix-set pfx_RTBH_TEST-ISP-103
+  103.204.212.0/22 le 32,
+  103.204.216.0/24 le 32
+end-set
+!
+prefix-set BHARTI-E-NOC-MANAGEMENT
+  31.21.21.0/24,
+  185.168.11.12/30,
+  5.5.6.0/24,
+  19.43.13.0/30,
+  44.14.43.0/30,
+  15.23.14.32/30,
+  52.36.12.12/32,
+  119.95.43.24/30,
+  12.23.45.0/30,
+  12.56.21.0/30,
+  12.56.21.12/30,
+  12.56.21.16/30,
+  12.56.21.4/30,
+  120.1.3.0/30,
+  120.121.122.121/32,
+  122.122.122.120/32,
+  122.122.122.121/32,
+  122.122.122.122/32,
+  123.42.123.0/30,
+  124.14.23.0/30,
+  172.12.12.1/32,
+  172.23.12.1/32,
+  172.23.56.32/32,
+  172.25.23.2/32,
+  172.25.23.3/32,
+  172.25.23.5/32,
+  172.25.23.6/32,
+  172.45.10.1/32,
+  172.45.14.0/30,
+  18.17.40.0/28,
+  19.17.40.0/28,
+  191.17.40.0/28,
+  192.169.9.27/32,
+  192.179.9.27/32,
+  210.23.56.0/30,
+  76.76.77.0/30,
+  78.76.77.0/28,
+  172.53.23.20/30,
+  172.35.56.219/32,
+  172.36.88.16/30,
+  172.30.1.4/30,
+  172.30.72.4/30,
+  172.13.14.1/32,
+  172.34.23.0/30,
+  172.45.45.1/32,
+  172.40.52.0/30,
+  12.12.12.12/32,
+  59.145.122.159/32,
+  59.144.38.220/30,
+  59.144.193.80/30,
+  100.23.23.1/32,
+  22.22.22.0/25,
+  10.12.12.23/32,
+  38.38.38.0/30,
+  10.10.2.3/32,
+  42.54.65.0/30,
+  172.14.16.12/32,
+  120.95.4.8/30,
+  124.23.12.1/32,
+  192.132.123.0/30,
+  55.55.55.55/32,
+  59.144.193.64/30,
+  59.144.193.150/32,
+  59.144.193.68/30,
+  59.144.193.151/32,
+  59.144.193.60/30,
+  59.144.193.149/32,
+  59.144.193.144/30,
+  59.144.193.162/32,
+  59.144.193.56/30,
+  59.144.193.148/32,
+  59.144.193.76/30,
+  59.144.193.153/32,
+  59.144.193.72/30,
+  59.144.193.152/32,
+  59.44.193.144/30,
+  59.44.193.162/32,
+  125.104.193.64/30,
+  125.142.13.150/32
+end-set
+!
+prefix-set BHARTI-G-NOC-MONITORING
+end-set
+!
+prefix-set pfx_WI-MAX-P2P-IP-MNGMT
+  12.23.56.16/30,
+  134.14.56.24/29,
+  22.1.35.64/29,
+  33.34.58.24/29,
+  12.23.56.0/30,
+  112.32.165.0/30,
+  12.23.56.4/30,
+  12.23.56.12/30,
+  174.81.37.8/29,
+  12.32.12.0/30,
+  10.23.45.0/30,
+  172.23.21.0/30,
+  10.233.12.4/30,
+  172.23.55.0/30,
+  120.95.14.0/30,
+  10.10.10.8/29,
+  110.10.10.8/29,
+  176.53.35.24/29,
+  163.112.121.12/30,
+  193.131.8.12/30,
+  123.102.12.0/30,
+  10.23.123.0/30,
+  10.23.222.0/30,
+  10.242.12.0/30,
+  10.254.12.0/30,
+  10.61.149.104/29,
+  10.64.123.216/30,
+  10.76.123.64/30,
+  10.82.123.8/30,
+  101.148.128.108/30,
+  102.170.8.0/24,
+  103.148.103.108/30,
+  110.123.123.0/30,
+  110.242.12.12/30,
+  112.123.123.12/30,
+  113.123.123.12/30,
+  114.123.123.12/30,
+  123.102.120.0/30,
+  123.102.120.12/30,
+  123.12.121.12/30,
+  123.152.12.12/30,
+  123.56.23.0/30,
+  132.168.8.0/24,
+  167.211.221.12/30,
+  176.78.56.8/29,
+  177.23.45.40/29,
+  179.64.54.8/29,
+  184.98.123.108/30,
+  192.112.8.0/24,
+  192.18.8.0/24,
+  193.171.8.0/24,
+  194.170.8.0/30,
+  86.55.123.16/30,
+  115.123.123.12/30,
+  163.12.121.12/30,
+  10.10.123.148/30,
+  10.18.123.132/30,
+  10.22.123.16/30,
+  10.26.123.228/30,
+  10.28.123.212/30,
+  10.38.123.176/30,
+  10.40.123.76/30,
+  10.60.123.104/30,
+  10.60.123.228/30,
+  10.62.123.148/30,
+  10.98.123.144/30,
+  118.18.123.132/30,
+  12.40.123.76/30,
+  10.74.123.216/30,
+  10.76.123.100/30,
+  10.82.123.12/30,
+  10.88.123.148/30,
+  10.98.123.12/30,
+  112.65.124.12/30,
+  112.65.124.128/30,
+  112.65.124.4/30,
+  123.142.12.12/30,
+  82.48.123.108/30
+end-set
+!
+prefix-set Core-AGG-Loopbacks-Redis
+  10.10.13.1/32
+end-set
+!
+prefix-set pfx_BHARTI-E-NOC-MANAGEMENT
+  15.23.14.32/30,
+  52.36.12.12/32,
+  172.36.88.0/30,
+  12.12.12.12/32,
+  59.144.193.80/30,
+  100.23.23.1/32,
+  22.22.22.0/25,
+  10.12.12.23/32,
+  38.38.38.0/30,
+  172.37.24.252/30,
+  172.42.22.151/32,
+  172.36.8.64/30,
+  172.36.148.0/30,
+  172.35.222.227/32,
+  172.42.96.104/30,
+  172.40.206.201/32,
+  172.40.11.192/32,
+  172.36.50.244/30,
+  172.40.17.4/30,
+  172.40.114.32/30,
+  172.35.242.101/32,
+  172.42.7.132/30,
+  172.38.157.216/30,
+  172.41.207.24/30,
+  172.34.191.164/32,
+  172.35.179.241/32,
+  172.35.38.2/32,
+  10.37.202.47/32,
+  172.42.41.212/30,
+  172.35.200.61/32,
+  172.38.170.110/32,
+  10.234.33.80/30,
+  172.37.88.12/30,
+  172.35.227.250/32,
+  172.37.33.96/30,
+  172.37.223.12/30,
+  172.38.37.189/32,
+  172.35.12.13/32,
+  172.36.34.100/30,
+  172.36.8.136/30,
+  172.36.64.148/30,
+  172.36.225.160/30,
+  172.34.157.168/30,
+  172.37.246.157/32,
+  172.38.207.158/32,
+  172.40.78.171/32,
+  172.34.129.156/30,
+  172.40.107.145/32,
+  172.42.105.60/30,
+  192.132.123.0/30,
+  55.55.55.55/32,
+  59.144.193.64/30,
+  59.144.193.150/32,
+  59.144.193.68/30,
+  59.144.193.151/32,
+  59.144.193.60/30,
+  59.144.193.149/32,
+  59.144.193.144/30,
+  59.144.193.162/32,
+  59.144.193.56/30,
+  59.144.193.148/32,
+  59.144.193.76/30,
+  59.144.193.153/32,
+  59.144.193.72/30,
+  59.144.193.152/32,
+  59.44.193.144/30,
+  59.44.193.162/32,
+  125.104.193.64/30,
+  125.142.13.150/32
+end-set
+!
+prefix-set pfx_ISP-ENOC-MGMT-IN_p1_permit
+  59.144.193.16/30,
+  123.12.12.2/32,
+  142.12.12.12/32,
+  154.123.12.11/32
+end-set
+!
+prefix-set pfx_BHARTI-E-NOC-MANAGEMENT_By_NSO
+  172.34.0.0/16 le 32,
+  172.35.0.0/16 le 32,
+  172.36.0.0/16 le 32,
+  172.37.0.0/16 le 32,
+  172.38.0.0/16 le 32,
+  172.39.0.0/16 le 32,
+  172.40.0.0/16 le 32,
+  172.41.0.0/16 le 32,
+  172.42.0.0/16 le 32,
+  172.43.0.0/16 le 32,
+  172.44.0.0/16 le 32,
+  10.37.0.0/16 le 32,
+  10.38.0.0/16 le 32,
+  10.165.0.0/16 le 32,
+  10.200.0.0/16 le 32,
+  10.208.0.0/16 le 32
+end-set
+!
+prefix-set pfx_BHARTI-E-NOC-MANAGEMENT_by_NSO
+  172.34.0.0/16 le 32,
+  172.35.0.0/16 le 32,
+  172.36.0.0/16 le 32,
+  172.37.0.0/16 le 32,
+  172.38.0.0/16 le 32,
+  172.39.0.0/16 le 32,
+  172.40.0.0/16 le 32,
+  172.41.0.0/16 le 32,
+  172.42.0.0/16 le 32,
+  172.43.0.0/16 le 32,
+  172.44.0.0/16 le 32,
+  10.37.0.0/16 le 32,
+  10.38.0.0/16 le 32,
+  10.165.0.0/16 le 32,
+  10.200.0.0/16 le 32,
+  10.208.0.0/16 le 32
+end-set
+!
+as-path-set BBBA-ISP-001
+  ios-regex '^100_'
+end-set
+!
+as-path-set Bharti_peers
+  ios-regex '_3356_',
+  ios-regex '_2914_',
+  ios-regex '_8075_',
+  ios-regex '_6453_',
+  ios-regex '_1239_',
+  ios-regex '_1273_',
+  ios-regex '_3320_',
+  ios-regex '_7018_',
+  ios-regex '_38621_',
+  ios-regex '_5400_',
+  ios-regex '_6762_',
+  ios-regex '_10310_',
+  ios-regex '_7473_',
+  ios-regex '_9989_',
+  ios-regex '_38861_',
+  ios-regex '_4657_',
+  ios-regex '_6939_',
+  ios-regex '_19996_',
+  ios-regex '_15169_',
+  ios-regex '_4755_',
+  ios-regex '_23879_',
+  ios-regex '_37958_',
+  ios-regex '_1299_',
+  ios-regex '_5459_',
+  ios-regex '_2119_',
+  ios-regex '_8714_',
+  ios-regex '_41095_',
+  ios-regex '_16265_',
+  ios-regex '_30081_',
+  ios-regex '_40009_',
+  ios-regex '_25286_',
+  ios-regex '_15133_',
+  ios-regex '_39792_',
+  ios-regex '_3491_',
+  ios-regex '_6327_',
+  ios-regex '_8071_',
+  ios-regex '_16276_',
+  ios-regex '_46786_',
+  ios-regex '_21844_',
+  ios-regex '_2686_',
+  ios-regex '_8881_',
+  ios-regex '_5089_',
+  ios-regex '_5580_',
+  ios-regex '_4635_',
+  ios-regex '_3549_',
+  ios-regex '_13538_',
+  ios-regex '_9117_',
+  ios-regex '_29791_',
+  ios-regex '_13030_',
+  ios-regex '_29838_',
+  ios-regex '_22822_',
+  ios-regex '_30361_',
+  ios-regex '_15149_',
+  ios-regex '_9009_',
+  ios-regex '_8966_',
+  ios-regex '_64597_',
+  ios-regex '_16565_',
+  ios-regex '_9116_',
+  ios-regex '_23393_',
+  ios-regex '_20473_',
+  ios-regex '_24029_',
+  ios-regex '_3257_',
+  ios-regex '_32934_',
+  ios-regex '_9304_',
+  ios-regex '_5588_',
+  ios-regex '_661_',
+  ios-regex '_4788_',
+  ios-regex '_12350_',
+  ios-regex '_38224_',
+  ios-regex '_12989_',
+  ios-regex '_12552_',
+  ios-regex '_36351_',
+  ios-regex '_4739_',
+  ios-regex '_26803_',
+  ios-regex '_18101_',
+  ios-regex '_21788_',
+  ios-regex '_25885_',
+  ios-regex '_32748_',
+  ios-regex '_16810_',
+  ios-regex '_22212_',
+  ios-regex '_30653_',
+  ios-regex '_11798_',
+  ios-regex '_31500_',
+  ios-regex '_8560_',
+  ios-regex '_209_'
+end-set
+!
+as-path-set AWE-ISP-14718
+  ios-regex '^6521_'
+end-set
+!
+as-path-set TEST-ISP-0027
+  ios-regex '^64495_'
+end-set
+!
+as-path-set TEST-ISP-0040
+  ios-regex '^64495_'
+end-set
+!
+as-path-set TEST-ISP-1013
+  ios-regex '^64495_'
+end-set
+!
+as-path-set TEST-ISP-1014
+  ios-regex '^64495_'
+end-set
+!
+as-path-set TEST-ISP-1602023
+  ios-regex '^64495_'
+end-set
+!
+community-set 100
+  1:100
+end-set
+!
+community-set 200
+  2:200
+end-set
+!
+community-set 973
+  0:973
+end-set
+!
+community-set 9730
+  0:9730
+end-set
+!
+community-set 2:200
+  2:200
+end-set
+!
+community-set CS_T5
+  #-remark match T5 Loopbacks
+  ios-regex '15..:.*'
+end-set
+!
+community-set BGP-LS
+  9730:72
+end-set
+!
+community-set ECI-T5
+  115:10,
+  116:10
+end-set
+!
+community-set CIENA-T5
+  315:10
+end-set
+!
+community-set CISCO-T5
+  215:10
+end-set
+!
+community-set NOkia-T4
+  1410:1120,
+  1410:9999
+end-set
+!
+community-set CS-ALL-T4
+  #-remark match T4 Loopbacks
+  ios-regex '14..:.*'
+end-set
+!
+community-set CS-ALL-T5
+  #-remark match T5 Loopbacks
+  ios-regex '15..:.*'
+end-set
+!
+community-set CS-ALL-T6
+  #-remark match T6 Loopbacks
+  ios-regex '16..:.*'
+end-set
+!
+community-set NOKIA-COMM
+  9730:65001
+end-set
+!
+community-set AMAN-ISP-173
+  9498:2,
+  9498:2000
+end-set
+!
+community-set BBBA-ISP-001
+  9498:2,
+  9498:100,
+  34111:9498,
+  34911:9498,
+  40515:9498
+end-set
+!
+community-set CISCO-T3-130
+  130:2
+end-set
+!
+community-set CISCO-T3-140
+  140:2
+end-set
+!
+community-set TEST-ISP-103
+  9498:2,
+  9498:64495
+end-set
+!
+community-set AWE-ISP-14718
+  9498:2,
+  9498:6521
+end-set
+!
+community-set TEST-ISP-0001
+  9498:2,
+  9498:64495
+end-set
+!
+community-set TEST-ISP-0027
+  9498:2,
+  9498:64495
+end-set
+!
+community-set TEST-ISP-0030
+  9498:2,
+  9498:64520
+end-set
+!
+community-set TEST-ISP-0040
+  9498:2,
+  9498:64495
+end-set
+!
+community-set TEST-ISP-1012
+  9498:2,
+  9498:64520
+end-set
+!
+community-set TEST-ISP-1013
+  9498:2,
+  9498:64495
+end-set
+!
+community-set TEST-ISP-1014
+  9498:2,
+  9498:64495
+end-set
+!
+community-set TEST-ISP-1602023
+  9498:2,
+  9498:64495
+end-set
+!
+community-set NMS_DROP_ACCESS_WAN
+  9730:999
+end-set
+!
+community-set Block-Juniper-Lu-Prefix
+  300:300
+end-set
+!
+community-set COMM_prevent_nhs_change
+  1411:9999
+end-set
+!
+community-set prevent_nhs_change_access1
+  9730:1
+end-set
+!
+route-policy LP
+  set local-preference 200
+end-policy
+!
+route-policy yu
+  if community matches-any yu then
+    set weight 40000
+  else
+    pass
+  endif
+end-policy
+!
+route-policy APT
+end-policy
+!
+route-policy ECI
+  if orf prefix in (192.0.0.0/14 ge 14) then
+    drop
+  endif
+  if orf prefix in (130.0.0.0/14 ge 14) then
+    drop
+  endif
+end-policy
+!
+route-policy SID($SID)
+  set label-index $SID
+end-policy
+!
+route-policy cen
+  if community matches-any 200 then
+    done
+  elseif destination in (0.0.0.0/0) then
+    set next-hop self
+  else
+    drop
+  endif
+end-policy
+!
+route-policy NONE
+end-policy
+!
+route-policy PASS
+  pass
+end-policy
+!
+route-policy TEST
+  if destination in TEST then
+    drop
+  else
+    pass
+  endif
+end-policy
+!
+route-policy abcd
+  if community matches-any (0:584) then
+    done
+  elseif destination in (0.0.0.0/0) then
+    set next-hop self
+  else
+    drop
+  endif
+end-policy
+!
+route-policy mpls
+  if community matches-any 200 or community matches-any (140:2) or community matches-any (130:2) then
+    drop
+  elseif community matches-any 100 then
+    done
+  elseif destination in (0.0.0.0/0) then
+    drop
+  else
+    pass
+  endif
+end-policy
+!
+route-policy sncp
+  set community (1:100)
+  set label-index 6254
+  set aigp-metric igp-cost
+end-policy
+!
+route-policy LABEL
+  if destination in LABEL then
+    pass
+  else
+    drop
+  endif
+end-policy
+!
+route-policy T2-IP
+  if destination in (10.10.15.1/32) then
+    pass
+  else
+    drop
+  endif
+end-policy
+!
+route-policy WEIGHT
+  set weight 200
+end-policy
+!
+route-policy ADDPATH
+  set path-selection backup 1 install multipath-protect advertise
+end-policy
+!
+route-policy CEN-CSR
+  if destination in CEN-CSR then
+    set tag 2
+  endif
+end-policy
+!
+route-policy SID0910
+  set community (1310:910)
+end-policy
+!
+route-policy SID0912
+  set community (1310:912)
+end-policy
+!
+route-policy localsw
+  if community matches-any 9730 then
+    done
+  elseif destination in (0.0.0.0/0) then
+    set next-hop self
+  else
+    drop
+  endif
+end-policy
+!
+route-policy mplsgre
+  if destination in mplsgre then
+    set tag 2
+  endif
+end-policy
+!
+route-policy passall
+  pass
+end-policy
+!
+route-policy set-wlp
+  set weight 0
+  set local-preference 0
+end-policy
+!
+route-policy CEN-Drop
+  if community matches-any NOKIA-COMM then
+    drop
+  else
+    pass
+  endif
+end-policy
+!
+route-policy SET_AIGP
+  set aigp-metric igp-cost
+end-policy
+!
+route-policy localsw1
+  if community matches-any 973 then
+    done
+  elseif destination in (0.0.0.0/0) then
+    set next-hop self
+  else
+    drop
+  endif
+end-policy
+!
+route-policy localsw2
+  if community matches-any 9730 then
+    done
+  elseif destination in (::/0) then
+    set next-hop self
+  else
+    drop
+  endif
+end-policy
+!
+route-policy pass-all
+  pass
+end-policy
+!
+route-policy Nokia-CEN
+  set community NOKIA-COMM
+end-policy
+!
+route-policy Policyeci
+  if destination in ecilist then
+    pass
+  else
+    drop
+  endif
+end-policy
+!
+route-policy block1301
+  if destination in block1301 then
+    drop
+  endif
+end-policy
+!
+route-policy block1302
+  if destination in block1302 then
+    drop
+  else
+    pass
+  endif
+end-policy
+!
+route-policy multipath
+  set path-selection backup 1 install multipath-protect advertise
+end-policy
+!
+route-policy CEN-CSR-UP
+  if destination in CEN-CSR-UP then
+    set tag 2
+  endif
+end-policy
+!
+route-policy Profile-14
+  set core-tree mldp-partitioned-p2mp
+end-policy
+!
+route-policy TOWARDS-T4
+  if destination in TOWARDS-T4 then
+    pass
+    set local-preference 200
+  else
+    drop
+  endif
+end-policy
+!
+route-policy ciena_L2lp
+  set local-preference 500
+end-policy
+!
+route-policy localsw200
+  if community matches-any 200 then
+    done
+  elseif destination in (0.0.0.0/0) then
+    set next-hop self
+  else
+    drop
+  endif
+end-policy
+!
+route-policy rpf-MVPN-1
+  set core-tree mldp-inband
+end-policy
+!
+route-policy rpf-inband
+  set core-tree mldp-inband
+end-policy
+!
+route-policy scale_ipv6
+  if source in scale_ipv6 or destination in scale_ipv6 then
+    pass
+  else
+    pass
+  endif
+end-policy
+!
+route-policy test-nokia
+end-policy
+!
+route-policy testifelse
+  if destination in LABEL then
+    pass
+  else
+    drop
+  endif
+end-policy
+!
+route-policy ACCESS-PREF
+  set weight 1000
+end-policy
+!
+route-policy BGP-LS-COMM
+  set community BGP-LS additive
+end-policy
+!
+route-policy BLOCK_LOWER
+  if destination in BLOCK_LOWER then
+    drop
+  else
+    pass
+  endif
+end-policy
+!
+route-policy CEN-CSR-IGP
+  set tag 2
+end-policy
+!
+route-policy Nokia-T4-IP
+  if destination in (37.37.37.37/32) then
+    pass
+  else
+    drop
+  endif
+end-policy
+!
+route-policy SID10034071
+  set community (1310:4071)
+end-policy
+!
+route-policy SID10034073
+  set community (1310:4073)
+end-policy
+!
+route-policy SID10037130
+  set community (130:2)
+  set label-index 130
+  set aigp-metric igp-cost
+end-policy
+!
+route-policy SID10037132
+  set community (1311:7140)
+  set label-index 37132
+end-policy
+!
+route-policy SID10057132
+  set community (1311:7140)
+  set label-index 57132
+end-policy
+!
+route-policy SID10087777
+  set community (1311:7140)
+  set label-index 87777
+end-policy
+!
+route-policy SPELOOPBACK
+  if destination in SPELOOPBACK then
+    pass
+  endif
+end-policy
+!
+route-policy bgp-to-isis
+  if destination in bgp-to-isis then
+    done
+  endif
+end-policy
+!
+route-policy iWAN-BGP-in
+  if destination in (182.182.1.0/30 le 32) then
+    pass
+  else
+    drop
+  endif
+end-policy
+!
+route-policy localsw9730
+  if community matches-any 9730 then
+    done
+  elseif destination in (0.0.0.0/0) then
+    set next-hop self
+  else
+    drop
+  endif
+end-policy
+!
+route-policy mldp-inband
+  set core-tree mldp-inband
+end-policy
+!
+route-policy rpf-for-one
+  set core-tree mldp-partitioned-p2mp
+end-policy
+!
+route-policy rpf-for-pim
+  set core-tree pim-default
+end-policy
+!
+route-policy switch-mgmt
+  if destination in switch-mgmt then
+    pass
+  endif
+end-policy
+!
+route-policy testifelse3
+  if destination in BHARTI-E-NOC-MANAGEMENT then
+    set community (9730:44) additive
+    set extcommunity rt (9730:88) additive
+  else
+    set community (9730:44) additive
+  endif
+end-policy
+!
+route-policy AMAN-ISP-173
+  if (destination in pfx_AMAN-ISP-173) then
+    set local-preference 500
+    set community AMAN-ISP-173
+  endif
+end-policy
+!
+route-policy BBBA-ISP-001
+  if (as-path in Bharti_peers) then
+    drop
+  else
+    if (destination in rejected-pools) then
+      drop
+    else
+      if (as-path in BBBA-ISP-001) then
+        set community BBBA-ISP-001
+        set local-preference 500
+        pass
+      endif
+    endif
+  endif
+end-policy
+!
+route-policy Loopback-Adv
+  if destination in Loopback-Adv then
+    pass
+  else
+    drop
+  endif
+end-policy
+!
+route-policy SID101-10100
+  set label-index 10100
+  set community (1415:0100)
+  set community (1415:9999) additive
+  set community (1415:1111) additive
+end-policy
+!
+route-policy TEST-ISP-103
+  if (destination in pfx_TEST-ISP-103) then
+    set local-preference 500
+    set community TEST-ISP-103
+  endif
+end-policy
+!
+route-policy commuitypass
+  set community (1:100)
+  set label-index 2
+  set aigp-metric igp-cost
+end-policy
+!
+route-policy iWAN-BGP-out
+  if destination in (182.15.0.0/30) then
+    pass
+  else
+    drop
+  endif
+end-policy
+!
+route-policy set_comm_100
+  set community (1:100)
+end-policy
+!
+route-policy 9912_rej_15_1
+  if next-hop in 9912_rej_15_1 then
+    drop
+  else
+    pass
+  endif
+end-policy
+!
+route-policy ACCESS-PREF_1
+  set local-preference 130
+end-policy
+!
+route-policy AWE-ISP-14718
+  if (as-path in Bharti_peers) then
+    drop
+  else
+    if (destination in rejected-pools) then
+      drop
+    else
+      if (as-path in AWE-ISP-14718) then
+        set community AWE-ISP-14718
+        set local-preference 500
+        pass
+      endif
+    endif
+  endif
+end-policy
+!
+route-policy BLOCK-DEFAULT
+  if destination in (0.0.0.0/0) then
+    drop
+  else
+    pass
+  endif
+end-policy
+!
+route-policy TEST-ISP-0001
+  if (destination in pfx_TEST-ISP-0001) then
+    set local-preference 500
+    set community TEST-ISP-0001
+  endif
+end-policy
+!
+route-policy TEST-ISP-0027
+  if (as-path in Bharti_peers) then
+    drop
+  else
+    if (destination in rejected-pools) then
+      drop
+    else
+      if (as-path in TEST-ISP-0027) then
+        set community TEST-ISP-0027
+        set local-preference 500
+        pass
+      endif
+    endif
+  endif
+end-policy
+!
+route-policy TEST-ISP-0030
+  if (destination in pfx_TEST-ISP-0030) then
+    set local-preference 500
+    set community TEST-ISP-0030
+  endif
+end-policy
+!
+route-policy TEST-ISP-0040
+  if (as-path in Bharti_peers) then
+    drop
+  else
+    if (destination in rejected-pools) then
+      drop
+    else
+      if (as-path in TEST-ISP-0040) then
+        set community TEST-ISP-0040
+        set local-preference 500
+        pass
+      endif
+    endif
+  endif
+end-policy
+!
+route-policy TEST-ISP-1012
+  if (destination in pfx_TEST-ISP-1012) then
+    set local-preference 500
+    set community TEST-ISP-1012
+  endif
+end-policy
+!
+route-policy TEST-ISP-1013
+  if (as-path in Bharti_peers) then
+    drop
+  else
+    if (destination in rejected-pools) then
+      drop
+    else
+      if (as-path in TEST-ISP-1013) then
+        set community TEST-ISP-1013
+        set local-preference 500
+        pass
+      endif
+    endif
+  endif
+end-policy
+!
+route-policy TEST-ISP-1014
+  if (as-path in Bharti_peers) then
+    drop
+  else
+    if (destination in rejected-pools) then
+      drop
+    else
+      if (as-path in TEST-ISP-1014) then
+        set community TEST-ISP-1014
+        set local-preference 500
+        pass
+      endif
+    endif
+  endif
+end-policy
+!
+route-policy CEN-NPT1100-UP
+  if destination in CEN-NPT1100 then
+    set tag 2
+  endif
+end-policy
+!
+route-policy DROP-T5-PREFIX
+  if community matches-any ECI-T5 or community matches-any CISCO-T5 or community matches-any CIENA-T5 then
+    drop
+  else
+    pass
+  endif
+end-policy
+!
+route-policy Loopback2_drop
+  if community matches-any (1310:4071) then
+    drop
+  else
+    set aigp-metric igp-cost
+    pass
+  endif
+end-policy
+!
+route-policy TOWARDS-T3CORE
+  if destination in TOWARDS-T3CORE then
+    pass
+    set local-preference 200
+  endif
+end-policy
+!
+route-policy profile-14-rpl
+  set core-tree mldp-partitioned-p2mp
+end-policy
+!
+route-policy rejected-pools
+end-policy
+!
+route-policy Default-Drop-v4
+  if destination in (0.0.0.0/0) then
+    drop
+  else
+    pass
+  endif
+end-policy
+!
+route-policy Default-Drop-v6
+  if destination in (::/0) then
+    drop
+  else
+    pass
+  endif
+end-policy
+!
+route-policy commuitypasscen
+  set community (2:200)
+end-policy
+!
+route-policy nexthop_not_bgp
+  if not protocol is bgp 9730 then
+    pass
+  else
+    drop
+  endif
+end-policy
+!
+route-policy CEN-NPT1100-DOWN
+  if destination in NPT1100-DOWN then
+    pass
+  endif
+end-policy
+!
+route-policy Loopback100_drop
+  if community matches-any (1311:7130) then
+    drop
+  elseif community matches-any (1410:9999) then
+    set aigp-metric igp-cost
+  else
+    pass
+  endif
+end-policy
+!
+route-policy PASS-DEFAULT-NNI
+  if destination in (0.0.0.0/0) then
+    pass
+  else
+    drop
+  endif
+end-policy
+!
+route-policy PASS_DEFAULT_NNI
+  if destination in (0.0.0.0/0) then
+    pass
+  else
+    drop
+  endif
+end-policy
+!
+route-policy TEST-ISP-1602023
+  if (as-path in Bharti_peers) then
+    drop
+  else
+    if (destination in rejected-pools) then
+      drop
+    else
+      if (as-path in TEST-ISP-1602023) then
+        set community TEST-ISP-1602023
+        set local-preference 500
+        pass
+      endif
+    endif
+  endif
+end-policy
+!
+route-policy add-path-to-ibgp
+  set path-selection backup 1 install
+  set path-selection all advertise
+end-policy
+!
+route-policy sendpolicy_test1
+  if source in sendpolicy_test1 or destination in sendpolicy_test1 then
+    pass
+  else
+    pass
+  endif
+end-policy
+!
+route-policy test-ospf-filter
+end-policy
+!
+route-policy BLOCK-DEFAULT-NNI
+end-policy
+!
+route-policy BLOCK-DEFAULT_NNI
+  if destination in (0.0.0.0/0) then
+    drop
+  else
+    pass
+  endif
+end-policy
+!
+route-policy Block-T5-Prefixes
+  if community matches-any ECI-T5 or community matches-any CIENA-T5 or community matches-any CISCO-T5 then
+    drop
+  else
+    pass
+  endif
+end-policy
+!
+route-policy Deny-IPv4-Default
+  if destination in IPv4-Default-Route then
+    drop
+  else
+    pass
+  endif
+end-policy
+!
+route-policy pass-default-only
+  if destination in (0.0.0.0/0) then
+    pass
+  else
+    drop
+  endif
+end-policy
+!
+route-policy test-eigrp-filter
+end-policy
+!
+route-policy DEFAULT-Nokia_HVPN
+  if destination in DEFAULT-Nokia_HVPN then
+    set extcommunity rt DEFAULT-Nokia_HVPN
+  else
+    set extcommunity rt Export_HVPN_3001
+  endif
+end-policy
+!
+route-policy MPL-INTERNET-SOUTH
+  if destination in BHARTI-E-NOC-MANAGEMENT then
+    set community (9730:44) additive
+  else
+    set community (9730:44) additive
+  endif
+end-policy
+!
+route-policy BHARTI-E-NOC-Import
+  if destination in enoc_le28 then
+    drop
+  else
+    pass
+  endif
+end-policy
+!
+route-policy connected_interface
+  if destination in (182.2.2.0/24) then
+    pass
+  else
+    drop
+  endif
+end-policy
+!
+route-policy ipv6-rejected-pools
+end-policy
+!
+route-policy Default-HVPN-IRBLEAF
+  if destination in (0.0.0.0/0) then
+    set extcommunity rt Default-HVPN-IRBLEAF
+  else
+    set extcommunity rt Export-HVPN-IRBLEAF
+  endif
+end-policy
+!
+route-policy add-path-to-ibgp-vrf
+  set path-selection backup 1 install
+end-policy
+!
+route-policy addition-path-policy
+end-policy
+!
+route-policy RP_prevent_nhs_change
+  if community matches-any CS_T5 then
+    drop
+  elseif community matches-any COMM_prevent_nhs_change then
+    pass
+  else
+    set next-hop self
+  endif
+end-policy
+!
+route-policy Block-ECI-LU-T4-Routes
+  if destination in ECI-LU-T4 then
+    drop
+  else
+    pass
+  endif
+end-policy
+!
+route-policy Block-ECI-VPNv4-Routes
+  if destination in ECI-VPNv4-T4 then
+    drop
+  else
+    pass
+  endif
+end-policy
+!
+route-policy Default-HVPN-NPT1100-1
+  if destination in (0.0.0.0/0) then
+    set extcommunity rt Default-HVPN-NPT1100-1
+  else
+    set extcommunity rt Export-HVPN-NPT1100-1
+  endif
+end-policy
+!
+route-policy Default-HVPN-NPT1100-2
+  if destination in (0.0.0.0/0) then
+    set extcommunity rt Default-HVPN-NPT1100-2
+  else
+    set extcommunity rt Export-HVPN-NPT1100-2
+  endif
+end-policy
+!
+route-policy Default-HVPN-NPT1100-3
+  if destination in (0.0.0.0/0) then
+    set extcommunity rt Default-HVPN-NPT1100-3
+  else
+    set extcommunity rt Export-HVPN-NPT1100-3
+  endif
+end-policy
+!
+route-policy Default-HVPN-NPT1100-4
+  if destination in (0.0.0.0/0) then
+    set extcommunity rt Default-HVPN-NPT1100-4
+  else
+    set extcommunity rt Export-HVPN-NPT1100-4
+  endif
+end-policy
+!
+route-policy BHARTI-E-NOC-MANAGEMENT
+  if (destination in pfx_BHARTI-E-NOC-MANAGEMENT) then
+    set extcommunity rt (9730:88) additive
+  elseif destination in pfx_BHARTI-E-NOC-MANAGEMENT_By_NSO then
+    set extcommunity rt (9730:88) additive
+  elseif (destination in pfx_BHARTI-E-NOC-MANAGEMENT_by_NSO) then
+    set extcommunity rt (9730:88) additive
+  endif
+end-policy
+!
+route-policy BHARTI-G-NOC-MONITORING
+  pass
+end-policy
+!
+route-policy Block-Juniper-Lu-Prefix
+  if community matches-any Block-Juniper-Lu-Prefix then
+    drop
+  else
+    pass
+  endif
+end-policy
+!
+route-policy DEFAULT-Nokia_HVPN-ipv4
+  if destination in (0.0.0.0/0) then
+    set extcommunity rt DEFAULT-Nokia_HVPN
+  else
+    set extcommunity rt Export_HVPN_3001
+  endif
+end-policy
+!
+route-policy DEFAULT-Nokia_HVPN-ipv6
+  if destination in (::/0) then
+    set extcommunity rt DEFAULT-Nokia_HVPN
+  else
+    set extcommunity rt Export_HVPN_3001
+  endif
+end-policy
+!
+route-policy DROP-CONNECTED-LOOPBACK
+  if community matches-any CISCO-T3-130 or community matches-any CISCO-T3-140 then
+    drop
+  elseif destination in (0.0.0.0/0) then
+    drop
+  else
+    pass
+  endif
+end-policy
+!
+route-policy default_policy_pass_all
+  pass
+end-policy
+!
+route-policy Block-Nokia-LU-T4-Routes
+  if destination in Nokia-LU-T4 then
+    drop
+  else
+    pass
+  endif
+end-policy
+!
+route-policy DEFAULT-ONLY-FOR-VPN_HVPN
+  if destination in (0.0.0.0/0) then
+    set extcommunity rt DEFAULT-RT-FOR-VPN_HVPN
+  else
+    set extcommunity rt export_other_HVPN
+  endif
+end-policy
+!
+route-policy default-ONLY-FOR-HVPN_CEN
+  if destination in (0.0.0.0/0) then
+    set extcommunity rt default-RT-HVPN_CEN
+  else
+    set extcommunity rt Export_HVPN_CEN
+  endif
+end-policy
+!
+route-policy DEFAULT-ONLY-FOR-HVPN_3002
+  if destination in (::/0) then
+    set extcommunity rt DEFAULT-RT-HVPN_3002
+  else
+    set extcommunity rt Export_HVPN_3002
+  endif
+end-policy
+!
+route-policy default-ONLY-FOR-HVPN_CEN1
+  if destination in (0.0.0.0/0) then
+    set extcommunity rt default-RT-HVPN_CEN1
+  else
+    set extcommunity rt Export_HVPN_CEN1
+  endif
+end-policy
+!
+route-policy default-ONLY-FOR-HVPN_CEN2
+  if destination in (0.0.0.0/0) then
+    set extcommunity rt default-RT-HVPN_CEN2
+  else
+    set extcommunity rt Export_HVPN_CEN2
+  endif
+end-policy
+!
+route-policy default-ONLY-FOR-HVPN_CEN3
+  if destination in (0.0.0.0/0) then
+    set extcommunity rt default-RT-HVPN_CEN3
+  else
+    set extcommunity rt Export_HVPN_CEN3
+  endif
+end-policy
+!
+route-policy default-ONLY-FOR-HVPN_CEN4
+  if destination in (0.0.0.0/0) then
+    set extcommunity rt default-RT-HVPN_CEN4
+  else
+    set extcommunity rt Export_HVPN_CEN4
+  endif
+end-policy
+!
+route-policy prevent_nhs_change_access1
+  if community matches-any prevent_nhs_change_access1 then
+    pass
+  else
+    set next-hop self
+  endif
+end-policy
+!
+route-policy BHARTI-E-NOC-MONITORING-MNG
+  if (destination in pfx_BHARTI-E-NOC-MANAGEMENT) then
+    set extcommunity rt (9730:88) additive
+  endif
+end-policy
+!
+route-policy BHARTI-G-NOC-MONITORING-MNG
+  if (destination in pfx_BHARTI-E-NOC-MANAGEMENT) then
+    set extcommunity rt (9730:88) additive
+  elseif (destination in BHARTI-E-NOC-MANAGEMENT) then
+    set extcommunity rt (9730:88) additive
+  elseif destination in pfx_BHARTI-E-NOC-MANAGEMENT_by_NSO then
+    set extcommunity rt (9730:88) additive
+  elseif (destination in pfx_WI-MAX-P2P-IP-MNGMT) then
+    set extcommunity rt (9730:5299) additive
+  elseif (destination in WI-MAX-P2P-IP-MNGMT) then
+    set extcommunity rt (9730:5299) additive
+  endif
+end-policy
+!
+route-policy Core-AGG-Loopbacks-Redis-11
+  if destination in Core-AGG-Loopbacks-Redis then
+    pass
+    set tag 10000
+  endif
+end-policy
+!
+route-policy Default-HVPN-NPT1100-1-TEST
+  if destination in (0.0.0.0/0) then
+    set extcommunity rt Default-HVPN-NPT1100-1
+  endif
+end-policy
+!
+route-policy default-ONLY-FOR-HVPN_C_CSR
+  if destination in (0.0.0.0/0) then
+    set extcommunity rt default-RT-HVPN_C_CSR
+  else
+    set extcommunity rt Export_HVPN_C_CSR
+  endif
+end-policy
+!
+route-policy default-ONLY-FOR-HVPN_ciena
+  if destination in (0.0.0.0/0) then
+    set extcommunity rt default-RT-HVPN_ciena
+  else
+    set extcommunity rt Export_HVPN_ciena
+  endif
+end-policy
+!
+route-policy default-ONLY-FOR-HVPN_C_CSR2
+  if destination in (0.0.0.0/0) then
+    set extcommunity rt default-RT-HVPN_C_CSR2
+  else
+    set extcommunity rt Export_HVPN_C_CSR2
+  endif
+end-policy
+!
+route-policy default-ONLY-FOR-HVPN_C_CSR3
+  if destination in (0.0.0.0/0) then
+    set extcommunity rt default-RT-HVPN_C_CSR3
+  else
+    set extcommunity rt Export_HVPN_C_CSR3
+  endif
+end-policy
+!
+route-policy default-ONLY-FOR-HVPN_C_CSR4
+  if destination in (0.0.0.0/0) then
+    set extcommunity rt default-RT-HVPN_C_CSR4
+  else
+    set extcommunity rt Export_HVPN_C_CSR4
+  endif
+end-policy
+!
+route-policy prevent_nhs_change_access194
+  if community matches-any NMS_DROP_ACCESS_WAN then
+    drop
+  elseif community matches-any prevent_nhs_change_access194 then
+    pass
+  else
+    set next-hop self
+  endif
+end-policy
+!
+route-policy DEFAULT-HVPN_npt_MP-ABIS-2G-1
+  if destination in (0.0.0.0/0) then
+    set extcommunity rt DEFAULT-RT_npt_MP-ABIS-2G-1
+  else
+    set extcommunity rt export_other_npt_MP-ABIS-2G-1
+  endif
+end-policy
+!
+route-policy DEFAULT-HVPN_npt_MP-ABIS-2G-2
+  if destination in (0.0.0.0/0) then
+    set extcommunity rt DEFAULT-RT_npt_MP-ABIS-2G-2
+  else
+    set extcommunity rt export_other_npt_MP-ABIS-2G-2
+  endif
+end-policy
+!
+route-policy DEFAULT-ONLY-FOR-VPN_ECI_HVPN
+  if destination in (0.0.0.0/0) then
+    set extcommunity rt DEFAULT-RT-FOR-VPN_ECI_HVPN
+  else
+    set extcommunity rt export_other_ECI_HVPN
+  endif
+end-policy
+!
+route-policy DEFAULT-ONLY-FOR-VPN_HVPN_NPT
+  if destination in (0.0.0.0/0) then
+    set extcommunity rt DEFAULT-RT-FOR-VPN_HVPN_NPT
+  else
+    set extcommunity rt export_other_HVPN_NPT
+  endif
+end-policy
+!
+route-policy DEFAULT-ONLY-FOR-VPN_NPT_HVPN
+  if destination in (0.0.0.0/0) then
+    set extcommunity rt DEFAULT-RT-FOR-VPN_NPT_HVPN
+  else
+    set extcommunity rt export_other_NPT_HVPN
+  endif
+end-policy
+!
+route-policy default-ONLY-FOR-HVPN_TEST_up
+  if destination in (0.0.0.0/0) then
+    set extcommunity rt default-RT-HVPN_TEST_up
+  else
+    set extcommunity rt Export_HVPN_TEST_up
+  endif
+end-policy
+!
+route-policy DEFAULT-ONLY-FOR-VPN-IPV6_HVPN
+  if destination in (::/0) then
+    set extcommunity rt DEFAULT-RT-FOR-VPN_HVPN
+  else
+    set extcommunity rt export_other_HVPN
+  endif
+end-policy
+!
+route-policy DEFAULT-ONLY-FOR-VPN_eci_smart
+  if destination in (0.0.0.0/0) then
+    set extcommunity rt DEFAULT-RT-FOR-VPN_eci_smart
+  else
+    set extcommunity rt export_other_eci_smart
+  endif
+end-policy
+!
+route-policy default-ONLY-FOR-HVPN_IPV6_CEN
+  if destination in (::/0) then
+    set extcommunity rt default-RT-HVPN_IPV6_CEN
+  else
+    set extcommunity rt Export_HVPN_IPV6_CEN
+  endif
+end-policy
+!
+route-policy DEFAULT-HVPN_V6_npt_MP-ABIS-2G-1
+  if destination in (::/0) then
+    set extcommunity rt DEFAULT-RT_npt_MP-ABIS-2G-1
+  else
+    set extcommunity rt export_other_npt_MP-ABIS-2G-1
+  endif
+end-policy
+!
+route-policy DEFAULT-HVPN_V6_npt_MP-ABIS-2G-2
+  if destination in (::/0) then
+    set extcommunity rt DEFAULT-RT_npt_MP-ABIS-2G-2
+  else
+    set extcommunity rt export_other_npt_MP-ABIS-2G-2
+  endif
+end-policy
+!
+route-policy DEFAULT-ONLY-FOR-VPN_ECI_OAM_HVPN
+  if destination in (0.0.0.0/0) then
+    set extcommunity rt DEFAULT-ONLY-FOR-VPN_ECI_OAM_HVPN
+  else
+    set extcommunity rt export_other_ECI_OAM_HVPN
+  endif
+end-policy
+!
+route-policy DEFAULT-ONLY-FOR-VPN-IPV6_ECI_HVPN
+  if destination in (::/0) then
+    set extcommunity rt DEFAULT-RT-FOR-VPN_ECI_HVPN
+  else
+    set extcommunity rt export_other_ECI_HVPN
+  endif
+end-policy
+!
+route-policy DEFAULT-ONLY-FOR-VPN-IPV6_HVPN_NPT
+  if destination in (::/0) then
+    set extcommunity rt DEFAULT-RT-FOR-VPN_HVPN_NPT
+  else
+    set extcommunity rt export_other_HVPN_NPT
+  endif
+end-policy
+!
+route-policy DEFAULT-ONLY-FOR-VPN-IPV6_NPT_HVPN
+  if destination in (::/0) then
+    set extcommunity rt DEFAULT-RT-FOR-VPN_NPT_HVPN
+  else
+    set extcommunity rt export_other_NPT_HVPN
+  endif
+end-policy
+!
+route-policy DEFAULT-ONLY-FOR-VPN_ECI_DATA_HVPN
+  if destination in (0.0.0.0/0) then
+    set extcommunity rt DEFAULT-ONLY-FOR-VPN_ECI_DATA_HVPN
+  else
+    set extcommunity rt export_other_ECI_DATA_HVPN
+  endif
+end-policy
+!
+route-policy DEFAULT-ONLY-FOR-VPN-IPV6_eci_smart
+  if destination in (::/0) then
+    set extcommunity rt DEFAULT-RT-FOR-VPN_eci_smart
+  else
+    set extcommunity rt export_other_eci_smart
+  endif
+end-policy
+!
+route-policy DEFAULT-ONLY-FOR-VPN_ECI_VRF_2G_HVPN
+  if destination in (0.0.0.0/0) then
+    set extcommunity rt DEFAULT-ONLY-FOR-VPN_ECI_VRF_2G_HVPN
+  else
+    set extcommunity rt export_other_ECI_VRF_2G_HVPN
+  endif
+end-policy
+!
+route-policy DEFAULT-ONLY-FOR-VPN_ECI_SIGNALLING_HVPN
+  if destination in (0.0.0.0/0) then
+    set extcommunity rt DEFAULT-ONLY-FOR-VPN_ECI_SIGNALLING_HVPN
+  else
+    set extcommunity rt export_other_ECI_SIGNALLING_HVPN
+  endif
+end-policy
+!
+router static
+ address-family ipv4 unicast
+  0.0.0.0/0 172.16.254.1
+  10.0.0.0/8 10.3.247.5
+  10.10.10.0/24 172.100.100.1
+  10.107.209.0/24 10.206.30.109
+  17.17.17.0/24 15.15.15.0
+  40.40.40.0/24 172.100.10.2
+  40.40.40.0/24 192.168.100.2
+  50.0.50.0/24 151.0.0.2
+  50.50.50.0/24 51.52.53.54
+  61.61.61.0/24 51.52.53.55
+  96.96.96.0/28 10.116.116.2
+  96.96.96.0/30 10.116.116.1
+  99.99.99.99/32 192.168.21.1 track 1
+  172.16.200.0/24 172.16.254.1
+  172.16.251.0/24 172.16.254.1
+  172.16.253.0/24 172.16.254.1
+  182.182.0.0/30 29.30.40.2
+  192.168.1.0/30 192.167.1.2
+  192.168.2.0/30 192.167.3.2
+  192.168.3.0/30 192.167.2.2
+  192.168.4.0/30 192.167.4.2
+  192.168.40.0/30 10.1.1.2
+  192.168.51.0/30 192.168.50.2
+  192.168.51.0/31 192.168.50.2
+  192.168.200.0/24 172.16.254.1
+  201.56.34.1/32 203.1.1.2
+ !
+ address-family ipv6 unicast
+  2001:db9::/64 2001:db8::2
+ !
+ vrf DH
+  address-family ipv4 unicast
+   61.17.6.1/32 10.11.18.2
+  !
+ !
+ vrf HVPN
+  address-family ipv4 unicast
+   0.0.0.0/0 Null0
+  !
+  address-family ipv6 unicast
+   ::/0 Null0
+  !
+ !
+ vrf mgmt
+  address-family ipv4 unicast
+   0.0.0.0/0 172.16.254.1
+  !
+ !
+ vrf test
+  address-family ipv4 unicast
+   20.20.20.0/24 Null0
+   30.30.30.0/24 172.16.254.73
+  !
+ !
+ vrf AAB-M
+  address-family ipv4 unicast
+   123.19.81.0/30 124.254.21.118
+   123.21.81.0/30 172.37.222.122
+   123.121.81.0/30 172.38.222.122
+   123.131.81.0/30 172.38.100.122
+   124.131.81.0/30 172.37.100.122
+   124.191.81.0/30 172.38.180.122
+   134.191.81.0/30 172.38.170.122
+   165.121.1.0/30 172.40.222.122
+   165.121.12.0/30 172.40.222.126
+   165.121.81.0/30 172.39.222.122
+   172.36.212.121/32 172.37.222.122
+   172.37.2.124/32 172.38.100.122
+   172.37.12.124/32 172.37.100.122
+   172.37.32.124/32 172.38.180.122
+   172.37.32.134/32 172.38.170.122
+   172.37.212.121/32 172.38.222.122
+   172.38.212.121/32 172.39.222.122
+   172.40.212.11/32 172.40.222.126
+   172.40.212.121/32 172.40.222.122
+  !
+ !
+ vrf AAM-M
+  address-family ipv4 unicast
+   10.23.23.100/30 172.211.122.142
+   123.132.111.0/30 172.125.112.9
+   185.121.12.40/30 163.153.21.118
+  !
+ !
+ vrf HVPNT
+  address-family ipv4 unicast
+   0.0.0.0/0 Null0
+  !
+ !
+ vrf SSM-M
+  address-family ipv4 unicast
+   54.54.53.0/24 6.8.3.2
+  !
+ !
+ vrf dummy
+  address-family ipv4 unicast
+   0.0.0.0/0 Null0
+  !
+ !
+ vrf TEST-M
+  address-family ipv4 unicast
+   0.0.0.0/0 13.17.40.2
+   2.2.2.0/30 12.17.40.2
+  !
+ !
+ vrf huawei
+  address-family ipv4 unicast
+   62.62.62.0/24 21.21.21.2
+   100.100.100.0/24 21.21.21.2
+  !
+ !
+ vrf E-NOC11
+  address-family ipv4 unicast
+   71.71.71.71/32 Loopback99
+   192.168.1.0/30 Loopback99
+  !
+ !
+ vrf IRBLEAF
+  address-family ipv4 unicast
+   0.0.0.0/0 Null0 track RR9912NPT
+  !
+ !
+ vrf SBI-2-M
+  address-family ipv4 unicast
+   100.254.123.60/30 76.40.122.62
+   100.254.123.136/30 64.40.124.138
+  !
+ !
+ vrf SKB-S27
+  address-family ipv4 unicast
+   90.99.18.0/24 172.36.67.122
+   122.122.122.121/32 172.36.67.122
+  !
+ !
+ vrf SKB-S28
+  address-family ipv4 unicast
+   90.19.18.0/24 172.34.122.142
+   172.34.122.121/32 172.34.122.142
+  !
+ !
+ vrf SKB-S31
+  address-family ipv4 unicast
+   109.19.81.0/24 172.38.122.122
+   172.38.112.121/32 172.38.122.122
+  !
+ !
+ vrf TEST_up
+  address-family ipv4 unicast
+   0.0.0.0/0 Null0
+  !
+ !
+ vrf delhi-H
+  address-family ipv4 unicast
+   105.25.103.172/30 12.120.34.174
+  !
+ !
+ vrf AAM-ML-M
+  address-family ipv4 unicast
+   123.12.12.0/24 172.15.12.2
+  !
+ !
+ vrf ECI_HVPN
+  address-family ipv4 unicast
+   0.0.0.0/0 Null0
+  !
+ !
+ vrf HVPN_NPT
+  address-family ipv4 unicast
+   0.0.0.0/0 Null0
+  !
+  address-family ipv6 unicast
+   ::/0 Null0
+  !
+ !
+ vrf INDIAONE
+  address-family ipv4 unicast
+   10.25.36.4/30 115.23.14.34
+   10.25.42.0/28 15.23.14.34 22
+   52.36.12.12/32 17.23.14.33
+   59.144.17.0/24 59.144.174.2
+   100.12.11.0/24 172.23.12.2 bfd fast-detect minimum-interval 999 multiplier 3
+   100.23.23.1/32 59.144.193.82
+   100.100.100.0/29 23.23.23.2
+   100.122.11.0/28 59.144.174.2
+   121.12.12.0/24 59.144.193.82 bfd fast-detect minimum-interval 999 multiplier 3
+   192.168.12.0/24 132.120.10.2
+  !
+  address-family ipv6 unicast
+   2003:db8:85a4::/64 6001:db8:85a3::8a2e:370:7336
+  !
+ !
+ vrf LTE_S1-U
+  address-family ipv4 unicast
+   10.16.10.0/25 Loopback15
+  !
+ !
+ vrf MPBN-IuB
+  address-family ipv4 unicast
+   10.13.10.0/28 Loopback12
+  !
+ !
+ vrf NMS-18-M
+  address-family ipv4 unicast
+   89.99.8.0/24 76.76.77.2
+   90.99.8.0/24 78.76.77.12
+   122.122.122.121/32 78.76.77.2
+   122.122.122.122/32 76.76.77.2
+  !
+ !
+ vrf NPT_HVPN
+  address-family ipv4 unicast
+   0.0.0.0/0 Null0
+  !
+  address-family ipv6 unicast
+   ::/0 Null0
+  !
+ !
+ vrf RAFALE-H
+  address-family ipv4 unicast
+   12.12.12.0/24 192.168.1.2
+   23.23.23.0/24 192.168.1.2
+   172.168.1.0/30 192.168.1.2
+   192.168.1.0/30 192.168.1.2
+  !
+ !
+ vrf CISCO-ECI
+  address-family ipv4 unicast
+   0.0.0.0/0 Null0
+  !
+  address-family ipv6 unicast
+   ::/0 Null0
+  !
+ !
+ vrf MESH-99-M
+  address-family ipv4 unicast
+   90.90.8.0/24 18.17.40.10
+   120.121.122.121/32 18.17.40.2
+  !
+ !
+ vrf MESHU-2-M
+  address-family ipv4 unicast
+   100.254.124.64/30 52.40.4.94
+   172.40.124.205/32 52.40.4.94
+  !
+ !
+ vrf TATA-2-S5
+  address-family ipv4 unicast
+   172.25.12.0/24 172.36.12.2
+   172.36.25.23/32 172.36.12.2
+  !
+ !
+ vrf ciena_VRF
+  address-family ipv4 unicast
+   0.0.0.0/0 Null0
+  !
+ !
+ vrf BHARTI-4-H
+  address-family ipv4 unicast
+   11.11.11.0/24 193.168.7.2
+  !
+ !
+ vrf CISCO-CSR2
+  address-family ipv4 unicast
+   0.0.0.0/0 Null0
+  !
+ !
+ vrf CISCO-CSR3
+  address-family ipv4 unicast
+   0.0.0.0/0 Null0
+  !
+ !
+ vrf CISCO-CSR4
+  address-family ipv4 unicast
+   0.0.0.0/0 Null0
+  !
+ !
+ vrf CISCO-ECI1
+  address-family ipv4 unicast
+   0.0.0.0/0 Null0
+  !
+ !
+ vrf CISCO-ECI2
+  address-family ipv4 unicast
+   0.0.0.0/0 Null0
+  !
+ !
+ vrf CISCO-ECI3
+  address-family ipv4 unicast
+   0.0.0.0/0 Null0
+  !
+ !
+ vrf IMS_ACCESS
+  address-family ipv4 unicast
+   10.20.17.0/25 Loopback17
+  !
+ !
+ vrf LTE_S1-MME
+  address-family ipv4 unicast
+   10.14.10.0/30 Loopback13
+  !
+ !
+ vrf Nokia_3002
+  address-family ipv6 unicast
+   ::/0 Null0 track RRs
+  !
+ !
+ vrf Nokia_4001
+  address-family ipv4 unicast
+   9.7.0.0/32 4.197.0.2
+  !
+  address-family ipv6 unicast
+   97::1/128 2004:7::2
+  !
+ !
+ vrf Nokia_HVPN
+  address-family ipv4 unicast
+   0.0.0.0/0 Null0
+  !
+  address-family ipv6 unicast
+   ::/0 Null0
+  !
+ !
+ vrf TATA-2-H63
+ !
+ vrf TATA-2-H67
+  address-family ipv4 unicast
+   194.73.65.16/30 190.46.22.6
+  !
+ !
+ vrf TATA-2-S46
+  address-family ipv4 unicast
+   122.122.11.0/28 172.45.14.2
+   142.12.12.0/24 172.45.14.2
+   172.23.12.1/32 172.45.14.2
+  !
+ !
+ vrf TATA-2-S47
+  address-family ipv4 unicast
+   172.40.52.13/32 172.37.23.2
+  !
+ !
+ vrf TATA-2-S57
+  address-family ipv4 unicast
+   10.23.12.0/24 172.40.52.2
+   172.45.45.1/32 172.40.52.2
+  !
+ !
+ vrf TATA-2-S58
+ !
+ vrf TEST-157-M
+  address-family ipv4 unicast
+   182.56.89.0/24 120.1.3.2
+   192.169.9.27/32 120.1.3.2
+  !
+ !
+ vrf 2G_Abis_SCS
+  address-family ipv4 unicast
+   10.12.10.0/29 Loopback11
+  !
+ !
+ vrf AUW-DELHI-M
+  address-family ipv4 unicast
+   166.23.34.16/30 146.24.55.6 bfd fast-detect minimum-interval 200 multiplier 3
+   197.24.88.32/30 Bundle-Ether14.2014 166.45.78.6
+   197.77.61.16/30 178.68.87.5 2
+  !
+ !
+ vrf BHARTI-4-H2
+  address-family ipv4 unicast
+   0.0.0.0/0 8.8.8.8
+  !
+ !
+ vrf HUAWEI_Mgmt
+  address-family ipv4 unicast
+   59.144.193.160/30 12.1.1.1
+   61.144.193.0/24 15.216.225.37
+  !
+ !
+ vrf ICICI-181-S
+  address-family ipv4 unicast
+   25.188.95.172/30 19.188.95.170
+   172.88.195.193/32 19.188.95.170
+  !
+ !
+ vrf TATA-2-S632
+  address-family ipv4 unicast
+   172.36.54.202/32 Bundle-Ether13.5088
+  !
+ !
+ vrf ECI_HVPN_NEW
+  address-family ipv4 unicast
+   0.0.0.0/0 Null0
+  !
+ !
+ vrf ECI_OAM_HVPN
+  address-family ipv4 unicast
+   0.0.0.0/0 Null0
+  !
+ !
+ vrf ICICI-181-H5
+  address-family ipv4 unicast
+   100.254.123.172/30 18.22.23.170
+  !
+ !
+ vrf ICICI-181-H7
+  address-family ipv4 unicast
+   101.254.123.172/30 19.22.23.170
+  !
+ !
+ vrf Test-iWAN-L3
+  address-family ipv4 unicast
+   0.0.0.0/0 Null0
+   182.182.1.8/30 182.31.0.9 bfd fast-detect minimum-interval 100 multiplier 3
+   182.182.1.8/30 182.32.0.9 bfd fast-detect minimum-interval 100 multiplier 3
+  !
+ !
+ vrf AIRTEL-GEN-S5
+ !
+ vrf BBNL-INTERNET
+  address-family ipv4 unicast
+   10.10.2.3/32 38.38.38.2
+   10.12.12.23/32 22.22.22.2
+   10.231.12.0/30 133.22.18.2
+   12.12.12.12/32 21.21.21.2
+   16.23.56.4/30 175.42.22.2
+   23.23.23.0/29 21.21.21.2
+   24.24.24.0/29 192.132.123.2
+   26.26.26.0/29 Bundle-Ether13.5068 42.54.65.2 bfd fast-detect minimum-interval 999 multiplier 3
+   28.28.28.0/29 59.144.193.62
+   45.45.45.0/29 Bundle-Ether13.2204 59.144.193.66 bfd fast-detect minimum-interval 999 multiplier 3
+   45.54.44.0/29 45.54.45.2
+   55.55.55.55/32 192.132.123.2
+   59.44.193.162/32 59.44.193.146
+   59.104.193.24/29 59.104.193.82 bfd fast-detect minimum-interval 300 multiplier 3
+   59.144.193.0/29 59.144.193.66
+   59.144.193.8/29 59.144.193.74 50
+   59.144.193.16/29 Bundle-Ether13.5119 59.144.193.78
+   59.144.193.16/29 Bundle-Ether13.5121 59.144.193.78
+   59.144.193.148/32 59.144.193.58
+   59.144.193.149/32 59.144.193.62
+   59.144.193.150/32 59.144.193.66
+   59.144.193.151/32 59.144.193.70
+   59.144.193.152/32 59.144.193.74
+   59.144.193.153/32 59.144.193.78
+   59.144.193.162/32 59.144.193.146
+   59.145.122.159/32 59.144.38.222
+   124.23.12.1/32 133.22.18.2
+   125.20.211.160/29 59.144.38.222
+   125.104.193.0/29 125.104.193.66
+   125.124.125.0/29 10.10.10.4
+   125.142.13.150/32 125.104.193.66
+   172.52.12.0/24 100.122.11.2
+   172.52.12.16/30 100.122.11.2
+   172.52.12.20/30 100.122.11.2
+   172.52.12.24/29 100.122.11.2
+   172.144.193.0/29 100.122.11.2 100
+   172.147.193.0/29 172.53.12.18 100
+   172.152.193.0/29 172.57.12.18 100
+   172.152.194.0/29 174.57.12.18 100
+  !
+ !
+ vrf ECI_DATA_HVPN
+  address-family ipv4 unicast
+   0.0.0.0/0 Null0
+  !
+ !
+ vrf AIRTEL-GEN-H23
+  address-family ipv4 unicast
+   124.132.111.0/30 172.125.112.18
+  !
+ !
+ vrf AIRTEL-GEN-H25
+  address-family ipv4 unicast
+   125.132.111.0/30 173.125.112.18
+  !
+ !
+ vrf AIRTEL-GEN-S20
+  address-family ipv4 unicast
+   165.121.12.40/30 163.254.21.118
+  !
+ !
+ vrf AIRTEL-GEN-S56
+  address-family ipv4 unicast
+   172.46.25.0/30 172.40.124.94
+   172.46.25.4/30 172.40.124.94
+  !
+ !
+ vrf AMAR-LPVT-TD-M
+  address-family ipv4 unicast
+   20.20.20.0/24 100.100.100.2
+  !
+ !
+ vrf BTSOL-ATM-MPLS
+  address-family ipv4 unicast
+   10.25.24.0/24 10.23.13.2
+  !
+ !
+ vrf LTE_eNodeB_NMS
+  address-family ipv4 unicast
+   10.15.10.0/24 Loopback14
+  !
+ !
+ vrf handstetsing-S
+  address-family ipv4 unicast
+   9.99.8.0/24 191.17.40.10
+   90.99.8.0/24 19.17.40.10
+   122.122.122.120/32 191.17.40.2
+   122.122.122.121/32 19.17.40.2
+  !
+ !
+ vrf AIRTEL-GEN-S122
+  address-family ipv4 unicast
+   10.23.12.40/30 178.25.101.9
+   172.40.25.112/32 178.25.101.9
+  !
+ !
+ vrf AIRTEL-GEN-S126
+  address-family ipv4 unicast
+   126.132.111.0/30 173.125.112.18
+  !
+ !
+ vrf ECI_VRF_2G_HVPN
+  address-family ipv4 unicast
+   0.0.0.0/0 Null0
+  !
+ !
+ vrf Fortinet-MPLS-A
+  address-family ipv4 unicast
+   192.168.1.0/24 1.1.1.2
+   192.168.2.0/24 2.2.2.2
+  !
+ !
+ vrf Fortinet-MPLS-B
+ !
+ vrf Fortinet-MPLS-C
+ !
+ vrf Indian-Bank-2-M
+  address-family ipv4 unicast
+   82.23.75.42/32 81.23.76.42
+  !
+ !
+ vrf MANAGED-DELHI-M
+  address-family ipv4 unicast
+   10.233.23.24/30 172.36.53.2
+   10.255.12.0/28 172.36.23.2
+   20.253.23.12/30 172.36.25.2
+   172.25.23.5/32 12.56.21.14
+   172.35.23.12/32 172.36.25.2
+   172.55.44.20/30 12.56.21.14 10
+  !
+ !
+ vrf hgdhdgdvghd-H13
+  address-family ipv4 unicast
+   122.22.123.172/30 15.10.14.186 bfd fast-detect minimum-interval 200 multiplier 3
+   172.67.132.185/32 15.10.14.186 bfd fast-detect minimum-interval 200 multiplier 3
+  !
+ !
+ vrf CEN-Acess-1100-1
+  address-family ipv4 unicast
+   0.0.0.0/0 Null0 track RR9912NPT
+  !
+ !
+ vrf CEN-Acess-1100-2
+  address-family ipv4 unicast
+   0.0.0.0/0 Null0 track RR9912NPT
+  !
+ !
+ vrf CEN-Acess-1100-3
+  address-family ipv4 unicast
+   0.0.0.0/0 Null0 track RR9912NPT
+  !
+ !
+ vrf CEN-Acess-1100-4
+  address-family ipv4 unicast
+   0.0.0.0/0 Null0 track RR9912NPT
+  !
+ !
+ vrf npt_MP-ABIS-2G-1
+  address-family ipv4 unicast
+   0.0.0.0/0 Null0 track RR9912NPT1100H
+  !
+  address-family ipv6 unicast
+   ::/0 Null0 track RR9912NPT1100H
+  !
+ !
+ vrf npt_MP-ABIS-2G-2
+  address-family ipv4 unicast
+   0.0.0.0/0 Null0 track RR9912NPT1100H
+  !
+  address-family ipv6 unicast
+   ::/0 Null0 track RR9912NPT1100H
+  !
+ !
+ vrf UNMANAGED-DELHI-M
+  address-family ipv4 unicast
+   10.10.111.0/29 10.23.222.2 50
+   10.23.56.0/24 162.53.12.2
+   14.23.12.4/30 Bundle-Ether13.5008 10.23.25.2
+   14.23.12.8/30 Bundle-Ether13.5023 10.23.25.6
+   109.19.81.0/24 172.37.122.122
+   109.99.8.0/24 172.36.122.222
+   109.199.8.0/24 172.35.169.102
+   109.199.181.0/24 172.135.16.102
+   123.23.12.0/24 118.32.13.2
+   131.31.31.0/24 118.32.13.2
+   172.35.169.10/32 172.35.169.102
+   172.36.112.121/32 172.37.122.122
+   172.76.112.121/32 172.36.122.222
+   183.55.42.48/30 183.23.12.53 bfd fast-detect minimum-interval 200 multiplier 3
+   183.55.44.16/30 Bundle-Ether13.5047 183.23.12.6
+   183.55.44.24/30 183.23.12.10
+   183.55.44.32/30 183.23.71.6
+   183.55.77.48/29 183.23.40.42
+  !
+ !
+ vrf Cisco-Automation-1
+  address-family ipv4 unicast
+   192.168.11.0/32 Null0
+   192.168.11.1/32 Null0
+   192.168.11.2/32 Null0
+   192.168.11.3/32 Null0
+   192.168.11.4/32 Null0
+   192.168.11.5/32 Null0
+   192.168.11.6/32 Null0
+   192.168.11.7/32 Null0
+   192.168.11.8/32 Null0
+   192.168.11.9/32 Null0
+   192.168.11.10/32 Null0
+   192.168.11.11/32 Null0
+   192.168.11.12/32 Null0
+   192.168.11.13/32 Null0
+   192.168.11.14/32 Null0
+   192.168.11.15/32 Null0
+   192.168.11.16/32 Null0
+   192.168.11.17/32 Null0
+   192.168.11.18/32 Null0
+   192.168.11.19/32 Null0
+   192.168.11.20/32 Null0
+   192.168.11.21/32 Null0
+   192.168.11.22/32 Null0
+   192.168.11.23/32 Null0
+   192.168.11.24/32 Null0
+   192.168.11.25/32 Null0
+   192.168.11.26/32 Null0
+   192.168.11.27/32 Null0
+   192.168.11.28/32 Null0
+   192.168.11.29/32 Null0
+  !
+  address-family ipv6 unicast
+   fc:0:0:10::/128 Null0
+   fc:0:0:10::1/128 Null0
+   fc:0:0:10::2/128 Null0
+   fc:0:0:10::3/128 Null0
+   fc:0:0:10::4/128 Null0
+   fc:0:0:10::5/128 Null0
+   fc:0:0:10::6/128 Null0
+   fc:0:0:10::7/128 Null0
+   fc:0:0:10::8/128 Null0
+   fc:0:0:10::9/128 Null0
+   fc:0:0:10::a/128 Null0
+   fc:0:0:10::b/128 Null0
+   fc:0:0:10::c/128 Null0
+   fc:0:0:10::d/128 Null0
+   fc:0:0:10::e/128 Null0
+   fc:0:0:10::f/128 Null0
+   fc:0:0:10::10/128 Null0
+   fc:0:0:10::11/128 Null0
+   fc:0:0:10::12/128 Null0
+   fc:0:0:10::13/128 Null0
+  !
+ !
+ vrf ECI_SIGNALLING_HVPN
+  address-family ipv4 unicast
+   0.0.0.0/0 Null0
+  !
+ !
+ vrf KASTURI-SONS-LTD-H4
+  address-family ipv4 unicast
+   0.0.0.0/0 2.17.40.2
+  !
+ !
+ vrf State-Banck-H-S-5-S5
+ !
+ vrf State-Banck-H-S-5-S6
+ !
+ vrf HVPN_npt_MP-ABIS-2G-2
+ !
+ vrf State-Banck-H-S-5-H36
+  address-family ipv4 unicast
+   100.254.123.104/30 172.40.56.106
+   172.40.130.117/32 172.40.56.106
+  !
+ !
+ vrf State-Banck-H-S-5-S23
+  address-family ipv4 unicast
+   100.254.123.132/30 172.40.94.134
+   172.40.134.145/32 172.40.94.134
+  !
+ !
+ vrf State-Banck-H-S-5-S35
+  address-family ipv4 unicast
+   100.254.123.80/30 172.40.94.82
+   172.40.128.93/32 172.40.94.82
+  !
+ !
+ vrf WI-MAX-MANAGEMENT-BACKHAUL
+  address-family ipv4 unicast
+   10.0.0.0/8 10.23.12.2
+   10.56.12.0/24 10.23.12.2
+   88.88.88.0/29 6.8.3.2
+  !
+ !
+!
+router isis T4
+ set-overload-bit on-startup wait-for-bgp
+ is-type level-2-only
+ net 49.0001.0100.1013.0001.00
+ nsr
+ nsf cisco
+ log adjacency changes
+ lsp-gen-interval initial-wait 50 secondary-wait 200 maximum-wait 5000
+ lsp-refresh-interval 65000
+ max-lsp-lifetime 65535
+ lsp-password keychain bharti
+ address-family ipv4 unicast
+  metric-style wide
+  microloop avoidance segment-routing
+  mpls traffic-eng level-2-only
+  mpls traffic-eng router-id Loopback0
+  mpls traffic-eng multicast-intact
+  spf-interval initial-wait 50 secondary-wait 200 maximum-wait 5000
+  segment-routing mpls sr-prefer
+ !
+ interface Bundle-Ether16
+  circuit-type level-2-only
+  point-to-point
+  hello-padding disable
+  hello-password keychain bharti
+  address-family ipv4 unicast
+   fast-reroute per-prefix
+   fast-reroute per-prefix ti-lfa
+  !
+ !
+ interface Bundle-Ether17
+  circuit-type level-2-only
+  point-to-point
+  hello-padding disable
+  hello-password keychain bharti
+  address-family ipv4 unicast
+   fast-reroute per-prefix
+   fast-reroute per-prefix ti-lfa
+  !
+ !
+ interface Bundle-Ether102.4
+  circuit-type level-2-only
+  point-to-point
+  hello-padding disable
+  address-family ipv4 unicast
+   fast-reroute per-prefix
+   fast-reroute per-prefix ti-lfa
+   metric 1000
+  !
+ !
+ interface Bundle-Ether1036
+  circuit-type level-2-only
+  bfd minimum-interval 50
+  bfd multiplier 3
+  bfd fast-detect ipv4
+  bfd fast-detect ipv6
+  point-to-point
+  hello-padding disable
+  address-family ipv4 unicast
+   fast-reroute per-prefix
+   fast-reroute per-prefix ti-lfa
+  !
+ !
+ interface Bundle-Ether7268
+  circuit-type level-2-only
+  point-to-point
+  hello-padding disable
+  address-family ipv4 unicast
+   fast-reroute per-prefix
+   fast-reroute per-prefix ti-lfa
+  !
+ !
+ interface Loopback2
+  passive
+  address-family ipv4 unicast
+   tag 3011
+   prefix-sid index 130
+  !
+ !
+ interface TenGigE0/1/1/5
+  passive
+  address-family ipv4 unicast
+  !
+ !
+ interface TenGigE0/1/1/12
+  circuit-type level-2-only
+  point-to-point
+  hello-padding disable
+  address-family ipv4 unicast
+   fast-reroute per-prefix
+   fast-reroute per-prefix ti-lfa
+  !
+ !
+!
+router isis IGP
+ is-type level-2-only
+ net 49.0001.0100.1001.3001.00
+ distribute link-state instance-id 35
+ nsf cisco
+ log adjacency changes
+ lsp-gen-interval initial-wait 50 secondary-wait 200 maximum-wait 5000
+ lsp-refresh-interval 65000
+ lsp-refresh-interval 32767 level 2
+ lsp-password keychain bharti
+ address-family ipv4 unicast
+  metric-style wide
+  microloop avoidance segment-routing
+  mpls traffic-eng level-2-only
+  mpls traffic-eng router-id Loopback0
+  mpls traffic-eng multicast-intact
+  spf-interval initial-wait 50 secondary-wait 200 maximum-wait 5000
+  segment-routing mpls
+ !
+ interface Bundle-Ether102.2
+  circuit-type level-2-only
+  bfd minimum-interval 50
+  bfd multiplier 3
+  bfd fast-detect ipv4
+  point-to-point
+  hello-padding disable
+  hello-password keychain bharti
+  address-family ipv4 unicast
+   fast-reroute per-prefix
+   fast-reroute per-prefix remote-lfa tunnel mpls-ldp
+   metric 1
+   mpls ldp sync
+  !
+ !
+ interface Bundle-Ether7572
+  circuit-type level-2-only
+  bfd minimum-interval 50
+  bfd multiplier 3
+  bfd fast-detect ipv4
+  point-to-point
+  hello-padding disable
+  address-family ipv4 unicast
+   fast-reroute per-prefix
+   fast-reroute per-prefix remote-lfa tunnel mpls-ldp level 2
+   mpls ldp sync
+  !
+ !
+ interface Loopback0
+  passive
+  address-family ipv4 unicast
+   tag 3001
+   prefix-sid index 2
+  !
+ !
+ interface TenGigE0/1/1/19
+  bfd minimum-interval 100
+  bfd multiplier 3
+  bfd fast-detect ipv4
+  point-to-point
+  hello-padding disable
+  address-family ipv4 unicast
+   fast-reroute per-prefix
+   fast-reroute per-prefix remote-lfa tunnel mpls-ldp level 2
+   mpls ldp sync
+  !
+ !
+!
+router isis OGP
+!
+router isis Access1
+ set-overload-bit on-startup 360
+ is-type level-2-only
+ net 49.0001.0101.0101.0101.00
+ nsr
+ nsf cisco
+ log adjacency changes
+ lsp-gen-interval initial-wait 50 secondary-wait 200 maximum-wait 5000
+ lsp-refresh-interval 65000
+ max-lsp-lifetime 65535
+ lsp-password keychain bharti
+ address-family ipv4 unicast
+  metric-style wide
+  mpls traffic-eng level-2-only
+  mpls traffic-eng router-id Loopback150
+  mpls traffic-eng multicast-intact
+  spf-interval initial-wait 50 secondary-wait 200 maximum-wait 5000
+  redistribute connected route-policy Core-AGG-Loopbacks-Redis-11
+  spf prefix-priority critical tag 10000
+  spf prefix-priority high tag 50000
+ !
+ address-family ipv6 unicast
+  metric-style wide
+  spf-interval initial-wait 50 secondary-wait 200 maximum-wait 5000
+  redistribute connected route-policy Core-AGG-Loopbacks-Redis-11
+  spf prefix-priority critical tag 10000
+  spf prefix-priority high tag 50000
+ !
+ interface Bundle-Ether102.6
+  circuit-type level-2-only
+  bfd minimum-interval 50
+  bfd multiplier 3
+  bfd fast-detect ipv4
+  point-to-point
+  hello-padding disable
+  address-family ipv4 unicast
+   fast-reroute per-prefix
+   fast-reroute per-prefix remote-lfa tunnel mpls-ldp level 2
+   mpls ldp sync
+  !
+  address-family ipv6 unicast
+   fast-reroute per-prefix
+   fast-reroute per-prefix remote-lfa tunnel mpls-ldp level 2
+  !
+ !
+ interface Bundle-Ether1000
+  circuit-type level-2-only
+  bfd minimum-interval 50
+  bfd multiplier 3
+  bfd fast-detect ipv4
+  point-to-point
+  hello-padding disable
+  hello-password keychain bharti
+  address-family ipv4 unicast
+   fast-reroute per-prefix
+   fast-reroute per-prefix remote-lfa tunnel mpls-ldp level 2
+   mpls ldp sync
+  !
+  address-family ipv6 unicast
+   fast-reroute per-prefix
+   fast-reroute per-prefix remote-lfa tunnel mpls-ldp level 2
+  !
+ !
+ interface Loopback150
+  passive
+  address-family ipv4 unicast
+   tag 10000
+  !
+  address-family ipv6 unicast
+   tag 10000
+  !
+ !
+ interface HundredGigE0/2/0/5
+  circuit-type level-2-only
+  bfd minimum-interval 50
+  bfd multiplier 3
+  bfd fast-detect ipv4
+  point-to-point
+  hello-padding disable
+  hello-password keychain bharti
+  address-family ipv4 unicast
+   fast-reroute per-prefix
+   fast-reroute per-prefix remote-lfa tunnel mpls-ldp level 2
+  !
+ !
+ interface HundredGigE0/2/0/5.40
+  circuit-type level-2-only
+  point-to-point
+  hello-padding disable
+  address-family ipv4 unicast
+   fast-reroute per-prefix
+  !
+  address-family ipv6 unicast
+   fast-reroute per-prefix
+  !
+ !
+!
+snmp-server traps isis all
+snmp-server traps ospfv3 errors bad-packet
+snmp-server traps ospfv3 errors config-error
+snmp-server traps ospfv3 errors virt-bad-packet
+snmp-server traps ospfv3 state-change if-state-change
+snmp-server traps ospfv3 state-change neighbor-state-change
+snmp-server traps ospfv3 state-change virtif-state-change
+snmp-server traps ospfv3 state-change virtneighbor-state-change
+snmp-server traps ospfv3 state-change restart-status-change
+snmp-server traps ospfv3 state-change restart-virtual-helper-status-change
+router ospf 22
+ router-id 0.0.0.72
+ area 0
+ !
+ vrf SPOKET-H9
+  log adjacency changes detail
+  timers lsa min-arrival 30000
+  redistribute bgp 9730
+  area 9
+   interface BVI3006225
+    cost 100
+    packet-size 1500
+    network point-to-point
+    mtu-ignore enable
+    flood-reduction enable
+   !
+  !
+ !
+!
+router ospf 311
+ vrf Test-iWAN-L3
+  default-information originate
+  redistribute connected
+  redistribute static
+  redistribute bgp 9730
+  area 0
+   cost 150
+   interface BVI311
+    bfd minimum-interval 100
+    bfd fast-detect
+    bfd multiplier 3
+    network point-to-point
+    mtu-ignore enable
+    flood-reduction enable
+   !
+   interface BVI312
+    bfd minimum-interval 100
+    bfd fast-detect
+    bfd multiplier 3
+    network point-to-point
+    mtu-ignore enable
+    flood-reduction enable
+   !
+  !
+ !
+!
+snmp-server traps bgp cbgp2
+snmp-server traps bgp updown
+router bgp 9730
+ nsr
+ mvpn
+ bgp router-id 10.10.13.1
+ bgp graceful-restart restart-time 120
+ bgp graceful-restart graceful-reset
+ bgp graceful-restart stalepath-time 360
+ bgp graceful-restart
+ bgp log neighbor changes detail
+ ibgp policy out enforce-modifications
+ address-family ipv4 unicast
+  additional-paths receive
+  additional-paths send
+  maximum-paths ibgp 2
+  additional-paths selection route-policy add-path-to-ibgp
+  nexthop resolution prefix-length minimum 32
+  nexthop trigger-delay critical 0
+  nexthop trigger-delay non-critical 0
+  network 1.1.1.10/32 route-policy sncp
+  network 10.10.13.1/32 route-policy commuitypass
+  network 10.10.130.1/32 route-policy SID10037130
+  network 101.101.101.101/32
+  allocate-label all
+ !
+ address-family vpnv4 unicast
+  additional-paths receive
+  additional-paths send
+  nexthop trigger-delay critical 0
+  nexthop trigger-delay non-critical 0
+ !
+ address-family ipv6 unicast
+  bgp dampening 5
+  additional-paths receive
+  additional-paths send
+  nexthop trigger-delay critical 0
+  nexthop trigger-delay non-critical 0
+  network 2001:b::b/128
+ !
+ address-family vpnv6 unicast
+  additional-paths receive
+  additional-paths send
+ !
+ address-family ipv4 mdt
+ !
+ address-family l2vpn vpls-vpws
+ !
+ address-family ipv4 rt-filter
+ !
+ address-family ipv4 mvpn
+ !
+ address-family l2vpn evpn
+  additional-paths receive
+  additional-paths send
+  nexthop trigger-delay critical 1
+  nexthop trigger-delay non-critical 1
+ !
+ address-family link-state link-state
+ !
+ session-group Access1
+  remote-as 9730
+  cluster-id 1
+  update-source Loopback150
+  graceful-restart
+ !
+ session-group access192
+  remote-as 9730
+  update-source Loopback192
+  graceful-restart
+ !
+ neighbor-group RR
+  remote-as 9730
+  description *** Regional RR ***
+  bmp-activate server 1
+  update-source Loopback0
+  address-family ipv4 unicast
+  !
+  address-family ipv4 labeled-unicast
+   next-hop-self
+   route-policy DROP-CONNECTED-LOOPBACK out
+  !
+  address-family vpnv4 unicast
+  !
+  address-family ipv6 unicast
+  !
+  address-family vpnv6 unicast
+  !
+  address-family ipv4 mdt
+  !
+  address-family l2vpn vpls-vpws
+  !
+  address-family ipv4 mvpn
+  !
+  address-family l2vpn evpn
+  !
+ !
+ neighbor-group T5-RR
+  remote-as 9730
+  description *** Inline RR ***
+  update-source Loopback3
+  address-family ipv4 labeled-unicast
+   next-hop-self
+   route-reflector-client
+   route-policy Block-ECI-LU-T4-Routes out
+  !
+  address-family vpnv4 unicast
+   route-reflector-client
+   route-policy Block-ECI-VPNv4-Routes out
+  !
+  address-family vpnv6 unicast
+   route-reflector-client
+   soft-reconfiguration inbound
+  !
+  address-family l2vpn vpls-vpws
+   route-reflector-client
+  !
+  address-family ipv4 rt-filter
+   route-reflector-client
+  !
+  address-family l2vpn evpn
+   route-reflector-client
+  !
+ !
+ neighbor-group T4-CRR
+  remote-as 9730
+  description *** Inline RR ***
+  update-source Loopback2
+  address-family ipv4 labeled-unicast
+   next-hop-self
+   route-policy WEIGHT in
+   route-reflector-client
+  !
+  address-family vpnv4 unicast
+   route-reflector-client
+  !
+  address-family vpnv6 unicast
+   route-reflector-client
+  !
+  address-family ipv4 mdt
+   route-reflector-client
+  !
+  address-family ipv4 rt-filter
+   route-reflector-client
+  !
+  address-family ipv4 mvpn
+   route-reflector-client
+  !
+  address-family l2vpn evpn
+   route-reflector-client
+  !
+ !
+ neighbor-group T4-ECI
+  remote-as 9730
+  description *** Inline RR ***
+  update-source Loopback102
+  address-family ipv4 labeled-unicast
+   next-hop-self
+   route-policy WEIGHT in
+   route-reflector-client
+   route-policy Block-Nokia-LU-T4-Routes out
+  !
+  address-family vpnv4 unicast
+   route-reflector-client
+  !
+  address-family vpnv6 unicast
+   route-reflector-client
+   soft-reconfiguration inbound
+  !
+  address-family ipv4 rt-filter
+   route-reflector-client
+   default-originate
+  !
+  address-family l2vpn evpn
+   route-reflector-client
+  !
+ !
+ neighbor-group Access1
+  use session-group Access1
+  address-family ipv4 labeled-unicast
+   route-reflector-client
+   route-policy prevent_nhs_change_access1 out
+  !
+  address-family vpnv4 unicast
+   route-reflector-client
+  !
+  address-family ipv6 unicast
+   route-reflector-client
+  !
+  address-family vpnv6 unicast
+   route-reflector-client
+  !
+  address-family ipv4 mdt
+   route-reflector-client
+  !
+  address-family l2vpn vpls-vpws
+   route-reflector-client
+  !
+  address-family ipv4 rt-filter
+   route-reflector-client
+   default-originate
+  !
+  address-family l2vpn evpn
+   route-reflector-client
+  !
+ !
+ neighbor-group T5-RR-540-1
+  remote-as 9730
+  description *** Towards T5-540-1-Regional RR ***
+  update-source Loopback43
+  address-family ipv4 labeled-unicast
+   next-hop-self
+   route-reflector-client
+  !
+  address-family vpnv4 unicast
+   route-reflector-client
+  !
+  address-family vpnv6 unicast
+   route-reflector-client
+   soft-reconfiguration inbound
+  !
+  address-family ipv4 mdt
+  !
+  address-family l2vpn vpls-vpws
+   route-reflector-client
+  !
+  address-family ipv4 rt-filter
+   route-reflector-client
+  !
+  address-family l2vpn evpn
+   route-reflector-client
+  !
+ !
+ neighbor 10.10.15.1
+  use neighbor-group RR
+  bfd fast-detect
+  bfd multiplier 3
+  bfd minimum-interval 100
+  address-family ipv4 labeled-unicast
+  !
+ !
+ neighbor 10.10.17.1
+  use neighbor-group T4-CRR
+  bfd fast-detect
+  bfd multiplier 3
+  bfd minimum-interval 100
+  address-family ipv4 labeled-unicast
+   route-policy Block-T5-Prefixes out
+  !
+ !
+ neighbor 10.10.18.1
+  use neighbor-group T4-CRR
+  bfd fast-detect
+  bfd multiplier 3
+  bfd minimum-interval 100
+  address-family ipv4 labeled-unicast
+   route-policy Block-T5-Prefixes out
+  !
+ !
+ neighbor 10.10.20.1
+  use neighbor-group T4-CRR
+  bfd fast-detect
+  bfd multiplier 3
+  bfd minimum-interval 100
+  address-family ipv4 labeled-unicast
+   route-policy Block-Juniper-Lu-Prefix out
+  !
+ !
+ neighbor 191.168.1.2
+  remote-as 9730
+  use neighbor-group RR
+  address-family ipv4 unicast
+  !
+  address-family ipv4 labeled-unicast
+  !
+  address-family vpnv4 unicast
+  !
+  address-family ipv6 unicast
+  !
+  address-family vpnv6 unicast
+  !
+ !
+ neighbor 30.33.30.33
+  use neighbor-group RR
+  bfd fast-detect
+  bfd multiplier 3
+  bfd minimum-interval 100
+  address-family ipv4 labeled-unicast
+  !
+ !
+ neighbor 37.37.37.37
+  use neighbor-group T4-CRR
+  bfd fast-detect
+  bfd multiplier 3
+  bfd minimum-interval 100
+  address-family ipv4 labeled-unicast
+   route-policy Block-T5-Prefixes out
+  !
+ !
+ neighbor 38.38.38.38
+  use neighbor-group T4-CRR
+  bfd fast-detect
+  bfd multiplier 3
+  bfd minimum-interval 100
+  address-family ipv4 unicast
+   route-policy Block-T5-Prefixes out
+  !
+ !
+ neighbor 116.119.10.1
+  use neighbor-group T4-CRR
+  bfd fast-detect
+  bfd multiplier 3
+  bfd minimum-interval 100
+  address-family ipv4 labeled-unicast
+   route-policy Block-T5-Prefixes out
+  !
+ !
+ neighbor 202.123.10.230
+  use neighbor-group T4-CRR
+  bfd fast-detect
+  bfd multiplier 3
+  bfd minimum-interval 100
+  address-family ipv4 labeled-unicast
+  !
+  address-family ipv6 labeled-unicast
+  !
+ !
+ neighbor 102.102.102.102
+  use neighbor-group Access1
+  bfd fast-detect
+  bfd multiplier 3
+  bfd minimum-interval 50
+  password encrypted 060506324F41
+  address-family ipv4 labeled-unicast
+  !
+  address-family vpnv6 unicast
+   soft-reconfiguration inbound
+  !
+ !
+ neighbor 103.103.103.103
+  use neighbor-group Access1
+  bfd fast-detect
+  bfd multiplier 3
+  bfd minimum-interval 50
+  address-family ipv4 labeled-unicast
+  !
+ !
+ neighbor 128.128.128.128
+  use neighbor-group T4-CRR
+  shutdown
+ !
+ neighbor 129.129.129.129
+  use neighbor-group T4-CRR
+ !
+ neighbor 150.150.150.150
+  use neighbor-group T4-CRR
+  bfd fast-detect
+  bfd multiplier 3
+  bfd minimum-interval 100
+  address-family ipv4 unicast
+   route-policy Block-T5-Prefixes out
+  !
+ !
+ neighbor 202.202.202.202
+  use neighbor-group Access1
+  bfd fast-detect
+  bfd multiplier 3
+  bfd minimum-interval 50
+  address-family ipv4 labeled-unicast
+  !
+ !
+ neighbor 203.203.203.203
+  use neighbor-group Access1
+  bfd fast-detect
+  bfd multiplier 3
+  bfd minimum-interval 50
+  address-family ipv4 labeled-unicast
+  !
+ !
+ vrf 2444
+  rd auto
+  address-family ipv4 unicast
+   label mode per-vrf
+   redistribute connected
+   redistribute static
+  !
+ !
+ vrf BBNL
+  rd auto
+  address-family ipv4 unicast
+   redistribute connected
+   redistribute static
+  !
+ !
+ vrf TEST
+  rd 50:9730
+  address-family ipv4 unicast
+   redistribute connected
+   redistribute static
+  !
+ !
+ vrf MOB72
+  rd 72:72
+  address-family ipv4 unicast
+   label mode per-vrf
+   redistribute connected
+   redistribute static
+  !
+ !
+ vrf MOB73
+  rd 73:73
+  address-family ipv4 unicast
+   label mode per-vrf
+   redistribute connected
+   redistribute static
+  !
+ !
+ vrf ECI1100
+  rd auto
+  address-family ipv4 unicast
+   label mode per-vrf
+   redistribute connected
+   redistribute static
+  !
+ !
+ vrf juniper
+  rd auto
+  address-family ipv4 unicast
+   redistribute connected
+   redistribute static
+  !
+ !
+ vrf ECI_HVPN
+  rd 72:1000
+  address-family ipv4 unicast
+   network 0.0.0.0/0
+   redistribute connected
+   redistribute static
+  !
+ !
+ vrf npt_1186
+  rd 1186:1
+  address-family ipv4 unicast
+   redistribute connected
+   redistribute static
+  !
+  address-family ipv6 unicast
+   redistribute connected
+   redistribute static
+  !
+ !
+ vrf npt_1187
+  rd 1187:1
+  address-family ipv4 unicast
+   redistribute connected
+   redistribute static
+  !
+  address-family ipv6 unicast
+   redistribute connected
+   redistribute static
+  !
+ !
+ vrf npt_1188
+  rd 1188:1
+  address-family ipv4 unicast
+   redistribute connected
+   redistribute static
+  !
+  address-family ipv6 unicast
+   redistribute connected
+   redistribute static
+  !
+ !
+ vrf npt_1189
+  rd 1189:1
+  address-family ipv4 unicast
+   redistribute connected
+   redistribute static
+  !
+  address-family ipv6 unicast
+   redistribute connected
+   redistribute static
+  !
+ !
+ vrf npt_1190
+  rd 1190:1
+  address-family ipv4 unicast
+   redistribute connected
+   redistribute static
+  !
+  address-family ipv6 unicast
+   redistribute connected
+   redistribute static
+  !
+ !
+ vrf NOKIA_OAM
+  rd 9730:22932
+  address-family ipv4 unicast
+   redistribute connected
+  !
+ !
+ vrf ciena_VRF
+  rd auto
+  address-family ipv4 unicast
+   network 0.0.0.0/0 route-policy set-wlp
+  !
+ !
+ vrf NPT-L3L2-1
+  rd 9730:37
+  address-family ipv4 unicast
+   redistribute connected
+  !
+  address-family ipv6 unicast
+   redistribute connected
+  !
+ !
+ vrf Nokia_2001
+  rd auto
+  address-family ipv4 unicast
+   redistribute connected
+  !
+ !
+ vrf Nokia_5001
+  rd auto
+  address-family ipv4 unicast
+   redistribute connected
+  !
+ !
+ vrf Nokia_HVPN
+  rd auto
+  address-family ipv4 unicast
+   network 0.0.0.0/0
+   redistribute connected
+   redistribute static
+  !
+  address-family ipv6 unicast
+   network ::/0
+   redistribute connected
+   redistribute static
+  !
+ !
+ vrf ciena_VRF1
+  rd auto
+  address-family ipv4 unicast
+   redistribute connected
+   redistribute static
+  !
+  address-family ipv6 unicast
+   redistribute connected
+   redistribute static
+  !
+ !
+ vrf nokia_mclag
+  rd auto
+  address-family ipv4 unicast
+   label mode per-vrf
+   redistribute connected
+   redistribute static
+  !
+  address-family ipv6 unicast
+   label mode per-vrf
+   redistribute connected
+   redistribute static
+  !
+  neighbor 42.42.30.2
+   remote-as 65001
+   bfd fast-detect
+   bfd multiplier 3
+   bfd minimum-interval 100
+   address-family ipv4 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+  !
+ !
+ vrf nokia_mclag2
+  rd auto
+  address-family ipv4 unicast
+   label mode per-vrf
+   redistribute connected
+   redistribute static
+  !
+  address-family ipv6 unicast
+   label mode per-vrf
+   redistribute connected
+   redistribute static
+  !
+  neighbor 42.42.31.2
+   remote-as 65001
+   address-family ipv4 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+  !
+ !
+ vrf nokia_mclag3
+  rd auto
+  address-family ipv4 unicast
+   label mode per-vrf
+   redistribute connected
+   redistribute static
+  !
+  address-family ipv6 unicast
+   label mode per-vrf
+   redistribute connected
+   redistribute static
+  !
+ !
+ vrf Nokia_EVPN_100
+  rd auto
+  address-family ipv4 unicast
+   label mode per-vrf
+   redistribute connected
+   redistribute static
+  !
+  address-family ipv6 unicast
+   label mode per-vrf
+   redistribute connected
+   redistribute static
+  !
+ !
+ vrf Nokia_EVPN_500
+  rd auto
+  address-family ipv4 unicast
+   label mode per-vrf
+   redistribute connected
+   redistribute static
+  !
+  address-family ipv6 unicast
+   label mode per-vrf
+   redistribute connected
+   redistribute static
+  !
+ !
+ vrf Nokia_EVPN_600
+  rd auto
+  address-family ipv4 unicast
+   label mode per-vrf
+   redistribute connected
+   redistribute static
+  !
+  address-family ipv6 unicast
+   label mode per-vrf
+   redistribute connected
+   redistribute static
+  !
+ !
+ vrf ECI_VRF_2G_HVPN
+  rd 14:1072
+  address-family ipv4 unicast
+   network 0.0.0.0/0
+   redistribute static
+  !
+ !
+ vrf Nokia_VPN_Scale
+  rd auto
+  address-family ipv4 unicast
+   label mode per-vrf
+   redistribute connected
+   redistribute static
+  !
+  address-family ipv6 unicast
+   label mode per-vrf
+   redistribute connected
+   redistribute static
+  !
+ !
+ vrf eci_mgmt_50_nni
+  rd auto
+  address-family ipv4 unicast
+   label mode per-vrf
+   redistribute connected
+   redistribute static
+  !
+  address-family ipv6 unicast
+   label mode per-vrf
+   redistribute connected
+   redistribute static
+  !
+ !
+ vrf CEN-Acess-1100-1
+  rd 9730:17170
+  address-family ipv4 unicast
+   label mode per-vrf
+   network 0.0.0.0/0
+   redistribute connected
+   redistribute static
+  !
+ !
+ vrf CEN-Acess-1100-2
+  rd 9730:17171
+  address-family ipv4 unicast
+   label mode per-vrf
+   network 0.0.0.0/0
+   redistribute connected
+   redistribute static
+  !
+ !
+ vrf CEN-Acess-1100-3
+  rd 9730:17172
+  address-family ipv4 unicast
+   label mode per-vrf
+   network 0.0.0.0/0
+   redistribute connected
+   redistribute static
+  !
+ !
+ vrf CEN-Acess-1100-4
+  rd 9730:17173
+  address-family ipv4 unicast
+   label mode per-vrf
+   network 0.0.0.0/0
+   redistribute connected
+   redistribute static
+  !
+ !
+ vrf ciena_VRF_xgspon
+  rd auto
+  address-family ipv4 unicast
+   redistribute connected
+   redistribute static
+  !
+  address-family ipv6 unicast
+   redistribute connected
+   redistribute static
+  !
+  neighbor 168.168.168.2
+   remote-as 100
+   bfd fast-detect
+   bfd multiplier 3
+   bfd minimum-interval 100
+   address-family ipv4 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+  !
+ !
+ vrf npt_MP-ABIS-2G-1
+  rd 9730:37693
+  address-family ipv4 unicast
+   label mode per-vrf
+   network 0.0.0.0/0
+   redistribute connected
+   redistribute static
+  !
+  address-family ipv6 unicast
+   label mode per-vrf
+   network ::/0
+   redistribute connected
+   redistribute static
+  !
+ !
+ vrf npt_MP-ABIS-2G-2
+  rd 9730:37694
+  address-family ipv4 unicast
+   label mode per-vrf
+   network 0.0.0.0/0
+   redistribute connected
+   redistribute static
+  !
+  address-family ipv6 unicast
+   label mode per-vrf
+   network ::/0
+   redistribute connected
+   redistribute static
+  !
+ !
+ vrf nokia_mgmt_52_nni
+  rd auto
+  address-family ipv4 unicast
+   label mode per-vrf
+   redistribute connected
+   redistribute static
+  !
+  address-family ipv6 unicast
+   label mode per-vrf
+   redistribute connected
+   redistribute static
+  !
+ !
+ vrf Cisco-Automation-1
+  rd 9498:1
+  address-family ipv4 unicast
+   redistribute connected
+   redistribute static
+  !
+  address-family ipv6 unicast
+   redistribute connected
+   redistribute static
+  !
+  neighbor 192.168.20.1
+   remote-as 65001
+   address-family ipv4 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+   address-family ipv6 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+  !
+ !
+ vrf Cisco-Automation-2
+  rd 9498:2
+  address-family ipv4 unicast
+   redistribute connected
+   redistribute static
+  !
+  address-family ipv6 unicast
+   redistribute connected
+   redistribute static
+  !
+  neighbor 192.168.20.3
+   remote-as 65002
+   address-family ipv4 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+   address-family ipv6 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+  !
+ !
+ vrf Cisco-Automation-3
+  rd 9498:3
+  address-family ipv4 unicast
+   redistribute connected
+   redistribute static
+  !
+  address-family ipv6 unicast
+   redistribute connected
+   redistribute static
+  !
+  neighbor 192.168.20.5
+   remote-as 65003
+   address-family ipv4 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+   address-family ipv6 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+  !
+ !
+ vrf Cisco-Automation-4
+  rd 9498:4
+  address-family ipv4 unicast
+   redistribute connected
+   redistribute static
+  !
+  address-family ipv6 unicast
+   redistribute connected
+   redistribute static
+  !
+  neighbor 192.168.20.7
+   remote-as 65004
+   address-family ipv4 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+   address-family ipv6 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+  !
+ !
+ vrf Cisco-Automation-5
+  rd 9498:5
+  address-family ipv4 unicast
+   redistribute connected
+   redistribute static
+  !
+  address-family ipv6 unicast
+   redistribute connected
+   redistribute static
+  !
+  neighbor 192.168.20.9
+   remote-as 65005
+   address-family ipv4 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+   address-family ipv6 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+  !
+ !
+ vrf Cisco-Automation-6
+  rd 9498:6
+  address-family ipv4 unicast
+   redistribute connected
+   redistribute static
+  !
+  address-family ipv6 unicast
+   redistribute connected
+   redistribute static
+  !
+  neighbor 192.168.20.11
+   remote-as 65006
+   address-family ipv4 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+   address-family ipv6 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+  !
+ !
+ vrf Cisco-Automation-7
+  rd 9498:7
+  address-family ipv4 unicast
+   redistribute connected
+   redistribute static
+  !
+  address-family ipv6 unicast
+   redistribute connected
+   redistribute static
+  !
+  neighbor 192.168.20.13
+   remote-as 65007
+   address-family ipv4 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+   address-family ipv6 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+  !
+ !
+ vrf Cisco-Automation-8
+  rd 9498:8
+  address-family ipv4 unicast
+   redistribute connected
+   redistribute static
+  !
+  address-family ipv6 unicast
+   redistribute connected
+   redistribute static
+  !
+  neighbor 192.168.20.15
+   remote-as 65008
+   address-family ipv4 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+   address-family ipv6 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+  !
+ !
+ vrf Cisco-Automation-9
+  rd 9498:9
+  address-family ipv4 unicast
+   redistribute connected
+   redistribute static
+  !
+  address-family ipv6 unicast
+   redistribute connected
+   redistribute static
+  !
+  neighbor 192.168.20.17
+   remote-as 65009
+   address-family ipv4 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+   address-family ipv6 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+  !
+ !
+ vrf nokia_mgmt_152_nni
+  rd auto
+  address-family ipv4 unicast
+   label mode per-vrf
+   redistribute connected
+   redistribute static
+  !
+  address-family ipv6 unicast
+   label mode per-vrf
+   redistribute connected
+   redistribute static
+  !
+ !
+ vrf Cisco-Automation-10
+  rd 9498:10
+  address-family ipv4 unicast
+   redistribute connected
+   redistribute static
+  !
+  address-family ipv6 unicast
+   redistribute connected
+   redistribute static
+  !
+  neighbor 192.168.20.19
+   remote-as 65010
+   address-family ipv4 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+   address-family ipv6 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+  !
+ !
+ vrf Cisco-Automation-11
+  rd 9498:11
+  address-family ipv4 unicast
+   redistribute connected
+   redistribute static
+  !
+  address-family ipv6 unicast
+   redistribute connected
+   redistribute static
+  !
+  neighbor 192.168.20.21
+   remote-as 65011
+   address-family ipv4 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+   address-family ipv6 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+  !
+ !
+ vrf Cisco-Automation-12
+  rd 9498:12
+  address-family ipv4 unicast
+   redistribute connected
+   redistribute static
+  !
+  address-family ipv6 unicast
+   redistribute connected
+   redistribute static
+  !
+  neighbor 192.168.20.23
+   remote-as 65012
+   address-family ipv4 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+   address-family ipv6 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+  !
+ !
+ vrf Cisco-Automation-13
+  rd 9498:13
+  address-family ipv4 unicast
+   redistribute connected
+   redistribute static
+  !
+  address-family ipv6 unicast
+   redistribute connected
+   redistribute static
+  !
+  neighbor 192.168.20.25
+   remote-as 65013
+   address-family ipv4 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+   address-family ipv6 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+  !
+ !
+ vrf Cisco-Automation-14
+  rd 9498:14
+  address-family ipv4 unicast
+   redistribute connected
+   redistribute static
+  !
+  address-family ipv6 unicast
+   redistribute connected
+   redistribute static
+  !
+  neighbor 192.168.20.27
+   remote-as 65014
+   address-family ipv4 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+   address-family ipv6 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+  !
+ !
+ vrf Cisco-Automation-15
+  rd 9498:15
+  address-family ipv4 unicast
+   redistribute connected
+   redistribute static
+  !
+  address-family ipv6 unicast
+   redistribute connected
+   redistribute static
+  !
+  neighbor 192.168.20.29
+   remote-as 65015
+   address-family ipv4 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+   address-family ipv6 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+  !
+ !
+ vrf Cisco-Automation-16
+  rd 9498:16
+  address-family ipv4 unicast
+   redistribute connected
+   redistribute static
+  !
+  address-family ipv6 unicast
+   redistribute connected
+   redistribute static
+  !
+  neighbor 192.168.20.31
+   remote-as 65016
+   address-family ipv4 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+   address-family ipv6 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+  !
+ !
+ vrf Cisco-Automation-17
+  rd 9498:17
+  address-family ipv4 unicast
+   redistribute connected
+   redistribute static
+  !
+  address-family ipv6 unicast
+   redistribute connected
+   redistribute static
+  !
+  neighbor 192.168.20.33
+   remote-as 65017
+   address-family ipv4 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+   address-family ipv6 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+  !
+ !
+ vrf Cisco-Automation-18
+  rd 9498:18
+  address-family ipv4 unicast
+   redistribute connected
+   redistribute static
+  !
+  address-family ipv6 unicast
+   redistribute connected
+   redistribute static
+  !
+  neighbor 192.168.20.35
+   remote-as 65018
+   address-family ipv4 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+   address-family ipv6 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+  !
+ !
+ vrf Cisco-Automation-19
+  rd 9498:19
+  address-family ipv4 unicast
+   redistribute connected
+   redistribute static
+  !
+  address-family ipv6 unicast
+   redistribute connected
+   redistribute static
+  !
+  neighbor 192.168.20.37
+   remote-as 65019
+   address-family ipv4 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+   address-family ipv6 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+  !
+ !
+ vrf Cisco-Automation-20
+  rd 9498:20
+  address-family ipv4 unicast
+   redistribute connected
+   redistribute static
+  !
+  address-family ipv6 unicast
+   redistribute connected
+   redistribute static
+  !
+  neighbor 192.168.20.39
+   remote-as 65020
+   address-family ipv4 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+   address-family ipv6 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+  !
+ !
+ vrf Cisco-Automation-21
+  rd 9498:21
+  address-family ipv4 unicast
+   redistribute connected
+   redistribute static
+  !
+  address-family ipv6 unicast
+   redistribute connected
+   redistribute static
+  !
+  neighbor 192.168.20.41
+   remote-as 65021
+   address-family ipv4 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+   address-family ipv6 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+  !
+ !
+ vrf Cisco-Automation-22
+  rd 9498:22
+  address-family ipv4 unicast
+   redistribute connected
+   redistribute static
+  !
+  address-family ipv6 unicast
+   redistribute connected
+   redistribute static
+  !
+  neighbor 192.168.20.43
+   remote-as 65022
+   address-family ipv4 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+   address-family ipv6 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+  !
+ !
+ vrf Cisco-Automation-23
+  rd 9498:23
+  address-family ipv4 unicast
+   redistribute connected
+   redistribute static
+  !
+  address-family ipv6 unicast
+   redistribute connected
+   redistribute static
+  !
+  neighbor 192.168.20.45
+   remote-as 65023
+   address-family ipv4 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+   address-family ipv6 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+  !
+ !
+ vrf Cisco-Automation-24
+  rd 9498:24
+  address-family ipv4 unicast
+   redistribute connected
+   redistribute static
+  !
+  address-family ipv6 unicast
+   redistribute connected
+   redistribute static
+  !
+  neighbor 192.168.20.47
+   remote-as 65024
+   address-family ipv4 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+   address-family ipv6 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+  !
+ !
+ vrf Cisco-Automation-25
+  rd 9498:25
+  address-family ipv4 unicast
+   redistribute connected
+   redistribute static
+  !
+  address-family ipv6 unicast
+   redistribute connected
+   redistribute static
+  !
+  neighbor 192.168.20.49
+   remote-as 65025
+   address-family ipv4 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+   address-family ipv6 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+  !
+ !
+ vrf Cisco-Automation-26
+  rd 9498:26
+  address-family ipv4 unicast
+   redistribute connected
+   redistribute static
+  !
+  address-family ipv6 unicast
+   redistribute connected
+   redistribute static
+  !
+  neighbor 192.168.20.51
+   remote-as 65026
+   address-family ipv4 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+   address-family ipv6 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+  !
+ !
+ vrf Cisco-Automation-27
+  rd 9498:27
+  address-family ipv4 unicast
+   redistribute connected
+   redistribute static
+  !
+  address-family ipv6 unicast
+   redistribute connected
+   redistribute static
+  !
+  neighbor 192.168.20.53
+   remote-as 65027
+   address-family ipv4 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+   address-family ipv6 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+  !
+ !
+ vrf Cisco-Automation-28
+  rd 9498:28
+  address-family ipv4 unicast
+   redistribute connected
+   redistribute static
+  !
+  address-family ipv6 unicast
+   redistribute connected
+   redistribute static
+  !
+  neighbor 192.168.20.55
+   remote-as 65028
+   address-family ipv4 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+   address-family ipv6 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+  !
+ !
+ vrf Cisco-Automation-29
+  rd 9498:29
+  address-family ipv4 unicast
+   redistribute connected
+   redistribute static
+  !
+  address-family ipv6 unicast
+   redistribute connected
+   redistribute static
+  !
+  neighbor 192.168.20.57
+   remote-as 65029
+   address-family ipv4 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+   address-family ipv6 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+  !
+ !
+ vrf Cisco-Automation-30
+  rd 9498:30
+  address-family ipv4 unicast
+   redistribute connected
+   redistribute static
+  !
+  address-family ipv6 unicast
+   redistribute connected
+   redistribute static
+  !
+  neighbor 192.168.20.59
+   remote-as 65030
+   address-family ipv4 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+   address-family ipv6 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+  !
+ !
+ vrf Cisco-Automation-31
+  rd 9498:31
+  address-family ipv4 unicast
+   redistribute connected
+   redistribute static
+  !
+  address-family ipv6 unicast
+   redistribute connected
+   redistribute static
+  !
+  neighbor 192.168.20.61
+   remote-as 65031
+   address-family ipv4 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+   address-family ipv6 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+  !
+ !
+ vrf Cisco-Automation-32
+  rd 9498:32
+  address-family ipv4 unicast
+   redistribute connected
+   redistribute static
+  !
+  address-family ipv6 unicast
+   redistribute connected
+   redistribute static
+  !
+  neighbor 192.168.20.63
+   remote-as 65032
+   address-family ipv4 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+   address-family ipv6 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+  !
+ !
+ vrf Cisco-Automation-33
+  rd 9498:33
+  address-family ipv4 unicast
+   redistribute connected
+   redistribute static
+  !
+  address-family ipv6 unicast
+   redistribute connected
+   redistribute static
+  !
+  neighbor 192.168.20.65
+   remote-as 65033
+   address-family ipv4 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+   address-family ipv6 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+  !
+ !
+ vrf Cisco-Automation-34
+  rd 9498:34
+  address-family ipv4 unicast
+   redistribute connected
+   redistribute static
+  !
+  address-family ipv6 unicast
+   redistribute connected
+   redistribute static
+  !
+  neighbor 192.168.20.67
+   remote-as 65034
+   address-family ipv4 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+   address-family ipv6 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+  !
+ !
+ vrf Cisco-Automation-35
+  rd 9498:35
+  address-family ipv4 unicast
+   redistribute connected
+   redistribute static
+  !
+  address-family ipv6 unicast
+   redistribute connected
+   redistribute static
+  !
+  neighbor 192.168.20.69
+   remote-as 65035
+   address-family ipv4 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+   address-family ipv6 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+  !
+ !
+ vrf Cisco-Automation-36
+  rd 9498:36
+  address-family ipv4 unicast
+   redistribute connected
+   redistribute static
+  !
+  address-family ipv6 unicast
+   redistribute connected
+   redistribute static
+  !
+  neighbor 192.168.20.71
+   remote-as 65036
+   address-family ipv4 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+   address-family ipv6 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+  !
+ !
+ vrf Cisco-Automation-37
+  rd 9498:37
+  address-family ipv4 unicast
+   redistribute connected
+   redistribute static
+  !
+  address-family ipv6 unicast
+   redistribute connected
+   redistribute static
+  !
+  neighbor 192.168.20.73
+   remote-as 65037
+   address-family ipv4 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+   address-family ipv6 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+  !
+ !
+ vrf Cisco-Automation-38
+  rd 9498:38
+  address-family ipv4 unicast
+   redistribute connected
+   redistribute static
+  !
+  address-family ipv6 unicast
+   redistribute connected
+   redistribute static
+  !
+  neighbor 192.168.20.75
+   remote-as 65038
+   address-family ipv4 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+   address-family ipv6 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+  !
+ !
+ vrf Cisco-Automation-39
+  rd 9498:39
+  address-family ipv4 unicast
+   redistribute connected
+   redistribute static
+  !
+  address-family ipv6 unicast
+   redistribute connected
+   redistribute static
+  !
+  neighbor 192.168.20.77
+   remote-as 65039
+   address-family ipv4 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+   address-family ipv6 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+  !
+ !
+ vrf Cisco-Automation-40
+  rd 9498:40
+  address-family ipv4 unicast
+   redistribute connected
+   redistribute static
+  !
+  address-family ipv6 unicast
+   redistribute connected
+   redistribute static
+  !
+  neighbor 192.168.20.79
+   remote-as 65040
+   address-family ipv4 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+   address-family ipv6 unicast
+    route-policy pass-all in
+    route-policy pass-all out
+   !
+  !
+ !
+ vrf ECI_SIGNALLING_HVPN
+  rd 13:1072
+  address-family ipv4 unicast
+   network 0.0.0.0/0
+   redistribute static
+  !
+ !
+ vrf nokia_service_80_nni
+  rd auto
+  address-family ipv4 unicast
+   label mode per-vrf
+   redistribute connected
+   redistribute static
+  !
+  address-family ipv6 unicast
+   label mode per-vrf
+   redistribute connected
+   redistribute static
+  !
+ !
+ vrf nokia_service_700_nni
+  rd auto
+  address-family ipv4 unicast
+   label mode per-vrf
+   redistribute connected
+   redistribute static
+  !
+  address-family ipv6 unicast
+   label mode per-vrf
+   redistribute connected
+   redistribute static
+  !
+ !
+!
+bmp server 1
+ host 191.168.1.2 port 5000
+ update-source Loopback0
+ initial-refresh delay 30
+!
+evpn
+!
+snmp-server traps hsrp
+snmp-server traps vrrp events
+snmp-server traps vpls all
+snmp-server traps vpls status
+snmp-server traps vpls full-clear
+snmp-server traps vpls full-raise
+snmp-server traps l2vpn all
+snmp-server traps l2vpn vc-up
+snmp-server traps l2vpn vc-down
+l2vpn
+ tcn-propagation
+ load-balancing flow src-dst-ip
+ logging
+  bridge-domain
+  pseudowire
+ !
+ pw-class mpls
+  encapsulation mpls
+  !
+ !
+ pw-class CEN-CW-FAT
+  encapsulation mpls
+   control-word
+   load-balancing
+    flow-label both
+   !
+  !
+ !
+ xconnect group 2181
+  p2p 2181
+   interface TenGigE0/1/1/16
+   neighbor ipv4 192.168.20.10 pw-id 2181
+    pw-class mpls
+   !
+  !
+ !
+ xconnect group XC-LLF
+  p2p LLF
+   neighbor ipv4 10.10.15.1 pw-id 400
+    pw-class mpls
+   !
+   neighbor ipv4 10.10.196.1 pw-id 400
+    pw-class mpls
+   !
+  !
+ !
+ xconnect group CEN-12345
+  p2p 92321
+   neighbor ipv4 10.10.15.1 pw-id 92321
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92321
+   !
+  !
+  p2p 92322
+   neighbor ipv4 10.10.15.1 pw-id 92322
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92322
+   !
+  !
+  p2p 92323
+   neighbor ipv4 10.10.15.1 pw-id 92323
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92323
+   !
+  !
+  p2p 92324
+   neighbor ipv4 10.10.15.1 pw-id 92324
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92324
+   !
+  !
+  p2p 92325
+   neighbor ipv4 10.10.15.1 pw-id 92325
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92325
+   !
+  !
+  p2p 92326
+   neighbor ipv4 10.10.15.1 pw-id 92326
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92326
+   !
+  !
+  p2p 92327
+   neighbor ipv4 10.10.15.1 pw-id 92327
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92327
+   !
+  !
+  p2p 92328
+   neighbor ipv4 10.10.15.1 pw-id 92328
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92328
+   !
+  !
+  p2p 92329
+   neighbor ipv4 10.10.15.1 pw-id 92329
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92329
+   !
+  !
+  p2p 92330
+   neighbor ipv4 10.10.15.1 pw-id 92330
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92330
+   !
+  !
+  p2p 92331
+   neighbor ipv4 10.10.15.1 pw-id 92331
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92331
+   !
+  !
+  p2p 92332
+   neighbor ipv4 10.10.15.1 pw-id 92332
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92332
+   !
+  !
+  p2p 92333
+   neighbor ipv4 10.10.15.1 pw-id 92333
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92333
+   !
+  !
+  p2p 92334
+   neighbor ipv4 10.10.15.1 pw-id 92334
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92334
+   !
+  !
+  p2p 92335
+   neighbor ipv4 10.10.15.1 pw-id 92335
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92335
+   !
+  !
+  p2p 92336
+   neighbor ipv4 10.10.15.1 pw-id 92336
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92336
+   !
+  !
+  p2p 92337
+   neighbor ipv4 10.10.15.1 pw-id 92337
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92337
+   !
+  !
+  p2p 92338
+   neighbor ipv4 10.10.15.1 pw-id 92338
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92338
+   !
+  !
+  p2p 92339
+   neighbor ipv4 10.10.15.1 pw-id 92339
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92339
+   !
+  !
+  p2p 92340
+   neighbor ipv4 10.10.15.1 pw-id 92340
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92340
+   !
+  !
+  p2p 92341
+   neighbor ipv4 10.10.15.1 pw-id 92341
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92341
+   !
+  !
+  p2p 92342
+   neighbor ipv4 10.10.15.1 pw-id 92342
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92342
+   !
+  !
+  p2p 92343
+   neighbor ipv4 10.10.15.1 pw-id 92343
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92343
+   !
+  !
+  p2p 92344
+   neighbor ipv4 10.10.15.1 pw-id 92344
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92344
+   !
+  !
+  p2p 92345
+   neighbor ipv4 10.10.15.1 pw-id 92345
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92345
+   !
+  !
+  p2p 92346
+   neighbor ipv4 10.10.15.1 pw-id 92346
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92346
+   !
+  !
+  p2p 92347
+   neighbor ipv4 10.10.15.1 pw-id 92347
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92347
+   !
+  !
+  p2p 92348
+   neighbor ipv4 10.10.15.1 pw-id 92348
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92348
+   !
+  !
+  p2p 92349
+   neighbor ipv4 10.10.15.1 pw-id 92349
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92349
+   !
+  !
+  p2p 92350
+   neighbor ipv4 10.10.15.1 pw-id 92350
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92350
+   !
+  !
+  p2p 92351
+   neighbor ipv4 10.10.15.1 pw-id 92351
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92351
+   !
+  !
+  p2p 92352
+   neighbor ipv4 10.10.15.1 pw-id 92352
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92352
+   !
+  !
+  p2p 92353
+   neighbor ipv4 10.10.15.1 pw-id 92353
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92353
+   !
+  !
+  p2p 92354
+   neighbor ipv4 10.10.15.1 pw-id 92354
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92354
+   !
+  !
+  p2p 92355
+   neighbor ipv4 10.10.15.1 pw-id 92355
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92355
+   !
+  !
+  p2p 92356
+   neighbor ipv4 10.10.15.1 pw-id 92356
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92356
+   !
+  !
+  p2p 92357
+   neighbor ipv4 10.10.15.1 pw-id 92357
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92357
+   !
+  !
+  p2p 92358
+   neighbor ipv4 10.10.15.1 pw-id 92358
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92358
+   !
+  !
+  p2p 92359
+   neighbor ipv4 10.10.15.1 pw-id 92359
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92359
+   !
+  !
+  p2p 92360
+   neighbor ipv4 10.10.15.1 pw-id 92360
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92360
+   !
+  !
+  p2p 92361
+   neighbor ipv4 10.10.15.1 pw-id 92361
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92361
+   !
+  !
+  p2p 92362
+   neighbor ipv4 10.10.15.1 pw-id 92362
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92362
+   !
+  !
+  p2p 92363
+   neighbor ipv4 10.10.15.1 pw-id 92363
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92363
+   !
+  !
+  p2p 92364
+   neighbor ipv4 10.10.15.1 pw-id 92364
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92364
+   !
+  !
+  p2p 92365
+   neighbor ipv4 10.10.15.1 pw-id 92365
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92365
+   !
+  !
+  p2p 92366
+   neighbor ipv4 10.10.15.1 pw-id 92366
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92366
+   !
+  !
+  p2p 92367
+   neighbor ipv4 10.10.15.1 pw-id 92367
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92367
+   !
+  !
+  p2p 92368
+   neighbor ipv4 10.10.15.1 pw-id 92368
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92368
+   !
+  !
+  p2p 92369
+   neighbor ipv4 10.10.15.1 pw-id 92369
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92369
+   !
+  !
+  p2p 92370
+   neighbor ipv4 10.10.15.1 pw-id 92370
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92370
+   !
+  !
+  p2p 92371
+   neighbor ipv4 10.10.15.1 pw-id 92371
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92371
+   !
+  !
+  p2p 92372
+   neighbor ipv4 10.10.15.1 pw-id 92372
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92372
+   !
+  !
+  p2p 92373
+   neighbor ipv4 10.10.15.1 pw-id 92373
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92373
+   !
+  !
+  p2p 92374
+   neighbor ipv4 10.10.15.1 pw-id 92374
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92374
+   !
+  !
+  p2p 92375
+   neighbor ipv4 10.10.15.1 pw-id 92375
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92375
+   !
+  !
+  p2p 92376
+   neighbor ipv4 10.10.15.1 pw-id 92376
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92376
+   !
+  !
+  p2p 92377
+   neighbor ipv4 10.10.15.1 pw-id 92377
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92377
+   !
+  !
+  p2p 92378
+   neighbor ipv4 10.10.15.1 pw-id 92378
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92378
+   !
+  !
+  p2p 92379
+   neighbor ipv4 10.10.15.1 pw-id 92379
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92379
+   !
+  !
+  p2p 92380
+   neighbor ipv4 10.10.15.1 pw-id 92380
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92380
+   !
+  !
+  p2p 92381
+   neighbor ipv4 10.10.15.1 pw-id 92381
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92381
+   !
+  !
+  p2p 92382
+   neighbor ipv4 10.10.15.1 pw-id 92382
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92382
+   !
+  !
+  p2p 92383
+   neighbor ipv4 10.10.15.1 pw-id 92383
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92383
+   !
+  !
+  p2p 92384
+   neighbor ipv4 10.10.15.1 pw-id 92384
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92384
+   !
+  !
+  p2p 92385
+   neighbor ipv4 10.10.15.1 pw-id 92385
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92385
+   !
+  !
+  p2p 92386
+   neighbor ipv4 10.10.15.1 pw-id 92386
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92386
+   !
+  !
+  p2p 92387
+   neighbor ipv4 10.10.15.1 pw-id 92387
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92387
+   !
+  !
+  p2p 92388
+   neighbor ipv4 10.10.15.1 pw-id 92388
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92388
+   !
+  !
+  p2p 92389
+   neighbor ipv4 10.10.15.1 pw-id 92389
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92389
+   !
+  !
+  p2p 92390
+   neighbor ipv4 10.10.15.1 pw-id 92390
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92390
+   !
+  !
+  p2p 92391
+   neighbor ipv4 10.10.15.1 pw-id 92391
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92391
+   !
+  !
+  p2p 92392
+   neighbor ipv4 10.10.15.1 pw-id 92392
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92392
+   !
+  !
+  p2p 92393
+   neighbor ipv4 10.10.15.1 pw-id 92393
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92393
+   !
+  !
+  p2p 92394
+   neighbor ipv4 10.10.15.1 pw-id 92394
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92394
+   !
+  !
+  p2p 92395
+   neighbor ipv4 10.10.15.1 pw-id 92395
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92395
+   !
+  !
+  p2p 92396
+   neighbor ipv4 10.10.15.1 pw-id 92396
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92396
+   !
+  !
+  p2p 92397
+   neighbor ipv4 10.10.15.1 pw-id 92397
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92397
+   !
+  !
+  p2p 92398
+   neighbor ipv4 10.10.15.1 pw-id 92398
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92398
+   !
+  !
+  p2p 92399
+   neighbor ipv4 10.10.15.1 pw-id 92399
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92399
+   !
+  !
+  p2p 92400
+   neighbor ipv4 10.10.15.1 pw-id 92400
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92400
+   !
+  !
+  p2p 92401
+   neighbor ipv4 10.10.15.1 pw-id 92401
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92401
+   !
+  !
+  p2p 92402
+   neighbor ipv4 10.10.15.1 pw-id 92402
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92402
+   !
+  !
+  p2p 92403
+   neighbor ipv4 10.10.15.1 pw-id 92403
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92403
+   !
+  !
+  p2p 92404
+   neighbor ipv4 10.10.15.1 pw-id 92404
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92404
+   !
+  !
+  p2p 92405
+   neighbor ipv4 10.10.15.1 pw-id 92405
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92405
+   !
+  !
+  p2p 92406
+   neighbor ipv4 10.10.15.1 pw-id 92406
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92406
+   !
+  !
+  p2p 92407
+   neighbor ipv4 10.10.15.1 pw-id 92407
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92407
+   !
+  !
+  p2p 92408
+   neighbor ipv4 10.10.15.1 pw-id 92408
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92408
+   !
+  !
+  p2p 92409
+   neighbor ipv4 10.10.15.1 pw-id 92409
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92409
+   !
+  !
+  p2p 92410
+   neighbor ipv4 10.10.15.1 pw-id 92410
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92410
+   !
+  !
+  p2p 92411
+   neighbor ipv4 10.10.15.1 pw-id 92411
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92411
+   !
+  !
+  p2p 92412
+   neighbor ipv4 10.10.15.1 pw-id 92412
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92412
+   !
+  !
+  p2p 92413
+   neighbor ipv4 10.10.15.1 pw-id 92413
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92413
+   !
+  !
+  p2p 92414
+   neighbor ipv4 10.10.15.1 pw-id 92414
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92414
+   !
+  !
+  p2p 92415
+   neighbor ipv4 10.10.15.1 pw-id 92415
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92415
+   !
+  !
+  p2p 92416
+   neighbor ipv4 10.10.15.1 pw-id 92416
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92416
+   !
+  !
+  p2p 92417
+   neighbor ipv4 10.10.15.1 pw-id 92417
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92417
+   !
+  !
+  p2p 92418
+   neighbor ipv4 10.10.15.1 pw-id 92418
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92418
+   !
+  !
+  p2p 92419
+   neighbor ipv4 10.10.15.1 pw-id 92419
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92419
+   !
+  !
+  p2p 92420
+   neighbor ipv4 10.10.15.1 pw-id 92420
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92420
+   !
+  !
+  p2p 92421
+   neighbor ipv4 10.10.15.1 pw-id 92421
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92421
+   !
+  !
+  p2p 92422
+   neighbor ipv4 10.10.15.1 pw-id 92422
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92422
+   !
+  !
+  p2p 92423
+   neighbor ipv4 10.10.15.1 pw-id 92423
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92423
+   !
+  !
+  p2p 92424
+   neighbor ipv4 10.10.15.1 pw-id 92424
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92424
+   !
+  !
+  p2p 92425
+   neighbor ipv4 10.10.15.1 pw-id 92425
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92425
+   !
+  !
+  p2p 92426
+   neighbor ipv4 10.10.15.1 pw-id 92426
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92426
+   !
+  !
+  p2p 92427
+   neighbor ipv4 10.10.15.1 pw-id 92427
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92427
+   !
+  !
+  p2p 92428
+   neighbor ipv4 10.10.15.1 pw-id 92428
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92428
+   !
+  !
+  p2p 92429
+   neighbor ipv4 10.10.15.1 pw-id 92429
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92429
+   !
+  !
+  p2p 92430
+   neighbor ipv4 10.10.15.1 pw-id 92430
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92430
+   !
+  !
+  p2p 92431
+   neighbor ipv4 10.10.15.1 pw-id 92431
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92431
+   !
+  !
+  p2p 92432
+   neighbor ipv4 10.10.15.1 pw-id 92432
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92432
+   !
+  !
+  p2p 92433
+   neighbor ipv4 10.10.15.1 pw-id 92433
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92433
+   !
+  !
+  p2p 92434
+   neighbor ipv4 10.10.15.1 pw-id 92434
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92434
+   !
+  !
+  p2p 92435
+   neighbor ipv4 10.10.15.1 pw-id 92435
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92435
+   !
+  !
+  p2p 92436
+   neighbor ipv4 10.10.15.1 pw-id 92436
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92436
+   !
+  !
+  p2p 92437
+   neighbor ipv4 10.10.15.1 pw-id 92437
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92437
+   !
+  !
+  p2p 92438
+   neighbor ipv4 10.10.15.1 pw-id 92438
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92438
+   !
+  !
+  p2p 92439
+   neighbor ipv4 10.10.15.1 pw-id 92439
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92439
+   !
+  !
+  p2p 92440
+   neighbor ipv4 10.10.15.1 pw-id 92440
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92440
+   !
+  !
+  p2p 92441
+   neighbor ipv4 10.10.15.1 pw-id 92441
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92441
+   !
+  !
+  p2p 92442
+   neighbor ipv4 10.10.15.1 pw-id 92442
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92442
+   !
+  !
+  p2p 92443
+   neighbor ipv4 10.10.15.1 pw-id 92443
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92443
+   !
+  !
+  p2p 92444
+   neighbor ipv4 10.10.15.1 pw-id 92444
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92444
+   !
+  !
+  p2p 92445
+   neighbor ipv4 10.10.15.1 pw-id 92445
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92445
+   !
+  !
+  p2p 92446
+   neighbor ipv4 10.10.15.1 pw-id 92446
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92446
+   !
+  !
+  p2p 92447
+   neighbor ipv4 10.10.15.1 pw-id 92447
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92447
+   !
+  !
+  p2p 92448
+   neighbor ipv4 10.10.15.1 pw-id 92448
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92448
+   !
+  !
+  p2p 92449
+   neighbor ipv4 10.10.15.1 pw-id 92449
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92449
+   !
+  !
+  p2p 92450
+   neighbor ipv4 10.10.15.1 pw-id 92450
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92450
+   !
+  !
+  p2p 92451
+   neighbor ipv4 10.10.15.1 pw-id 92451
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92451
+   !
+  !
+  p2p 92452
+   neighbor ipv4 10.10.15.1 pw-id 92452
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92452
+   !
+  !
+  p2p 92453
+   neighbor ipv4 10.10.15.1 pw-id 92453
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92453
+   !
+  !
+  p2p 92454
+   neighbor ipv4 10.10.15.1 pw-id 92454
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92454
+   !
+  !
+  p2p 92455
+   neighbor ipv4 10.10.15.1 pw-id 92455
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92455
+   !
+  !
+  p2p 92456
+   neighbor ipv4 10.10.15.1 pw-id 92456
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92456
+   !
+  !
+  p2p 92457
+   neighbor ipv4 10.10.15.1 pw-id 92457
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92457
+   !
+  !
+  p2p 92458
+   neighbor ipv4 10.10.15.1 pw-id 92458
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92458
+   !
+  !
+  p2p 92459
+   neighbor ipv4 10.10.15.1 pw-id 92459
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92459
+   !
+  !
+  p2p 92460
+   neighbor ipv4 10.10.15.1 pw-id 92460
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92460
+   !
+  !
+  p2p 92461
+   neighbor ipv4 10.10.15.1 pw-id 92461
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92461
+   !
+  !
+  p2p 92462
+   neighbor ipv4 10.10.15.1 pw-id 92462
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92462
+   !
+  !
+  p2p 92463
+   neighbor ipv4 10.10.15.1 pw-id 92463
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92463
+   !
+  !
+  p2p 92464
+   neighbor ipv4 10.10.15.1 pw-id 92464
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92464
+   !
+  !
+  p2p 92465
+   neighbor ipv4 10.10.15.1 pw-id 92465
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92465
+   !
+  !
+  p2p 92466
+   neighbor ipv4 10.10.15.1 pw-id 92466
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92466
+   !
+  !
+  p2p 92467
+   neighbor ipv4 10.10.15.1 pw-id 92467
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92467
+   !
+  !
+  p2p 92468
+   neighbor ipv4 10.10.15.1 pw-id 92468
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92468
+   !
+  !
+  p2p 92469
+   neighbor ipv4 10.10.15.1 pw-id 92469
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92469
+   !
+  !
+  p2p 92470
+   neighbor ipv4 10.10.15.1 pw-id 92470
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92470
+   !
+  !
+  p2p 92471
+   neighbor ipv4 10.10.15.1 pw-id 92471
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92471
+   !
+  !
+  p2p 92472
+   neighbor ipv4 10.10.15.1 pw-id 92472
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92472
+   !
+  !
+  p2p 92473
+   neighbor ipv4 10.10.15.1 pw-id 92473
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92473
+   !
+  !
+  p2p 92474
+   neighbor ipv4 10.10.15.1 pw-id 92474
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92474
+   !
+  !
+  p2p 92475
+   neighbor ipv4 10.10.15.1 pw-id 92475
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92475
+   !
+  !
+  p2p 92476
+   neighbor ipv4 10.10.15.1 pw-id 92476
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92476
+   !
+  !
+  p2p 92477
+   neighbor ipv4 10.10.15.1 pw-id 92477
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92477
+   !
+  !
+  p2p 92478
+   neighbor ipv4 10.10.15.1 pw-id 92478
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92478
+   !
+  !
+  p2p 92479
+   neighbor ipv4 10.10.15.1 pw-id 92479
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92479
+   !
+  !
+  p2p 92480
+   neighbor ipv4 10.10.15.1 pw-id 92480
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92480
+   !
+  !
+  p2p 92481
+   neighbor ipv4 10.10.15.1 pw-id 92481
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92481
+   !
+  !
+  p2p 92482
+   neighbor ipv4 10.10.15.1 pw-id 92482
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92482
+   !
+  !
+  p2p 92483
+   neighbor ipv4 10.10.15.1 pw-id 92483
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92483
+   !
+  !
+  p2p 92484
+   neighbor ipv4 10.10.15.1 pw-id 92484
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92484
+   !
+  !
+  p2p 92485
+   neighbor ipv4 10.10.15.1 pw-id 92485
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92485
+   !
+  !
+  p2p 92486
+   neighbor ipv4 10.10.15.1 pw-id 92486
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92486
+   !
+  !
+  p2p 92487
+   neighbor ipv4 10.10.15.1 pw-id 92487
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92487
+   !
+  !
+  p2p 92488
+   neighbor ipv4 10.10.15.1 pw-id 92488
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92488
+   !
+  !
+  p2p 92489
+   neighbor ipv4 10.10.15.1 pw-id 92489
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92489
+   !
+  !
+  p2p 92490
+   neighbor ipv4 10.10.15.1 pw-id 92490
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92490
+   !
+  !
+  p2p 92491
+   neighbor ipv4 10.10.15.1 pw-id 92491
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92491
+   !
+  !
+  p2p 92492
+   neighbor ipv4 10.10.15.1 pw-id 92492
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92492
+   !
+  !
+  p2p 92493
+   neighbor ipv4 10.10.15.1 pw-id 92493
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92493
+   !
+  !
+  p2p 92494
+   neighbor ipv4 10.10.15.1 pw-id 92494
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92494
+   !
+  !
+  p2p 92495
+   neighbor ipv4 10.10.15.1 pw-id 92495
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92495
+   !
+  !
+  p2p 92496
+   neighbor ipv4 10.10.15.1 pw-id 92496
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92496
+   !
+  !
+  p2p 92497
+   neighbor ipv4 10.10.15.1 pw-id 92497
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92497
+   !
+  !
+  p2p 92498
+   neighbor ipv4 10.10.15.1 pw-id 92498
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92498
+   !
+  !
+  p2p 92499
+   neighbor ipv4 10.10.15.1 pw-id 92499
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92499
+   !
+  !
+  p2p 92500
+   neighbor ipv4 10.10.15.1 pw-id 92500
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92500
+   !
+  !
+  p2p 92501
+   neighbor ipv4 10.10.15.1 pw-id 92501
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92501
+   !
+  !
+  p2p 92502
+   neighbor ipv4 10.10.15.1 pw-id 92502
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92502
+   !
+  !
+  p2p 92503
+   neighbor ipv4 10.10.15.1 pw-id 92503
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92503
+   !
+  !
+  p2p 92504
+   neighbor ipv4 10.10.15.1 pw-id 92504
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92504
+   !
+  !
+  p2p 92505
+   neighbor ipv4 10.10.15.1 pw-id 92505
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92505
+   !
+  !
+  p2p 92506
+   neighbor ipv4 10.10.15.1 pw-id 92506
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92506
+   !
+  !
+  p2p 92507
+   neighbor ipv4 10.10.15.1 pw-id 92507
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92507
+   !
+  !
+  p2p 92508
+   neighbor ipv4 10.10.15.1 pw-id 92508
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92508
+   !
+  !
+  p2p 92509
+   neighbor ipv4 10.10.15.1 pw-id 92509
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92509
+   !
+  !
+  p2p 92510
+   neighbor ipv4 10.10.15.1 pw-id 92510
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92510
+   !
+  !
+  p2p 92511
+   neighbor ipv4 10.10.15.1 pw-id 92511
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92511
+   !
+  !
+  p2p 92512
+   neighbor ipv4 10.10.15.1 pw-id 92512
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92512
+   !
+  !
+  p2p 92513
+   neighbor ipv4 10.10.15.1 pw-id 92513
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92513
+   !
+  !
+  p2p 92514
+   neighbor ipv4 10.10.15.1 pw-id 92514
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92514
+   !
+  !
+  p2p 92515
+   neighbor ipv4 10.10.15.1 pw-id 92515
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92515
+   !
+  !
+  p2p 92516
+   neighbor ipv4 10.10.15.1 pw-id 92516
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92516
+   !
+  !
+  p2p 92517
+   neighbor ipv4 10.10.15.1 pw-id 92517
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92517
+   !
+  !
+  p2p 92518
+   neighbor ipv4 10.10.15.1 pw-id 92518
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92518
+   !
+  !
+  p2p 92519
+   neighbor ipv4 10.10.15.1 pw-id 92519
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92519
+   !
+  !
+  p2p 92520
+   neighbor ipv4 10.10.15.1 pw-id 92520
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92520
+   !
+  !
+  p2p 92521
+   neighbor ipv4 10.10.15.1 pw-id 92521
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92521
+   !
+  !
+  p2p 92522
+   neighbor ipv4 10.10.15.1 pw-id 92522
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92522
+   !
+  !
+  p2p 92523
+   neighbor ipv4 10.10.15.1 pw-id 92523
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92523
+   !
+  !
+  p2p 92524
+   neighbor ipv4 10.10.15.1 pw-id 92524
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92524
+   !
+  !
+  p2p 92525
+   neighbor ipv4 10.10.15.1 pw-id 92525
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92525
+   !
+  !
+  p2p 92526
+   neighbor ipv4 10.10.15.1 pw-id 92526
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92526
+   !
+  !
+  p2p 92527
+   neighbor ipv4 10.10.15.1 pw-id 92527
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92527
+   !
+  !
+  p2p 92528
+   neighbor ipv4 10.10.15.1 pw-id 92528
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92528
+   !
+  !
+  p2p 92529
+   neighbor ipv4 10.10.15.1 pw-id 92529
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92529
+   !
+  !
+  p2p 92530
+   neighbor ipv4 10.10.15.1 pw-id 92530
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92530
+   !
+  !
+  p2p 92531
+   neighbor ipv4 10.10.15.1 pw-id 92531
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92531
+   !
+  !
+  p2p 92532
+   neighbor ipv4 10.10.15.1 pw-id 92532
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92532
+   !
+  !
+  p2p 92533
+   neighbor ipv4 10.10.15.1 pw-id 92533
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92533
+   !
+  !
+  p2p 92534
+   neighbor ipv4 10.10.15.1 pw-id 92534
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92534
+   !
+  !
+  p2p 92535
+   neighbor ipv4 10.10.15.1 pw-id 92535
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92535
+   !
+  !
+  p2p 92536
+   neighbor ipv4 10.10.15.1 pw-id 92536
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92536
+   !
+  !
+  p2p 92537
+   neighbor ipv4 10.10.15.1 pw-id 92537
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92537
+   !
+  !
+  p2p 92538
+   neighbor ipv4 10.10.15.1 pw-id 92538
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92538
+   !
+  !
+  p2p 92539
+   neighbor ipv4 10.10.15.1 pw-id 92539
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92539
+   !
+  !
+  p2p 92540
+   neighbor ipv4 10.10.15.1 pw-id 92540
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92540
+   !
+  !
+  p2p 92541
+   neighbor ipv4 10.10.15.1 pw-id 92541
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92541
+   !
+  !
+  p2p 92542
+   neighbor ipv4 10.10.15.1 pw-id 92542
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92542
+   !
+  !
+  p2p 92543
+   neighbor ipv4 10.10.15.1 pw-id 92543
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92543
+   !
+  !
+  p2p 92544
+   neighbor ipv4 10.10.15.1 pw-id 92544
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92544
+   !
+  !
+  p2p 92545
+   neighbor ipv4 10.10.15.1 pw-id 92545
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92545
+   !
+  !
+  p2p 92546
+   neighbor ipv4 10.10.15.1 pw-id 92546
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92546
+   !
+  !
+  p2p 92547
+   neighbor ipv4 10.10.15.1 pw-id 92547
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92547
+   !
+  !
+  p2p 92548
+   neighbor ipv4 10.10.15.1 pw-id 92548
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92548
+   !
+  !
+  p2p 92549
+   neighbor ipv4 10.10.15.1 pw-id 92549
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92549
+   !
+  !
+  p2p 92550
+   neighbor ipv4 10.10.15.1 pw-id 92550
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92550
+   !
+  !
+  p2p 92551
+   neighbor ipv4 10.10.15.1 pw-id 92551
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92551
+   !
+  !
+  p2p 92552
+   neighbor ipv4 10.10.15.1 pw-id 92552
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92552
+   !
+  !
+  p2p 92553
+   neighbor ipv4 10.10.15.1 pw-id 92553
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92553
+   !
+  !
+  p2p 92554
+   neighbor ipv4 10.10.15.1 pw-id 92554
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92554
+   !
+  !
+  p2p 92555
+   neighbor ipv4 10.10.15.1 pw-id 92555
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92555
+   !
+  !
+  p2p 92556
+   neighbor ipv4 10.10.15.1 pw-id 92556
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92556
+   !
+  !
+  p2p 92557
+   neighbor ipv4 10.10.15.1 pw-id 92557
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92557
+   !
+  !
+  p2p 92558
+   neighbor ipv4 10.10.15.1 pw-id 92558
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92558
+   !
+  !
+  p2p 92559
+   neighbor ipv4 10.10.15.1 pw-id 92559
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92559
+   !
+  !
+  p2p 92560
+   neighbor ipv4 10.10.15.1 pw-id 92560
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92560
+   !
+  !
+  p2p 92561
+   neighbor ipv4 10.10.15.1 pw-id 92561
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92561
+   !
+  !
+  p2p 92562
+   neighbor ipv4 10.10.15.1 pw-id 92562
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92562
+   !
+  !
+  p2p 92563
+   neighbor ipv4 10.10.15.1 pw-id 92563
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92563
+   !
+  !
+  p2p 92564
+   neighbor ipv4 10.10.15.1 pw-id 92564
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92564
+   !
+  !
+  p2p 92565
+   neighbor ipv4 10.10.15.1 pw-id 92565
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92565
+   !
+  !
+  p2p 92566
+   neighbor ipv4 10.10.15.1 pw-id 92566
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92566
+   !
+  !
+  p2p 92567
+   neighbor ipv4 10.10.15.1 pw-id 92567
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92567
+   !
+  !
+  p2p 92568
+   neighbor ipv4 10.10.15.1 pw-id 92568
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92568
+   !
+  !
+  p2p 92569
+   neighbor ipv4 10.10.15.1 pw-id 92569
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92569
+   !
+  !
+  p2p 92570
+   neighbor ipv4 10.10.15.1 pw-id 92570
+   !
+   neighbor ipv4 102.102.102.102 pw-id 92570
+   !
+  !
+ !
+ xconnect group Nokia-L2VPN-1
+  p2p Nokia-L2VPN-1
+   interface Bundle-Ether11.1234
+   neighbor ipv4 150.150.150.150 pw-id 30001
+   !
+  !
+ !
+ xconnect group Nokia-L2VPN-2
+  p2p Nokia-L2VPN-2
+   interface Bundle-Ether11.1235
+   neighbor ipv4 38.38.38.38 pw-id 30001
+   !
+  !
+ !
+ bridge group BNG_OLT
+  bridge-domain 3001
+   interface TenGigE0/1/1/1.3001
+   !
+   interface TenGigE0/1/1/6.3001
+   !
+  !
+ !
+ bridge group UBR-QnQ
+  bridge-domain UBR-QnQ
+   interface GigabitEthernet0/1/0/2.100
+   !
+   interface GigabitEthernet0/1/0/3.100
+   !
+  !
+ !
+ bridge group Varizon
+  bridge-domain 200
+   interface Bundle-Ether11.1199
+   !
+   interface GigabitEthernet0/1/0/1.1199
+   !
+  !
+ !
+!
+generic-interface-list HVPNX
+ interface TenGigE0/1/1/5
+!
+router vrrp
+!
+mpls oam
+!
+snmp-server traps mpls traffic-eng up
+snmp-server traps mpls traffic-eng down
+snmp-server traps mpls traffic-eng reroute
+snmp-server traps mpls traffic-eng reoptimize
+snmp-server traps mpls frr all
+snmp-server traps mpls frr protected
+snmp-server traps mpls frr unprotected
+snmp-server traps mpls ldp up
+snmp-server traps mpls ldp down
+snmp-server traps mpls ldp threshold
+snmp-server traps mpls traffic-eng p2mp up
+snmp-server traps mpls traffic-eng p2mp down
+snmp-server traps rsvp all
+snmp-server traps rsvp new-flow
+snmp-server traps rsvp lost-flow
+snmp-server traps mpls l3vpn all
+snmp-server traps mpls l3vpn vrf-up
+snmp-server traps mpls l3vpn vrf-down
+snmp-server traps mpls l3vpn max-threshold-cleared
+snmp-server traps mpls l3vpn max-threshold-exceeded
+snmp-server traps mpls l3vpn mid-threshold-exceeded
+snmp-server traps mpls l3vpn max-threshold-reissue-notif-time 1
+rsvp
+ interface Loopback2
+ !
+ interface TenGigE0/1/1/4
+  bandwidth
+ !
+ interface TenGigE0/1/1/19
+  bandwidth
+ !
+ interface TenGigE0/1/1/4.200
+  bandwidth
+ !
+ interface Bundle-Ether102.200
+  bandwidth
+ !
+ interface Bundle-Ether102.201
+  bandwidth
+ !
+ interface Bundle-Ether13197.200
+  bandwidth
+ !
+ interface HundredGigE0/2/0/17.1
+  bandwidth
+ !
+!
+mpls traffic-eng
+ interface tunnel-te10
+ !
+ interface TenGigE0/1/1/4
+ !
+ interface TenGigE0/1/1/19
+ !
+ interface Bundle-Ether102.2
+ !
+ interface Bundle-Ether102.4
+ !
+ interface TenGigE0/1/1/4.200
+ !
+ interface Bundle-Ether102.200
+ !
+ interface Bundle-Ether102.201
+ !
+ interface Bundle-Ether13197.200
+ !
+ interface HundredGigE0/2/0/17.1
+ !
+!
+mpls ldp
+ log
+  hello-adjacency
+  neighbor
+  nsr
+  graceful-restart
+  session-protection
+ !
+ nsr
+ graceful-restart
+ igp sync delay on-session-up 20
+ discovery
+  targeted-hello interval 1
+ !
+ mldp
+  logging notifications
+  address-family ipv4
+   make-before-break delay 0 60
+   forwarding recursive
+  !
+ !
+ router-id 10.10.13.1
+ neighbor
+  10.10.15.1:0 password encrypted 01100F175804575D72
+  102.102.102.102:0 password encrypted 060506324F41
+  202.202.202.202:0 password encrypted 030752180500
+ !
+ session protection
+ address-family ipv4
+  discovery targeted-hello accept
+  label
+   local
+    allocate for host-routes
+   !
+  !
+ !
+ interface Bundle-Ether16
+ !
+ interface Bundle-Ether22
+ !
+ interface Bundle-Ether55
+ !
+ interface Bundle-Ether102.2
+ !
+ interface Bundle-Ether102.4
+ !
+ interface Bundle-Ether102.6
+ !
+ interface Bundle-Ether1000
+ !
+ interface Bundle-Ether1036
+ !
+ interface Bundle-Ether7260.12
+ !
+ interface Bundle-Ether7268
+ !
+ interface Bundle-Ether7572
+ !
+ interface TenGigE0/1/1/4
+ !
+ interface TenGigE0/1/1/19
+ !
+!
+snmp-server traps pim neighbor-change
+snmp-server traps pim invalid-message-received
+snmp-server traps pim rp-mapping-change
+snmp-server traps pim interface-state-change
+snmp-server traps msdp peer-state-change
+multicast-routing
+ address-family ipv4
+  interface all enable
+ !
+!
+segment-routing
+ global-block 120000 519999
+ traffic-eng
+ !
+!
+xml agent tty
+!
+snmp-server traps sensor
+snmp-server traps fru-ctrl
+netconf agent tty
+!
+snmp-server traps ospf lsa lsa-maxage
+snmp-server traps ospf lsa lsa-originate
+snmp-server traps ospf errors bad-packet
+snmp-server traps ospf errors authentication-failure
+snmp-server traps ospf errors config-error
+snmp-server traps ospf errors virt-bad-packet
+snmp-server traps ospf errors virt-authentication-failure
+snmp-server traps ospf errors virt-config-error
+snmp-server traps ospf retransmit packets
+snmp-server traps ospf retransmit virt-packets
+snmp-server traps ospf state-change if-state-change
+snmp-server traps ospf state-change neighbor-state-change
+snmp-server traps ospf state-change virtif-state-change
+snmp-server traps ospf state-change virtneighbor-state-change
+lldp
+!
+router pim
+ address-family ipv4
+  log neighbor changes
+ !
+!
+snmp-server traps l2tun sessions
+snmp-server traps l2tun tunnel-up
+snmp-server traps l2tun tunnel-down
+snmp-server traps l2tun pseudowire status
+mpls label range table 0 24000 1048575
+mpls ip-ttl-propagate disable forwarded
+track 1
+ type rtr 1 reachability
+!
+track RRs
+ type list boolean or
+  object RR10
+  object RR11
+ !
+ delay up 180
+ delay down 1
+!
+track RR10
+ type route reachability
+  route ipv4 10.10.10.1/32
+ !
+ delay up 180
+ delay down 1
+!
+track RR11
+ type route reachability
+  route ipv4 10.10.11.1/32
+ !
+ delay up 180
+ delay down 1
+!
+track RRNPT
+ type list boolean or
+  object RR9912NPT
+ !
+ delay up 180
+!
+track RR9912NPT
+ type route reachability
+  route ipv4 10.10.15.2/32
+ !
+ delay up 180
+!
+track RR9912NPT1100H
+ type route reachability
+  route ipv4 10.10.15.1/32
+ !
+ delay up 180
+!
+telnet vrf mgmt ipv4 server max-servers 100
+telnet vrf default ipv4 server max-servers 10
+igmp snooping profile multi
+!
+ssh server rate-limit 600
+ssh server v2
+ssh server vrf mgmt
+ssh server vrf default
+snmp-server traps ipsla
+ipsla
+ operation 1
+  type icmp echo
+   destination address 99.99.99.99
+   frequency 5
+  !
+ !
+ operation 2
+  type icmp echo
+   destination address 10.1.1.2
+  !
+ !
+ operation 10
+ !
+ schedule operation 1
+  start-time now
+  life forever
+ !
+ schedule operation 2
+  start-time now
+  life forever
+ !
+ responder
+  type udp ipv4 address 191.16.99.1 port 50016
+  type udp ipv4 address 191.17.99.1 port 50017
+  type udp ipv4 address 191.18.99.1 port 50018
+  type udp ipv4 address 191.19.99.1 port 50019
+  type udp ipv4 address 191.20.99.1 port 50020
+  type udp ipv4 address 191.21.99.1 port 50021
+  type udp ipv4 address 191.22.99.1 port 50022
+  type udp ipv4 address 191.23.99.1 port 50023
+  type udp ipv4 address 191.24.99.1 port 50024
+  type udp ipv4 address 192.169.99.1 port 50001
+  twamp
+   timeout 100
+  !
+ !
+ server twamp
+  port 862
+ !
+!
+hw-module all qos-mode ingress-queue-enable
+hw-module all qos-mode bundle-agg-policer
+hw-module all qos-mode aggregate-bundle-mode
+performance-measurement
+ interface TenGigE0/1/1/4
+  delay-measurement
+  !
+ !
+ protocol twamp-light
+  measurement delay
+   unauthenticated
+    querier-dst-port 10022
+   !
+  !
+ !
+!
+end
+RP/0/RSP0/CPU0:I-AM-9K2-UPPER#

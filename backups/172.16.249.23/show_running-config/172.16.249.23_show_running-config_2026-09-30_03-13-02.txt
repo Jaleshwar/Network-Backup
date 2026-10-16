@@ -1,0 +1,1967 @@
+show running-config
+Wed Sep 30 03:19:12.673 IST
+!! Building configuration...
+!! IOS XR Configuration 24.4.30
+!
+hostname LAB-2-AGR-T5-NCS540-100.20
+usergroup priv15
+ taskgroup root-lr
+ taskgroup cisco-support
+ description TACACS PRIV 15
+!
+clock timezone IST Asia/Kolkata
+logging trap informational
+logging events level informational
+logging console debugging
+logging history size 7
+logging history debugging
+logging monitor debugging
+logging buffered 25000000
+logging buffered debugging
+logging facility local7
+logging 100.67.251.158 vrf default severity info
+logging 172.16.249.123 vrf default severity info port 9514
+logging 172.16.249.123 vrf mgmt-intf severity info
+logging source-interface MgmtEth0/RP0/CPU0/0
+service timestamps log datetime localtime msec show-timezone
+service timestamps debug datetime localtime msec show-timezone
+logging events link-status software-interfaces
+domain ipv4 host cchnepnm08 100.67.251.53
+domain ipv4 host cmnaepnm08 10.3.135.43
+domain name-server 202.56.230.2
+domain name-server 202.56.230.7
+domain name-server 202.56.230.5
+domain name-server 202.56.230.6
+username cisco
+ group root-lr
+ group cisco-support
+ secret 10 $6$y3rLr1lxpxTRDr1.$hIfM6.E6tOdrHLjFl5Z5l8/YTtp.QlmGmJok7bzZX6wvor4gjJwNocFgvEecdxHA6Fxf24a1cIadCe/rRH2m./
+!
+username ac
+ group root-lr
+ group cisco-support
+ secret 10 $6$3tNjY/Sq9NxG4Y/.$3SWSqj7utiN53tUulgu93FUwycTBfhTYLeVIfsKD87V4K3ytDhoHBuOfMTqTTKI0rCcXs3XJvCnbBAiuMNVOL0
+!
+username rooto
+ group root-lr
+ group cisco-support
+ secret 10 $6$fKDxk/pHDQo15k/.$NnpnMFuhJc0kkDFRjzfeut25SPLrVI0Pc3Zkwb53PS3PU.5T9Lyg8vXIpO3yHhz76JMbh3Y2Jcesgt19TFNCU/
+!
+explicit-path name 5agg
+ index 1 exclude-address ipv4 unicast 192.12.99.1
+!
+explicit-path name 7acc
+ index 1 exclude-address ipv4 unicast 192.41.99.2
+!
+nsr process-failures switchover
+vrf HDFC-HNS
+ address-family ipv4 unicast
+  import route-target
+   9730:112
+   9730:113
+  !
+  export route-target
+   9730:113
+  !
+  maximum prefix 60000 80
+ !
+!
+vrf UP-LTE-DATA-M
+ address-family ipv6 unicast
+  import route-target
+   9730:11000128
+  !
+  export route-target
+   9730:11000128
+  !
+  maximum prefix 20000 80
+ !
+!
+vrf BIHAR-AND-JHARKHAND-O-M-M
+ address-family ipv4 unicast
+  import route-target
+   9730:22000
+   9730:71263
+   9730:71266
+  !
+  export route-target
+   9730:22000
+   9730:22932
+  !
+  maximum prefix 80000 80
+ !
+!
+vrf BIHAR-AND-JHARKHAND-Data-M
+ address-family ipv4 unicast
+  import route-target
+   9730:22001
+   9730:71261
+   9730:71264
+  !
+  export route-target
+   9730:22001
+   9730:22931
+  !
+  maximum prefix 80000 80
+ !
+ address-family ipv6 unicast
+  import route-target
+   9730:22001
+   9730:71261
+   9730:71264
+  !
+  export route-target
+   9730:22001
+   9730:22931
+  !
+  maximum prefix 150000 80
+ !
+!
+vrf BIHAR-AND-JHARKHAND-Signalling-M
+ address-family ipv4 unicast
+  import route-target
+   9730:22002
+   9730:71262
+   9730:71265
+  !
+  export route-target
+   9730:22002
+   9730:22930
+  !
+  maximum prefix 150000 80
+ !
+!
+ethernet service-activation-test
+ profile PERF_TEST
+  duration 5 minutes
+  packet-size 1518
+  information-rate 5 gbps
+ !
+!
+tcp path-mtu-discovery
+line template vty
+ exec-timeout 8 0
+ access-class ingress 65
+ session-timeout 10
+ transport input ssh telnet
+ transport output all
+!
+line console
+ exec-timeout 0 0
+ absolute-timeout 0
+ session-timeout 100
+!
+line default
+ exec-timeout 0 0
+ session-timeout 0
+!
+line template vtemplate10
+ exec-timeout 8 0
+ access-class ingress 65
+ session-timeout 10
+ transport input telnet ssh
+!
+vty-pool default 0 10 line-template vty
+vty-pool vtemplate10 11 15 line-template vtemplate10
+lpts pifib hardware police
+ flow ntp default rate 1
+!
+snmp-server ifmib ifalias long
+snmp-server ifindex persist
+snmp-server ifmib stats cache
+snmp-server interface subset 1 regular-expression Ten*
+ notification linkupdown
+!
+snmp-server interface subset 2 regular-expression Forty*
+ notification linkupdown
+!
+snmp-server interface subset 3 regular-expression Hun*
+ notification linkupdown
+!
+snmp-server mibs cbqosmib cache
+!
+snmp-server vrf default
+ host 172.16.249.123 traps version 3 priv bharti-ro udp-port 1062 dying-gasp
+!
+snmp-server host 10.3.135.43 traps version 2c encrypted 121C15191F1809163C2E36
+snmp-server host 100.67.251.53 traps version 2c encrypted 1412020501172F39322D21
+snmp-server host 125.62.189.21 traps btsol
+snmp-server host 172.16.249.117 traps version 3 auth encrypted 0306530A141B28015C06 udp-port 1062
+snmp-server host 172.16.249.123 traps version 3 auth encrypted 045903071D3545031B16 udp-port 1062
+snmp-server host 202.123.46.230 traps btsol
+snmp-server host 202.123.47.43 traps btsol
+snmp-server user cnc CNCV3 v3 auth md5 encrypted 02050A582B575D72 priv aes 128 encrypted 00071D05240A5955
+snmp-server user bharti-ro AGENTIC_AI v3 auth md5 encrypted 1124162B1E26041E240823053A073C7340 priv aes 128 encrypted 047604280615435C293B0D36003F055579
+snmp-server view cnc dod included
+snmp-server view cnc iso included
+snmp-server view cutdown iso included
+snmp-server view cutdown 1.3.6.1.2.1.3 excluded
+snmp-server view cutdown 1.3.6.1.6.3.15 excluded
+snmp-server view cutdown 1.3.6.1.6.3.16 excluded
+snmp-server view cutdown 1.3.6.1.6.3.18 excluded
+snmp-server view cutdown 1.3.6.1.2.1.4.21 excluded
+snmp-server view cutdown 1.3.6.1.2.1.4.22 excluded
+snmp-server view fullView 1.3.6.1 included
+snmp-server community adrs view cutdown RW IPv4 FIFTY
+snmp-server community btsol view cutdown RO IPv4 SEVENTYFIVE
+snmp-server community ippms view cutdown RO IPv4 FIFTYONE
+snmp-server community newnetcool RO IPv4 THIRTY
+snmp-server community encrypted 15171B0209392E363E3627 RO SystemOwner IPv4 TWENTY
+snmp-server group CNCV3 v3 priv notify cnc read cnc write cnc
+snmp-server group v3auth v3 auth read SEVENTYFIVE write v1default
+snmp-server group AGENTIC_AI v3 auth notify fullView read fullView write fullView
+snmp-server queue-length 1000
+snmp-server traps rf
+snmp-server traps bfd
+snmp-server traps ntp
+snmp-server traps snmp
+snmp-server traps snmp linkup
+snmp-server traps snmp linkdown
+snmp-server traps snmp coldstart
+snmp-server traps snmp warmstart
+snmp-server traps snmp authentication
+snmp-server traps flash removal
+snmp-server traps flash insertion
+snmp-server traps config
+snmp-server traps entity
+snmp-server traps syslog
+snmp-server traps system
+snmp-server traps frequency synchronization
+snmp-server traps entity-state operstatus
+snmp-server traps entity-state switchover
+snmp-server traps entity-redundancy all
+snmp-server traps entity-redundancy status
+snmp-server traps entity-redundancy switchover
+snmp-server trap-source IPv4 MgmtEth0/RP0/CPU0/0
+snmp-server trap-source MgmtEth0/RP0/CPU0/0
+ipv4 conflict-policy static
+ipv6 conflict-policy static
+ntp
+ server 172.16.103.1
+ server 172.16.103.3
+ server 202.56.230.24
+ server 202.56.230.29 prefer
+ source MgmtEth0/RP0/CPU0/0
+ update-calendar
+!
+bfd
+ multipath include location 0/RP0/CPU0
+ echo disable
+ trap singlehop pre-mapped
+!
+alias exec hdfc show bgp vpnv4 unicast rd 9730:1147
+alias config c show commit change diff
+ipv4 unnumbered mpls traffic-eng Loopback111
+frequency synchronization
+ quality itu-t option 1
+ clock-interface timing-mode system
+!
+key chain Airtel
+ key 1234
+  accept-lifetime 00:00:00 january 01 2012 infinite
+  key-string password 02040C5A191206
+  send-lifetime 00:00:00 january 01 2012 infinite
+  cryptographic-algorithm HMAC-MD5
+ !
+!
+key chain bharti
+ key 100
+  accept-lifetime 00:00:00 january 01 2012 infinite
+  key-string password 011112175407
+  send-lifetime 00:00:00 january 01 2012 infinite
+  cryptographic-algorithm HMAC-MD5
+ !
+!
+call-home
+ service active
+ contact smart-licensing
+ profile CiscoTAC-1
+  active
+  destination transport-method email disable
+  destination transport-method http
+ !
+!
+netconf-yang agent
+ ssh
+!
+install
+ repository local-repo
+  url file:///harddisk:/files
+ !
+!
+class-map match-any CORE_ONM
+ description [NETWORK - IP Prec=2 MPLS EXP = 2]
+ match mpls experimental topmost 2
+ end-class-map
+!
+class-map match-any BUSINESS-T4
+ match mpls experimental topmost 1
+ match precedence 1
+ end-class-map
+!
+class-map match-any CORE_SIGNAL
+ description [SIGNALING - MPLS EXP=1]
+ match mpls experimental topmost 1
+ end-class-map
+!
+class-map match-any CORE_NETWORK
+ description [NETWORK - IP Prec=6 -7, MPLS EXP = 6-7]
+ match precedence ipv4 6 7
+ match mpls experimental topmost 6 7
+ end-class-map
+!
+class-map match-any CORE_BUSINESS
+ description [NETWORK - IP Prec=3 MPLS EXP = 3]
+ match mpls experimental topmost 3
+ end-class-map
+!
+class-map match-any Premium_RT-T4
+ match mpls experimental topmost 5
+ match precedence 5
+ end-class-map
+!
+class-map match-any CORE_DATA_GOLD
+ description [MOBILITY DATA - MPLS EXP=4]
+ match precedence ipv4 4
+ match mpls experimental topmost 4
+ end-class-map
+!
+class-map match-any Premium_NRT-T4
+ match mpls experimental topmost 4
+ match precedence 4
+ end-class-map
+!
+class-map match-any BUSINESS-T4-OUT
+ match traffic-class 1
+ end-class-map
+!
+class-map match-any CORE_ONM-Egress
+ description [ONM - IP Prec=2, MPLS EXP = 2]
+ match traffic-class 2
+ end-class-map
+!
+class-map match-any CORE_PREMIUM_RT
+ description [PREMIUM - MPLS EXP=5]
+ match mpls experimental topmost 5
+ end-class-map
+!
+class-map match-any CORE_ONM-Ingress
+ description [ONM - IP Prec=2 MPLS EXP = 2]
+ match mpls experimental topmost 2
+ match precedence ipv4 2
+ end-class-map
+!
+class-map match-any Premium_RT-T4-OUT
+ match traffic-class 5
+ end-class-map
+!
+class-map match-any CORE_SIGNAL-Egress
+ description [SIGNALING - IP Prec=1 MPLS EXP=1]
+ match traffic-class 1
+ end-class-map
+!
+class-map match-any Premium_NRT-T4-OUT
+ match traffic-class 4
+ end-class-map
+!
+class-map match-any CORE_NETWORK-Egress
+ description [NETWORK - IP Prec=6 -7, MPLS EXP = 6-7]
+ match traffic-class 7
+ end-class-map
+!
+class-map match-any CORE_SIGNAL-Ingress
+ description [SIGNALING - MPLS EXP=1]
+ match mpls experimental topmost 1
+ match precedence ipv4 1
+ end-class-map
+!
+class-map match-any CORE_BUSINESS-Egress
+ description [NETWORK - IP Prec=3 MPLS EXP = 3]
+ match traffic-class 3
+ end-class-map
+!
+class-map match-any CORE_NETWORK-Ingress
+ description [NETWORK - IP Prec=6 -7, MPLS EXP = 6-7]
+ match dscp cs6 cs7
+ match mpls experimental topmost 6 7
+ match precedence ipv4 6 7
+ end-class-map
+!
+class-map match-any CORE_BUSINESS-Ingress
+ description [NETWORK - IP Prec=3 MPLS EXP = 3]
+ match mpls experimental topmost 3
+ match precedence ipv4 3
+ end-class-map
+!
+class-map match-any CORE_DATA_GOLD-Egress
+ description [MOBILITY DATA - MPLS EXP=4]
+ match traffic-class 4
+ end-class-map
+!
+class-map match-any CORE_DATA_GOLD-Ingress
+ description [MOBILITY DATA - MPLS EXP=4]
+ match mpls experimental topmost 4
+ match precedence ipv4 4
+ end-class-map
+!
+class-map match-any CORE_PREMIUM_RT-Egress
+ description [PREMIUM - MPLS EXP=5]
+ match traffic-class 5
+ end-class-map
+!
+class-map match-any CORE_PREMIUM_RT-Ingress
+ description [PREMIUM - MPLS EXP=5]
+ match mpls experimental topmost 5
+ match precedence ipv4 5
+ end-class-map
+!
+class-map match-any MOBILITY-5G-IPP1-egress
+ match traffic-class 1
+ end-class-map
+!
+class-map match-any MOBILITY-5G-IPP2-egress
+ match traffic-class 2
+ end-class-map
+!
+class-map match-any MOBILITY-5G-IPP3-egress
+ match traffic-class 3
+ end-class-map
+!
+class-map match-any MOBILITY-5G-IPP4-egress
+ match traffic-class 4
+ end-class-map
+!
+class-map match-any MOBILITY-5G-IPP5-egress
+ match traffic-class 5
+ end-class-map
+!
+class-map match-any MOBILITY-5G-IPP1-ingress
+ match dscp af22 ef
+ end-class-map
+!
+class-map match-any MOBILITY-5G-IPP2-ingress
+ match dscp 4 28
+ end-class-map
+!
+class-map match-any MOBILITY-5G-IPP3-ingress
+ match dscp af12 af13 af23 af31 cs3 cs5
+ end-class-map
+!
+class-map match-any MOBILITY-5G-IPP4-ingress
+ match dscp 6 af11 af33 cs1 cs4
+ end-class-map
+!
+class-map match-any MOBILITY-5G-IPP5-ingress
+ match dscp 42 44 af21 af41 cs2
+ end-class-map
+!
+policy-map 5G_IN
+ class MOBILITY-5G-IPP5-ingress
+  set traffic-class 5
+  set mpls experimental imposition 5
+ !
+ class MOBILITY-5G-IPP4-ingress
+  set traffic-class 4
+  set mpls experimental imposition 4
+ !
+ class MOBILITY-5G-IPP3-ingress
+  set traffic-class 3
+  set mpls experimental imposition 3
+ !
+ class MOBILITY-5G-IPP2-ingress
+  set traffic-class 2
+  set mpls experimental imposition 2
+ !
+ class MOBILITY-5G-IPP1-ingress
+  set traffic-class 1
+  set mpls experimental imposition 1
+ !
+ class class-default
+  set mpls experimental imposition 0
+ !
+ end-policy-map
+!
+policy-map 1085Mb
+ class class-default
+  police rate 1111040 kbps
+  !
+  set mpls experimental imposition 3
+  set traffic-class 3
+ !
+ end-policy-map
+!
+policy-map 5G_OUT
+ class MOBILITY-5G-IPP5-egress
+  shape average percent 30
+  priority level 1
+ !
+ class MOBILITY-5G-IPP4-egress
+  bandwidth percent 20
+ !
+ class MOBILITY-5G-IPP3-egress
+  bandwidth percent 30
+ !
+ class MOBILITY-5G-IPP2-egress
+  bandwidth percent 5
+ !
+ class MOBILITY-5G-IPP1-egress
+  bandwidth percent 5
+ !
+ class class-default
+  bandwidth percent 5
+  random-detect default
+ !
+ end-policy-map
+!
+policy-map CORE-CEN-NCS-EGRESS
+ class CORE_NETWORK-Egress
+  bandwidth percent 5
+ !
+ class CORE_PREMIUM_RT-Egress
+  priority level 1
+  shape average percent 30
+ !
+ class CORE_SIGNAL-Egress
+  bandwidth percent 5
+ !
+ class CORE_DATA_GOLD-Egress
+  bandwidth percent 20
+ !
+ class CORE_BUSINESS-Egress
+  bandwidth percent 30
+ !
+ class CORE_ONM-Egress
+  bandwidth percent 5
+ !
+ class class-default
+  random-detect default
+  bandwidth percent 5
+ !
+ end-policy-map
+!
+policy-map CORE-CEN-NCS-INGRESS
+ class CORE_NETWORK-Ingress
+  set traffic-class 7
+ !
+ class CORE_PREMIUM_RT-Ingress
+  set traffic-class 5
+ !
+ class CORE_SIGNAL-Ingress
+  set traffic-class 1
+ !
+ class CORE_DATA_GOLD-Ingress
+  set traffic-class 4
+ !
+ class CORE_BUSINESS-Ingress
+  set traffic-class 3
+ !
+ class CORE_ONM-Ingress
+  set traffic-class 2
+ !
+ class class-default
+ !
+ end-policy-map
+!
+policy-map CORE-MPLS-ASR9k-BHARTI_NEW
+ class CORE_NETWORK
+  bandwidth percent 5
+ !
+ class CORE_PREMIUM_RT
+  priority level 1
+  police rate percent 30
+  !
+ !
+ class CORE_SIGNAL
+  bandwidth percent 5
+ !
+ class CORE_DATA_GOLD
+  bandwidth percent 20
+ !
+ class CORE_BUSINESS
+  bandwidth percent 30
+ !
+ class CORE_ONM
+  bandwidth percent 5
+ !
+ class class-default
+  bandwidth percent 5
+  random-detect default
+ !
+ end-policy-map
+!
+policy-map in_P24_N31_B45-T4_By_NSO_V4
+ class Premium_RT-T4
+  police rate percent 24
+  !
+  set traffic-class 5
+  set mpls experimental imposition 5
+ !
+ class Premium_NRT-T4
+  police rate percent 31
+  !
+  set traffic-class 4
+  set mpls experimental imposition 4
+ !
+ class BUSINESS-T4
+  police rate percent 45
+  !
+  set traffic-class 1
+  set mpls experimental imposition 1
+ !
+ class class-default
+ !
+ end-policy-map
+!
+policy-map in_P25_N32_B43-T4_By_NSO_V4
+ class Premium_RT-T4
+  police rate percent 25
+  !
+  set traffic-class 5
+  set mpls experimental imposition 5
+ !
+ class Premium_NRT-T4
+  police rate percent 32
+  !
+  set traffic-class 4
+  set mpls experimental imposition 4
+ !
+ class BUSINESS-T4
+  police rate percent 43
+  !
+  set traffic-class 1
+  set mpls experimental imposition 1
+ !
+ class class-default
+ !
+ end-policy-map
+!
+policy-map in_STANDARD_10744_By_NSO-ML2
+ class class-default
+  police rate 10744000 bps burst 2014500 bytes peak-burst 4029000 bytes
+  !
+  set mpls experimental imposition 0
+ !
+ end-policy-map
+!
+policy-map in_STANDARD_19744_By_NSO-ML2
+ class class-default
+  police rate 19744000 bps burst 3702000 bytes peak-burst 7404000 bytes
+  !
+  set mpls experimental imposition 0
+ !
+ end-policy-map
+!
+policy-map out_P24_N31_B45-T4_By_NSO_V4
+ class Premium_RT-T4-OUT
+  shape average percent 24
+  priority level 1
+  queue-limit 2304 bytes
+ !
+ class Premium_NRT-T4-OUT
+  bandwidth percent 31
+  queue-limit 2304 bytes
+ !
+ class BUSINESS-T4-OUT
+  bandwidth percent 45
+  queue-limit 5760 bytes
+ !
+ class class-default
+ !
+ end-policy-map
+!
+policy-map out_P25_N32_B43-T4_By_NSO_V4
+ class Premium_RT-T4-OUT
+  shape average percent 25
+  priority level 1
+  queue-limit 2304 bytes
+ !
+ class Premium_NRT-T4-OUT
+  bandwidth percent 32
+  queue-limit 2304 bytes
+ !
+ class BUSINESS-T4-OUT
+  bandwidth percent 43
+  queue-limit 5760 bytes
+ !
+ class class-default
+ !
+ end-policy-map
+!
+policy-map CORE-MPLS-ASR9k-BHARTI-Egress
+ class CORE_NETWORK-Egress
+  bandwidth percent 5
+ !
+ class CORE_PREMIUM_RT-Egress
+  shape average percent 30
+  priority level 1
+ !
+ class CORE_SIGNAL-Egress
+  bandwidth percent 5
+ !
+ class CORE_DATA_GOLD-Egress
+  bandwidth percent 20
+ !
+ class CORE_BUSINESS-Egress
+  bandwidth percent 30
+ !
+ class CORE_ONM-Egress
+  bandwidth percent 5
+ !
+ class class-default
+  bandwidth percent 5
+  random-detect default
+ !
+ end-policy-map
+!
+policy-map in_STANDARD_159744_By_NSO-ML2
+ class class-default
+  police rate 159744000 bps burst 29952000 bytes peak-burst 59904000 bytes
+  !
+  set mpls experimental imposition 0
+ !
+ end-policy-map
+!
+policy-map in_STANDARD_169744_By_NSO-ML2
+ class class-default
+  police rate 169744000 bps burst 31827000 bytes peak-burst 63654000 bytes
+  !
+  set mpls experimental imposition 0
+ !
+ end-policy-map
+!
+policy-map out_STANDARD_10744_By_NSO-ML2
+ class class-default
+  shape average 10744000 bps
+ !
+ end-policy-map
+!
+policy-map out_STANDARD_19744_By_NSO-ML2
+ class class-default
+  shape average 19744000 bps
+ !
+ end-policy-map
+!
+policy-map CORE-MPLS-ASR9k-BHARTI-Ingress
+ class CORE_NETWORK-Ingress
+  set traffic-class 7
+ !
+ class CORE_PREMIUM_RT-Ingress
+  set traffic-class 5
+ !
+ class CORE_SIGNAL-Ingress
+  set traffic-class 1
+ !
+ class CORE_DATA_GOLD-Ingress
+  set traffic-class 4
+ !
+ class CORE_BUSINESS-Ingress
+  set traffic-class 3
+ !
+ class CORE_ONM-Ingress
+  set traffic-class 2
+ !
+ class class-default
+ !
+ end-policy-map
+!
+policy-map out_STANDARD_159744_By_NSO-ML2
+ class class-default
+  shape average 159744000 bps
+ !
+ end-policy-map
+!
+policy-map out_STANDARD_169744_By_NSO-ML2
+ class class-default
+  shape average 169744000 bps
+ !
+ end-policy-map
+!
+policy-map in_P24_N31_B25_S20-T4_By_NSO_V4
+ class Premium_RT-T4
+  police rate percent 24
+  !
+  set traffic-class 5
+  set mpls experimental imposition 5
+ !
+ class Premium_NRT-T4
+  police rate percent 31
+  !
+  set traffic-class 4
+  set mpls experimental imposition 4
+ !
+ class BUSINESS-T4
+  police rate percent 25
+  !
+  set traffic-class 1
+  set mpls experimental imposition 1
+ !
+ class class-default
+ !
+ end-policy-map
+!
+policy-map in_P25_N20_B40_S15-T4_By_NSO_V4
+ class Premium_RT-T4
+  police rate percent 25
+  !
+  set traffic-class 5
+  set mpls experimental imposition 5
+ !
+ class Premium_NRT-T4
+  police rate percent 20
+  !
+  set traffic-class 4
+  set mpls experimental imposition 4
+ !
+ class BUSINESS-T4
+  police rate percent 40
+  !
+  set traffic-class 1
+  set mpls experimental imposition 1
+ !
+ class class-default
+ !
+ end-policy-map
+!
+policy-map in_P40_N10_B25_S25-T4_By_NSO_V4
+ class Premium_RT-T4
+  police rate percent 40
+  !
+  set traffic-class 5
+  set mpls experimental imposition 5
+ !
+ class Premium_NRT-T4
+  police rate percent 10
+  !
+  set traffic-class 4
+  set mpls experimental imposition 4
+ !
+ class BUSINESS-T4
+  police rate percent 25
+  !
+  set traffic-class 1
+  set mpls experimental imposition 1
+ !
+ class class-default
+ !
+ end-policy-map
+!
+policy-map out_P40_N10_B25_S25-T4_By_NSO_V4
+ class Premium_RT-T4-OUT
+  shape average percent 40
+  priority level 1
+  queue-limit 2304 bytes
+ !
+ class Premium_NRT-T4-OUT
+  bandwidth percent 10
+  queue-limit 2304 bytes
+ !
+ class BUSINESS-T4-OUT
+  bandwidth percent 25
+  queue-limit 2304 bytes
+ !
+ class class-default
+ !
+ end-policy-map
+!
+policy-map in_Premium_RT_ETH_3000-T4_By_NSO_V4
+ class class-default
+  police rate 3000000 bps burst 562500 bytes peak-burst 1125000 bytes
+  !
+  set mpls experimental imposition 5
+ !
+ end-policy-map
+!
+policy-map out_Premium_RT_ETH_3000-T4_By_NSO_V4
+ class class-default
+  shape average 3000000 bps
+  queue-limit 5760 bytes
+ !
+ end-policy-map
+!
+policy-map out_P24_N31_B25_S20_50200-T4_By_NSO_V4
+ class Premium_RT-T4-OUT
+  shape average percent 24
+  priority level 1
+  queue-limit 23040 bytes
+ !
+ class Premium_NRT-T4-OUT
+  bandwidth percent 31
+  queue-limit 23040 bytes
+ !
+ class BUSINESS-T4-OUT
+  bandwidth percent 25
+  queue-limit 23040 bytes
+ !
+ class class-default
+ !
+ end-policy-map
+!
+policy-map out_P25_N20_B40_S15_50220-T4_By_NSO_V4
+ class Premium_RT-T4-OUT
+  shape average percent 25
+  priority level 1
+  queue-limit 23040 bytes
+ !
+ class Premium_NRT-T4-OUT
+  bandwidth percent 20
+  queue-limit 11520 bytes
+ !
+ class BUSINESS-T4-OUT
+  bandwidth percent 40
+  queue-limit 23040 bytes
+ !
+ class class-default
+ !
+ end-policy-map
+!
+policy-map Parent_in_P24_N31_B45_5120-T4_By_NSO_V4
+ class class-default
+  service-policy in_P24_N31_B45-T4_By_NSO_V4
+  police rate 5120000 bps burst 960000 bytes peak-burst 1920000 bytes
+  !
+ !
+ end-policy-map
+!
+policy-map Parent_in_P25_N32_B43_5120-T4_By_NSO_V4
+ class class-default
+  service-policy in_P25_N32_B43-T4_By_NSO_V4
+  police rate 5120000 bps burst 960000 bytes peak-burst 1920000 bytes
+  !
+ !
+ end-policy-map
+!
+policy-map Parent_out_P24_N31_B45_5120-T4_By_NSO_V4
+ class class-default
+  service-policy out_P24_N31_B45-T4_By_NSO_V4
+  shape average 5120000 bps
+ !
+ end-policy-map
+!
+policy-map Parent_out_P25_N32_B43_5120-T4_By_NSO_V4
+ class class-default
+  service-policy out_P25_N32_B43-T4_By_NSO_V4
+  shape average 5120000 bps
+ !
+ end-policy-map
+!
+policy-map Parent_in_P40_N10_B25_S25_5120-T4_By_NSO_V4
+ class class-default
+  service-policy in_P40_N10_B25_S25-T4_By_NSO_V4
+  police rate 5120000 bps burst 960000 bytes peak-burst 1920000 bytes
+  !
+ !
+ end-policy-map
+!
+policy-map Parent_in_P24_N31_B25_S20_50200-T4_By_NSO_V4
+ class class-default
+  service-policy in_P24_N31_B25_S20-T4_By_NSO_V4
+  police rate 50200000 bps burst 9412500 bytes peak-burst 18825000 bytes
+  !
+ !
+ end-policy-map
+!
+policy-map Parent_in_P25_N20_B40_S15_50220-T4_By_NSO_V4
+ class class-default
+  service-policy in_P25_N20_B40_S15-T4_By_NSO_V4
+  police rate 50220000 bps burst 9416250 bytes peak-burst 18832500 bytes
+  !
+ !
+ end-policy-map
+!
+policy-map Parent_out_P40_N10_B25_S25_5120-T4_By_NSO_V4
+ class class-default
+  service-policy out_P40_N10_B25_S25-T4_By_NSO_V4
+  shape average 5120000 bps
+ !
+ end-policy-map
+!
+policy-map Parent_out_P24_N31_B25_S20_50200-T4_By_NSO_V4
+ class class-default
+  service-policy out_P24_N31_B25_S20_50200-T4_By_NSO_V4
+  shape average 50200000 bps
+ !
+ end-policy-map
+!
+policy-map Parent_out_P25_N20_B40_S15_50220-T4_By_NSO_V4
+ class class-default
+  service-policy out_P25_N20_B40_S15_50220-T4_By_NSO_V4
+  shape average 50220000 bps
+ !
+ end-policy-map
+!
+interface Bundle-Ether13
+ service-policy input 5G_IN
+ service-policy output 5G_OUT
+!
+interface Bundle-Ether13.881 l2transport
+ description MWROB-ML3-11-888881-4G-P-NC-bharti-Internal-Mobility-888881-06062025
+ encapsulation dot1q 881
+ rewrite ingress tag pop 1 symmetric
+ mtu 9216
+!
+interface Bundle-Ether13.20020 l2transport
+ description BOBA-ML3-10-658677-kjajj-5120k-test-address-492653-31072026
+ encapsulation dot1q 3704 second-dot1q 682
+ rewrite ingress tag pop 2 symmetric
+ service-policy input Parent_in_P40_N10_B25_S25_5120-T4_By_NSO_V4
+ service-policy output Parent_out_P40_N10_B25_S25_5120-T4_By_NSO_V4
+!
+interface Bundle-Ether13.20024 l2transport
+ description BOBA-ML3-11-90003-kjajj-5120k-BOBA-ML3-11-900003-12082026
+ encapsulation dot1q 346 second-dot1q 113
+ rewrite ingress tag pop 2 symmetric
+ service-policy input Parent_in_P24_N31_B45_5120-T4_By_NSO_V4
+ service-policy output Parent_out_P24_N31_B45_5120-T4_By_NSO_V4
+!
+interface Bundle-Ether13.20025 l2transport
+ description BOBA-ML3-11-90004-kjajj-5120k-BOBA-ML3-11-900004-14082026
+ encapsulation dot1q 399 second-dot1q 199
+ rewrite ingress tag pop 2 symmetric
+ service-policy input Parent_in_P25_N32_B43_5120-T4_By_NSO_V4
+ service-policy output Parent_out_P25_N32_B43_5120-T4_By_NSO_V4
+!
+interface Bundle-Ether13.20030 l2transport
+ description POLS-ML3-10-50001-kjajj-3000k-POLS-ML3-10-500001-18082026
+ encapsulation dot1q 666 second-dot1q 111
+ rewrite ingress tag pop 2 symmetric
+ service-policy input in_Premium_RT_ETH_3000-T4_By_NSO_V4
+ service-policy output out_Premium_RT_ETH_3000-T4_By_NSO_V4
+!
+interface Bundle-Ether13.20031 l2transport
+ description HDFC-ML3-1-30001-multi-50220k-HDFC-ML3-1-99001-18082026
+ encapsulation dot1q 670 second-dot1q 115
+ rewrite ingress tag pop 2 symmetric
+ service-policy input Parent_in_P25_N20_B40_S15_50220-T4_By_NSO_V4
+ service-policy output Parent_out_P25_N20_B40_S15_50220-T4_By_NSO_V4
+!
+interface Bundle-Ether21
+ description mobility bundle toward spirent XXX
+ mtu 9014
+!
+interface Bundle-Ether21.35 l2transport
+ description JHAR-P2P-1030-IROW-P-NC-795979-01082023
+ encapsulation dot1q 100
+ rewrite ingress tag pop 1 symmetric
+ mtu 9216
+!
+interface Bundle-Ether21.755
+ description MWRBJ-ML3-11-87611-4G-P-NC-bharti-internal-mobility-311898-13092023
+ mtu 9216
+ service-policy input 5G_IN
+ vrf BIHAR-AND-JHARKHAND-Signalling-M
+ ipv4 address 100.121.194.81 255.255.255.240
+ encapsulation dot1q 755
+!
+interface Bundle-Ether21.756
+ description MWRBJ-ML3-12-87612-4G-P-NC-bharti-internal-mobility-311898-13092023
+ mtu 9202
+ service-policy input 5G_IN
+ vrf BIHAR-AND-JHARKHAND-Data-M
+ ipv4 address 100.121.210.81 255.255.255.240
+ encapsulation dot1q 756
+!
+interface Bundle-Ether21.757
+ description MWRBJ-ML3-13-87613-4G-P-NC-bharti-internal-mobility-311898-13092023
+ mtu 9202
+ vrf BIHAR-AND-JHARKHAND-O-M-M
+ ipv4 address 100.74.146.81 255.255.255.240
+ encapsulation dot1q 757
+!
+interface Bundle-Ether21.2007 l2transport
+ description VPLS-TEST
+ encapsulation dot1q 2007
+ rewrite ingress tag pop 1 symmetric
+ mtu 9018
+!
+interface Bundle-Ether98
+ service-policy input 5G_IN
+ service-policy output 5G_OUT
+!
+interface Bundle-Ether411
+ description ACTIVE/STANDBY LAG toward CORE
+ mtu 9216
+ ipv4 address 29.30.40.2 255.255.255.252
+ lacp mode on
+ bundle maximum-active links 1
+ bundle minimum-active links 1
+!
+interface Bundle-Ether500
+ description towards_Y4_T4_LAB_1_16_te1/2/1
+ mtu 9216
+ load-interval 30
+!
+interface Bundle-Ether500.500
+ description towards_Y4_T4_LAB_1_16_te1/2/1
+ service-policy input CORE-MPLS-ASR9k-BHARTI-Ingress
+ service-policy output CORE-MPLS-ASR9k-BHARTI-Egress
+ ipv4 address 100.72.10.162 255.255.255.254
+ ipv6 address 2404:a800:0:9:100:72:10:162/127
+ shutdown
+ load-interval 30
+ encapsulation dot1q 500
+!
+interface Bundle-Ether500.511 l2transport
+ description MANP-ML2-1105368-manesar-678368-16052026
+ encapsulation dot1q 511
+ rewrite ingress tag pop 1 symmetric
+ mtu 1518
+ service-policy input in_STANDARD_10744_By_NSO-ML2
+ service-policy output out_STANDARD_10744_By_NSO-ML2
+!
+interface Bundle-Ether500.514 l2transport
+ description MANP-ML2-111011-manesar-2988211-16052026
+ encapsulation dot1q 514
+ rewrite ingress tag pop 1 symmetric
+ mtu 1514
+ service-policy input in_STANDARD_169744_By_NSO-ML2
+ service-policy output out_STANDARD_169744_By_NSO-ML2
+!
+interface Loopback0
+ description Core Infra Loopback
+ ipv4 address 110.10.10.1 255.255.255.255
+ ipv6 address 2404:a800:0:2f:110:10:10:1/128
+ shutdown
+!
+interface Loopback100
+!
+interface Loopback110
+ description MPLS#$CEN-Topology$#$CEN-Infrastructure MGMT-Loopback$#
+ ipv4 address 102.102.102.102 255.255.255.255
+ shutdown
+!
+interface Loopback111
+ ipv4 address 100.73.10.2 255.255.255.255
+!
+interface Loopback200
+ vrf BIHAR-AND-JHARKHAND-O-M-M
+ ipv4 address 22.22.22.7 255.255.255.255
+!
+interface MgmtEth0/RP0/CPU0/0
+ ipv4 address 172.16.249.23 255.255.255.128
+!
+interface GigabitEthernet0/0/0/0
+ bundle id 98 mode active
+!
+interface GigabitEthernet0/0/0/1
+ shutdown
+!
+interface GigabitEthernet0/0/0/2
+ shutdown
+!
+interface GigabitEthernet0/0/0/3
+ shutdown
+!
+interface TenGigE0/0/0/4
+ description Towards-NPT1
+ mtu 9216
+ load-interval 30
+!
+interface TenGigE0/0/0/4.100 l2transport
+ encapsulation dot1q 100
+ rewrite ingress tag pop 1 symmetric
+ mtu 9216
+!
+interface TenGigE0/0/0/6
+ description to_172.16.249.24_0/0/0/6
+ ipv4 address 192.168.1.60 255.255.255.254
+ lldp
+  enable
+ !
+ shutdown
+!
+interface TenGigE0/0/0/7
+ description toward_spirent_te1/4/13
+ bundle id 21 mode on
+ lldp
+  enable
+ !
+!
+interface TenGigE0/0/0/8
+ description Towards STC/CE1
+ mtu 9216
+ carrier-delay up 10000 down 0
+ load-interval 30
+!
+interface TenGigE0/0/0/8.701 l2transport
+ encapsulation dot1q 701
+ rewrite ingress tag pop 1 symmetric
+!
+interface TenGigE0/0/0/9
+ description #MPLS#BACK-TO-BACK#$CEN-Topology$#CONNECTED-TO-$NCS540(172.16.249.25)$-$TenGigE0/0/0/10$
+ mtu 9216
+ ipv4 address 10.10.103.2 255.255.255.252
+ lldp
+  enable
+ !
+ carrier-delay up 10000 down 0
+ load-interval 30
+!
+interface TenGigE0/0/0/10
+ description towards_Y4_T4_LAB_1_16_te1/2/1
+ bundle id 500 mode active
+ carrier-delay up 1000 down 0
+ load-interval 30
+!
+interface TenGigE0/0/0/11
+ lldp
+  enable
+ !
+ shutdown
+!
+interface TenGigE0/0/0/12
+ shutdown
+!
+interface TenGigE0/0/0/13
+ lldp
+  enable
+ !
+ shutdown
+!
+interface TenGigE0/0/0/14
+ lldp
+  enable
+ !
+ shutdown
+!
+interface TenGigE0/0/0/15
+ lldp
+  enable
+ !
+ shutdown
+!
+interface TenGigE0/0/0/17
+ lldp
+  enable
+ !
+ shutdown
+!
+interface TenGigE0/0/0/18
+ lldp
+  enable
+ !
+ shutdown
+!
+interface TenGigE0/0/0/19
+ description for isis limit metric
+ mtu 9216
+ ipv4 address 192.12.99.1 255.255.255.252
+ lldp
+  enable
+ !
+ load-interval 30
+!
+controller Optics0/0/0/16
+ speed 1g
+!
+interface BVI100
+ description MWROB-ML3-11-888881-4G-P-NC-bharti-Internal-Mobility-888881-06062025
+ mtu 9202
+ vrf UP-LTE-DATA-M
+ arp timeout 300
+ ipv6 address 2001:db8::1/32
+ load-interval 30
+!
+interface BVI755
+ description MWRBJ-ML3-11-87611-4G-P-NC-bharti-internal-mobility-311898-13092023
+ mtu 9202
+ vrf BIHAR-AND-JHARKHAND-Signalling-M
+ ipv4 address 100.121.194.81 255.255.255.240
+ arp timeout 300
+ load-interval 30
+!
+interface BVI1991
+ ipv4 address 22.0.0.1 255.255.255.252
+!
+interface TwentyFiveGigE0/0/0/20
+ shutdown
+!
+interface TwentyFiveGigE0/0/0/21
+ shutdown
+!
+interface TwentyFiveGigE0/0/0/22
+ shutdown
+!
+interface TwentyFiveGigE0/0/0/23
+ shutdown
+!
+interface TwentyFiveGigE0/0/0/24
+ shutdown
+!
+interface TwentyFiveGigE0/0/0/25
+ shutdown
+!
+interface TwentyFiveGigE0/0/0/26
+ shutdown
+!
+interface TwentyFiveGigE0/0/0/27
+ shutdown
+!
+interface HundredGigE0/0/0/28
+ description Towards-Spirent-Tester
+ mtu 9216
+ ipv4 address 50.50.50.1 255.255.255.252
+ load-interval 30
+!
+interface HundredGigE0/0/0/29
+ description towards 9K2 upper router AGG
+ mtu 9216
+ ipv4 address 10.10.102.1 255.255.255.252
+ lldp
+  enable
+ !
+ carrier-delay up 10000 down 0
+ load-interval 30
+!
+interface preconfigure GigabitEthernet0/0/0/4
+ description for isis limit metric
+ mtu 9216
+ ipv4 address 192.41.99.2 255.255.255.252
+ load-interval 30
+!
+interface preconfigure GigabitEthernet0/0/0/14
+ service-policy input 5G_IN
+ shutdown
+!
+interface preconfigure GigabitEthernet0/0/0/15
+ shutdown
+!
+interface preconfigure TenGigE0/0/0/1
+ lldp
+  enable
+ !
+!
+interface preconfigure TenGigE0/0/0/2
+ lldp
+  enable
+ !
+!
+interface preconfigure TenGigE0/0/0/3
+ lldp
+  enable
+ !
+!
+interface preconfigure HundredGigE0/0/0/229
+ fec standard
+!
+prefix-set LABEL
+  10.20.30.2/32 le 32,
+  20.32.0.0/24 le 32,
+  202.123.10.0/24 le 32,
+  116.119.0.0/16 le 32,
+  100.73.0.0/16 le 32
+end-set
+!
+prefix-set PFX-30
+  30.33.30.33/32
+end-set
+!
+prefix-set PFX-202_123
+  202.123.10.2/32
+end-set
+!
+prefix-set PFX-10_10_15
+  10.10.15.1/32
+end-set
+!
+route-policy NMS
+  set community (9730:1)
+end-policy
+!
+route-policy LABEL
+  if destination in LABEL then
+    pass
+  else
+    drop
+  endif
+end-policy
+!
+route-policy SID020
+  set label-index 020
+  set community (1511:020)
+  set community (1511:9999)
+  set aigp-metric igp-cost
+end-policy
+!
+route-policy localsw
+  set community (9730:1)
+end-policy
+!
+route-policy PREFER-104
+  if destination in PFX-30 then
+    set local-preference 300
+  endif
+end-policy
+!
+route-policy PREFER_104
+  set local-preference 200
+end-policy
+!
+route-policy SID0-30501
+  set label-index 30501
+  set community (1511:0501)
+  set community (1511:9999)
+  set aigp-metric igp-cost
+end-policy
+!
+route-policy SET_COMMUNITY
+  set community (9730:1)
+end-policy
+!
+route-policy add-path-to-ibgp
+  set path-selection backup 1 advertise install
+end-policy
+!
+route-policy LP_202_123_VIA_104
+  if destination in PFX-202_123 then
+    set local-preference 300
+  endif
+  pass
+end-policy
+!
+route-policy LP_10_10_15_VIA_101
+  if destination in PFX-10_10_15 then
+    set local-preference 300
+  endif
+  pass
+end-policy
+!
+router static
+ address-family ipv4 unicast
+  0.0.0.0/0 172.16.249.1
+  0.0.0.0/24 172.16.254.1
+  11.11.11.0/30 111.111.111.1
+  20.20.20.0/24 172.100.100.2
+  40.40.40.0/30 192.168.210.1
+  50.50.50.0/24 172.100.100.1
+  123.1.1.0/24 89.89.89.0
+  123.1.1.0/24 89.89.89.1
+  192.168.4.0/30 12.12.12.1
+  192.192.100.0/30 29.30.40.1
+ !
+!
+router isis T5
+ set-overload-bit on-startup wait-for-bgp
+ is-type level-2-only
+ net 49.5011.1000.7301.0002.00
+ nsf cisco
+ log adjacency changes
+ lsp-gen-interval initial-wait 50 secondary-wait 200 maximum-wait 5000
+ lsp-refresh-interval 65000
+ max-lsp-lifetime 65535
+ address-family ipv4 unicast
+  metric-style wide
+  microloop avoidance segment-routing
+  advertise passive-only
+  spf-interval initial-wait 50 secondary-wait 200 maximum-wait 5000
+  segment-routing mpls sr-prefer
+ !
+ address-family ipv6 unicast
+  metric-style wide
+  spf-interval initial-wait 50 secondary-wait 200 maximum-wait 5000
+ !
+ interface Bundle-Ether500.500
+  circuit-type level-2-only
+  bfd minimum-interval 50
+  bfd multiplier 3
+  bfd fast-detect ipv4
+  point-to-point
+  hello-padding disable
+  address-family ipv4 unicast
+   fast-reroute per-prefix
+   fast-reroute per-prefix ti-lfa
+  !
+ !
+ interface Loopback111
+  passive
+  address-family ipv4 unicast
+   tag 5011
+   prefix-sid index 30501
+  !
+ !
+!
+router isis IGP
+ set-overload-bit on-startup wait-for-bgp
+ is-type level-2-only
+ net 49.0001.0110.0010.0001.00
+ nsr
+ nsf cisco
+ log adjacency changes
+ lsp-gen-interval initial-wait 50 secondary-wait 200 maximum-wait 5000
+ lsp-refresh-interval 65000
+ max-lsp-lifetime 65535
+ lsp-password keychain bharti
+ address-family ipv4 unicast
+  metric-style wide
+  mpls traffic-eng level-2-only
+  mpls traffic-eng router-id 172.16.249.23
+  mpls traffic-eng multicast-intact
+  spf-interval initial-wait 50 secondary-wait 200 maximum-wait 5000
+  segment-routing mpls
+  spf prefix-priority level 2 critical tag 3001
+ !
+ interface Bundle-Ether102
+  circuit-type level-2-only
+  point-to-point
+  hello-padding disable
+  hello-password keychain bharti
+  address-family ipv4 unicast
+   fast-reroute per-prefix level 2
+   fast-reroute per-prefix remote-lfa tunnel mpls-ldp
+   metric 16000000 level 2
+   mpls ldp sync
+  !
+ !
+ interface Loopback0
+  passive
+  address-family ipv4 unicast
+   tag 3001
+   prefix-sid index 23
+  !
+ !
+!
+router isis Access1
+ set-overload-bit on-startup 360
+ is-type level-2-only
+ net 49.0001.0102.0102.0102.00
+ nsf cisco
+ log adjacency changes
+ lsp-gen-interval initial-wait 50 secondary-wait 200 maximum-wait 5000
+ lsp-refresh-interval 64000
+ max-lsp-lifetime 65535
+ lsp-password keychain Airtel
+ address-family ipv4 unicast
+  metric-style wide
+  microloop avoidance
+  spf-interval initial-wait 50 secondary-wait 200 maximum-wait 5000
+  spf prefix-priority critical tag 10000
+  spf prefix-priority high tag 50000
+ !
+ interface Loopback110
+  passive
+  address-family ipv4 unicast
+   tag 10000
+  !
+ !
+ interface TenGigE0/0/0/9
+  circuit-type level-2-only
+  bfd minimum-interval 50
+  bfd multiplier 3
+  bfd fast-detect ipv4
+  point-to-point
+  hello-padding disable
+  address-family ipv4 unicast
+   fast-reroute per-prefix
+   fast-reroute per-prefix remote-lfa tunnel mpls-ldp level 2
+   mpls ldp sync
+  !
+ !
+ interface HundredGigE0/0/0/29
+  circuit-type level-2-only
+  bfd minimum-interval 50
+  bfd multiplier 3
+  bfd fast-detect ipv4
+  point-to-point
+  hello-padding disable
+  hello-password keychain Airtel
+  address-family ipv4 unicast
+   fast-reroute per-prefix
+   fast-reroute per-prefix remote-lfa tunnel mpls-ldp level 2
+   mpls ldp sync
+  !
+ !
+!
+snmp-server traps isis all
+snmp-server traps bgp cbgp2 updown
+snmp-server traps bgp updown
+router bgp 9730
+ nsr
+ bgp router-id 102.102.102.102
+ bgp graceful-restart restart-time 120
+ bgp graceful-restart graceful-reset
+ bgp graceful-restart stalepath-time 360
+ bgp graceful-restart
+ bgp log neighbor changes detail
+ ibgp policy out enforce-modifications
+ address-family ipv4 unicast
+  additional-paths receive
+  additional-paths send
+  nexthop trigger-delay critical 0
+  nexthop trigger-delay non-critical 0
+  network 10.10.102.0/30 route-policy NMS
+  network 10.10.103.0/30 route-policy NMS
+  network 100.73.10.2/32 route-policy SID0-30501
+  network 102.102.102.102/32
+  allocate-label all
+ !
+ address-family vpnv4 unicast
+  additional-paths receive
+  additional-paths send
+  nexthop trigger-delay critical 1
+  nexthop trigger-delay non-critical 1
+ !
+ address-family vpnv6 unicast
+  additional-paths receive
+  additional-paths send
+  nexthop trigger-delay critical 1
+  nexthop trigger-delay non-critical 1
+ !
+ address-family ipv4 mdt
+ !
+ address-family l2vpn vpls-vpws
+ !
+ address-family ipv4 rt-filter
+ !
+ address-family l2vpn evpn
+ !
+ neighbor-group RR
+  remote-as 9730
+  bfd fast-detect
+  bfd multiplier 3
+  bfd minimum-interval 100
+  description *** RR ***
+  update-source Loopback111
+  graceful-restart
+  address-family ipv4 labeled-unicast
+  !
+  address-family vpnv4 unicast
+  !
+  address-family vpnv6 unicast
+  !
+  address-family l2vpn vpls-vpws
+  !
+  address-family ipv4 rt-filter
+  !
+ !
+ neighbor-group AGG-RR
+  remote-as 9730
+  update-source Loopback110
+  address-family ipv4 labeled-unicast
+   next-hop-self
+  !
+  address-family vpnv4 unicast
+   next-hop-self
+   route-policy localsw out
+  !
+  address-family vpnv6 unicast
+   next-hop-self
+   route-policy localsw out
+  !
+  address-family ipv4 mdt
+   next-hop-self
+  !
+  address-family l2vpn vpls-vpws
+   next-hop-self
+  !
+  address-family ipv4 rt-filter
+   next-hop-self
+  !
+  address-family l2vpn evpn
+   next-hop-self
+   route-policy localsw out
+  !
+ !
+ neighbor 100.73.10.102
+  use neighbor-group RR
+  shutdown
+ !
+ neighbor 100.73.10.105
+  use neighbor-group RR
+ !
+ neighbor 101.101.101.101
+  use neighbor-group AGG-RR
+  bfd fast-detect
+  bfd multiplier 3
+  bfd minimum-interval 50
+  address-family ipv4 labeled-unicast
+  !
+ !
+ neighbor 104.104.104.104
+  use neighbor-group AGG-RR
+  bfd fast-detect
+  bfd multiplier 3
+  bfd minimum-interval 50
+  address-family ipv4 unicast
+  !
+  address-family ipv4 labeled-unicast
+  !
+ !
+ vrf HDFC-HNS
+  rd 9730:111
+  address-family ipv4 unicast
+   bgp dampening
+   redistribute connected
+   redistribute static
+  !
+ !
+ vrf BIHAR-AND-JHARKHAND-O-M-M
+  rd 9730:22932
+  address-family ipv4 unicast
+   redistribute connected
+   redistribute static
+  !
+  address-family ipv6 unicast
+   redistribute connected
+   redistribute static
+  !
+ !
+ vrf BIHAR-AND-JHARKHAND-Data-M
+  rd 9730:22931
+  address-family ipv4 unicast
+   redistribute connected
+   redistribute static
+  !
+  address-family ipv6 unicast
+   redistribute connected
+   redistribute static
+  !
+ !
+ vrf BIHAR-AND-JHARKHAND-Signalling-M
+  rd 9730:22930
+  address-family ipv4 unicast
+   redistribute connected
+   redistribute static
+  !
+  address-family ipv6 unicast
+   redistribute connected
+   redistribute static
+  !
+ !
+!
+evpn
+ evi 701
+  bgp
+   route-target import 701:9730
+   route-target export 701:9730
+  !
+ !
+ transmit-l2-mtu
+!
+l2vpn
+ pw-class mpls
+  encapsulation mpls
+  !
+ !
+ pw-class mpls_NSO
+  encapsulation mpls
+   control-word
+  !
+ !
+ pw-class NSO_FAT_CW
+  encapsulation mpls
+   control-word
+   load-balancing
+    flow-label both
+   !
+  !
+ !
+ xconnect group ECI-TDM
+  p2p 500
+   neighbor ipv4 10.10.13.1 pw-id 500
+    pw-class mpls
+   !
+   neighbor ipv4 103.103.103.103 pw-id 500
+    pw-class mpls
+   !
+  !
+ !
+ xconnect group EVPN-701
+  p2p EVPN-701
+   interface TenGigE0/0/0/8.701
+   neighbor evpn evi 701 target 1001 source 10001
+   !
+  !
+ !
+ xconnect group VPLS-TEST
+  p2p VPLS-TEST
+   interface Bundle-Ether21.2007
+   neighbor ipv4 202.123.10.6 pw-id 5985226
+    pw-class mpls
+   !
+  !
+ !
+ xconnect group MANP-ML2-111011
+  p2p MANP-ML2-111011
+   interface Bundle-Ether500.514
+   neighbor ipv4 202.123.10.2 pw-id 123400051
+    pw-class mpls
+    backup neighbor 202.123.10.5 pw-id 123400051
+     pw-class mpls
+    !
+   !
+  !
+ !
+ xconnect group HDFC-ML3-1-30001
+  p2p 20031
+   interface Bundle-Ether13.20031
+   neighbor ipv4 172.16.249.21 pw-id 20031
+    pw-class mpls
+    backup neighbor 172.16.249.22 pw-id 20031
+     pw-class mpls
+    !
+   !
+  !
+ !
+ xconnect group MANP-ML2-1105368
+  p2p MANP-ML2-1105368
+   interface Bundle-Ether500.511
+   neighbor ipv4 202.123.10.2 pw-id 123400050
+    pw-class mpls
+    backup neighbor 202.123.10.5 pw-id 123400050
+     pw-class mpls
+    !
+   !
+  !
+ !
+ xconnect group BOBA-ML3-11-90003
+  p2p 20024
+   interface Bundle-Ether13.20024
+   neighbor ipv4 202.123.10.4 pw-id 20024
+    pw-class mpls
+    backup neighbor 202.123.10.2 pw-id 20024
+     pw-class mpls
+    !
+   !
+  !
+ !
+ xconnect group BOBA-ML3-11-90004
+  p2p 20025
+   interface Bundle-Ether13.20025
+   neighbor ipv4 202.123.10.4 pw-id 20025
+    pw-class mpls
+    backup neighbor 202.123.10.2 pw-id 20025
+     pw-class mpls
+    !
+   !
+  !
+ !
+ xconnect group POLS-ML3-10-50001
+  p2p 20030
+   interface Bundle-Ether13.20030
+   neighbor ipv4 172.16.249.21 pw-id 20030
+    pw-class mpls
+    backup neighbor 172.16.249.22 pw-id 20030
+     pw-class mpls
+    !
+   !
+  !
+ !
+ xconnect group BOBA-ML3-10-658677
+  p2p 20020
+   interface Bundle-Ether13.20020
+   neighbor ipv4 202.123.10.4 pw-id 20020
+    pw-class mpls
+    backup neighbor 202.123.10.2 pw-id 20020
+     pw-class mpls
+    !
+   !
+  !
+ !
+ xconnect group JHAR-P2P-1030-IROW-P-NC
+  p2p 795979
+   interface Bundle-Ether21.35
+   neighbor ipv4 202.123.10.7 pw-id 795979
+    pw-class mpls
+   !
+  !
+ !
+ bridge group BG-100
+  bridge-domain BD-100
+  !
+ !
+ bridge group MWRBJ-ML3-11-87611-4G-P-NC
+  bridge-domain 755
+   interface TenGigE0/0/0/7.755
+   !
+   routed interface BVI755
+   !
+  !
+ !
+ bridge group MWRBJ-ML3-12-87612-4G-P-NC
+  bridge-domain 756
+   interface TenGigE0/0/0/7.756
+   !
+   routed interface BVI756
+   !
+  !
+ !
+ bridge group MWRBJ-ML3-13-87613-4G-P-NC
+  bridge-domain 757
+   interface TenGigE0/0/0/7.757
+   !
+   routed interface BVI757
+   !
+  !
+ !
+ bridge group MWROB-ML3-11-888881-4G-P-NC
+  bridge-domain 100
+   interface Bundle-Ether13.881
+   !
+   routed interface BVI100
+   !
+  !
+ !
+!
+mpls oam
+!
+snmp-server traps mpls traffic-eng up
+snmp-server traps mpls traffic-eng down
+snmp-server traps mpls ldp up
+snmp-server traps mpls ldp down
+snmp-server traps mpls l3vpn all
+mpls ldp
+ log
+  neighbor
+  nsr
+  graceful-restart
+  session-protection
+ !
+ nsr
+ graceful-restart
+ igp sync delay on-session-up 20
+ discovery
+  targeted-hello interval 1
+ !
+ router-id 102.102.102.102
+ neighbor
+  10.10.13.1:0 password encrypted 030752180500701E1D
+ !
+ session protection
+ address-family ipv4
+  discovery targeted-hello accept
+  label
+   local
+    allocate for host-routes
+    advertise
+     explicit-null
+    !
+   !
+  !
+ !
+ interface TenGigE0/0/0/9
+ !
+ interface HundredGigE0/0/0/29
+ !
+!
+segment-routing
+ global-block 120000 519999
+!
+xml agent tty
+!
+snmp-server traps sensor
+snmp-server traps fru-ctrl
+netconf agent tty
+!
+mpls ip-ttl-propagate disable forwarded
+ssh client vrf default
+ssh client source-interface Loopback0
+ssh server logging
+ssh timeout 60
+ssh server rate-limit 60
+ssh server session-limit 15
+ssh server v2
+ssh server vrf default ipv4 access-list 65
+ssh server vrf mgmt-intf ipv4 access-list 65
+hw-module profile qos hqos-enable
+hw-module profile stats acl-permit
+end
+RP/0/RP0/CPU0:LAB-2-AGR-T5-NCS540-100.20#

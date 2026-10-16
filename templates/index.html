@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>
+        Network Automation Dashboard
+    </title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial;
+        }
+        body{
+            background:
+            linear-gradient(
+                135deg,
+                #e0e7ff,
+                #f8fafc
+            );
+            min-height:100vh;
+            padding:20px;
+        }
+        .header{
+            background:
+            linear-gradient(
+                to right,
+                #0f172a,
+                #1e3a8a
+            );
+            color:white;
+            padding:20px;
+            border-radius:15px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            margin-bottom:20px;
+            box-shadow:
+            0 5px 15px rgba(0,0,0,0.2);
+        }
+        .header h1{
+            font-size:35px;
+        }
+        .user-box{
+            color:white;
+            font-weight:bold;
+        }
+        .user-box a{
+            color:yellow;
+            text-decoration:none;
+        }
+        .top-controls{
+            background:white;
+            padding:20px;
+            border-radius:15px;
+            display:flex;
+            flex-wrap:wrap;
+            gap:15px;
+            align-items:center;
+            margin-bottom:20px;
+            box-shadow:
+            0 2px 10px rgba(0,0,0,0.1);
+        }
+        input,
+        select{
+            padding:12px;
+            border-radius:10px;
+            border:1px solid #ccc;
+        }
+        button{
+            padding:12px 20px;
+            border:none;
+            border-radius:10px;
+            background:#2563eb;
+            color:white;
+            cursor:pointer;
+            font-weight:bold;
+            transition:0.3s;
+        }
+        button:hover{
+            transform:scale(1.03);
+            opacity:0.9;
+        }
+        .summary{
+            display:grid;
+            grid-template-columns:
+            repeat(auto-fit,minmax(220px,1fr));
+            gap:20px;
+            margin-bottom:25px;
+        }
+        .card{
+            background:white;
+            padding:25px;
+            border-radius:15px;
+            text-align:center;
+            box-shadow:
+            0 2px 10px rgba(0,0,0,0.1);
+            transition:0.3s;
+        }
+        .card:hover{
+            transform:translateY(-5px);
+            box-shadow:
+            0 10px 20px rgba(0,0,0,0.15);
+        }
+        .card h3{
+            margin-bottom:10px;
+            color:#475569;
+        }
+        .card h2{
+            font-size:35px;
+            color:#0f172a;
+        }
+        .table-container{
+            background:white;
+            border-radius:15px;
+            overflow:auto;
+            box-shadow:
+            0 2px 10px rgba(0,0,0,0.1);
+        }
+        table{
+            width:100%;
+            border-collapse:collapse;
+        }
+        th{
+            background:#0f172a;
+            color:white;
+            padding:15px;
+        }
+        td{
+            padding:12px;
+            border-bottom:1px solid #eee;
+            text-align:center;
+        }
+        tr:hover{
+            background:#f1f5f9;
+        }
+        .success{
+            color:green;
+            font-weight:bold;
+        }
+        .failed{
+            color:red;
+            font-weight:bold;
+        }
+        .warning{
+            color:orange;
+            font-weight:bold;
+        }
+        a{
+            text-decoration:none;
+        }
+    </style>
+</head>
+<body>
+
+
+<div class="header">
+    <div>
+        <h1>
+            Network Backup & Compliance Dashboard
+        </h1>
+        <h3 id="currentDateTime">
+            Loading...
+        </h3>
+    </div>
+    <div class="user-box">
+        Welcome,
+        {{ session['user'] }}
+        |
+        <a href="/logout">
+            Sign Out
+        </a>
+    </div>
+</div>
+
+
+<div class="top-controls">
+    <input type="date"
+           id="reportDate">
+    <button onclick="loadReport()">
+        View Report
+    </button>
+    <button onclick="downloadCSV()">
+        Export Report
+    </button>
+    <input type="date"
+           id="startDate">
+    <input type="date"
+           id="endDate">
+    <button onclick="downloadRangeCSV()">
+        Export Custom Report
+    </button>
+
+    <select id="ipDropdown"
+            multiple>
+    </select>
+    <button onclick="runAutomation()">
+        Run Backup Now
+    </button>
+
+    <select id="scheduleType">
+        <option value="DAILY">
+            Daily Schedule
+        </option>
+        <option value="WEEKLY">
+            Weekly
+        </option>
+    </select>
+
+    <input type="time"
+           id="scheduleTime">
+    <button onclick="scheduleAutomation()">
+        Schedule Backup
+    </button>
+</div>
+
+
+<div class="summary">
+    <div class="card">
+        <h3>Total Devices</h3>
+        <h2 id="totalDevices">0</h2>
+    </div>
+    <div class="card">
+        <h3>SSH Success</h3>
+        <h2 id="sshSuccess">0</h2>
+    </div>
+    <div class="card">
+        <h3>SSH Failed</h3>
+        <h2 id="sshFailed">0</h2>
+    </div>
+    <div class="card">
+        <h3>Config Changes Detected</h3>
+        <h2 id="differenceFound">0</h2>
+    </div>
+    <div class="card">
+        <h3>Interface Changes Detected</h3>
+        <h2 id="differenceFoundInInterfaces">0</h2>
+    </div>
+    <div class="card">
+        <h3>Configs Unchanged</h3>
+        <h2 id="noDifference">0</h2>
+    </div>
+    <div class="card">
+        <h3>Interfaces Unchanged</h3>
+        <h2 id="noDifferenceInInterfaces">0</h2>
+    </div>
+    <div class="card">
+        <h3>Initial Config Backups</h3>
+        <h2 id="initialBackupOfConfigurations">0</h2>
+    </div>
+    <div class="card">
+        <h3>Initial Interface Backups</h3>
+        <h2 id="initialBackupOfInterfaces">0</h2>
+    </div>
+</div>
+
+<div class="table-container">
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Backup Time</th>
+            <th>Device IP</th>
+            <th>SSH Status</th>
+            <th>Config Command</th>
+            <th>Interface Command</th>
+            <th>Config Backup Status</th>
+            <th>Interface Backup Status</th>
+            <th>Config Backup File</th>
+            <th>Interface Backup File</th>
+            <th>Error Details</th>
+        </tr>
+        </thead>
+        <tbody id="tableBody">
+        </tbody>
+    </table>
+</div>
+<!-- ================= JAVASCRIPT ================= -->
+<script>
+    // ================= CLOCK ================= //
+    function updateClock() {
+        const now = new Date();
+        const day = String(now.getDate()).padStart(2, '0');
+        const months = [
+            "Jan", "Feb", "Mar",
+            "Apr", "May", "Jun",
+            "Jul", "Aug", "Sep",
+            "Oct", "Nov", "Dec"
+        ];
+        const month = months[now.getMonth()];
+        const year = now.getFullYear();
+
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        const seconds = String(now.getSeconds()).padStart(2, '0');
+
+        document.getElementById("currentDateTime").innerText =
+            `${day} ${month} ${year}, ${hours}:${minutes}:${seconds}`;
+    }
+    updateClock();
+    setInterval(updateClock, 1000);
+    // ================= LOAD DEVICES ================= //
+    function loadDevices(){
+        fetch("/get-devices")
+        .then(response => response.json())
+        .then(data => {
+            let dropdown =
+                document.getElementById(
+                    "ipDropdown"
+                );
+            dropdown.innerHTML = "";
+            // ================= ALL ================= //
+            let allOption =
+                document.createElement("option");
+            allOption.value = "ALL";
+            allOption.text = "ALL Devices";
+            dropdown.appendChild(allOption);
+            // ================= IPS ================= //
+            data.forEach(ip => {
+                let option =
+                    document.createElement("option");
+                option.value = ip;
+                option.text = ip;
+                dropdown.appendChild(option);
+            });
+        });
+    }
+    // ================= LOAD REPORT ================= //
+    function loadReport(){
+    let date = document.getElementById(
+        "reportDate"
+    ).value;
+    if(!date){
+        alert("Please select date");
+        return;
+    }
+    fetch(`/api/report?date=${date}`)
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+        let tableBody =
+            document.getElementById(
+                "tableBody"
+            );
+        tableBody.innerHTML = "";
+
+    // ================= COUNTERS ================= //
+        let total = 0;
+        let sshSuccess = 0;
+        let sshFailed = 0;
+        let differenceConfig = 0;
+        let differenceInterface = 0;
+        let noDifferenceConfig = 0;
+        let noDifferenceInterface = 0;
+        let initialConfig = 0;
+        let initialInterface = 0;
+
+    // ================= LOOP ================= //
+        data.forEach(device => {
+            total++;
+            // SSH STATUS
+            if(device.SSHStatus === "Success"){
+                sshSuccess++;
+            }
+            else if(device.SSHStatus === "Failed"){
+                sshFailed++;
+            }
+            // CONFIG COUNTERS
+            if(
+                device.ConfigBackupStatus ===
+                "Difference Found"
+            ){
+                differenceConfig++;
+            }
+            else if(
+                device.ConfigBackupStatus ===
+                "No Difference Found"
+            ){
+                noDifferenceConfig++;
+            }
+            else if(
+                device.ConfigBackupStatus ===
+                "Initial Backup Created"
+            ){
+                initialConfig++;
+            }
+            // INTERFACE COUNTERS
+            if(
+                device.InterfaceBackupStatus ===
+                "Difference Found"
+            ){
+                differenceInterface++;
+            }
+            else if(
+                device.InterfaceBackupStatus ===
+                "No Difference Found"
+            ){
+                noDifferenceInterface++;
+            }
+            else if(
+                device.InterfaceBackupStatus ===
+                "Initial Backup Created"
+            ){
+                initialInterface++;
+            }
+            // ================= CONFIG FILE ================= //
+            let configFileLink = "-";
+            if(device.ConfigBackupFile){
+                configFileLink = `
+                <a href="/download-backup?ip=${device.IPAddress}&file=${encodeURIComponent(device.ConfigBackupFile)}">
+                    Download
+                </a>
+                `;
+            }
+            // ================= INTERFACE FILE ================= //
+            let interfaceFileLink = "-";
+            if(device.InterfaceBackupFile)
+                interfaceFileLink = `
+                <a href="/download-backup?ip=${device.IPAddress}&file=${encodeURIComponent(device.InterfaceBackupFile)}">
+                    Download
+                </a>
+                `;
+
+            // ================= CSS ================= //
+            let sshClass =
+                device.SSHStatus === "Success"
+                ? "success"
+                : "failed";
+            // ================= ROW ================= //
+            let row = `
+            <tr>
+                <td>${device.SNo || "-"}</td>
+                <td>${device.Timestamp || "-"}</td>
+                <td>${device.IPAddress || "-"}</td>
+                <td class="${sshClass}">
+                    ${device.SSHStatus || "-"}
+                </td>
+                <td>
+                    ${device.ConfigCommandStatus || "-"}
+                </td>
+                <td>
+                    ${device.InterfaceCommandStatus || "-"}
+                </td>
+                <td>
+                    ${device.ConfigBackupStatus || "-"}
+                </td>
+                <td>
+                    ${device.InterfaceBackupStatus || "-"}
+                </td>
+                <td>
+                    ${configFileLink}
+                </td>
+                <td>
+                    ${interfaceFileLink}
+                </td>
+                <td>
+                    ${device.Error || "-"}
+                </td>
+            </tr>
+            `;
+            tableBody.innerHTML += row;
+        });
+        // ================= UPDATE CARDS ================= //
+        document.getElementById(
+            "totalDevices"
+        ).innerText = total;
+
+        document.getElementById(
+            "sshSuccess"
+        ).innerText = sshSuccess;
+
+        document.getElementById(
+            "sshFailed"
+        ).innerText = sshFailed;
+
+        document.getElementById(
+            "differenceFound"
+        ).innerText = differenceConfig;
+
+        document.getElementById(
+            "differenceFoundInInterfaces"
+        ).innerText = differenceInterface;
+
+        document.getElementById(
+            "noDifference"
+        ).innerText = noDifferenceConfig;
+
+        document.getElementById(
+            "noDifferenceInInterfaces"
+        ).innerText = noDifferenceInterface;
+
+        document.getElementById(
+            "initialBackupOfConfigurations"
+        ).innerText = initialConfig;
+
+        document.getElementById(
+            "initialBackupOfInterfaces"
+        ).innerText = initialInterface;
+        })
+        .catch(error => {
+            console.log(error);
+            alert("Failed to load report");
+        });
+        }
+
+    // ================= DOWNLOAD CSV ================= //
+    function downloadCSV(){
+        let date = document.getElementById(
+           "reportDate"
+        ).value;
+        if(!date){
+            alert("Select date");
+            return;
+        }
+        window.location =
+            `/api/download?date=${date}`;
+    }
+    // ================= RANGE CSV ================= //
+    function downloadRangeCSV(){
+        let start =
+            document.getElementById(
+                "startDate"
+            ).value;
+        let end =
+            document.getElementById(
+                "endDate"
+            ).value;
+        if(!start || !end){
+            alert(
+                "Select start/end dates"
+            );
+            return;
+        }
+        window.location =
+            `/api/download-range?start=${start}&end=${end}`;
+    }
+    // ================= RUN AUTOMATION ================= //
+    function runAutomation(){
+        let dropdown =
+            document.getElementById(
+                "ipDropdown"
+            );
+        let selected = [];
+        for(let option of dropdown.selectedOptions){
+            selected.push(option.value);
+        }
+        if(selected.length === 0){
+            alert("Select device");
+            return;
+        }
+        fetch("/run-script",{
+            method:"POST",
+            headers:{
+                "Content-Type":
+                "application/json"
+            },
+            body:JSON.stringify({
+                ips:selected
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            alert(data.message);
+            setTimeout(() => {
+                loadReport();
+            },3000);
+        });
+    }
+    // ================= AUTO LOAD ================= //
+    window.onload = function(){
+        let today = new Date()
+            .toISOString()
+            .split('T')[0];
+        document.getElementById(
+            "reportDate"
+        ).value = today;
+        loadDevices();
+        loadReport();
+    }
+
+    //schedular
+    function scheduleAutomation(){
+    let type =
+        document.getElementById(
+            "scheduleType"
+        ).value;
+    let time =
+        document.getElementById(
+            "scheduleTime"
+        ).value;
+    if(!time){
+        alert("Select time");
+        return;
+    }
+    fetch("/schedule-task",{
+
+        method:"POST",
+
+        headers:{
+            "Content-Type":
+            "application/json"
+        },
+
+        body:JSON.stringify({
+
+            type:type,
+
+            time:time
+
+        })
+
+    })
+
+    .then(response => response.json())
+
+    .then(data => {
+
+        alert(data.message);
+
+    });
+
+}
+</script>
+</body>
+</html>

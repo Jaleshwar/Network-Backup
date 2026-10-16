@@ -1,0 +1,97 @@
+show int description
+Fri Sep 11 03:43:54.351 IST
+Interface          Status      Protocol    Description
+--------------------------------------------------------------------------------
+BV700              up          up
+BV701              up          up
+BE5                up          up          ## Connected to Nokia IXR-e3x @ 1/1/C34 for SFP Testing ##
+BE6                down        down        ## Connected to Nokia IXR-e3x @ 1/1/C35 for SFP Testing ##
+BE7                up          up
+BE7.700            up          up          Nokia-A1
+BE7.701            up          up          Nokia-A2
+BE16               down        down        Nokia-testing
+BE17               down        down        Nokia-testing
+BE22               down        down
+BE52               up          up          #MPLS#BACK-TO-BACK##CONNECTED-TO-$X2-T2-LAB-1$-$Bundle-Ether52$#CMR:CMR#
+BE52.2             admin-down  admin-down  #MPLS#BACK-TO-BACK##CONNECTED-TO-$X2-T2-LAB-1$-$te0/0/0/17$#CMR:CMR#
+BE52.4             up          up          #MPLS#BACK-TO-BACK##CONNECTED-TO-$X2-T2-LAB-1$-$te0/0/0/17$#CMR:CMR#
+BE190              down        down
+BE190.0            down        down
+BE1021             down        down
+BE1036             up          up          Te0/1/1/0-BE1036-9KUpper
+BE1064             down        down        to Te0/0/0/16-BE1064-PeytoUpper
+BE2013             down        down        towards 9K2 port T0
+BE2013.100         down        down
+BE4100             down        down
+BE6920             down        down        towards Peyto .69 port T9
+BE6920.100         down        down
+BE7268             down        down        to Te0/0/0/2-BE7268-Peyto Upper
+BE9620             up          up
+Lo0                up          up          Core Infra Loopback
+Lo100              up          up
+Nu0                up          up
+Gi0/0/0/4          down        down
+Hu0/0/0/24         down        down
+Hu0/0/0/25         up          up          Noika-testing
+Hu0/0/0/26         down        down
+Hu0/0/0/27         down        down
+Hu0/0/0/28         admin-down  admin-down
+Hu0/0/0/29         down        down
+Hu0/0/0/30         admin-down  admin-down
+Hu0/0/0/31         admin-down  admin-down
+Te0/0/0/0          up          up          Te0/1/1/0-BE1036-9KUpper
+Te0/0/0/1          up          up
+Te0/0/0/2          up          up          ##Towards NCS540(MPLS_T5-RTR)##172.16.254.196##
+Te0/0/0/3          down        down
+Te0/0/0/13         admin-down  admin-down
+Te0/0/0/17         up          up          #MPLS#BACK-TO-BACK##CONNECTED-TO-$X2-T2-LAB-1$-$te0/0/0/17$#CMR:CMR#
+Te0/0/0/20         down        down        ## Connected to Spirent for Nokia IXR-e3x testing ##
+Te0/0/0/20.10      down        down
+Te0/0/0/20.20      down        down
+Te0/0/0/23         admin-down  admin-down
+TF0/0/0/5          admin-down  admin-down
+TF0/0/0/6          admin-down  admin-down
+TF0/0/0/7          admin-down  admin-down
+TF0/0/0/8          admin-down  admin-down
+TF0/0/0/9          admin-down  admin-down
+TF0/0/0/10         admin-down  admin-down
+TF0/0/0/11         admin-down  admin-down
+TF0/0/0/12         admin-down  admin-down
+TF0/0/0/14         down        down
+TF0/0/0/15         admin-down  admin-down
+TF0/0/0/16         admin-down  admin-down
+TF0/0/0/18         admin-down  admin-down
+TF0/0/0/19         admin-down  admin-down
+TF0/0/0/21         admin-down  admin-down
+TF0/0/0/22         admin-down  admin-down
+TF0/0/0/32         admin-down  admin-down
+TF0/0/0/33         admin-down  admin-down
+TF0/0/0/34         admin-down  admin-down
+TF0/0/0/35         admin-down  admin-down
+TF0/0/0/36         admin-down  admin-down
+TF0/0/0/37         admin-down  admin-down
+TF0/0/0/38         admin-down  admin-down
+TF0/0/0/39         admin-down  admin-down
+TF0/0/0/40         admin-down  admin-down
+TF0/0/0/41         admin-down  admin-down
+TF0/0/0/42         admin-down  admin-down
+TF0/0/0/43         admin-down  admin-down
+TF0/0/0/44         admin-down  admin-down
+TF0/0/0/45         admin-down  admin-down
+TF0/0/0/46         admin-down  admin-down
+TF0/0/0/47         admin-down  admin-down
+TF0/0/0/48         admin-down  admin-down
+TF0/0/0/49         admin-down  admin-down
+TF0/0/0/50         admin-down  admin-down
+TF0/0/0/51         admin-down  admin-down
+TF0/0/0/52         admin-down  admin-down
+TF0/0/0/53         admin-down  admin-down
+TF0/0/0/54         admin-down  admin-down
+TF0/0/0/55         admin-down  admin-down
+Hu0/0/3/0          admin-down  admin-down
+Hu0/0/3/1          admin-down  admin-down
+Hu0/0/3/2/0        up          up
+Hu0/0/3/2/1        up          up
+Mg0/RP0/CPU0/0     up          up
+Mg0/RP1/CPU0/0     down        down
+RP/0/RP0/CPU0:RR_NORTH_LAB_254_20#

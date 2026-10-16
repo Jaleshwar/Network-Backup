@@ -1,0 +1,1270 @@
+show int description
+Sun Oct  4 03:24:32.084 IST
+Interface          Status      Protocol    Description
+--------------------------------------------------------------------------------
+BV100              down        down        MWRUE-ML3-11-290582-bharti-Internal-Mobility-290582-12022025
+BV101              down        down        MWRUE-ML3-11-401264-bharti-Internal-Mobility-401264-12022025
+BV102              down        down        MWRUE-ML3-11-394235-bharti-Internal-Mobility-394235-12022025
+BV103              down        down        MWRUE-ML3-11-479645-bharti-Internal-Mobility-479645-12022025
+BV104              down        down        MWRAP-ML3-11-220102-bharti-Internal-Mobility-220102-11062025
+BV105              down        down        MWRAP-ML3-11-900020-bharti-Internal-Mobility-772099-16062025
+BV106              down        down        MWRUE-ML3-11-634502-4G_P-Sig-bharti-Internal-Mobility-361034-01092025
+BV107              down        down        MWRUE-ML3-11-486386-4G_P-Sig-bharti-Internal-Mobility-241967-19012026
+BV108              down        down        MWRUE-ML3-11-600163-4G_P-Sig-bharti-Internal-Mobility-410558-20012026
+BV109              down        down        MWRUE-ML3-11-872409-4G_P-Sig-bharti-Internal-Mobility-306647-26052026
+BV110              down        down        MWRUE-ML3-11-333307-4G_P-Sig-bharti-Internal-Mobility-490994-26052026
+BV111              down        down        MWRUE-ML3-11-268990-4G_P-Sig-bharti-Internal-Mobility-424799-26052026
+BV2700             down        down        MWRUE-ML3-11-121150-4G_P-Sig-bharti-Internal-Mobility-285350-02022025
+BV3240             down        down        MWRUE-ML3-11-995953-4G_P-Sig-bharti-Internal-Mobility-356669-19012025
+BV3601             down        down        MWRUE-ML3-11-306500-bharti-Internal-Mobility-306500-29012025
+BV3627             down        down        MWRUE-ML3-11-366242-bharti-Internal-Mobility-366242-29012025
+BV3659             down        down        MWRUE-ML3-11-296492-bharti-Internal-Mobility-296492-29012025
+BV3676             down        down        MWRUE-ML3-11-251843-bharti-Internal-Mobility-251843-29012025
+BV3682             down        down        MWRUE-ML3-11-261029-bharti-Internal-Mobility-261029-29012025
+BV3695             down        down        MWRUE-ML3-11-360686-bharti-Internal-Mobility-360686-29012025
+BV3978             down        down        MWRUE-ML3-11-710124-4G_P-Sig-bharti-Internal-Mobility-322799-02022025
+BV35324            down        down        EnterpriseT4withL3onT3
+BV3807314          down        down        ENT-T5withL3-1
+BE21               up          up          mobility bundle toward spirent XXX
+BE21.475           up          up          VPLS_TEST_T3YtoT3X
+BE21.556           up          up          TEST-T3X-T3Y
+BE21.831           up          up          #Dharampal Satyapal Limited#DPSP-ISP-1550509#3735819#4096k#1#210221#MNG#
+BE21.1081          up          up          SBI-ML3-3-251224100222334-HYD-2048k-STATE-BANK-OF-INDIA-3-2851734-31122025
+BE21.1567          up          up          MULTICAST
+BE21.1849          up          up          HDFC-M
+BE21.2026          up          up          MWRUW-ML3-11-77524-4G-P-NC-bharti-Internal-Mobility-732962-24032023
+BE21.2027          up          up          MWRUW-ML3-12-77525-4G-P-NC-bharti-Internal-Mobility-732962-24032023
+BE21.2028          up          up          MWRUW-ML3-13-77526-4G-P-NC-bharti-Internal-Mobility-732962-24032023
+BE21.2096          up          up          NCDX-ML3-1-262-AGD-2048K-Ashlar-Commodities-Pvt-Lt-3361191-210220
+BE21.8549          up          up          DBS-BANK-SPOKE
+BE33               down        down        test
+BE33.1849          down        down        HDFC-M
+BE51               up          up          #MPLS#BACK-TO-BACK##CONNECTED-TO-$X2-T2-LAB-1$-$Bundle-Ether51$#CMR:CMR#
+BE51.2             up          up          #MPLS#BACK-TO-BACK##CONNECTED-TO-$X2-T2-LAB-1$-$te0/0/0/18$#CMR:CMR#
+BE51.4             up          up          #MPLS#BACK-TO-BACK##CONNECTED-TO-$X2-T2-LAB-1$-$te0/0/0/18$#CMR:CMR#
+BE100              up          up          towards_X4-T4-LAB-1_te1/4/1
+BE101              down        down        testing
+BE101.309          down        down        MWRUE-ML3-11-290582-bharti-Internal-Mobility-290582-12022025
+BE101.1026         down        down        TMWB-ML2-2-74051-GROUP TELEMEDIA-156351-17022026
+BE101.1818         down        down        MWRUE-ML3-11-872409-4G_P-Sig-bharti-Internal-Mobility-306647-26052026
+BE101.1883         down        down        MWRAP-ML3-11-220102-bharti-Internal-Mobility-220102-11062025
+BE101.2464         down        down        MWRUE-ML3-11-479645-bharti-Internal-Mobility-479645-12022025
+BE101.2700         down        down        MWRUE-ML3-11-121150-4G_P-Sig-bharti-Internal-Mobility-285350-02022025
+BE101.2884         down        down        MWRUE-ML3-11-333307-4G_P-Sig-bharti-Internal-Mobility-490994-26052026
+BE101.2958         down        down        MWRUE-ML3-11-486386-4G_P-Sig-bharti-Internal-Mobility-241967-19012026
+BE101.2966         down        down        MWRUE-ML3-11-634502-4G_P-Sig-bharti-Internal-Mobility-361034-01092025
+BE101.3076         down        down        MWRUE-ML3-11-394235-bharti-Internal-Mobility-394235-12022025
+BE101.3240         down        down        MWRUE-ML3-11-995953-4G_P-Sig-bharti-Internal-Mobility-356669-19012025
+BE101.3334         down        down        #SUPER SMELTERS LTD#SUYA-ISP-8981712252#3334#30720k#2#280525#MNG#
+BE101.3395         down        down        MWRUE-ML3-11-401264-bharti-Internal-Mobility-401264-12022025
+BE101.3601         down        down        MWRUE-ML3-11-306500-bharti-Internal-Mobility-306500-29012025
+BE101.3627         down        down        MWRUE-ML3-11-366242-bharti-Internal-Mobility-366242-29012025
+BE101.3659         down        down        MWRUE-ML3-11-296492-bharti-Internal-Mobility-296492-29012025
+BE101.3676         down        down        MWRUE-ML3-11-251843-bharti-Internal-Mobility-251843-29012025
+BE101.3682         down        down        MWRUE-ML3-11-261029-bharti-Internal-Mobility-261029-29012025
+BE101.3686         down        down        MWRUE-ML3-11-268990-4G_P-Sig-bharti-Internal-Mobility-424799-26052026
+BE101.3695         down        down        MWRUE-ML3-11-360686-bharti-Internal-Mobility-360686-29012025
+BE101.3926         down        down        MWRUE-ML3-11-600163-4G_P-Sig-bharti-Internal-Mobility-410558-20012026
+BE101.3978         down        down        MWRUE-ML3-11-710124-4G_P-Sig-bharti-Internal-Mobility-322799-02022025
+BE101.10003        down        down        TMKK-ML3-76-319987-Telemedia-232034-26052026
+BE101.10009        down        down        TMKK-ML3-76-604600-Telemedia-407072-27052026
+BE101.10010        down        down        TMUW-ML3-10-19324-IMS-P-NC-Telemedia-5166868-03062026
+BE101.10026        down        down        TMKK-ML3-76-930008-Telemedia-233675-19012025
+BE101.10027        down        down        TMKK-ML3-76-677788-Telemedia-373001-02022025
+BE101.10031        down        down        TMKK-ML3-76-596306-Telemedia-339845-02022025
+BE101.10032        down        down        TMKK-ML3-76-277949-Telemedia-277949-13022025
+BE101.10033        down        down        TMKK-ML3-76-292886-Telemedia-292886-13022025
+BE101.10034        down        down        TMKK-ML3-76-470390-Telemedia-470390-13022025
+BE101.10037        down        down        TMKK-ML3-76-377594-Telemedia-377594-13022025
+BE101.10038        down        down        TMKK-ML3-76-491006-Telemedia-491006-13022025
+BE101.10049        down        down        TMKK-ML3-76-493694-Telemedia-493694-13022025
+BE101.10050        down        down        TMKK-ML3-76-296417-Telemedia-296417-13022025
+BE101.10051        down        down        TMKK-ML3-76-356312-Telemedia-356312-13022025
+BE101.10052        down        down        TMKK-ML3-76-393554-Telemedia-393554-13022025
+BE101.10053        down        down        TMKK-ML3-76-229787-Telemedia-229787-13022025
+BE101.10054        down        down        TMKK-ML3-76-315329-Telemedia-315329-13022025
+BE101.10055        down        down        TMKK-ML3-76-389528-Telemedia-389528-13022025
+BE101.10056        down        down        TMKK-ML3-76-477131-Telemedia-477131-13022025
+BE101.10057        down        down        TMKK-ML3-76-345917-Telemedia-345917-13022025
+BE101.10058        down        down        TMKK-ML3-76-356411-Telemedia-356411-13022025
+BE101.10059        down        down        TMKK-ML3-76-347882-Telemedia-347882-13022025
+BE101.10060        down        down        TMKK-ML3-76-400025-Telemedia-400025-13022025
+BE101.10061        down        down        TMKK-ML3-76-377756-Telemedia-377756-13022025
+BE101.10062        down        down        TMKK-ML3-76-344645-Telemedia-344645-13022025
+BE101.10063        down        down        TMKK-ML3-76-369188-Telemedia-369188-13022025
+BE101.10064        down        down        TMKK-ML3-76-392837-Telemedia-392837-13022025
+BE101.10065        down        down        TMKK-ML3-76-351320-Telemedia-351320-13022025
+BE101.10066        down        down        TMKK-ML3-76-245771-Telemedia-245771-13022025
+BE101.10067        down        down        TMKK-ML3-76-201533-Telemedia-201533-13022025
+BE101.10068        down        down        TMKK-ML3-76-429266-Telemedia-429266-13022025
+BE101.10069        down        down        TMKK-ML3-76-306839-Telemedia-306839-13022025
+BE101.10070        down        down        TMKK-ML3-76-357752-Telemedia-357752-13022025
+BE101.10071        down        down        TMKK-ML3-76-427937-Telemedia-427937-13022025
+BE101.10072        down        down        TMKK-ML3-76-402764-Telemedia-402764-13022025
+BE101.10073        down        down        TMKK-ML3-76-206795-Telemedia-206795-13022025
+BE101.10074        down        down        TMKK-ML3-76-492509-Telemedia-492509-13022025
+BE101.10075        down        down        TMKK-ML3-76-297875-Telemedia-297875-13022025
+BE101.10076        down        down        TMKK-ML3-76-494111-Telemedia-494111-13022025
+BE101.10077        down        down        TMKK-ML3-76-431000-Telemedia-431000-14022025
+BE101.10078        down        down        TMKK-ML3-76-389615-Telemedia-389615-14022025
+BE101.10079        down        down        TMKK-ML3-76-492959-Telemedia-492959-14022025
+BE101.10080        down        down        TMKK-ML3-76-388529-Telemedia-388529-14022025
+BE101.10081        down        down        TMKK-ML3-76-363653-Telemedia-363653-14022025
+BE101.10082        down        down        TMKK-ML3-76-454940-Telemedia-454940-14022025
+BE101.10083        down        down        TMKK-ML3-76-441272-Telemedia-441272-14022025
+BE101.10084        down        down        TMKK-ML3-76-197129-Telemedia-397313-15052025
+BE101.10085        down        down        TMKK-ML3-76-917075-Telemedia-466994-15052025
+BE101.10088        down        down        TMKK-ML3-76-538016-Telemedia-291242-20052025
+BE101.10094        down        down        TMKK-ML3-76-692424-MGMT-P-NC-Telemedia-388610-24062026
+BE101.20006        down        down        HNSA-ML3-1-871969-kjajj-5103k-HNSA-ML3-1-200837-01092025
+BE101.20012        down        down        MSHA-ML3-1-860219-kjajj-5120k-MSHA-ML3-1-430430-26052026
+BE101.20013        down        down        MSHA-ML3-1-861259-kjajj-10010k-MSHA-ML3-1-359213-26052026
+BE101.20014        down        down        HNSA-ML3-1-395011-kjajj-4396k-HNSA-ML3-1-424364-26052026
+BE101.20015        down        down        BALW-ML3-1-126738-kjajj-6474k-WI-MAX-MANAGEMENT-202733-26052026
+BE101.20016        down        down        MLOL-ML3-51-878949-kjajj-5754k-Spoke-Mult-286406-26052026
+BE101.20017        down        down        MSHA-ML3-1-569044-kjajj-4684k-MSHA-ML3-1-462860-26052026
+BE101.20018        down        down        MSHA-ML3-1-219328-kjajj-4486k-MSHA-ML3-1-218417-26052026
+BE101.20019        down        down        MSHA-ML3-1-797174-kjajj-6246k-MSHA-ML3-1-339587-26052026
+BE101.20021        down        down        MSHA-ML3-1-776346-kjajj-1748k-MSHA-ML3-1-289466-26052026
+BE101.20022        down        down        MLOL-ML3-11-339509-kjajj-3707k-Mesh-Mult-437900-26052026
+BE101.20023        down        down        HNSA-ML3-1-123035-kjajj-5120k-HNSA-ML3-1-414674-26052026
+BE101.20122        down        down        HNSA-ML3-1-193902-kjajj-5120k-HNSA-ML3-1-365636-19012025
+BE101.20126        down        down        MSHA-ML3-1-560219-kjajj-2905k-MSHA-ML3-1-466286-20012025
+BE101.20128        down        down        HNSA-ML3-1-668296-kjajj-5120k-HNSA-ML3-1-216878-20012025
+BE101.20129        down        down        HNSA-ML3-1-784344-kjajj-10240k-HNSA-ML3-1-338684-02022025
+BE101.20130        down        down        MSHA-ML3-1-322834-kjajj-5120k-MSHA-ML3-1-328877-02022025
+BE101.20131        down        down        MSHA-ML3-1-573513-kjajj-7214k-MSHA-ML3-1-334658-02022025
+BE101.20136        down        down        HNSA-ML3-1-227298-kjajj-1541k-HNSA-ML3-1-283301-02022025
+BE101.20137        down        down        MSHA-ML3-1-131826-kjajj-8864k-MSHA-ML3-1-380447-02022025
+BE101.20138        down        down        BALW-ML3-1-772761-kjajj-1563k-WI-MAX-MANAGEMENT-315761-02022025
+BE101.20140        down        down        MLOL-ML3-5-759735-kjajj-5636k-Multicast-spoke-313142-02022025
+BE101.20141        down        down        HNSA-ML3-1-339714-kjajj-4700k-HNSA-ML3-1-441074-02022025
+BE101.20142        down        down        MSHA-ML3-1-673206-kjajj-4226k-MSHA-ML3-1-404075-02022025
+BE101.20143        down        down        MSHA-ML3-1-871387-kjajj-2634k-MSHA-ML3-1-266543-02022025
+BE101.20144        down        down        MSHA-ML3-1-360416-kjajj-8160k-MSHA-ML3-1-315956-02022025
+BE101.20150        down        down        MLOL-ML3-1-136784-kjajj-8067k-MLOL-ML-497297-03022025
+BE101.20151        down        down        HNSA-ML3-1-226163-kjajj-5120k-HNSA-ML3-1-337964-03022025
+BE101.20166        down        down        HNSA-ML3-1-696745-kjajj-4421k-HNSA-ML3-1-471368-13022025
+BE101.20171        down        down        BALW-ML3-1-499764-kjajj-2539k-WI-MAX-MANAGEMENT-497777-23042025
+BE101.20202        down        down        MSHA-ML3-1-207661-kjajj-7498k-MSHA-ML3-1-246863-23042025
+BE101.20262        down        down        MLOL-ML3-5-429939-kjajj-2340k-Multicast-spoke-291113-23042025
+BE101.20263        down        down        MSHA-ML3-1-751149-kjajj-7933k-MSHA-ML3-1-437528-23042025
+BE101.20264        down        down        MLOL-ML3-1-300743-kjajj-3251k-MLOL-ML-442028-23042025
+BE101.20265        down        down        MSHA-ML3-1-931567-kjajj-5120k-MSHA-ML3-1-331175-23042025
+BE101.20266        down        down        MSHA-ML3-1-691750-kjajj-1737k-MSHA-ML3-1-466031-23042025
+BE101.20267        down        down        HNSA-ML3-1-694861-kjajj-7549k-HNSA-ML3-1-491897-23042025
+BE101.20268        down        down        MSHA-ML3-1-206443-kjajj-9144k-MSHA-ML3-1-308843-23042025
+BE101.20270        down        down        MSHA-ML3-1-579538-kjajj-4567k-MSHA-ML3-1-340256-23042025
+BE101.20271        down        down        HNSA-ML3-1-511655-kjajj-10240k-HNSA-ML3-1-201020-23042025
+BE101.20272        down        down        HNSA-ML3-1-340533-kjajj-5120k-HNSA-ML3-1-223196-23042025
+BE101.20273        down        down        HNSA-ML3-1-861241-kjajj-5653k-HNSA-ML3-1-419489-23042025
+BE101.20274        down        down        MSHA-ML3-1-319704-kjajj-5120k-MSHA-ML3-1-236249-15052025
+BE101.20275        down        down        MSHA-ML3-1-732577-kjajj-7554k-MSHA-ML3-1-283721-15052025
+BE101.20276        down        down        BALW-ML3-1-821893-kjajj-8405k-WI-MAX-MANAGEMENT-410270-15052025
+BE101.20277        down        down        HNSA-ML3-1-989237-kjajj-9433k-HNSA-ML3-1-294155-15052025
+BE101.20278        down        down        HNSA-ML3-1-960862-kjajj-10240k-HNSA-ML3-1-203444-15052025
+BE101.20279        down        down        HNSA-ML3-1-499219-kjajj-5120k-HNSA-ML3-1-388304-15052025
+BE101.20283        down        down        HNSA-ML3-1-207825-kjajj-5120k-HNSA-ML3-1-288227-20052025
+BE101.20284        down        down        MLOL-ML3-5-974442-kjajj-3730k-Multicast-spoke-479744-20052025
+BE101.20287        down        down        MSHA-ML3-1-698723-kjajj-4379k-MSHA-ML3-1-219695-19012026
+BE101.20288        down        down        MSHA-ML3-1-553155-kjajj-8562k-MSHA-ML3-1-214307-20012026
+BE101.22120        down        down        #AMBITION PAPER TECH PRIVATE LIMITED#AMBIT-ILL-222120#22120#5414k#2#190525#UMNG#
+BE101.22221        down        down        #AMBITION PAPER TECH PRIVATE LIMITED#AMBIT-ILL-22221#22221#5412k#2#140525#UMNG#
+BE101.22222        down        down        #AMBITION PAPER TECH PRIVATE LIMITED#AMBIT-ILL-22222#22222#5414k#2#140525#UMNG#
+BE101.22223        down        down        #AMBITION PAPER TECH PRIVATE LIMITED#AMBIT-ILL-22223#22223#5414k#2#140525#UMNG#
+BE101.22224        down        down        #AMBITION PAPER TECH PRIVATE LIMITED#AMBIT-ILL-22224#22224#5414k#2#140525#UMNG#
+BE101.22231        down        down        #AMBITION PAPER TECH PRIVATE LIMITED#AMBIT-ILL-22231#22231#5412k#2#140525#UMNG#
+BE101.30041        down        down        MSHA-ML3-1-715571-kjajj-5120k-MSHA-ML3-1-258011-01102026
+BE101.206399       down        down        #SUPER SMELTERS LTD#UNMAN-ISP-32613#206399#2048k#2#260526#UMNG#
+BE101.281921       down        down        #SUPER SMELTERS LTD#UNMAN-ISP-94788#281921#2048k#2#100926#UMNG#
+BE101.286910       down        down        #SUPER SMELTERS LTD#UNMAN-ISP-45989#286910#2048k#2#200126#UMNG#
+BE101.300365       down        down        #SUPER SMELTERS LTD#UNMAN-ISP-17880#300365#2048k#2#260526#UMNG#
+BE101.364391       down        down        #SUPER SMELTERS LTD#UNMAN-ISP-74490#364391#2048k#2#200126#UMNG#
+BE101.366461       down        down        #SUPER SMELTERS LTD#UNMAN-ISP-46968#366461#2048k#2#260526#UMNG#
+BE101.369926       down        down        #SUPER SMELTERS LTD#UNMAN-ISP-27095#369926#2048k#2#100926#UMNG#
+BE101.370070       down        down        #SUPER SMELTERS LTD#UNMAN-ISP-24346#370070#30720k#2#140525#UMNG#
+BE101.420095       down        down        #SUPER SMELTERS LTD#UNMAN-ISP-56461#420095#2048k#2#260526#UMNG#
+BE101.423836       down        down        #SUPER SMELTERS LTD#SUYA-ISP-28739#423836#30720k#2#140525#MNG#
+BE101.438917       down        down        #SUPER SMELTERS LTD#UNMAN-ISP-33523#438917#2048k#2#100926#UMNG#
+BE101.460718       down        down        #SUPER SMELTERS LTD#UNMAN-ISP-90969#460718#2048k#2#190126#UMNG#
+BE101.466862       down        down        #SUPER SMELTERS LTD#SUYA-ISP-37361#466862#2048k#2#200126#MNG#
+BE101.467948       down        down        #SUPER SMELTERS LTD#UNMAN-ISP-75072#467948#2048k#2#100926#UMNG#
+BE1200             up          up
+BE1200.500         up          up
+BE1200.501         up          up
+BE1201             down        down
+BE1201.500         down        down
+BE1201.501         down        down
+BE1234             down        down        MCLAG_BUNDLE-(CEN-MPLS)
+BE1234.500         down        down
+BE1234.701         down        down        MCLAG_BUNDLE-(CEN-MPLS)
+BE1234.1200        down        down
+BE1234.1300        down        down
+BE4321             down        down        MCLAG_BUNDLE-(CEN-MPLS)
+BE4321.1200        down        down
+BE4321.1300        down        down
+Lo0                up          up          Core Infra Loopback
+Lo1                admin-down  admin-down
+Lo10               admin-down  admin-down
+Lo20               admin-down  admin-down
+Lo22               admin-down  admin-down
+Lo30               admin-down  admin-down
+Lo40               admin-down  admin-down
+Lo100              up          up          Infrastructure Loopback for T4 domain
+Lo110              admin-down  admin-down  CEN-MPLS
+Lo200              up          up
+Lo300              up          up          RP for vrf HINDUSTAN-PETROLEUM-6-M
+Lo301              up          up
+Lo444              up          up
+Nu0                up          up
+tt4                down        down        towards 10.1.1.4
+tt5                down        down        towards 10.1.1.5
+tt54101            down        down        TO_HUAWEI_NPE2
+tt54102            admin-down  admin-down  TO_CISCO_AGG2
+Mg0/RP0/CPU0/0     up          up
+Gi0/0/0/0          admin-down  admin-down
+Gi0/0/0/1          admin-down  admin-down
+Gi0/0/0/2          down        down
+Gi0/0/0/3          down        down
+Gi0/0/0/3.1885     down        down        MWRAP-ML3-11-900020-bharti-Internal-Mobility-772099-16062025
+Gi0/0/0/5          up          up          towards_POC-SWH2-ROW-H-251-4_Gi1/0/33
+Gi0/0/0/5.201      up          up          for_AgenticAI_connectivity_towards3rdfloor
+Gi0/0/0/11         up          up          #MPLS#BACK-TO-BACK#$CEN-Topology$#CONNECTED-TO-$NCS540(172.16.249.25)$-$gigabitEthernet0/0/0/11$
+Hu0/0/0/28         down        down
+Hu0/0/0/28.200     down        down
+Hu0/0/0/28.519     down        down
+Hu0/0/0/29         up          up
+Hu0/0/0/29.500     up          up          Towards-Spirent_TESTER
+Hu0/0/0/29.501     up          up          Towards-Spirent_TESTER
+Hu0/0/0/29.1200    up          up          Towards-Spirent_TESTER
+Hu0/0/0/29.1300    up          up
+Te0/0/0/4          up          up          #MPLS#BACK-TO-BACK##CONNECTED-TO-$X2-T2-LAB-1$-$te0/0/0/18$#CMR:CMR#
+Te0/0/0/6          up          up          #MPLS#BACK-TO-BACK##CONNECTED-TO-$X4-T4-LAB-1_te1/4/1
+Te0/0/0/7          down        down        to_172.16.249.25_0/0/0/7
+Te0/0/0/7.198      down        down        MUMR-ML3-11-91198-Mobility-961198-24012024
+Te0/0/0/8          down        down
+Te0/0/0/8.1636     down        down        MUMR-ML3-11-101024-Mobility-901010-12032024
+Te0/0/0/9          down        down
+Te0/0/0/9.1636     down        down        MUMR-ML3-11-101024-Mobility-901010-12032024
+Te0/0/0/10         down        down
+Te0/0/0/10.902     down        down        MUMR-ML3-11-757528-Mobility-54542-31012024
+Te0/0/0/12         down        down
+Te0/0/0/12.20193   down        down        BOBA-ML3-10-99821-port enable-5120k-BOBA-ML3-10-924668-24012024
+Te0/0/0/13         up          up          towards_SPIRENTtester_te1/4/2
+Te0/0/0/14         down        down
+Te0/0/0/15         down        down        TO_HUAWIE_NPE2
+Te0/0/0/16         down        down        Towards-NPE2-RTR
+Te0/0/0/17         down        down
+Te0/0/0/17.300     down        down
+Te0/0/0/17.701     down        down        Towards-Spirent_TESTER
+Te0/0/0/18         up          up          Towards-NPE1-RTR
+Te0/0/0/19         down        down
+Te0/0/0/19.1       down        down
+Te0/0/0/19.2       down        down
+Te0/0/0/19.3       down        down
+Te0/0/0/19.4       down        down
+Te0/0/0/19.5       down        down
+Te0/0/0/19.6       down        down
+Te0/0/0/19.7       down        down
+Te0/0/0/19.8       down        down
+Te0/0/0/19.9       down        down
+Te0/0/0/19.10      down        down
+Te0/0/0/19.11      down        down
+Te0/0/0/19.12      down        down
+Te0/0/0/19.13      down        down
+Te0/0/0/19.14      down        down
+Te0/0/0/19.15      down        down
+Te0/0/0/19.16      down        down
+Te0/0/0/19.17      down        down
+Te0/0/0/19.18      down        down
+Te0/0/0/19.19      down        down
+Te0/0/0/19.20      down        down
+Te0/0/0/19.21      down        down
+Te0/0/0/19.22      down        down
+Te0/0/0/19.23      down        down
+Te0/0/0/19.24      down        down
+Te0/0/0/19.25      down        down
+Te0/0/0/19.26      down        down
+Te0/0/0/19.27      down        down
+Te0/0/0/19.28      down        down
+Te0/0/0/19.29      down        down
+Te0/0/0/19.30      down        down
+Te0/0/0/19.31      down        down
+Te0/0/0/19.32      down        down
+Te0/0/0/19.33      down        down
+Te0/0/0/19.34      down        down
+Te0/0/0/19.35      down        down
+Te0/0/0/19.36      down        down
+Te0/0/0/19.37      down        down
+Te0/0/0/19.38      down        down
+Te0/0/0/19.39      down        down
+Te0/0/0/19.40      down        down
+Te0/0/0/19.41      down        down
+Te0/0/0/19.42      down        down
+Te0/0/0/19.43      down        down
+Te0/0/0/19.44      down        down
+Te0/0/0/19.45      down        down
+Te0/0/0/19.46      down        down
+Te0/0/0/19.47      down        down
+Te0/0/0/19.48      down        down
+Te0/0/0/19.49      down        down
+Te0/0/0/19.50      down        down
+Te0/0/0/19.51      down        down
+Te0/0/0/19.52      down        down
+Te0/0/0/19.53      down        down
+Te0/0/0/19.54      down        down
+Te0/0/0/19.55      down        down
+Te0/0/0/19.56      down        down
+Te0/0/0/19.57      down        down
+Te0/0/0/19.58      down        down
+Te0/0/0/19.59      down        down
+Te0/0/0/19.60      down        down
+Te0/0/0/19.61      down        down
+Te0/0/0/19.62      down        down
+Te0/0/0/19.63      down        down
+Te0/0/0/19.64      down        down
+Te0/0/0/19.65      down        down
+Te0/0/0/19.66      down        down
+Te0/0/0/19.67      down        down
+Te0/0/0/19.68      down        down
+Te0/0/0/19.69      down        down
+Te0/0/0/19.70      down        down
+Te0/0/0/19.71      down        down
+Te0/0/0/19.72      down        down
+Te0/0/0/19.73      down        down
+Te0/0/0/19.74      down        down
+Te0/0/0/19.75      down        down
+Te0/0/0/19.76      down        down
+Te0/0/0/19.77      down        down
+Te0/0/0/19.78      down        down
+Te0/0/0/19.79      down        down
+Te0/0/0/19.80      down        down
+Te0/0/0/19.81      down        down
+Te0/0/0/19.82      down        down
+Te0/0/0/19.83      down        down
+Te0/0/0/19.84      down        down
+Te0/0/0/19.85      down        down
+Te0/0/0/19.86      down        down
+Te0/0/0/19.87      down        down
+Te0/0/0/19.88      down        down
+Te0/0/0/19.89      down        down
+Te0/0/0/19.90      down        down
+Te0/0/0/19.91      down        down
+Te0/0/0/19.92      down        down
+Te0/0/0/19.93      down        down
+Te0/0/0/19.94      down        down
+Te0/0/0/19.95      down        down
+Te0/0/0/19.96      down        down
+Te0/0/0/19.97      down        down
+Te0/0/0/19.98      down        down
+Te0/0/0/19.99      down        down
+Te0/0/0/19.100     down        down
+Te0/0/0/19.101     down        down
+Te0/0/0/19.102     down        down
+Te0/0/0/19.103     down        down
+Te0/0/0/19.104     down        down
+Te0/0/0/19.105     down        down
+Te0/0/0/19.106     down        down
+Te0/0/0/19.107     down        down
+Te0/0/0/19.108     down        down
+Te0/0/0/19.109     down        down
+Te0/0/0/19.110     down        down
+Te0/0/0/19.111     down        down
+Te0/0/0/19.112     down        down
+Te0/0/0/19.113     down        down
+Te0/0/0/19.114     down        down
+Te0/0/0/19.115     down        down
+Te0/0/0/19.116     down        down
+Te0/0/0/19.117     down        down
+Te0/0/0/19.118     down        down
+Te0/0/0/19.119     down        down
+Te0/0/0/19.120     down        down
+Te0/0/0/19.121     down        down
+Te0/0/0/19.122     down        down
+Te0/0/0/19.123     down        down
+Te0/0/0/19.124     down        down
+Te0/0/0/19.125     down        down
+Te0/0/0/19.126     down        down
+Te0/0/0/19.127     down        down
+Te0/0/0/19.128     down        down
+Te0/0/0/19.129     down        down
+Te0/0/0/19.130     down        down
+Te0/0/0/19.131     down        down
+Te0/0/0/19.132     down        down
+Te0/0/0/19.133     down        down
+Te0/0/0/19.134     down        down
+Te0/0/0/19.135     down        down
+Te0/0/0/19.136     down        down
+Te0/0/0/19.137     down        down
+Te0/0/0/19.138     down        down
+Te0/0/0/19.139     down        down
+Te0/0/0/19.140     down        down
+Te0/0/0/19.141     down        down
+Te0/0/0/19.142     down        down
+Te0/0/0/19.143     down        down
+Te0/0/0/19.144     down        down
+Te0/0/0/19.145     down        down
+Te0/0/0/19.146     down        down
+Te0/0/0/19.147     down        down
+Te0/0/0/19.148     down        down
+Te0/0/0/19.149     down        down
+Te0/0/0/19.150     down        down
+Te0/0/0/19.151     down        down
+Te0/0/0/19.152     down        down
+Te0/0/0/19.153     down        down
+Te0/0/0/19.154     down        down
+Te0/0/0/19.155     down        down
+Te0/0/0/19.156     down        down
+Te0/0/0/19.157     down        down
+Te0/0/0/19.158     down        down
+Te0/0/0/19.159     down        down
+Te0/0/0/19.160     down        down
+Te0/0/0/19.161     down        down
+Te0/0/0/19.162     down        down
+Te0/0/0/19.163     down        down
+Te0/0/0/19.164     down        down
+Te0/0/0/19.165     down        down
+Te0/0/0/19.166     down        down
+Te0/0/0/19.167     down        down
+Te0/0/0/19.168     down        down
+Te0/0/0/19.169     down        down
+Te0/0/0/19.170     down        down
+Te0/0/0/19.171     down        down
+Te0/0/0/19.172     down        down
+Te0/0/0/19.173     down        down
+Te0/0/0/19.174     down        down
+Te0/0/0/19.175     down        down
+Te0/0/0/19.176     down        down
+Te0/0/0/19.177     down        down
+Te0/0/0/19.178     down        down
+Te0/0/0/19.179     down        down
+Te0/0/0/19.180     down        down
+Te0/0/0/19.181     down        down
+Te0/0/0/19.182     down        down
+Te0/0/0/19.183     down        down
+Te0/0/0/19.184     down        down
+Te0/0/0/19.185     down        down
+Te0/0/0/19.186     down        down
+Te0/0/0/19.187     down        down
+Te0/0/0/19.188     down        down
+Te0/0/0/19.189     down        down
+Te0/0/0/19.190     down        down
+Te0/0/0/19.191     down        down
+Te0/0/0/19.192     down        down
+Te0/0/0/19.193     down        down
+Te0/0/0/19.194     down        down
+Te0/0/0/19.195     down        down
+Te0/0/0/19.196     down        down
+Te0/0/0/19.197     down        down
+Te0/0/0/19.198     down        down
+Te0/0/0/19.199     down        down
+Te0/0/0/19.200     down        down
+Te0/0/0/19.201     down        down
+Te0/0/0/19.202     down        down
+Te0/0/0/19.203     down        down
+Te0/0/0/19.204     down        down
+Te0/0/0/19.205     down        down
+Te0/0/0/19.206     down        down
+Te0/0/0/19.207     down        down
+Te0/0/0/19.208     down        down
+Te0/0/0/19.209     down        down
+Te0/0/0/19.210     down        down
+Te0/0/0/19.211     down        down
+Te0/0/0/19.212     down        down
+Te0/0/0/19.213     down        down
+Te0/0/0/19.214     down        down
+Te0/0/0/19.215     down        down
+Te0/0/0/19.216     down        down
+Te0/0/0/19.217     down        down
+Te0/0/0/19.218     down        down
+Te0/0/0/19.219     down        down
+Te0/0/0/19.220     down        down
+Te0/0/0/19.221     down        down
+Te0/0/0/19.222     down        down
+Te0/0/0/19.223     down        down
+Te0/0/0/19.224     down        down
+Te0/0/0/19.225     down        down
+Te0/0/0/19.226     down        down
+Te0/0/0/19.227     down        down
+Te0/0/0/19.228     down        down
+Te0/0/0/19.229     down        down
+Te0/0/0/19.230     down        down
+Te0/0/0/19.231     down        down
+Te0/0/0/19.232     down        down
+Te0/0/0/19.233     down        down
+Te0/0/0/19.234     down        down
+Te0/0/0/19.235     down        down
+Te0/0/0/19.236     down        down
+Te0/0/0/19.237     down        down
+Te0/0/0/19.238     down        down
+Te0/0/0/19.239     down        down
+Te0/0/0/19.240     down        down
+Te0/0/0/19.241     down        down
+Te0/0/0/19.242     down        down
+Te0/0/0/19.243     down        down
+Te0/0/0/19.244     down        down
+Te0/0/0/19.245     down        down
+Te0/0/0/19.246     down        down
+Te0/0/0/19.247     down        down
+Te0/0/0/19.248     down        down
+Te0/0/0/19.249     down        down
+Te0/0/0/19.250     down        down
+Te0/0/0/19.251     down        down
+Te0/0/0/19.252     down        down
+Te0/0/0/19.253     down        down
+Te0/0/0/19.254     down        down
+Te0/0/0/19.255     down        down
+Te0/0/0/19.256     down        down
+Te0/0/0/19.257     down        down
+Te0/0/0/19.258     down        down
+Te0/0/0/19.259     down        down
+Te0/0/0/19.260     down        down
+Te0/0/0/19.261     down        down
+Te0/0/0/19.262     down        down
+Te0/0/0/19.263     down        down
+Te0/0/0/19.264     down        down
+Te0/0/0/19.265     down        down
+Te0/0/0/19.266     down        down
+Te0/0/0/19.267     down        down
+Te0/0/0/19.268     down        down
+Te0/0/0/19.269     down        down
+Te0/0/0/19.270     down        down
+Te0/0/0/19.271     down        down
+Te0/0/0/19.272     down        down
+Te0/0/0/19.273     down        down
+Te0/0/0/19.274     down        down
+Te0/0/0/19.275     down        down
+Te0/0/0/19.276     down        down
+Te0/0/0/19.277     down        down
+Te0/0/0/19.278     down        down
+Te0/0/0/19.279     down        down
+Te0/0/0/19.280     down        down
+Te0/0/0/19.281     down        down
+Te0/0/0/19.282     down        down
+Te0/0/0/19.283     down        down
+Te0/0/0/19.284     down        down
+Te0/0/0/19.285     down        down
+Te0/0/0/19.286     down        down
+Te0/0/0/19.287     down        down
+Te0/0/0/19.288     down        down
+Te0/0/0/19.289     down        down
+Te0/0/0/19.290     down        down
+Te0/0/0/19.291     down        down
+Te0/0/0/19.292     down        down
+Te0/0/0/19.293     down        down
+Te0/0/0/19.294     down        down
+Te0/0/0/19.295     down        down
+Te0/0/0/19.296     down        down
+Te0/0/0/19.297     down        down
+Te0/0/0/19.298     down        down
+Te0/0/0/19.299     down        down
+Te0/0/0/19.300     down        down
+Te0/0/0/19.301     down        down
+Te0/0/0/19.302     down        down
+Te0/0/0/19.303     down        down
+Te0/0/0/19.304     down        down
+Te0/0/0/19.305     down        down
+Te0/0/0/19.306     down        down
+Te0/0/0/19.307     down        down
+Te0/0/0/19.308     down        down
+Te0/0/0/19.309     down        down
+Te0/0/0/19.310     down        down
+Te0/0/0/19.311     down        down
+Te0/0/0/19.312     down        down
+Te0/0/0/19.313     down        down
+Te0/0/0/19.314     down        down
+Te0/0/0/19.315     down        down
+Te0/0/0/19.316     down        down
+Te0/0/0/19.317     down        down
+Te0/0/0/19.318     down        down
+Te0/0/0/19.319     down        down
+Te0/0/0/19.320     down        down
+Te0/0/0/19.321     down        down
+Te0/0/0/19.322     down        down
+Te0/0/0/19.323     down        down
+Te0/0/0/19.324     down        down
+Te0/0/0/19.325     down        down
+Te0/0/0/19.326     down        down
+Te0/0/0/19.327     down        down
+Te0/0/0/19.328     down        down
+Te0/0/0/19.329     down        down
+Te0/0/0/19.330     down        down
+Te0/0/0/19.331     down        down
+Te0/0/0/19.332     down        down
+Te0/0/0/19.333     down        down
+Te0/0/0/19.334     down        down
+Te0/0/0/19.335     down        down
+Te0/0/0/19.336     down        down
+Te0/0/0/19.337     down        down
+Te0/0/0/19.338     down        down
+Te0/0/0/19.339     down        down
+Te0/0/0/19.340     down        down
+Te0/0/0/19.341     down        down
+Te0/0/0/19.342     down        down
+Te0/0/0/19.343     down        down
+Te0/0/0/19.344     down        down
+Te0/0/0/19.345     down        down
+Te0/0/0/19.346     down        down
+Te0/0/0/19.347     down        down
+Te0/0/0/19.348     down        down
+Te0/0/0/19.349     down        down
+Te0/0/0/19.350     down        down
+Te0/0/0/19.351     down        down
+Te0/0/0/19.352     down        down
+Te0/0/0/19.353     down        down
+Te0/0/0/19.354     down        down
+Te0/0/0/19.355     down        down
+Te0/0/0/19.356     down        down
+Te0/0/0/19.357     down        down
+Te0/0/0/19.358     down        down
+Te0/0/0/19.359     down        down
+Te0/0/0/19.360     down        down
+Te0/0/0/19.361     down        down
+Te0/0/0/19.362     down        down
+Te0/0/0/19.363     down        down
+Te0/0/0/19.364     down        down
+Te0/0/0/19.365     down        down
+Te0/0/0/19.366     down        down
+Te0/0/0/19.367     down        down
+Te0/0/0/19.368     down        down
+Te0/0/0/19.369     down        down
+Te0/0/0/19.370     down        down
+Te0/0/0/19.371     down        down
+Te0/0/0/19.372     down        down
+Te0/0/0/19.373     down        down
+Te0/0/0/19.374     down        down
+Te0/0/0/19.375     down        down
+Te0/0/0/19.376     down        down
+Te0/0/0/19.377     down        down
+Te0/0/0/19.378     down        down
+Te0/0/0/19.379     down        down
+Te0/0/0/19.380     down        down
+Te0/0/0/19.381     down        down
+Te0/0/0/19.382     down        down
+Te0/0/0/19.383     down        down
+Te0/0/0/19.384     down        down
+Te0/0/0/19.385     down        down
+Te0/0/0/19.386     down        down
+Te0/0/0/19.387     down        down
+Te0/0/0/19.388     down        down
+Te0/0/0/19.389     down        down
+Te0/0/0/19.390     down        down
+Te0/0/0/19.391     down        down
+Te0/0/0/19.392     down        down
+Te0/0/0/19.393     down        down
+Te0/0/0/19.394     down        down
+Te0/0/0/19.395     down        down
+Te0/0/0/19.396     down        down
+Te0/0/0/19.397     down        down
+Te0/0/0/19.398     down        down
+Te0/0/0/19.399     down        down
+Te0/0/0/19.400     down        down
+Te0/0/0/19.401     down        down
+Te0/0/0/19.402     down        down
+Te0/0/0/19.403     down        down
+Te0/0/0/19.404     down        down
+Te0/0/0/19.405     down        down
+Te0/0/0/19.406     down        down
+Te0/0/0/19.407     down        down
+Te0/0/0/19.408     down        down
+Te0/0/0/19.409     down        down
+Te0/0/0/19.410     down        down
+Te0/0/0/19.411     down        down
+Te0/0/0/19.412     down        down
+Te0/0/0/19.413     down        down
+Te0/0/0/19.414     down        down
+Te0/0/0/19.415     down        down
+Te0/0/0/19.416     down        down
+Te0/0/0/19.417     down        down
+Te0/0/0/19.418     down        down
+Te0/0/0/19.419     down        down
+Te0/0/0/19.420     down        down
+Te0/0/0/19.421     down        down
+Te0/0/0/19.422     down        down
+Te0/0/0/19.423     down        down
+Te0/0/0/19.424     down        down
+Te0/0/0/19.425     down        down
+Te0/0/0/19.426     down        down
+Te0/0/0/19.427     down        down
+Te0/0/0/19.428     down        down
+Te0/0/0/19.429     down        down
+Te0/0/0/19.430     down        down
+Te0/0/0/19.431     down        down
+Te0/0/0/19.432     down        down
+Te0/0/0/19.433     down        down
+Te0/0/0/19.434     down        down
+Te0/0/0/19.435     down        down
+Te0/0/0/19.436     down        down
+Te0/0/0/19.437     down        down
+Te0/0/0/19.438     down        down
+Te0/0/0/19.439     down        down
+Te0/0/0/19.440     down        down
+Te0/0/0/19.441     down        down
+Te0/0/0/19.442     down        down
+Te0/0/0/19.443     down        down
+Te0/0/0/19.444     down        down
+Te0/0/0/19.445     down        down
+Te0/0/0/19.446     down        down
+Te0/0/0/19.447     down        down
+Te0/0/0/19.448     down        down
+Te0/0/0/19.449     down        down
+Te0/0/0/19.450     down        down
+Te0/0/0/19.451     down        down
+Te0/0/0/19.452     down        down
+Te0/0/0/19.453     down        down
+Te0/0/0/19.454     down        down
+Te0/0/0/19.455     down        down
+Te0/0/0/19.456     down        down
+Te0/0/0/19.457     down        down
+Te0/0/0/19.458     down        down
+Te0/0/0/19.459     down        down
+Te0/0/0/19.460     down        down
+Te0/0/0/19.461     down        down
+Te0/0/0/19.462     down        down
+Te0/0/0/19.463     down        down
+Te0/0/0/19.464     down        down
+Te0/0/0/19.465     down        down
+Te0/0/0/19.466     down        down
+Te0/0/0/19.467     down        down
+Te0/0/0/19.468     down        down
+Te0/0/0/19.469     down        down
+Te0/0/0/19.470     down        down
+Te0/0/0/19.471     down        down
+Te0/0/0/19.472     down        down
+Te0/0/0/19.473     down        down
+Te0/0/0/19.474     down        down
+Te0/0/0/19.475     down        down
+Te0/0/0/19.476     down        down
+Te0/0/0/19.477     down        down
+Te0/0/0/19.478     down        down
+Te0/0/0/19.479     down        down
+Te0/0/0/19.480     down        down
+Te0/0/0/19.481     down        down
+Te0/0/0/19.482     down        down
+Te0/0/0/19.483     down        down
+Te0/0/0/19.484     down        down
+Te0/0/0/19.485     down        down
+Te0/0/0/19.486     down        down
+Te0/0/0/19.487     down        down
+Te0/0/0/19.488     down        down
+Te0/0/0/19.489     down        down
+Te0/0/0/19.490     down        down
+Te0/0/0/19.491     down        down
+Te0/0/0/19.492     down        down
+Te0/0/0/19.493     down        down
+Te0/0/0/19.494     down        down
+Te0/0/0/19.495     down        down
+Te0/0/0/19.496     down        down
+Te0/0/0/19.497     down        down
+Te0/0/0/19.498     down        down
+Te0/0/0/19.499     down        down
+Te0/0/0/19.500     down        down
+Te0/0/0/19.501     down        down
+Te0/0/0/19.502     down        down
+Te0/0/0/19.503     down        down
+Te0/0/0/19.504     down        down
+Te0/0/0/19.505     down        down
+Te0/0/0/19.506     down        down
+Te0/0/0/19.507     down        down
+Te0/0/0/19.508     down        down
+Te0/0/0/19.509     down        down
+Te0/0/0/19.510     down        down
+Te0/0/0/19.511     down        down
+Te0/0/0/19.512     down        down
+Te0/0/0/19.513     down        down
+Te0/0/0/19.514     down        down
+Te0/0/0/19.515     down        down
+Te0/0/0/19.516     down        down
+Te0/0/0/19.517     down        down
+Te0/0/0/19.518     down        down
+Te0/0/0/19.519     down        down
+Te0/0/0/19.520     down        down
+Te0/0/0/19.521     down        down
+Te0/0/0/19.522     down        down
+Te0/0/0/19.523     down        down
+Te0/0/0/19.524     down        down
+Te0/0/0/19.525     down        down
+Te0/0/0/19.526     down        down
+Te0/0/0/19.527     down        down
+Te0/0/0/19.528     down        down
+Te0/0/0/19.529     down        down
+Te0/0/0/19.530     down        down
+Te0/0/0/19.531     down        down
+Te0/0/0/19.532     down        down
+Te0/0/0/19.533     down        down
+Te0/0/0/19.534     down        down
+Te0/0/0/19.535     down        down
+Te0/0/0/19.536     down        down
+Te0/0/0/19.537     down        down
+Te0/0/0/19.538     down        down
+Te0/0/0/19.539     down        down
+Te0/0/0/19.540     down        down
+Te0/0/0/19.541     down        down
+Te0/0/0/19.542     down        down
+Te0/0/0/19.543     down        down
+Te0/0/0/19.544     down        down
+Te0/0/0/19.545     down        down
+Te0/0/0/19.546     down        down
+Te0/0/0/19.547     down        down
+Te0/0/0/19.548     down        down
+Te0/0/0/19.549     down        down
+Te0/0/0/19.550     down        down
+Te0/0/0/19.551     down        down
+Te0/0/0/19.552     down        down
+Te0/0/0/19.553     down        down
+Te0/0/0/19.554     down        down
+Te0/0/0/19.555     down        down
+Te0/0/0/19.556     down        down
+Te0/0/0/19.557     down        down
+Te0/0/0/19.558     down        down
+Te0/0/0/19.559     down        down
+Te0/0/0/19.560     down        down
+Te0/0/0/19.561     down        down
+Te0/0/0/19.562     down        down
+Te0/0/0/19.563     down        down
+Te0/0/0/19.564     down        down
+Te0/0/0/19.565     down        down
+Te0/0/0/19.566     down        down
+Te0/0/0/19.567     down        down
+Te0/0/0/19.568     down        down
+Te0/0/0/19.569     down        down
+Te0/0/0/19.570     down        down
+Te0/0/0/19.571     down        down
+Te0/0/0/19.572     down        down
+Te0/0/0/19.573     down        down
+Te0/0/0/19.574     down        down
+Te0/0/0/19.575     down        down
+Te0/0/0/19.576     down        down
+Te0/0/0/19.577     down        down
+Te0/0/0/19.578     down        down
+Te0/0/0/19.579     down        down
+Te0/0/0/19.580     down        down
+Te0/0/0/19.581     down        down
+Te0/0/0/19.582     down        down
+Te0/0/0/19.583     down        down
+Te0/0/0/19.584     down        down
+Te0/0/0/19.585     down        down
+Te0/0/0/19.586     down        down
+Te0/0/0/19.587     down        down
+Te0/0/0/19.588     down        down
+Te0/0/0/19.589     down        down
+Te0/0/0/19.590     down        down
+Te0/0/0/19.591     down        down
+Te0/0/0/19.592     down        down
+Te0/0/0/19.593     down        down
+Te0/0/0/19.594     down        down
+Te0/0/0/19.595     down        down
+Te0/0/0/19.596     down        down
+Te0/0/0/19.597     down        down
+Te0/0/0/19.598     down        down
+Te0/0/0/19.599     down        down
+Te0/0/0/19.600     down        down
+Te0/0/0/19.601     down        down
+Te0/0/0/19.602     down        down
+Te0/0/0/19.603     down        down
+Te0/0/0/19.604     down        down
+Te0/0/0/19.605     down        down
+Te0/0/0/19.606     down        down
+Te0/0/0/19.607     down        down
+Te0/0/0/19.608     down        down
+Te0/0/0/19.609     down        down
+Te0/0/0/19.610     down        down
+Te0/0/0/19.611     down        down
+Te0/0/0/19.612     down        down
+Te0/0/0/19.613     down        down
+Te0/0/0/19.614     down        down
+Te0/0/0/19.615     down        down
+Te0/0/0/19.616     down        down
+Te0/0/0/19.617     down        down
+Te0/0/0/19.618     down        down
+Te0/0/0/19.619     down        down
+Te0/0/0/19.620     down        down
+Te0/0/0/19.621     down        down
+Te0/0/0/19.622     down        down
+Te0/0/0/19.623     down        down
+Te0/0/0/19.624     down        down
+Te0/0/0/19.625     down        down
+Te0/0/0/19.626     down        down
+Te0/0/0/19.627     down        down
+Te0/0/0/19.628     down        down
+Te0/0/0/19.629     down        down
+Te0/0/0/19.630     down        down
+Te0/0/0/19.631     down        down
+Te0/0/0/19.632     down        down
+Te0/0/0/19.633     down        down
+Te0/0/0/19.634     down        down
+Te0/0/0/19.635     down        down
+Te0/0/0/19.636     down        down
+Te0/0/0/19.637     down        down
+Te0/0/0/19.638     down        down
+Te0/0/0/19.639     down        down
+Te0/0/0/19.640     down        down
+Te0/0/0/19.641     down        down
+Te0/0/0/19.642     down        down
+Te0/0/0/19.643     down        down
+Te0/0/0/19.644     down        down
+Te0/0/0/19.645     down        down
+Te0/0/0/19.646     down        down
+Te0/0/0/19.647     down        down
+Te0/0/0/19.648     down        down
+Te0/0/0/19.649     down        down
+Te0/0/0/19.650     down        down
+Te0/0/0/19.651     down        down
+Te0/0/0/19.652     down        down
+Te0/0/0/19.653     down        down
+Te0/0/0/19.654     down        down
+Te0/0/0/19.655     down        down
+Te0/0/0/19.656     down        down
+Te0/0/0/19.657     down        down
+Te0/0/0/19.658     down        down
+Te0/0/0/19.659     down        down
+Te0/0/0/19.660     down        down
+Te0/0/0/19.661     down        down
+Te0/0/0/19.662     down        down
+Te0/0/0/19.663     down        down
+Te0/0/0/19.664     down        down
+Te0/0/0/19.665     down        down
+Te0/0/0/19.666     down        down
+Te0/0/0/19.667     down        down
+Te0/0/0/19.668     down        down
+Te0/0/0/19.669     down        down
+Te0/0/0/19.670     down        down
+Te0/0/0/19.671     down        down
+Te0/0/0/19.672     down        down
+Te0/0/0/19.673     down        down
+Te0/0/0/19.674     down        down
+Te0/0/0/19.675     down        down
+Te0/0/0/19.676     down        down
+Te0/0/0/19.677     down        down
+Te0/0/0/19.678     down        down
+Te0/0/0/19.679     down        down
+Te0/0/0/19.680     down        down
+Te0/0/0/19.681     down        down
+Te0/0/0/19.682     down        down
+Te0/0/0/19.683     down        down
+Te0/0/0/19.684     down        down
+Te0/0/0/19.685     down        down
+Te0/0/0/19.686     down        down
+Te0/0/0/19.687     down        down
+Te0/0/0/19.688     down        down
+Te0/0/0/19.689     down        down
+Te0/0/0/19.690     down        down
+Te0/0/0/19.691     down        down
+Te0/0/0/19.692     down        down
+Te0/0/0/19.693     down        down
+Te0/0/0/19.694     down        down
+Te0/0/0/19.695     down        down
+Te0/0/0/19.696     down        down
+Te0/0/0/19.697     down        down
+Te0/0/0/19.698     down        down
+Te0/0/0/19.699     down        down
+Te0/0/0/19.700     down        down
+Te0/0/0/19.1701    down        down
+Te0/0/0/19.1702    down        down
+Te0/0/0/19.1703    down        down
+Te0/0/0/19.1704    down        down
+Te0/0/0/19.1705    down        down
+Te0/0/0/19.1706    down        down
+Te0/0/0/19.1707    down        down
+Te0/0/0/19.1708    down        down
+Te0/0/0/19.1709    down        down
+Te0/0/0/19.1710    down        down
+Te0/0/0/19.1711    down        down
+Te0/0/0/19.1712    down        down
+Te0/0/0/19.1713    down        down
+Te0/0/0/19.1714    down        down
+Te0/0/0/19.1715    down        down
+Te0/0/0/19.1716    down        down
+Te0/0/0/19.1717    down        down
+Te0/0/0/19.1718    down        down
+Te0/0/0/19.1719    down        down
+Te0/0/0/19.1720    down        down
+Te0/0/0/19.1721    down        down
+Te0/0/0/19.1722    down        down
+Te0/0/0/19.1723    down        down
+Te0/0/0/19.1724    down        down
+Te0/0/0/19.1725    down        down
+Te0/0/0/19.1726    down        down
+Te0/0/0/19.1727    down        down
+Te0/0/0/19.1728    down        down
+Te0/0/0/19.1729    down        down
+Te0/0/0/19.1730    down        down
+Te0/0/0/19.1731    down        down
+Te0/0/0/19.1732    down        down
+Te0/0/0/19.1733    down        down
+Te0/0/0/19.1734    down        down
+Te0/0/0/19.1735    down        down
+Te0/0/0/19.1736    down        down
+Te0/0/0/19.1737    down        down
+Te0/0/0/19.1738    down        down
+Te0/0/0/19.1739    down        down
+Te0/0/0/19.1740    down        down
+Te0/0/0/19.1741    down        down
+Te0/0/0/19.1742    down        down
+Te0/0/0/19.1743    down        down
+Te0/0/0/19.1744    down        down
+Te0/0/0/19.1745    down        down
+Te0/0/0/19.1746    down        down
+Te0/0/0/19.1747    down        down
+Te0/0/0/19.1748    down        down
+Te0/0/0/19.1749    down        down
+Te0/0/0/19.1750    down        down
+Te0/0/0/19.1751    down        down
+Te0/0/0/19.1752    down        down
+Te0/0/0/19.1753    down        down
+Te0/0/0/19.1754    down        down
+Te0/0/0/19.1755    down        down
+Te0/0/0/19.1756    down        down
+Te0/0/0/19.1757    down        down
+Te0/0/0/19.1758    down        down
+Te0/0/0/19.1759    down        down
+Te0/0/0/19.1760    down        down
+Te0/0/0/19.1761    down        down
+Te0/0/0/19.1762    down        down
+Te0/0/0/19.1763    down        down
+Te0/0/0/19.1764    down        down
+Te0/0/0/19.1765    down        down
+Te0/0/0/19.1766    down        down
+Te0/0/0/19.1767    down        down
+Te0/0/0/19.1768    down        down
+Te0/0/0/19.1769    down        down
+Te0/0/0/19.1770    down        down
+Te0/0/0/19.1771    down        down
+Te0/0/0/19.1772    down        down
+Te0/0/0/19.1773    down        down
+Te0/0/0/19.1774    down        down
+Te0/0/0/19.1775    down        down
+Te0/0/0/19.1776    down        down
+Te0/0/0/19.1777    down        down
+Te0/0/0/19.1778    down        down
+Te0/0/0/19.1779    down        down
+Te0/0/0/19.1780    down        down
+Te0/0/0/19.1781    down        down
+Te0/0/0/19.1782    down        down
+Te0/0/0/19.1783    down        down
+Te0/0/0/19.1784    down        down
+Te0/0/0/19.1785    down        down
+Te0/0/0/19.1786    down        down
+Te0/0/0/19.1787    down        down
+Te0/0/0/19.1788    down        down
+Te0/0/0/19.1789    down        down
+Te0/0/0/19.1790    down        down
+Te0/0/0/19.1791    down        down
+Te0/0/0/19.1792    down        down
+Te0/0/0/19.1793    down        down
+Te0/0/0/19.1794    down        down
+Te0/0/0/19.1795    down        down
+Te0/0/0/19.1796    down        down
+Te0/0/0/19.1797    down        down
+Te0/0/0/19.1798    down        down
+Te0/0/0/19.1799    down        down
+Te0/0/0/19.1800    down        down
+Te0/0/0/19.1801    down        down
+Te0/0/0/19.1802    down        down
+Te0/0/0/19.1803    down        down
+Te0/0/0/19.1804    down        down
+Te0/0/0/19.1805    down        down
+Te0/0/0/19.1806    down        down
+Te0/0/0/19.1807    down        down
+Te0/0/0/19.1808    down        down
+Te0/0/0/19.1809    down        down
+Te0/0/0/19.1810    down        down
+Te0/0/0/19.1811    down        down
+Te0/0/0/19.1812    down        down
+Te0/0/0/19.1813    down        down
+Te0/0/0/19.1814    down        down
+Te0/0/0/19.1815    down        down
+Te0/0/0/19.1816    down        down
+Te0/0/0/19.1817    down        down
+Te0/0/0/19.1818    down        down
+Te0/0/0/19.1819    down        down
+Te0/0/0/19.1820    down        down
+Te0/0/0/19.1821    down        down
+Te0/0/0/19.1822    down        down
+Te0/0/0/19.1823    down        down
+Te0/0/0/19.1824    down        down
+Te0/0/0/19.1825    down        down
+Te0/0/0/19.1826    down        down
+Te0/0/0/19.1827    down        down
+Te0/0/0/19.1828    down        down
+Te0/0/0/19.1829    down        down
+Te0/0/0/19.1830    down        down
+Te0/0/0/19.1831    down        down
+Te0/0/0/19.1832    down        down
+Te0/0/0/19.1833    down        down
+Te0/0/0/19.1834    down        down
+Te0/0/0/19.1835    down        down
+Te0/0/0/19.1836    down        down
+Te0/0/0/19.1837    down        down
+Te0/0/0/19.1838    down        down
+Te0/0/0/19.1839    down        down
+Te0/0/0/19.1840    down        down
+Te0/0/0/19.1841    down        down
+Te0/0/0/19.1842    down        down
+Te0/0/0/19.1843    down        down
+Te0/0/0/19.1844    down        down
+Te0/0/0/19.1845    down        down
+Te0/0/0/19.1846    down        down
+Te0/0/0/19.1847    down        down
+Te0/0/0/19.1848    down        down
+Te0/0/0/19.1849    down        down
+Te0/0/0/19.1850    down        down
+Te0/0/0/19.1851    down        down
+Te0/0/0/19.1852    down        down
+Te0/0/0/19.1853    down        down
+Te0/0/0/19.1854    down        down
+Te0/0/0/19.1855    down        down
+Te0/0/0/19.1856    down        down
+Te0/0/0/19.1857    down        down
+Te0/0/0/19.1858    down        down
+Te0/0/0/19.1859    down        down
+Te0/0/0/19.1860    down        down
+Te0/0/0/19.1861    down        down
+Te0/0/0/19.1862    down        down
+Te0/0/0/19.1863    down        down
+Te0/0/0/19.1864    down        down
+Te0/0/0/19.1865    down        down
+Te0/0/0/19.1866    down        down
+Te0/0/0/19.1867    down        down
+Te0/0/0/19.1868    down        down
+Te0/0/0/19.1869    down        down
+Te0/0/0/19.1870    down        down
+Te0/0/0/19.1871    down        down
+Te0/0/0/19.1872    down        down
+Te0/0/0/19.1873    down        down
+Te0/0/0/19.1874    down        down
+Te0/0/0/19.1875    down        down
+Te0/0/0/19.1876    down        down
+Te0/0/0/19.1877    down        down
+Te0/0/0/19.1878    down        down
+Te0/0/0/19.1879    down        down
+Te0/0/0/19.1880    down        down
+Te0/0/0/19.1881    down        down
+Te0/0/0/19.1882    down        down
+Te0/0/0/19.1883    down        down
+Te0/0/0/19.1884    down        down
+Te0/0/0/19.1885    down        down
+Te0/0/0/19.1886    down        down
+Te0/0/0/19.1887    down        down
+Te0/0/0/19.1888    down        down
+Te0/0/0/19.1889    down        down
+Te0/0/0/19.1890    down        down
+Te0/0/0/19.1891    down        down
+Te0/0/0/19.1892    down        down
+Te0/0/0/19.1893    down        down
+Te0/0/0/19.1894    down        down
+Te0/0/0/19.1895    down        down
+Te0/0/0/19.1896    down        down
+Te0/0/0/19.1897    down        down
+Te0/0/0/19.1898    down        down
+Te0/0/0/19.1899    down        down
+Te0/0/0/19.1900    down        down
+Te0/0/0/19.1901    down        down
+Te0/0/0/19.1902    down        down
+Te0/0/0/19.1903    down        down
+Te0/0/0/19.1904    down        down
+Te0/0/0/19.1905    down        down
+Te0/0/0/19.1906    down        down
+Te0/0/0/19.1907    down        down
+Te0/0/0/19.1908    down        down
+Te0/0/0/19.1909    down        down
+Te0/0/0/19.1910    down        down
+Te0/0/0/19.1911    down        down
+Te0/0/0/19.1912    down        down
+Te0/0/0/19.1913    down        down
+Te0/0/0/19.1914    down        down
+Te0/0/0/19.1915    down        down
+Te0/0/0/19.1916    down        down
+Te0/0/0/19.1917    down        down
+Te0/0/0/19.1918    down        down
+Te0/0/0/19.1919    down        down
+Te0/0/0/19.1920    down        down
+Te0/0/0/19.1921    down        down
+Te0/0/0/19.1922    down        down
+Te0/0/0/19.1923    down        down
+Te0/0/0/19.1924    down        down
+Te0/0/0/19.1925    down        down
+Te0/0/0/19.1926    down        down
+Te0/0/0/19.1927    down        down
+Te0/0/0/19.1928    down        down
+Te0/0/0/19.1929    down        down
+Te0/0/0/19.1930    down        down
+Te0/0/0/19.1931    down        down
+Te0/0/0/19.1932    down        down
+Te0/0/0/19.1933    down        down
+Te0/0/0/19.1934    down        down
+Te0/0/0/19.1935    down        down
+Te0/0/0/19.1936    down        down
+Te0/0/0/19.1937    down        down
+Te0/0/0/19.1938    down        down
+Te0/0/0/19.1939    down        down
+Te0/0/0/19.1940    down        down
+Te0/0/0/19.1941    down        down
+Te0/0/0/19.1942    down        down
+Te0/0/0/19.1943    down        down
+Te0/0/0/19.1944    down        down
+Te0/0/0/19.1945    down        down
+Te0/0/0/19.1946    down        down
+Te0/0/0/19.1947    down        down
+Te0/0/0/19.1948    down        down
+Te0/0/0/19.1949    down        down
+Te0/0/0/19.1950    down        down
+Te0/0/0/19.1951    down        down
+Te0/0/0/19.1952    down        down
+Te0/0/0/19.1953    down        down
+Te0/0/0/19.1954    down        down
+Te0/0/0/19.1955    down        down
+Te0/0/0/19.1956    down        down
+Te0/0/0/19.1957    down        down
+Te0/0/0/19.1958    down        down
+Te0/0/0/19.1959    down        down
+Te0/0/0/19.1960    down        down
+Te0/0/0/19.1961    down        down
+Te0/0/0/19.1962    down        down
+Te0/0/0/19.1963    down        down
+Te0/0/0/19.1964    down        down
+Te0/0/0/19.1965    down        down
+Te0/0/0/19.1966    down        down
+Te0/0/0/19.1967    down        down
+Te0/0/0/19.1968    down        down
+Te0/0/0/19.1969    down        down
+Te0/0/0/19.1970    down        down
+Te0/0/0/19.1971    down        down
+Te0/0/0/19.1972    down        down
+Te0/0/0/19.1973    down        down
+Te0/0/0/19.1974    down        down
+Te0/0/0/19.1975    down        down
+Te0/0/0/19.1976    down        down
+Te0/0/0/19.1977    down        down
+Te0/0/0/19.1978    down        down
+Te0/0/0/19.1979    down        down
+Te0/0/0/19.1980    down        down
+Te0/0/0/19.1981    down        down
+Te0/0/0/19.1982    down        down
+Te0/0/0/19.1983    down        down
+Te0/0/0/19.1984    down        down
+Te0/0/0/19.1985    down        down
+Te0/0/0/19.1986    down        down
+Te0/0/0/19.1987    down        down
+Te0/0/0/19.1988    down        down
+Te0/0/0/19.1989    down        down
+Te0/0/0/19.1990    down        down
+Te0/0/0/19.1991    down        down
+Te0/0/0/19.1992    down        down
+Te0/0/0/19.1993    down        down
+Te0/0/0/19.1994    down        down
+Te0/0/0/19.1995    down        down
+Te0/0/0/19.1996    down        down
+Te0/0/0/19.1997    down        down
+Te0/0/0/19.1998    down        down
+Te0/0/0/19.1999    down        down
+Te0/0/0/19.2000    down        down
+TF0/0/0/20         admin-down  admin-down
+TF0/0/0/21         admin-down  admin-down
+TF0/0/0/22         admin-down  admin-down
+TF0/0/0/23         admin-down  admin-down
+TF0/0/0/24         admin-down  admin-down
+TF0/0/0/25         admin-down  admin-down
+TF0/0/0/26         admin-down  admin-down
+TF0/0/0/27         admin-down  admin-down
+RP/0/RP0/CPU0:LAB-2-LKO-T5-NCS540-100.17#

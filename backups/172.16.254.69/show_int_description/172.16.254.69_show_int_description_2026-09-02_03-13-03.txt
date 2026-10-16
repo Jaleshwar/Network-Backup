@@ -1,0 +1,156 @@
+show int description
+Wed Sep  2 03:15:33.586 IST
+Interface          Status      Protocol    Description
+--------------------------------------------------------------------------------
+BV14               down        down
+BV100              down        down        EVPN-Cisco-Nokia-T4
+BV199              down        down
+BV500              down        down        EVPN-X2-Cisco-Nokia-T4
+BV600              down        down        EVPN-X2-Cisco-Nokia-T4-Issue
+BV710              down        down        EVPN-X2-Cisco-Nokia-T4
+BV1101             down        down
+BV6529             admin-down  admin-down
+BV18197            down        down
+BE2                down        down
+BE5                down        down
+BE6                down        down
+BE11               down        down
+BE11.710           down        down
+BE12               down        down
+BE12.100           down        down
+BE12.500           down        down
+BE12.501           down        down
+BE12.601           down        down
+BE20               down        down        ## Juniper Testing ##
+BE20.10            down        down
+BE100              down        down
+BE102              up          up          -- NCS55A-1 HundredGigE0/0/2/1/0
+BE102.4            up          up          --peyto to peyto for NPT-1100-- HundredGigE0/0/2/2/0
+BE102.5            up          up
+BE102.6            up          up
+BE102.15           admin-down  admin-down
+BE102.1100         admin-down  admin-down
+BE102.1163         admin-down  admin-down
+BE106              down        down        connected to ECI_1100H#64-P3
+BE111              down        down        ### Connected to ECI-NPT-1100#81 Port 23, Local port: TF0/0/0/26 For SFP Testing ###
+BE309              down        down
+BE309.127          down        down
+BE309.309          down        down
+BE409              down        down
+BE409.409          admin-down  admin-down
+BE501              down        down        connected to NCS-540E-2-on-gig-16-in-ISIS-T5-Donot remove
+BE501.15           down        down
+BE501.903          down        down
+BE501.1100         admin-down  admin-down
+BE523              down        down        "Towards NPT#82"
+BE523.10           down        down
+BE523.1100         down        down
+BE523.1101         down        down
+BE700              down        down        connected towards ECi for nni testing
+BE700.50           down        down
+BE700.700          down        down
+BE900              down        down        WEB4P64A01_PNV_4S_JAL_LT5:C62985$C74249#RE:JAL-BCLWB -NAY-T5-CN26-35_P6# CMR:2485031
+BE1021             down        down
+BE3869             down        down        To_Ring_clouser_for_T4_ring
+BE3896             admin-down  admin-down
+BE3896.100         admin-down  admin-down
+BE6920             down        down        towards ngpeyto 20 port t0
+BE6920.100         down        down
+BE6960             down        down        ## Connected to Juniper MX 10008 router ##
+BE6960.13          down        down        ## Connected to Juniper MX 10008 router ##
+BE6969             admin-down  admin-down
+BE9069             down        down
+BE9069.15          admin-down  admin-down
+BE9069.100         down        down
+Lo0                up          up
+Lo1                up          up
+Lo2                up          up          ****connecting to ASR_9K_2 145555 ****
+Lo10               up          up
+Lo20               up          up
+Lo21               up          up
+Lo42               up          up
+Lo90               up          up
+Lo100              up          up
+Lo101              up          up
+Lo102              up          up
+Lo108              up          up
+Lo110              up          up          ECI_T5_Multicast
+Lo130              up          up
+Lo163              up          up          ECI_T5_NPT1100H
+Lo197              up          up
+Lo200              up          up
+Lo222              up          up
+Lo311              up          up          "NPT-100G-ER-Testing"
+Lo500              up          up
+Lo999              up          up
+Lo1000             up          up
+Lo1001             up          up
+Lo1022             up          up
+Lo1102             up          up
+Lo1111             up          up
+Lo4301             up          up
+Lo65000            up          up
+Nu0                up          up
+Gi0/0/0/0          admin-down  admin-down  ## TWAMP 10 SFP Testing ##
+Gi0/0/0/0.700      admin-down  admin-down
+Te0/0/0/1          admin-down  admin-down
+Te0/0/0/2          down        down        ## Connected to IXIA for Juniper 10008 Testing ##
+Te0/0/0/2.200      down        down
+Te0/0/0/2.2003     down        down
+Te0/0/0/2.2004     down        down
+Te0/0/0/2.2005     down        down
+Te0/0/0/2.2100     down        down        ## VPLS Testing with Juniper ##
+Te0/0/0/3          down        down        Option-C Test To-9K-1-Te0/0/0/19
+Te0/0/0/3.100      down        down
+Te0/0/0/4          up          up          towards peyto .68 port t4
+Te0/0/0/5          down        down        EVPN-Nokia-To-ECI-EPT-3-Port-XSA-2"
+Te0/0/0/6          down        down
+Te0/0/0/7          up          up
+Te0/0/0/7.99       up          up
+Te0/0/0/8          down        down
+Te0/0/0/9          down        down        towards ngpeyto 20 port t0
+Te0/0/0/10         down        down        ECI-NPT-DONOT-USE
+Te0/0/0/11         down        down        connected to 5130-31 on P-10
+Te0/0/0/12         up          up          towards_9K2 port T0/1/1/12
+Te0/0/0/12.400     up          up
+Te0/0/0/13         down        down        EVPN-Nokia-To-Ciena-EPT-C-Port-10
+Te0/0/0/14         down        down
+Te0/0/0/15         admin-down  admin-down
+Te0/0/0/16         admin-down  admin-down
+Te0/0/0/17         down        down        ## Connected to Juniper MX 10008 router ##
+Te0/0/0/18         down        down        to_Nokia_IXR-R6-38-1/1/5_Cisco-T4-69_TE0/0/0/18
+Te0/0/0/19         down        down        To-IXR-R6-37-P1/3/3-LAG-3
+Te0/0/0/20         down        down        connected towards ECi for nni testing
+Te0/0/0/21         down        down        To-IXR-R6D-129-1/5/c10/1-LAG-2
+Te0/0/0/21.10      down        down
+Te0/0/0/21.20      down        down
+Te0/0/0/22         down        down        connected towards 540-E2 port-16
+Te0/0/0/23         up          up          "to-Ciana-EPT3_10"
+TF0/0/0/24         down        down
+TF0/0/0/24.1       down        down
+TF0/0/0/25         down        down        ciena 25G SFP TEsting
+TF0/0/0/25.109     down        down        *** Towards Ciena 5134-103 Port 11 | 25G SFP TEST | ***
+TF0/0/0/26         down        down        ### Connected to ECI-NPT-1100#81 Port 23 for SFP Testing ###
+TF0/0/0/27         admin-down  admin-down
+TF0/0/0/28         admin-down  admin-down
+TF0/0/0/29         admin-down  admin-down
+TF0/0/0/30         admin-down  admin-down
+TF0/0/0/31         admin-down  admin-down
+TF0/0/0/32         admin-down  admin-down
+TF0/0/0/33         admin-down  admin-down
+TF0/0/0/34         admin-down  admin-down
+TF0/0/0/35         admin-down  admin-down
+TF0/0/0/36         admin-down  admin-down
+TF0/0/0/37         admin-down  admin-down
+TF0/0/0/38         admin-down  admin-down
+TF0/0/0/39         admin-down  admin-down
+Hu0/0/1/0/0        down        down
+Hu0/0/1/0/1        down        down
+Hu0/0/1/0/2        down        down
+Hu0/0/1/0/3        down        down
+Hu0/0/2/0/0        down        down
+Hu0/0/2/0/1        down        down
+Hu0/0/2/0/2        down        down
+Hu0/0/2/0/3        down        down
+Mg0/RP0/CPU0/0     up          up
+RP/0/RP0/CPU0:I-AM-PEYTO-LOWER#

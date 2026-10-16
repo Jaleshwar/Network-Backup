@@ -1,0 +1,2797 @@
+show running-config
+Mon Sep  7 03:16:23.964 IST
+Building configuration...
+!! IOS XR Configuration 7.5.2
+!
+hostname I-AM-9K1-LOWER
+group vrf-per-ce
+ router bgp '9730'
+  vrf '.*'
+   address-family ipv4 unicast
+    label mode per-ce
+   !
+  !
+ !
+end-group
+group IGP-TI-LFA-GCT
+ router isis 'IGP'
+  interface 'TenGigE.*'
+   address-family ipv4 unicast
+    fast-reroute per-prefix
+    fast-reroute per-prefix ti-lfa
+   !
+  !
+ !
+end-group
+group LABEL-MODE-PER-VRF
+ router bgp '9730'
+  vrf '.*'
+   address-family ipv4 unicast
+    label mode per-vrf
+   !
+  !
+ !
+end-group
+taskgroup readonly
+ task read fr
+ task read li
+ task read acl
+ task read atm
+ task read bfd
+ task read bgp
+ task read cdp
+ task read cef
+ task read cgn
+ task read eem
+ task read nps
+ task read otn
+ task read pbr
+ task read ppp
+ task read qos
+ task read rib
+ task read rip
+ task read sbc
+ task read ancp
+ task read bcdl
+ task read boot
+ task read diag
+ task read dwdm
+ task read hdlc
+ task read hsrp
+ task read ipv4
+ task read ipv6
+ task read isis
+ task read lisp
+ task read lpts
+ task read nacm
+ task read ospf
+ task read ouni
+ task read rcmd
+ task read snmp
+ task read vlan
+ task read vpdn
+ task read vrrp
+ task read admin
+ task read eigrp
+ task read l2vpn
+ task read bundle
+ task read crypto
+ task read fabric
+ task read static
+ task read sysmgr
+ task read system
+ task read tunnel
+ task read drivers
+ task read logging
+ task read monitor
+ task read mpls-te
+ task read netflow
+ task read network
+ task read pos-dpt
+ task read firewall
+ task read mpls-ldp
+ task read pkg-mgmt
+ task read call-home
+ task read fault-mgr
+ task read interface
+ task read inventory
+ task read multicast
+ task read route-map
+ task read sonet-sdh
+ task read transport
+ task read ext-access
+ task read filesystem
+ task read tty-access
+ task read config-mgmt
+ task read ip-services
+ task read mpls-static
+ task read route-policy
+ task read host-services
+ task read basic-services
+ task read config-services
+ task read ethernet-services
+!
+clock timezone IST Asia/Kolkata
+username root
+ group root-lr
+ group cisco-support
+ secret 10 $6$rXeGoce2B8F1o...$2tDlkDcYpQghk0J/aPj0yHTDzlTlk4GpcTfrCWq0UC/u3SJuxmCrmFy8TruAfIWsv1KoZAv4f33xxNJzh/BAF.
+!
+username cisco
+ group root-lr
+ password 7 094F471A1A0A464058
+!
+vrf mgmt
+ address-family ipv4 unicast
+ !
+!
+vrf RTU-Test
+ address-family ipv4 unicast
+  import route-target
+   11:11
+  !
+  export route-target
+   11:11
+  !
+ !
+!
+line template vty
+ exec-timeout 8 0
+ session-timeout 10
+ transport input telnet ssh
+ transport output telnet ssh
+!
+line default
+ exec-timeout 10 0
+ session-limit 10
+ session-timeout 100
+!
+line template sanjeewa
+ exec-timeout 0 0
+ session-timeout 0
+ transport input all
+ transport output all
+!
+line template vtemplate10
+ exec-timeout 8 0
+ session-timeout 10
+ transport input telnet ssh
+ transport output telnet ssh
+!
+vty-pool default 0 99 line-template sanjeewa
+snmp-server traps ntp
+fpd auto-upgrade enable
+ntp
+ server vrf mgmt 172.16.103.1
+ server vrf mgmt 172.16.103.3 prefer
+ source vrf mgmt MgmtEth0/RSP1/CPU0/0
+ update-calendar
+!
+bfd
+ interface Bundle-Ether102
+ !
+ interface Bundle-Ether102.2
+ !
+ multipath include location 0/0/CPU0
+ multipath include location 0/1/CPU0
+ multipath include location 0/2/CPU0
+ multipath include location 0/3/CPU0
+ echo disable
+ ipv6 checksum disable
+ trap singlehop pre-mapped
+!
+ethernet cfm
+ domain md3 level 3
+  service ma3 xconnect group 2181 p2p 2181
+   continuity-check interval 10s
+  !
+ !
+!
+key chain bharti
+ key 100
+  accept-lifetime 00:00:00 november 11 2025 infinite
+  key-string password 070D294D5C1D10
+  send-lifetime 00:00:00 november 11 2025 infinite
+  cryptographic-algorithm HMAC-MD5
+ !
+!
+call-home
+ service active
+ contact smart-licensing
+ profile CiscoTAC-1
+  active
+  destination transport-method email disable
+  destination transport-method http
+ !
+!
+ipv4 access-list mofrr
+ 10 permit ipv4 232.0.0.0 0.255.255.255 any
+!
+class-map match-any CORE_ONM
+ description [NETWORK - IP Prec=2 MPLS EXP = 2]
+ match mpls experimental topmost 2
+ match dscp af32 4
+ end-class-map
+!
+class-map match-any CORE_SIGNAL
+ description [SIGNALING - MPLS EXP=1]
+ match mpls experimental topmost 1
+ match dscp ef af22
+ end-class-map
+!
+class-map match-any CORE_NETWORK
+ description [NETWORK - IP Prec=6 -7, MPLS EXP = 6-7]
+ match mpls experimental topmost 6 7
+ match dscp cs6 cs7
+ match precedence ipv4 6 7
+ end-class-map
+!
+class-map match-any CORE_BUSINESS
+ description [NETWORK - IP Prec=3 MPLS EXP = 3]
+ match mpls experimental topmost 3
+ match dscp af12 af13 af23 cs3 af31 cs5
+ end-class-map
+!
+class-map match-any CORE_DATA_GOLD
+ description [MOBILITY DATA - MPLS EXP=4]
+ match mpls experimental topmost 4
+ match dscp cs1 af11 af33 cs4 6
+ match precedence ipv4 4
+ end-class-map
+!
+class-map match-any CORE_PREMIUM_RT
+ description [PREMIUM - MPLS EXP=5]
+ match mpls experimental topmost 5
+ match dscp af41 af21 cs2 42 44
+ end-class-map
+!
+policy-map CORE-MPLS-ASR9k-BHARTI_NEW
+ class CORE_NETWORK
+  bandwidth percent 5
+ !
+ class CORE_PREMIUM_RT
+  priority level 1
+  police rate percent 30
+  !
+ !
+ class CORE_SIGNAL
+  bandwidth percent 5
+ !
+ class CORE_DATA_GOLD
+  bandwidth percent 20
+ !
+ class CORE_BUSINESS
+  bandwidth percent 30
+ !
+ class CORE_ONM
+  bandwidth percent 5
+ !
+ class class-default
+  bandwidth percent 5
+  random-detect default
+ !
+ end-policy-map
+!
+hw-module location 0/2/CPU0 port 0 breakout 1xHundredGigE
+hw-module location 0/2/CPU0 port 7 breakout 1xHundredGigE
+hw-module location 0/2/CPU0 port 8 breakout 1xFourHundredGigE
+hw-module location 0/2/CPU0 port 12 breakout 1xHundredGigE
+hw-module location 0/2/CPU0 port 19 breakout 1xFourHundredGigE
+interface Bundle-Ether16
+ description ## Connected to Nokia IXR-e3x @ 1/1/C33/1 ##
+ bfd mode ietf
+ bfd address-family ipv4 timers start 60
+ bfd address-family ipv4 multiplier 3
+ bfd address-family ipv4 destination 11.0.0.4
+ bfd address-family ipv4 fast-detect
+ bfd address-family ipv4 minimum-interval 100
+ mtu 9216
+ ipv4 address 11.0.0.5 255.255.255.254
+ load-interval 30
+!
+interface Bundle-Ether102
+ description ## Back to Back connected to I-AM-9K2-UPPER ###
+ bfd address-family ipv4 timers start 60
+ bfd address-family ipv4 multiplier 3
+ bfd address-family ipv4 destination 192.168.55.2
+ bfd address-family ipv4 fast-detect
+ bfd address-family ipv4 minimum-interval 50
+ mtu 9216
+ ipv4 address 192.168.55.3 255.255.255.254
+ load-interval 30
+!
+interface Bundle-Ether102.2
+ description ****connecting to ASR_9K_2  ****
+ mtu 9216
+ service-policy output CORE-MPLS-ASR9k-BHARTI_NEW
+ ipv4 address 192.168.21.1 255.255.255.252
+ ipv6 address 2405:200:201:c00:192:168:21:0/127
+ load-interval 30
+ encapsulation dot1q 2
+!
+interface Bundle-Ether102.4
+ description ****connecting to ASR_9K_2  ****
+ mtu 9216
+ ipv4 address 99.99.0.1 255.255.255.252
+ ipv6 address 2405:200:201:c00:99:99:0:1/127
+ load-interval 30
+ encapsulation dot1q 4
+!
+interface Bundle-Ether102.6
+ description #$CEN-Topology$$Back-To-Back$Towards-9k2-Upper$#
+ ipv4 address 192.192.0.1 255.255.255.252
+ ipv6 address 2001:d:e::1/127
+ load-interval 30
+ encapsulation dot1q 6
+!
+interface Bundle-Ether9069
+ description towards peyto lower .69 port hund 0/0/1/1
+ mtu 9216
+ lacp mode active
+ load-interval 30
+!
+interface Loopback0
+ ipv4 address 10.10.14.1 255.255.255.255
+ ipv6 address 2405:200:201:c00:10:10:14:1/128
+!
+interface Loopback2
+ description ****connecting to ASR_9K_2 145555 ****
+ ipv4 address 10.10.140.1 255.255.255.255
+ ipv6 address 2404:a800:0:2b:10:56:1:2/127
+!
+interface Loopback99
+ ipv4 address 99.99.99.99 255.255.255.255
+!
+interface Loopback150
+ description MPLS#$CEN-Topology$#$CEN-Infrastructure MGMT-Loopback$#
+ ipv4 address 104.104.104.104 255.255.255.255
+ ipv6 address 2002:d::d/128
+!
+interface tunnel-te10
+ ipv4 unnumbered Loopback0
+ shutdown
+ load-interval 30
+ priority 1 1
+ destination 10.10.13.1
+ fast-reroute
+ forward-class 1
+ path-protection
+ !
+ affinity ignore
+!
+interface MgmtEth0/RSP1/CPU0/0
+ description connected towards MGMT
+ vrf mgmt
+ ipv4 address 172.16.254.73 255.255.255.0
+!
+interface HundredGigE0/2/0/0
+ mtu 9200
+ loopback internal
+ carrier-delay up 0 down 0
+ load-interval 30
+ ethernet cfm
+  mep domain md3 service ma3 mep-id 10
+   propagate-remote-status
+  !
+ !
+ l2transport
+ !
+!
+interface HundredGigE0/2/0/1
+ shutdown
+!
+interface HundredGigE0/2/0/2
+ fec standard
+!
+interface HundredGigE0/2/0/4
+ description #MPLS#CEN-Topology#CONNECTED-TO-$NCS540(172.16.249.25)$-$HundredGigE0/0/0/29$
+ mtu 9216
+ ipv4 address 20.20.202.2 255.255.255.252
+ ipv6 address 2001:b:c::/127
+ load-interval 30
+!
+interface HundredGigE0/2/0/5
+ description **to_Nokia T4 E3X 172.16.254.210 @Port- 1/1/c33**
+ bundle id 16 mode active
+ load-interval 30
+!
+interface HundredGigE0/2/0/6
+ description #MPLS#CEN-Topology#CONNECTED-TO-NPE-2$ASR-9903(172.16.249.22)$-$HundredGigE0/0/0/6$
+ mtu 9216
+ ipv4 address 30.30.103.1 255.255.255.252
+ load-interval 30
+!
+interface HundredGigE0/2/0/12
+ shutdown
+!
+interface HundredGigE0/2/0/13
+ description Towards_Cisco_9k2-Uppe_Router
+ bundle id 102 mode active
+ load-interval 30
+!
+interface HundredGigE0/2/0/14
+ description towards peyto lower .69 port hund 0/0/1/1
+ mtu 9216
+ ipv4 address 173.2.22.1 255.255.255.252
+ load-interval 30
+!
+interface HundredGigE0/2/0/15
+ mtu 9216
+ load-interval 30
+ l2transport
+ !
+!
+interface HundredGigE0/3/1/0
+ shutdown
+!
+controller dwdm0/3/1/1
+ g709 enable
+ admin-state in-service
+!
+interface HundredGigE0/3/1/1
+ description connected towards I-AM-ONENONLY-9912-T2
+ mtu 9216
+ ipv4 address 130.150.0.1 255.255.255.252
+ load-interval 30
+!
+interface HundredGigE0/3/1/1.1234 l2transport
+ encapsulation dot1q 1234
+ rewrite ingress tag pop 1 symmetric
+ mtu 9018
+!
+interface HundredGigE0/3/1/1.1235 l2transport
+ encapsulation dot1q 1235
+ rewrite ingress tag pop 1 symmetric
+ mtu 9018
+!
+interface preconfigure GigabitEthernet0/3/0/0
+!
+interface preconfigure GigabitEthernet0/3/0/1
+!
+interface preconfigure GigabitEthernet0/3/0/2
+ shutdown
+!
+interface preconfigure GigabitEthernet0/3/0/3
+ shutdown
+!
+interface preconfigure GigabitEthernet0/3/0/4
+ shutdown
+!
+interface preconfigure GigabitEthernet0/3/0/5
+ shutdown
+!
+interface preconfigure GigabitEthernet0/3/0/6
+ shutdown
+!
+interface preconfigure GigabitEthernet0/3/0/7
+ shutdown
+!
+interface preconfigure GigabitEthernet0/3/0/8
+ shutdown
+!
+interface preconfigure GigabitEthernet0/3/0/9
+ shutdown
+!
+interface preconfigure GigabitEthernet0/3/0/10
+ shutdown
+!
+interface preconfigure GigabitEthernet0/3/0/11
+ shutdown
+!
+interface preconfigure GigabitEthernet0/3/0/12
+ shutdown
+!
+interface preconfigure GigabitEthernet0/3/0/13
+ shutdown
+!
+interface preconfigure GigabitEthernet0/3/0/14
+ shutdown
+!
+interface preconfigure GigabitEthernet0/3/0/15
+ shutdown
+!
+interface preconfigure GigabitEthernet0/3/0/16
+ shutdown
+!
+interface preconfigure GigabitEthernet0/3/0/17
+ shutdown
+!
+interface preconfigure GigabitEthernet0/3/0/18
+ shutdown
+!
+interface preconfigure GigabitEthernet0/3/0/19
+ shutdown
+!
+interface preconfigure FourHundredGigE0/2/0/0
+ shutdown
+!
+interface preconfigure FourHundredGigE0/2/0/7
+ shutdown
+!
+interface preconfigure HundredGigE0/2/0/8
+ shutdown
+!
+interface preconfigure FourHundredGigE0/2/0/8
+ shutdown
+!
+interface preconfigure HundredGigE0/2/0/9
+ shutdown
+!
+interface preconfigure HundredGigE0/2/0/10
+ shutdown
+!
+interface preconfigure HundredGigE0/2/0/11
+ shutdown
+!
+interface preconfigure FourHundredGigE0/2/0/12
+ shutdown
+!
+interface preconfigure HundredGigE0/2/0/16
+ description #MPLS#CEN-Topology#CONNECTED-TO-$NCS540(172.16.249.26)$-$HundredGigE0/0/0/29$
+ ipv4 address 20.20.204.0 255.255.255.254
+ carrier-delay up 1000 down 0
+ load-interval 30
+!
+interface preconfigure HundredGigE0/2/0/17
+ shutdown
+!
+interface preconfigure HundredGigE0/2/0/18
+ description #MPLS#CEN-Topology#CONNECTED-TO-$NCS540(172.16.249.24)$-$HundredGigE0/0/0/29$
+ ipv4 address 10.10.104.0 255.255.255.254
+ carrier-delay up 1000 down 0
+ shutdown
+ load-interval 30
+!
+interface preconfigure HundredGigE0/2/0/19
+ shutdown
+!
+interface preconfigure FourHundredGigE0/2/0/19
+ shutdown
+!
+interface preconfigure HundredGigE0/3/0/0
+!
+interface preconfigure HundredGigE0/3/0/1
+!
+!
+prefix-set Core-AGG-Loopbacks-Redis
+  10.10.14.1/32
+end-set
+!
+community-set ECI-T5
+  115:10,
+  116:10
+end-set
+!
+community-set CIENA-T5
+  315:10
+end-set
+!
+community-set CISCO-T5
+  215:10
+end-set
+!
+community-set CISCO-T3-130
+  130:2
+end-set
+!
+community-set CISCO-T3-140
+  140:2
+end-set
+!
+community-set prevent_nhs_change_access1
+  9730:1
+end-set
+!
+route-policy T2-IP
+  if destination in (10.10.15.1/32) then
+    pass
+  else
+    drop
+  endif
+end-policy
+!
+route-policy WEIGHT
+  set weight 200
+end-policy
+!
+route-policy Profile-14
+  set core-tree mldp-partitioned-p2mp
+end-policy
+!
+route-policy Nokia-T4-IP
+  if destination in (37.37.37.37/32) then
+    pass
+  else
+    drop
+  endif
+end-policy
+!
+route-policy SID10037140
+  set community (140:2)
+  set label-index 140
+  set aigp-metric igp-cost
+end-policy
+!
+route-policy commuitypass
+  set community (1:100)
+  set label-index 14
+  set aigp-metric igp-cost
+end-policy
+!
+route-policy Default-Drop-v6
+  if destination in (::/0) then
+    drop
+  else
+    pass
+  endif
+end-policy
+!
+route-policy add-path-to-ibgp
+  set path-selection backup 1 install
+  set path-selection all advertise
+end-policy
+!
+route-policy Block-T5-Prefixes
+  if community matches-any ECI-T5 or community matches-any CIENA-T5 or community matches-any CISCO-T5 then
+    drop
+  else
+    pass
+  endif
+end-policy
+!
+route-policy DROP-CONNECTED-LOOPBACK
+  if community matches-any CISCO-T3-130 or community matches-any CISCO-T3-140 then
+    drop
+  elseif destination in (0.0.0.0/0) then
+    drop
+  else
+    pass
+  endif
+end-policy
+!
+route-policy prevent_nhs_change_access1
+  if community matches-any prevent_nhs_change_access1 then
+    pass
+  else
+    set next-hop self
+  endif
+end-policy
+!
+route-policy Core-AGG-Loopbacks-Redis-11
+  if destination in Core-AGG-Loopbacks-Redis then
+    pass
+    set tag 10000
+  endif
+end-policy
+!
+router static
+ address-family ipv4 unicast
+  0.0.0.0/0 172.16.254.1
+  172.16.251.0/24 172.16.254.1
+  172.16.253.0/24 172.16.254.1
+  192.168.30.0/30 173.2.22.2
+ !
+ vrf mgmt
+  address-family ipv4 unicast
+   0.0.0.0/0 172.16.254.1
+  !
+ !
+!
+router isis T4
+ set-overload-bit on-startup wait-for-bgp
+ is-type level-2-only
+ net 49.0001.0100.1014.0001.00
+ nsr
+ nsf cisco
+ log adjacency changes
+ lsp-gen-interval maximum-wait 5000 initial-wait 50 secondary-wait 200
+ lsp-refresh-interval 65000
+ max-lsp-lifetime 65535
+ lsp-password keychain bharti
+ address-family ipv4 unicast
+  metric-style wide
+  microloop avoidance segment-routing
+  mpls traffic-eng level-2-only
+  mpls traffic-eng router-id Loopback0
+  mpls traffic-eng multicast-intact
+  spf-interval maximum-wait 5000 initial-wait 50 secondary-wait 200
+  segment-routing mpls sr-prefer
+ !
+ interface Bundle-Ether16
+  circuit-type level-2-only
+  bfd minimum-interval 50
+  bfd multiplier 3
+  bfd fast-detect ipv4
+  point-to-point
+  hello-padding disable
+  hello-password keychain bharti
+  address-family ipv4 unicast
+   fast-reroute per-prefix
+   fast-reroute per-prefix ti-lfa
+  !
+ !
+ interface Bundle-Ether102.4
+  circuit-type level-2-only
+  point-to-point
+  hello-padding disable
+  address-family ipv4 unicast
+   fast-reroute per-prefix
+   fast-reroute per-prefix ti-lfa
+   metric 1000
+  !
+ !
+ interface Loopback2
+  passive
+  address-family ipv4 unicast
+   tag 3011
+   prefix-sid index 140
+  !
+ !
+ interface HundredGigE0/2/0/14
+  circuit-type level-2-only
+  bfd minimum-interval 50
+  bfd multiplier 3
+  bfd fast-detect ipv4
+  point-to-point
+  hello-padding disable
+  address-family ipv4 unicast
+   fast-reroute per-prefix
+   fast-reroute per-prefix ti-lfa
+   metric 10
+  !
+ !
+!
+router isis IGP
+ set-overload-bit on-startup wait-for-bgp
+ is-type level-2-only
+ net 49.0001.0100.1001.4001.00
+ distribute link-state instance-id 35
+ nsf cisco
+ log adjacency changes
+ lsp-gen-interval maximum-wait 5000 initial-wait 50 secondary-wait 200
+ lsp-refresh-interval 65000
+ lsp-refresh-interval 32767 level 2
+ lsp-password keychain bharti
+ address-family ipv4 unicast
+  metric-style wide
+  mpls traffic-eng level-2-only
+  mpls traffic-eng router-id Loopback0
+  mpls traffic-eng multicast-intact
+  spf-interval maximum-wait 5000 initial-wait 50 secondary-wait 200
+  segment-routing mpls
+ !
+ interface Bundle-Ether102.2
+  circuit-type level-2-only
+  bfd minimum-interval 50
+  bfd multiplier 3
+  bfd fast-detect ipv4
+  point-to-point
+  hello-padding disable
+  hello-password keychain bharti
+  address-family ipv4 unicast
+   fast-reroute per-prefix
+   fast-reroute per-prefix remote-lfa tunnel mpls-ldp
+   metric 1
+   mpls ldp sync
+  !
+ !
+ interface Loopback0
+  passive
+  address-family ipv4 unicast
+   tag 3001
+   prefix-sid index 14
+  !
+ !
+ interface HundredGigE0/2/0/6
+  circuit-type level-2-only
+  bfd minimum-interval 50
+  bfd multiplier 3
+  bfd fast-detect ipv4
+  point-to-point
+  hello-padding disable
+  address-family ipv4 unicast
+   fast-reroute per-prefix
+   fast-reroute per-prefix remote-lfa tunnel mpls-ldp
+   metric 9
+   mpls ldp sync
+  !
+ !
+ interface HundredGigE0/3/1/1
+  circuit-type level-2-only
+  bfd minimum-interval 50
+  bfd multiplier 3
+  bfd fast-detect ipv4
+  point-to-point
+  hello-padding disable
+  address-family ipv4 unicast
+   fast-reroute per-prefix
+   fast-reroute per-prefix remote-lfa tunnel mpls-ldp
+   mpls ldp sync
+  !
+ !
+!
+router isis IGp
+!
+router isis Access1
+ set-overload-bit on-startup 360
+ is-type level-2-only
+ net 49.0001.0104.0104.0104.00
+ nsr
+ nsf cisco
+ log adjacency changes
+ lsp-gen-interval maximum-wait 5000 initial-wait 50 secondary-wait 200
+ lsp-refresh-interval 65000
+ max-lsp-lifetime 65535
+ lsp-password keychain bharti
+ address-family ipv4 unicast
+  metric-style wide
+  mpls traffic-eng level-2-only
+  mpls traffic-eng router-id Loopback150
+  mpls traffic-eng multicast-intact
+  spf-interval maximum-wait 5000 initial-wait 50 secondary-wait 200
+  redistribute connected route-policy Core-AGG-Loopbacks-Redis-11
+  spf prefix-priority critical tag 10000
+  spf prefix-priority high tag 50000
+ !
+ address-family ipv6 unicast
+  metric-style wide
+  microloop avoidance
+  spf-interval maximum-wait 5000 initial-wait 50 secondary-wait 200
+  spf prefix-priority critical tag 10000
+  spf prefix-priority high tag 50000
+ !
+ interface Bundle-Ether102.6
+  circuit-type level-2-only
+  bfd minimum-interval 50
+  bfd multiplier 3
+  bfd fast-detect ipv4
+  point-to-point
+  hello-padding disable
+  address-family ipv4 unicast
+   fast-reroute per-prefix
+   fast-reroute per-prefix remote-lfa tunnel mpls-ldp level 2
+   mpls ldp sync
+  !
+  address-family ipv6 unicast
+   fast-reroute per-prefix
+   fast-reroute per-prefix remote-lfa tunnel mpls-ldp level 2
+  !
+ !
+ interface Loopback150
+  passive
+  address-family ipv4 unicast
+   tag 10000
+  !
+  address-family ipv6 unicast
+   tag 10000
+  !
+ !
+ interface HundredGigE0/2/0/4
+  circuit-type level-2-only
+  bfd minimum-interval 50
+  bfd multiplier 3
+  bfd fast-detect ipv4
+  point-to-point
+  hello-padding disable
+  hello-password keychain bharti
+  address-family ipv4 unicast
+   fast-reroute per-prefix
+   fast-reroute per-prefix remote-lfa tunnel mpls-ldp level 2
+   mpls ldp sync
+  !
+  address-family ipv6 unicast
+   fast-reroute per-prefix
+   fast-reroute per-prefix remote-lfa tunnel mpls-ldp level 2
+  !
+ !
+!
+router bgp 9730
+ nsr
+ mvpn
+ bgp router-id 10.10.14.1
+ bgp graceful-restart restart-time 120
+ bgp graceful-restart graceful-reset
+ bgp graceful-restart stalepath-time 360
+ bgp graceful-restart
+ bgp log neighbor changes detail
+ ibgp policy out enforce-modifications
+ address-family ipv4 unicast
+  additional-paths receive
+  additional-paths send
+  maximum-paths ibgp 2
+  segment-routing prefix-sid-map
+  additional-paths selection route-policy add-path-to-ibgp
+  nexthop resolution prefix-length minimum 32
+  nexthop trigger-delay critical 0
+  nexthop trigger-delay non-critical 0
+  network 10.10.14.1/32 route-policy commuitypass
+  network 10.10.140.1/32 route-policy SID10037140
+  network 104.104.104.104/32
+  allocate-label all
+ !
+ address-family vpnv4 unicast
+  additional-paths receive
+  additional-paths send
+  nexthop trigger-delay critical 0
+  nexthop trigger-delay non-critical 0
+ !
+ address-family ipv6 unicast
+  bgp dampening 5
+ !
+ address-family vpnv6 unicast
+  additional-paths receive
+  additional-paths send
+ !
+ address-family ipv4 mdt
+ !
+ address-family l2vpn vpls-vpws
+ !
+ address-family ipv4 rt-filter
+ !
+ address-family ipv4 mvpn
+ !
+ address-family l2vpn evpn
+  additional-paths receive
+  additional-paths send
+  nexthop trigger-delay critical 1
+  nexthop trigger-delay non-critical 1
+ !
+ address-family link-state link-state
+ !
+ session-group Access1
+  remote-as 9730
+  cluster-id 1
+  update-source Loopback150
+  graceful-restart
+ !
+ neighbor-group RR
+  remote-as 9730
+  description *** Regional RR ***
+  update-source Loopback0
+  address-family ipv4 unicast
+  !
+  address-family ipv4 labeled-unicast
+   route-policy DROP-CONNECTED-LOOPBACK out
+   next-hop-self
+  !
+  address-family vpnv4 unicast
+  !
+  address-family ipv6 unicast
+  !
+  address-family vpnv6 unicast
+   route-policy Default-Drop-v6 out
+  !
+  address-family ipv4 mdt
+  !
+  address-family l2vpn vpls-vpws
+  !
+  address-family ipv4 mvpn
+  !
+  address-family l2vpn evpn
+  !
+ !
+ neighbor-group T4-CRR
+  remote-as 9730
+  description *** Inline RR ***
+  update-source Loopback2
+  address-family ipv4 labeled-unicast
+   route-policy WEIGHT in
+   route-reflector-client
+   next-hop-self
+  !
+  address-family vpnv4 unicast
+   route-reflector-client
+  !
+  address-family vpnv6 unicast
+   route-reflector-client
+  !
+  address-family ipv4 mdt
+   route-reflector-client
+  !
+  address-family ipv4 rt-filter
+   route-reflector-client
+  !
+  address-family ipv4 mvpn
+   route-reflector-client
+  !
+  address-family l2vpn evpn
+   route-reflector-client
+  !
+ !
+ neighbor-group Access1
+  use session-group Access1
+  address-family ipv4 labeled-unicast
+   route-reflector-client
+   route-policy prevent_nhs_change_access1 out
+  !
+  address-family vpnv4 unicast
+   route-reflector-client
+  !
+  address-family vpnv6 unicast
+   route-reflector-client
+  !
+  address-family ipv4 mdt
+   route-reflector-client
+  !
+  address-family l2vpn vpls-vpws
+   route-reflector-client
+  !
+  address-family ipv4 rt-filter
+   route-reflector-client
+   default-originate
+  !
+  address-family l2vpn evpn
+   route-reflector-client
+  !
+ !
+ neighbor 10.10.15.1
+  use neighbor-group RR
+  bfd fast-detect
+  bfd multiplier 3
+  bfd minimum-interval 100
+  address-family ipv4 labeled-unicast
+  !
+ !
+ neighbor 10.10.17.1
+  use neighbor-group T4-CRR
+  bfd fast-detect
+  bfd multiplier 3
+  bfd minimum-interval 100
+  address-family ipv4 labeled-unicast
+   route-policy Block-T5-Prefixes out
+  !
+ !
+ neighbor 10.10.18.1
+  use neighbor-group T4-CRR
+  bfd fast-detect
+  bfd multiplier 3
+  bfd minimum-interval 100
+  address-family ipv4 labeled-unicast
+   route-policy Block-T5-Prefixes out
+  !
+ !
+ neighbor 30.33.30.33
+  use neighbor-group RR
+  bfd fast-detect
+  bfd multiplier 3
+  bfd minimum-interval 100
+  address-family ipv4 labeled-unicast
+  !
+  address-family vpnv4 unicast
+  !
+ !
+ neighbor 37.37.37.37
+  use neighbor-group T4-CRR
+  bfd fast-detect
+  bfd multiplier 3
+  bfd minimum-interval 100
+  address-family ipv4 labeled-unicast
+   route-policy Block-T5-Prefixes out
+  !
+ !
+ neighbor 38.38.38.38
+  use neighbor-group T4-CRR
+  bfd fast-detect
+  bfd multiplier 3
+  bfd minimum-interval 100
+  address-family ipv4 labeled-unicast
+   route-policy Block-T5-Prefixes out
+  !
+ !
+ neighbor 116.119.10.1
+  use neighbor-group T4-CRR
+  bfd fast-detect
+  bfd multiplier 3
+  bfd minimum-interval 100
+  address-family ipv4 labeled-unicast
+   route-policy Block-T5-Prefixes out
+  !
+ !
+ neighbor 202.123.10.230
+  use neighbor-group T4-CRR
+  bfd fast-detect
+  bfd multiplier 3
+  bfd minimum-interval 100
+  address-family ipv4 labeled-unicast
+  !
+  address-family ipv6 labeled-unicast
+  !
+ !
+ neighbor 102.102.102.102
+  use neighbor-group Access1
+  bfd fast-detect
+  bfd multiplier 3
+  bfd minimum-interval 50
+  password encrypted 094F471A1A0A
+  address-family ipv4 labeled-unicast
+  !
+ !
+ neighbor 103.103.103.103
+  use neighbor-group Access1
+  bfd fast-detect
+  bfd multiplier 3
+  bfd minimum-interval 50
+  address-family ipv4 labeled-unicast
+  !
+ !
+ neighbor 150.150.150.150
+  use neighbor-group T4-CRR
+  bfd fast-detect
+  bfd multiplier 3
+  bfd minimum-interval 50
+  password encrypted 02040C5A191206
+  address-family ipv4 labeled-unicast
+   route-policy Block-T5-Prefixes out
+  !
+ !
+ neighbor 202.202.202.202
+  use neighbor-group Access1
+  bfd fast-detect
+  bfd multiplier 3
+  bfd minimum-interval 50
+  address-family ipv4 labeled-unicast
+  !
+ !
+ neighbor 203.203.203.203
+  use neighbor-group Access1
+  bfd fast-detect
+  bfd multiplier 3
+  bfd minimum-interval 50
+  address-family ipv4 labeled-unicast
+  !
+ !
+ vrf RTU-Test
+  rd auto
+  address-family ipv4 unicast
+   redistribute connected
+  !
+ !
+!
+l2vpn
+ tcn-propagation
+ logging
+  bridge-domain
+  pseudowire
+ !
+ pw-class mpls
+  encapsulation mpls
+  !
+ !
+ xconnect group 2181
+  p2p 2181
+   interface HundredGigE0/2/0/0
+   neighbor ipv4 192.168.20.10 pw-id 2181
+    pw-class mpls
+   !
+  !
+ !
+ xconnect group RTU-Test
+  p2p RTU-Test
+   neighbor ipv4 10.10.18.1 pw-id 1111
+    pw-class mpls
+   !
+  !
+ !
+ xconnect group CEN-12345
+  p2p 72321
+   neighbor ipv4 30.33.30.33 pw-id 72321
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72321
+   !
+  !
+  p2p 72322
+   neighbor ipv4 30.33.30.33 pw-id 72322
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72322
+   !
+  !
+  p2p 72323
+   neighbor ipv4 30.33.30.33 pw-id 72323
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72323
+   !
+  !
+  p2p 72324
+   neighbor ipv4 30.33.30.33 pw-id 72324
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72324
+   !
+  !
+  p2p 72325
+   neighbor ipv4 30.33.30.33 pw-id 72325
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72325
+   !
+  !
+  p2p 72326
+   neighbor ipv4 30.33.30.33 pw-id 72326
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72326
+   !
+  !
+  p2p 72327
+   neighbor ipv4 30.33.30.33 pw-id 72327
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72327
+   !
+  !
+  p2p 72328
+   neighbor ipv4 30.33.30.33 pw-id 72328
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72328
+   !
+  !
+  p2p 72329
+   neighbor ipv4 30.33.30.33 pw-id 72329
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72329
+   !
+  !
+  p2p 72330
+   neighbor ipv4 30.33.30.33 pw-id 72330
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72330
+   !
+  !
+  p2p 72331
+   neighbor ipv4 30.33.30.33 pw-id 72331
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72331
+   !
+  !
+  p2p 72332
+   neighbor ipv4 30.33.30.33 pw-id 72332
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72332
+   !
+  !
+  p2p 72333
+   neighbor ipv4 30.33.30.33 pw-id 72333
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72333
+   !
+  !
+  p2p 72334
+   neighbor ipv4 30.33.30.33 pw-id 72334
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72334
+   !
+  !
+  p2p 72335
+   neighbor ipv4 30.33.30.33 pw-id 72335
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72335
+   !
+  !
+  p2p 72336
+   neighbor ipv4 30.33.30.33 pw-id 72336
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72336
+   !
+  !
+  p2p 72337
+   neighbor ipv4 30.33.30.33 pw-id 72337
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72337
+   !
+  !
+  p2p 72338
+   neighbor ipv4 30.33.30.33 pw-id 72338
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72338
+   !
+  !
+  p2p 72339
+   neighbor ipv4 30.33.30.33 pw-id 72339
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72339
+   !
+  !
+  p2p 72340
+   neighbor ipv4 30.33.30.33 pw-id 72340
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72340
+   !
+  !
+  p2p 72341
+   neighbor ipv4 30.33.30.33 pw-id 72341
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72341
+   !
+  !
+  p2p 72342
+   neighbor ipv4 30.33.30.33 pw-id 72342
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72342
+   !
+  !
+  p2p 72343
+   neighbor ipv4 30.33.30.33 pw-id 72343
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72343
+   !
+  !
+  p2p 72344
+   neighbor ipv4 30.33.30.33 pw-id 72344
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72344
+   !
+  !
+  p2p 72345
+   neighbor ipv4 30.33.30.33 pw-id 72345
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72345
+   !
+  !
+  p2p 72346
+   neighbor ipv4 30.33.30.33 pw-id 72346
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72346
+   !
+  !
+  p2p 72347
+   neighbor ipv4 30.33.30.33 pw-id 72347
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72347
+   !
+  !
+  p2p 72348
+   neighbor ipv4 30.33.30.33 pw-id 72348
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72348
+   !
+  !
+  p2p 72349
+   neighbor ipv4 30.33.30.33 pw-id 72349
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72349
+   !
+  !
+  p2p 72350
+   neighbor ipv4 30.33.30.33 pw-id 72350
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72350
+   !
+  !
+  p2p 72351
+   neighbor ipv4 30.33.30.33 pw-id 72351
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72351
+   !
+  !
+  p2p 72352
+   neighbor ipv4 30.33.30.33 pw-id 72352
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72352
+   !
+  !
+  p2p 72353
+   neighbor ipv4 30.33.30.33 pw-id 72353
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72353
+   !
+  !
+  p2p 72354
+   neighbor ipv4 30.33.30.33 pw-id 72354
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72354
+   !
+  !
+  p2p 72355
+   neighbor ipv4 30.33.30.33 pw-id 72355
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72355
+   !
+  !
+  p2p 72356
+   neighbor ipv4 30.33.30.33 pw-id 72356
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72356
+   !
+  !
+  p2p 72357
+   neighbor ipv4 30.33.30.33 pw-id 72357
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72357
+   !
+  !
+  p2p 72358
+   neighbor ipv4 30.33.30.33 pw-id 72358
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72358
+   !
+  !
+  p2p 72359
+   neighbor ipv4 30.33.30.33 pw-id 72359
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72359
+   !
+  !
+  p2p 72360
+   neighbor ipv4 30.33.30.33 pw-id 72360
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72360
+   !
+  !
+  p2p 72361
+   neighbor ipv4 30.33.30.33 pw-id 72361
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72361
+   !
+  !
+  p2p 72362
+   neighbor ipv4 30.33.30.33 pw-id 72362
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72362
+   !
+  !
+  p2p 72363
+   neighbor ipv4 30.33.30.33 pw-id 72363
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72363
+   !
+  !
+  p2p 72364
+   neighbor ipv4 30.33.30.33 pw-id 72364
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72364
+   !
+  !
+  p2p 72365
+   neighbor ipv4 30.33.30.33 pw-id 72365
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72365
+   !
+  !
+  p2p 72366
+   neighbor ipv4 30.33.30.33 pw-id 72366
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72366
+   !
+  !
+  p2p 72367
+   neighbor ipv4 30.33.30.33 pw-id 72367
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72367
+   !
+  !
+  p2p 72368
+   neighbor ipv4 30.33.30.33 pw-id 72368
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72368
+   !
+  !
+  p2p 72369
+   neighbor ipv4 30.33.30.33 pw-id 72369
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72369
+   !
+  !
+  p2p 72370
+   neighbor ipv4 30.33.30.33 pw-id 72370
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72370
+   !
+  !
+  p2p 72371
+   neighbor ipv4 30.33.30.33 pw-id 72371
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72371
+   !
+  !
+  p2p 72372
+   neighbor ipv4 30.33.30.33 pw-id 72372
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72372
+   !
+  !
+  p2p 72373
+   neighbor ipv4 30.33.30.33 pw-id 72373
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72373
+   !
+  !
+  p2p 72374
+   neighbor ipv4 30.33.30.33 pw-id 72374
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72374
+   !
+  !
+  p2p 72375
+   neighbor ipv4 30.33.30.33 pw-id 72375
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72375
+   !
+  !
+  p2p 72376
+   neighbor ipv4 30.33.30.33 pw-id 72376
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72376
+   !
+  !
+  p2p 72377
+   neighbor ipv4 30.33.30.33 pw-id 72377
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72377
+   !
+  !
+  p2p 72378
+   neighbor ipv4 30.33.30.33 pw-id 72378
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72378
+   !
+  !
+  p2p 72379
+   neighbor ipv4 30.33.30.33 pw-id 72379
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72379
+   !
+  !
+  p2p 72380
+   neighbor ipv4 30.33.30.33 pw-id 72380
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72380
+   !
+  !
+  p2p 72381
+   neighbor ipv4 30.33.30.33 pw-id 72381
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72381
+   !
+  !
+  p2p 72382
+   neighbor ipv4 30.33.30.33 pw-id 72382
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72382
+   !
+  !
+  p2p 72383
+   neighbor ipv4 30.33.30.33 pw-id 72383
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72383
+   !
+  !
+  p2p 72384
+   neighbor ipv4 30.33.30.33 pw-id 72384
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72384
+   !
+  !
+  p2p 72385
+   neighbor ipv4 30.33.30.33 pw-id 72385
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72385
+   !
+  !
+  p2p 72386
+   neighbor ipv4 30.33.30.33 pw-id 72386
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72386
+   !
+  !
+  p2p 72387
+   neighbor ipv4 30.33.30.33 pw-id 72387
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72387
+   !
+  !
+  p2p 72388
+   neighbor ipv4 30.33.30.33 pw-id 72388
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72388
+   !
+  !
+  p2p 72389
+   neighbor ipv4 30.33.30.33 pw-id 72389
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72389
+   !
+  !
+  p2p 72390
+   neighbor ipv4 30.33.30.33 pw-id 72390
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72390
+   !
+  !
+  p2p 72391
+   neighbor ipv4 30.33.30.33 pw-id 72391
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72391
+   !
+  !
+  p2p 72392
+   neighbor ipv4 30.33.30.33 pw-id 72392
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72392
+   !
+  !
+  p2p 72393
+   neighbor ipv4 30.33.30.33 pw-id 72393
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72393
+   !
+  !
+  p2p 72394
+   neighbor ipv4 30.33.30.33 pw-id 72394
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72394
+   !
+  !
+  p2p 72395
+   neighbor ipv4 30.33.30.33 pw-id 72395
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72395
+   !
+  !
+  p2p 72396
+   neighbor ipv4 30.33.30.33 pw-id 72396
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72396
+   !
+  !
+  p2p 72397
+   neighbor ipv4 30.33.30.33 pw-id 72397
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72397
+   !
+  !
+  p2p 72398
+   neighbor ipv4 30.33.30.33 pw-id 72398
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72398
+   !
+  !
+  p2p 72399
+   neighbor ipv4 30.33.30.33 pw-id 72399
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72399
+   !
+  !
+  p2p 72400
+   neighbor ipv4 30.33.30.33 pw-id 72400
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72400
+   !
+  !
+  p2p 72401
+   neighbor ipv4 30.33.30.33 pw-id 72401
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72401
+   !
+  !
+  p2p 72402
+   neighbor ipv4 30.33.30.33 pw-id 72402
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72402
+   !
+  !
+  p2p 72403
+   neighbor ipv4 30.33.30.33 pw-id 72403
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72403
+   !
+  !
+  p2p 72404
+   neighbor ipv4 30.33.30.33 pw-id 72404
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72404
+   !
+  !
+  p2p 72405
+   neighbor ipv4 30.33.30.33 pw-id 72405
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72405
+   !
+  !
+  p2p 72406
+   neighbor ipv4 30.33.30.33 pw-id 72406
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72406
+   !
+  !
+  p2p 72407
+   neighbor ipv4 30.33.30.33 pw-id 72407
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72407
+   !
+  !
+  p2p 72408
+   neighbor ipv4 30.33.30.33 pw-id 72408
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72408
+   !
+  !
+  p2p 72409
+   neighbor ipv4 30.33.30.33 pw-id 72409
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72409
+   !
+  !
+  p2p 72410
+   neighbor ipv4 30.33.30.33 pw-id 72410
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72410
+   !
+  !
+  p2p 72411
+   neighbor ipv4 30.33.30.33 pw-id 72411
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72411
+   !
+  !
+  p2p 72412
+   neighbor ipv4 30.33.30.33 pw-id 72412
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72412
+   !
+  !
+  p2p 72413
+   neighbor ipv4 30.33.30.33 pw-id 72413
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72413
+   !
+  !
+  p2p 72414
+   neighbor ipv4 30.33.30.33 pw-id 72414
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72414
+   !
+  !
+  p2p 72415
+   neighbor ipv4 30.33.30.33 pw-id 72415
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72415
+   !
+  !
+  p2p 72416
+   neighbor ipv4 30.33.30.33 pw-id 72416
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72416
+   !
+  !
+  p2p 72417
+   neighbor ipv4 30.33.30.33 pw-id 72417
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72417
+   !
+  !
+  p2p 72418
+   neighbor ipv4 30.33.30.33 pw-id 72418
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72418
+   !
+  !
+  p2p 72419
+   neighbor ipv4 30.33.30.33 pw-id 72419
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72419
+   !
+  !
+  p2p 72420
+   neighbor ipv4 30.33.30.33 pw-id 72420
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72420
+   !
+  !
+  p2p 72421
+   neighbor ipv4 30.33.30.33 pw-id 72421
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72421
+   !
+  !
+  p2p 72422
+   neighbor ipv4 30.33.30.33 pw-id 72422
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72422
+   !
+  !
+  p2p 72423
+   neighbor ipv4 30.33.30.33 pw-id 72423
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72423
+   !
+  !
+  p2p 72424
+   neighbor ipv4 30.33.30.33 pw-id 72424
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72424
+   !
+  !
+  p2p 72425
+   neighbor ipv4 30.33.30.33 pw-id 72425
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72425
+   !
+  !
+  p2p 72426
+   neighbor ipv4 30.33.30.33 pw-id 72426
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72426
+   !
+  !
+  p2p 72427
+   neighbor ipv4 30.33.30.33 pw-id 72427
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72427
+   !
+  !
+  p2p 72428
+   neighbor ipv4 30.33.30.33 pw-id 72428
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72428
+   !
+  !
+  p2p 72429
+   neighbor ipv4 30.33.30.33 pw-id 72429
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72429
+   !
+  !
+  p2p 72430
+   neighbor ipv4 30.33.30.33 pw-id 72430
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72430
+   !
+  !
+  p2p 72431
+   neighbor ipv4 30.33.30.33 pw-id 72431
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72431
+   !
+  !
+  p2p 72432
+   neighbor ipv4 30.33.30.33 pw-id 72432
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72432
+   !
+  !
+  p2p 72433
+   neighbor ipv4 30.33.30.33 pw-id 72433
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72433
+   !
+  !
+  p2p 72434
+   neighbor ipv4 30.33.30.33 pw-id 72434
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72434
+   !
+  !
+  p2p 72435
+   neighbor ipv4 30.33.30.33 pw-id 72435
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72435
+   !
+  !
+  p2p 72436
+   neighbor ipv4 30.33.30.33 pw-id 72436
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72436
+   !
+  !
+  p2p 72437
+   neighbor ipv4 30.33.30.33 pw-id 72437
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72437
+   !
+  !
+  p2p 72438
+   neighbor ipv4 30.33.30.33 pw-id 72438
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72438
+   !
+  !
+  p2p 72439
+   neighbor ipv4 30.33.30.33 pw-id 72439
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72439
+   !
+  !
+  p2p 72440
+   neighbor ipv4 30.33.30.33 pw-id 72440
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72440
+   !
+  !
+  p2p 72441
+   neighbor ipv4 30.33.30.33 pw-id 72441
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72441
+   !
+  !
+  p2p 72442
+   neighbor ipv4 30.33.30.33 pw-id 72442
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72442
+   !
+  !
+  p2p 72443
+   neighbor ipv4 30.33.30.33 pw-id 72443
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72443
+   !
+  !
+  p2p 72444
+   neighbor ipv4 30.33.30.33 pw-id 72444
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72444
+   !
+  !
+  p2p 72445
+   neighbor ipv4 30.33.30.33 pw-id 72445
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72445
+   !
+  !
+  p2p 72446
+   neighbor ipv4 30.33.30.33 pw-id 72446
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72446
+   !
+  !
+  p2p 72447
+   neighbor ipv4 30.33.30.33 pw-id 72447
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72447
+   !
+  !
+  p2p 72448
+   neighbor ipv4 30.33.30.33 pw-id 72448
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72448
+   !
+  !
+  p2p 72449
+   neighbor ipv4 30.33.30.33 pw-id 72449
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72449
+   !
+  !
+  p2p 72450
+   neighbor ipv4 30.33.30.33 pw-id 72450
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72450
+   !
+  !
+  p2p 72451
+   neighbor ipv4 30.33.30.33 pw-id 72451
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72451
+   !
+  !
+  p2p 72452
+   neighbor ipv4 30.33.30.33 pw-id 72452
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72452
+   !
+  !
+  p2p 72453
+   neighbor ipv4 30.33.30.33 pw-id 72453
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72453
+   !
+  !
+  p2p 72454
+   neighbor ipv4 30.33.30.33 pw-id 72454
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72454
+   !
+  !
+  p2p 72455
+   neighbor ipv4 30.33.30.33 pw-id 72455
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72455
+   !
+  !
+  p2p 72456
+   neighbor ipv4 30.33.30.33 pw-id 72456
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72456
+   !
+  !
+  p2p 72457
+   neighbor ipv4 30.33.30.33 pw-id 72457
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72457
+   !
+  !
+  p2p 72458
+   neighbor ipv4 30.33.30.33 pw-id 72458
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72458
+   !
+  !
+  p2p 72459
+   neighbor ipv4 30.33.30.33 pw-id 72459
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72459
+   !
+  !
+  p2p 72460
+   neighbor ipv4 30.33.30.33 pw-id 72460
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72460
+   !
+  !
+  p2p 72461
+   neighbor ipv4 30.33.30.33 pw-id 72461
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72461
+   !
+  !
+  p2p 72462
+   neighbor ipv4 30.33.30.33 pw-id 72462
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72462
+   !
+  !
+  p2p 72463
+   neighbor ipv4 30.33.30.33 pw-id 72463
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72463
+   !
+  !
+  p2p 72464
+   neighbor ipv4 30.33.30.33 pw-id 72464
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72464
+   !
+  !
+  p2p 72465
+   neighbor ipv4 30.33.30.33 pw-id 72465
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72465
+   !
+  !
+  p2p 72466
+   neighbor ipv4 30.33.30.33 pw-id 72466
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72466
+   !
+  !
+  p2p 72467
+   neighbor ipv4 30.33.30.33 pw-id 72467
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72467
+   !
+  !
+  p2p 72468
+   neighbor ipv4 30.33.30.33 pw-id 72468
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72468
+   !
+  !
+  p2p 72469
+   neighbor ipv4 30.33.30.33 pw-id 72469
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72469
+   !
+  !
+  p2p 72470
+   neighbor ipv4 30.33.30.33 pw-id 72470
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72470
+   !
+  !
+  p2p 72471
+   neighbor ipv4 30.33.30.33 pw-id 72471
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72471
+   !
+  !
+  p2p 72472
+   neighbor ipv4 30.33.30.33 pw-id 72472
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72472
+   !
+  !
+  p2p 72473
+   neighbor ipv4 30.33.30.33 pw-id 72473
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72473
+   !
+  !
+  p2p 72474
+   neighbor ipv4 30.33.30.33 pw-id 72474
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72474
+   !
+  !
+  p2p 72475
+   neighbor ipv4 30.33.30.33 pw-id 72475
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72475
+   !
+  !
+  p2p 72476
+   neighbor ipv4 30.33.30.33 pw-id 72476
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72476
+   !
+  !
+  p2p 72477
+   neighbor ipv4 30.33.30.33 pw-id 72477
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72477
+   !
+  !
+  p2p 72478
+   neighbor ipv4 30.33.30.33 pw-id 72478
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72478
+   !
+  !
+  p2p 72479
+   neighbor ipv4 30.33.30.33 pw-id 72479
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72479
+   !
+  !
+  p2p 72480
+   neighbor ipv4 30.33.30.33 pw-id 72480
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72480
+   !
+  !
+  p2p 72481
+   neighbor ipv4 30.33.30.33 pw-id 72481
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72481
+   !
+  !
+  p2p 72482
+   neighbor ipv4 30.33.30.33 pw-id 72482
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72482
+   !
+  !
+  p2p 72483
+   neighbor ipv4 30.33.30.33 pw-id 72483
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72483
+   !
+  !
+  p2p 72484
+   neighbor ipv4 30.33.30.33 pw-id 72484
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72484
+   !
+  !
+  p2p 72485
+   neighbor ipv4 30.33.30.33 pw-id 72485
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72485
+   !
+  !
+  p2p 72486
+   neighbor ipv4 30.33.30.33 pw-id 72486
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72486
+   !
+  !
+  p2p 72487
+   neighbor ipv4 30.33.30.33 pw-id 72487
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72487
+   !
+  !
+  p2p 72488
+   neighbor ipv4 30.33.30.33 pw-id 72488
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72488
+   !
+  !
+  p2p 72489
+   neighbor ipv4 30.33.30.33 pw-id 72489
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72489
+   !
+  !
+  p2p 72490
+   neighbor ipv4 30.33.30.33 pw-id 72490
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72490
+   !
+  !
+  p2p 72491
+   neighbor ipv4 30.33.30.33 pw-id 72491
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72491
+   !
+  !
+  p2p 72492
+   neighbor ipv4 30.33.30.33 pw-id 72492
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72492
+   !
+  !
+  p2p 72493
+   neighbor ipv4 30.33.30.33 pw-id 72493
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72493
+   !
+  !
+  p2p 72494
+   neighbor ipv4 30.33.30.33 pw-id 72494
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72494
+   !
+  !
+  p2p 72495
+   neighbor ipv4 30.33.30.33 pw-id 72495
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72495
+   !
+  !
+  p2p 72496
+   neighbor ipv4 30.33.30.33 pw-id 72496
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72496
+   !
+  !
+  p2p 72497
+   neighbor ipv4 30.33.30.33 pw-id 72497
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72497
+   !
+  !
+  p2p 72498
+   neighbor ipv4 30.33.30.33 pw-id 72498
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72498
+   !
+  !
+  p2p 72499
+   neighbor ipv4 30.33.30.33 pw-id 72499
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72499
+   !
+  !
+  p2p 72500
+   neighbor ipv4 30.33.30.33 pw-id 72500
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72500
+   !
+  !
+  p2p 72501
+   neighbor ipv4 30.33.30.33 pw-id 72501
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72501
+   !
+  !
+  p2p 72502
+   neighbor ipv4 30.33.30.33 pw-id 72502
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72502
+   !
+  !
+  p2p 72503
+   neighbor ipv4 30.33.30.33 pw-id 72503
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72503
+   !
+  !
+  p2p 72504
+   neighbor ipv4 30.33.30.33 pw-id 72504
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72504
+   !
+  !
+  p2p 72505
+   neighbor ipv4 30.33.30.33 pw-id 72505
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72505
+   !
+  !
+  p2p 72506
+   neighbor ipv4 30.33.30.33 pw-id 72506
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72506
+   !
+  !
+  p2p 72507
+   neighbor ipv4 30.33.30.33 pw-id 72507
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72507
+   !
+  !
+  p2p 72508
+   neighbor ipv4 30.33.30.33 pw-id 72508
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72508
+   !
+  !
+  p2p 72509
+   neighbor ipv4 30.33.30.33 pw-id 72509
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72509
+   !
+  !
+  p2p 72510
+   neighbor ipv4 30.33.30.33 pw-id 72510
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72510
+   !
+  !
+  p2p 72511
+   neighbor ipv4 30.33.30.33 pw-id 72511
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72511
+   !
+  !
+  p2p 72512
+   neighbor ipv4 30.33.30.33 pw-id 72512
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72512
+   !
+  !
+  p2p 72513
+   neighbor ipv4 30.33.30.33 pw-id 72513
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72513
+   !
+  !
+  p2p 72514
+   neighbor ipv4 30.33.30.33 pw-id 72514
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72514
+   !
+  !
+  p2p 72515
+   neighbor ipv4 30.33.30.33 pw-id 72515
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72515
+   !
+  !
+  p2p 72516
+   neighbor ipv4 30.33.30.33 pw-id 72516
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72516
+   !
+  !
+  p2p 72517
+   neighbor ipv4 30.33.30.33 pw-id 72517
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72517
+   !
+  !
+  p2p 72518
+   neighbor ipv4 30.33.30.33 pw-id 72518
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72518
+   !
+  !
+  p2p 72519
+   neighbor ipv4 30.33.30.33 pw-id 72519
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72519
+   !
+  !
+  p2p 72520
+   neighbor ipv4 30.33.30.33 pw-id 72520
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72520
+   !
+  !
+  p2p 72521
+   neighbor ipv4 30.33.30.33 pw-id 72521
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72521
+   !
+  !
+  p2p 72522
+   neighbor ipv4 30.33.30.33 pw-id 72522
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72522
+   !
+  !
+  p2p 72523
+   neighbor ipv4 30.33.30.33 pw-id 72523
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72523
+   !
+  !
+  p2p 72524
+   neighbor ipv4 30.33.30.33 pw-id 72524
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72524
+   !
+  !
+  p2p 72525
+   neighbor ipv4 30.33.30.33 pw-id 72525
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72525
+   !
+  !
+  p2p 72526
+   neighbor ipv4 30.33.30.33 pw-id 72526
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72526
+   !
+  !
+  p2p 72527
+   neighbor ipv4 30.33.30.33 pw-id 72527
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72527
+   !
+  !
+  p2p 72528
+   neighbor ipv4 30.33.30.33 pw-id 72528
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72528
+   !
+  !
+  p2p 72529
+   neighbor ipv4 30.33.30.33 pw-id 72529
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72529
+   !
+  !
+  p2p 72530
+   neighbor ipv4 30.33.30.33 pw-id 72530
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72530
+   !
+  !
+  p2p 72531
+   neighbor ipv4 30.33.30.33 pw-id 72531
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72531
+   !
+  !
+  p2p 72532
+   neighbor ipv4 30.33.30.33 pw-id 72532
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72532
+   !
+  !
+  p2p 72533
+   neighbor ipv4 30.33.30.33 pw-id 72533
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72533
+   !
+  !
+  p2p 72534
+   neighbor ipv4 30.33.30.33 pw-id 72534
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72534
+   !
+  !
+  p2p 72535
+   neighbor ipv4 30.33.30.33 pw-id 72535
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72535
+   !
+  !
+  p2p 72536
+   neighbor ipv4 30.33.30.33 pw-id 72536
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72536
+   !
+  !
+  p2p 72537
+   neighbor ipv4 30.33.30.33 pw-id 72537
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72537
+   !
+  !
+  p2p 72538
+   neighbor ipv4 30.33.30.33 pw-id 72538
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72538
+   !
+  !
+  p2p 72539
+   neighbor ipv4 30.33.30.33 pw-id 72539
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72539
+   !
+  !
+  p2p 72540
+   neighbor ipv4 30.33.30.33 pw-id 72540
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72540
+   !
+  !
+  p2p 72541
+   neighbor ipv4 30.33.30.33 pw-id 72541
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72541
+   !
+  !
+  p2p 72542
+   neighbor ipv4 30.33.30.33 pw-id 72542
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72542
+   !
+  !
+  p2p 72543
+   neighbor ipv4 30.33.30.33 pw-id 72543
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72543
+   !
+  !
+  p2p 72544
+   neighbor ipv4 30.33.30.33 pw-id 72544
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72544
+   !
+  !
+  p2p 72545
+   neighbor ipv4 30.33.30.33 pw-id 72545
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72545
+   !
+  !
+  p2p 72546
+   neighbor ipv4 30.33.30.33 pw-id 72546
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72546
+   !
+  !
+  p2p 72547
+   neighbor ipv4 30.33.30.33 pw-id 72547
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72547
+   !
+  !
+  p2p 72548
+   neighbor ipv4 30.33.30.33 pw-id 72548
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72548
+   !
+  !
+  p2p 72549
+   neighbor ipv4 30.33.30.33 pw-id 72549
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72549
+   !
+  !
+  p2p 72550
+   neighbor ipv4 30.33.30.33 pw-id 72550
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72550
+   !
+  !
+  p2p 72551
+   neighbor ipv4 30.33.30.33 pw-id 72551
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72551
+   !
+  !
+  p2p 72552
+   neighbor ipv4 30.33.30.33 pw-id 72552
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72552
+   !
+  !
+  p2p 72553
+   neighbor ipv4 30.33.30.33 pw-id 72553
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72553
+   !
+  !
+  p2p 72554
+   neighbor ipv4 30.33.30.33 pw-id 72554
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72554
+   !
+  !
+  p2p 72555
+   neighbor ipv4 30.33.30.33 pw-id 72555
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72555
+   !
+  !
+  p2p 72556
+   neighbor ipv4 30.33.30.33 pw-id 72556
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72556
+   !
+  !
+  p2p 72557
+   neighbor ipv4 30.33.30.33 pw-id 72557
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72557
+   !
+  !
+  p2p 72558
+   neighbor ipv4 30.33.30.33 pw-id 72558
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72558
+   !
+  !
+  p2p 72559
+   neighbor ipv4 30.33.30.33 pw-id 72559
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72559
+   !
+  !
+  p2p 72560
+   neighbor ipv4 30.33.30.33 pw-id 72560
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72560
+   !
+  !
+  p2p 72561
+   neighbor ipv4 30.33.30.33 pw-id 72561
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72561
+   !
+  !
+  p2p 72562
+   neighbor ipv4 30.33.30.33 pw-id 72562
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72562
+   !
+  !
+  p2p 72563
+   neighbor ipv4 30.33.30.33 pw-id 72563
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72563
+   !
+  !
+  p2p 72564
+   neighbor ipv4 30.33.30.33 pw-id 72564
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72564
+   !
+  !
+  p2p 72565
+   neighbor ipv4 30.33.30.33 pw-id 72565
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72565
+   !
+  !
+  p2p 72566
+   neighbor ipv4 30.33.30.33 pw-id 72566
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72566
+   !
+  !
+  p2p 72567
+   neighbor ipv4 30.33.30.33 pw-id 72567
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72567
+   !
+  !
+  p2p 72568
+   neighbor ipv4 30.33.30.33 pw-id 72568
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72568
+   !
+  !
+  p2p 72569
+   neighbor ipv4 30.33.30.33 pw-id 72569
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72569
+   !
+  !
+  p2p 72570
+   neighbor ipv4 30.33.30.33 pw-id 72570
+   !
+   neighbor ipv4 102.102.102.102 pw-id 72570
+   !
+  !
+ !
+ xconnect group DIAMOND101
+  p2p NLD-tunnel101
+   interface HundredGigE0/2/0/15
+   neighbor ipv4 10.10.13.1 pw-id 400
+    pw-class mpls
+   !
+  !
+ !
+ xconnect group Nokia-L2VPN-1
+  p2p Nokia-L2VPN-1
+   interface HundredGigE0/3/1/1.1234
+   neighbor ipv4 150.150.150.150 pw-id 30001
+   !
+  !
+ !
+ xconnect group Nokia-L2VPN-2
+  p2p Nokia-L2VPN-2
+   interface HundredGigE0/3/1/1.1235
+   neighbor ipv4 38.38.38.38 pw-id 30001
+   !
+  !
+ !
+ bridge group MLDP-TEST1
+  bridge-domain TEST1
+   mtu 9202
+   neighbor 10.10.13.1 pw-id 900
+    pw-class mpls
+   !
+   neighbor 10.10.17.1 pw-id 800
+    pw-class mpls
+   !
+   neighbor 10.10.18.1 pw-id 800
+    pw-class mpls
+   !
+  !
+ !
+!
+mpls oam
+!
+mpls ldp
+ log
+  hello-adjacency
+  neighbor
+  nsr
+  graceful-restart
+  session-protection
+ !
+ igp sync delay on-session-up 20
+ discovery
+  targeted-hello interval 1
+ !
+ mldp
+  logging notifications
+  address-family ipv4
+   make-before-break delay 0 60
+   forwarding recursive
+  !
+ !
+ router-id 10.10.14.1
+ neighbor
+  10.10.15.1:0 password encrypted 01100F175804
+  10.10.18.1:0 password encrypted 13061E010803
+  30.33.30.33:0 password encrypted 060506324F41584B56
+  103.103.103.103:0 password encrypted 104D000A061843595F
+ !
+ session protection
+ address-family ipv4
+  discovery targeted-hello accept
+  label
+   local
+    allocate for host-routes
+   !
+  !
+ !
+ interface Bundle-Ether16
+ !
+ interface Bundle-Ether102.2
+ !
+ interface Bundle-Ether102.4
+ !
+ interface Bundle-Ether102.6
+ !
+ interface Bundle-Ether9069.100
+ !
+ interface HundredGigE0/2/0/0
+ !
+ interface HundredGigE0/2/0/4
+ !
+ interface HundredGigE0/2/0/5
+ !
+ interface HundredGigE0/2/0/6
+ !
+ interface HundredGigE0/2/0/14
+ !
+ interface HundredGigE0/3/1/1
+ !
+!
+multicast-routing
+ address-family ipv4
+  interface all enable
+ !
+!
+segment-routing
+ global-block 120000 519999
+ traffic-eng
+ !
+!
+router pim
+ address-family ipv4
+  log neighbor changes
+ !
+!
+ssh server vrf mgmt
+ssh server vrf defaut
+hw-module profile itcam to-default location 0/2/CPU0
+hw-module location 0/2/CPU0 slice 2 power-savings
+hw-module location 0/2/CPU0 slice 4 power-savings
+telnet vrf mgmt ipv4 server max-servers 100
+telnet vrf default ipv4 server max-servers 10
+end
+RP/0/RSP1/CPU0:I-AM-9K1-LOWER#

@@ -1,0 +1,1033 @@
+show run
+!Command: show running-config
+!Running configuration last done at: Thu Sep  3 16:30:07 2026
+version 10.2(8) Bios:version 01.08
+hostname Nexus-CORE-SWH-A
+vdc Nexus-CORE-SWH-A id 1
+  limit-resource vlan minimum 16 maximum 4094
+  limit-resource vrf minimum 2 maximum 4096
+  limit-resource port-channel minimum 0 maximum 511
+  limit-resource m4route-mem minimum 58 maximum 58
+  limit-resource m6route-mem minimum 8 maximum 8
+feature bash-shell
+feature ospf
+feature interface-vlan
+feature hsrp
+feature dhcp
+feature vtp
+clock timezone IST 5 30
+feature vrrpv3
+username admin password 5 $5$CEPFAC$0Mn89DLLBSTGnOOZ28FXHd58QVnzPdcQY7Nu9i/hrn2  role network-admin
+username niranjan password 5 $5$JBCCOC$gLmWWRLkmU/jJRxSjNinDFRbPAcZhHZunQA3L5mjB97  role priv-15
+username niranjan passphrase  lifetime 99999 warntime 14 gracetime 3
+username labadmin password 5 $5$AAHDBO$9ljok3LLxfWZfJaLCwQM5xCpImnGWmOiQZ4sUhcDyo7  role network-operator
+username labadmin role network-admin
+username labadmin passphrase  lifetime 99999 warntime 14 gracetime 3
+ssh key dsa
+no ip domain-lookup
+aaa group server radius tacacs+
+interface breakout module 1 port 53 map 10g-4x
+ip access-list 151
+  10 permit tcp any any eq 53416
+ip access-list 1996
+ip access-list IP-Adm-V4-Int-ACL-global
+  10 permit tcp any any eq www
+  20 permit tcp any any eq 443
+ip access-list implicit_deny
+  10 deny ip any any
+ip access-list implicit_permit
+  10 permit ip any any
+ip access-list preauth_v4
+  10 permit udp any any eq domain
+  20 permit tcp any any eq domain
+  30 permit udp any eq bootps any
+  40 permit udp any any eq bootpc
+  50 permit udp any eq bootpc any
+  60 deny ip any any
+class-map type qos match-any system-cpp-default
+  description EWLC Data, Inter FED Traffic
+class-map type qos match-any non-client-nrt-class
+class-map type qos match-any system-cpp-police-data
+  description ICMP redirect, ICMP_GEN and BROADCAST
+class-map type qos match-any system-cpp-police-forus
+  description Forus Address resolution and Forus traffic
+class-map type qos match-any system-cpp-police-sys-data
+  description Openflow, Exception, EGR Exception, NFL Sampled Data, RPF Failed
+class-map type qos match-any system-cpp-police-multicast
+  description MCAST Data
+class-map type qos match-any system-cpp-police-dot1x-auth
+  description DOT1X Auth
+class-map type qos match-any system-cpp-police-l2-control
+  description L2 control
+class-map type qos match-any system-cpp-police-sw-forward
+  description Sw forwarding, L2 LVX data packets, LOGGING, Transit Traffic
+class-map type qos match-any system-cpp-police-ios-feature
+  description ICMPGEN,BROADCAST,ICMP,L2LVXCntrl,ProtoSnoop,PuntWebauth,MCASTData,Transit,DOT1XAuth,Swfwd,LOGGING,L2LVXData,ForusTraffic,ForusARP,McastEndStn,Openflow,Exception,EGRExcption,NflSampled,RpfFailed
+class-map type qos match-any system-cpp-police-ios-routing
+class-map type qos match-any system-cpp-police-ewlc-control
+  description EWLC Control
+class-map type qos match-any system-cpp-police-punt-webauth
+  description Punt Webauth
+class-map type qos match-any system-cpp-police-dhcp-snooping
+  description DHCP snooping
+class-map type qos match-any system-cpp-police-high-rate-app
+  description High Rate Applications
+class-map type qos match-any system-cpp-police-l2lvx-control
+  description L2 LVX control packets
+class-map type qos match-any system-cpp-police-routing-control
+  description Routing control and Low Latency
+class-map type qos match-any system-cpp-police-system-critical
+  description System Critical and Gold Pkt
+class-map type qos match-any system-cpp-police-topology-control
+  description Topology control
+class-map type qos match-any system-cpp-police-protocol-snooping
+  description Protocol snooping
+class-map type qos match-any system-cpp-police-multicast-end-station
+  description MCAST END STATION
+class-map type qos match-any system-cpp-police-stackwise-virt-control
+  description Stackwise Virtual OOB
+policy-map type qos test
+  class class-default
+policy-map type qos policy1
+  class class-default
+    police cir 500000000 bps bc 312500 bytes pir 500000001 bps be 312500 bytes conform transmit exceed drop violate drop
+policy-map type qos policy2
+  class class-default
+    police cir percent 50 bc 200 ms conform transmit violate drop
+policy-map type qos egressqos
+  class class-default
+system vlan 2600 reserve
+copp profile strict
+vtp domain PTN
+snmp-server user admin network-admin auth md5 177CEB6FBB9C201FBB9C23647EA925B80217 priv aes-128 0065E44994922308A68D05417BAD32ED5A19 localizedV2key
+snmp-server user labadmin network-operator auth md5 165AEE4AE6EE033393BC7C597AB410A04249 priv aes-128 0075FB4BBAE20C269A996B1C75A234FB1E4B localizedV2key
+snmp-server user labadmin network-admin
+snmp-server user niranjan priv-15 auth md5 2170C9C3459A62203BFD994476DEB8B53221 priv aes-128 4953D1CC5425F9E5BD3C03AAF3763129AFB3 localizedV2key
+rmon event 1 log trap public description FATAL(1) owner PMON@FATAL
+rmon event 2 log trap public description CRITICAL(2) owner PMON@CRITICAL
+rmon event 3 log trap public description ERROR(3) owner PMON@ERROR
+rmon event 4 log trap public description WARNING(4) owner PMON@WARNING
+rmon event 5 log trap public description INFORMATION(5) owner PMON@INFO
+ntp server 172.16.254.213 prefer use-vrf management
+ip route 0.0.0.0/0 Vlan50 172.16.254.132
+ip route 5.5.5.5/32 172.16.255.130
+ip route 10.2.27.134/32 10.3.240.186
+ip route 10.2.40.16/32 10.3.240.186 name Towards_Tech_Lan_ENM_06_Server
+ip route 10.2.40.23/32 10.3.240.186 name Towards_Tech_Lan_ENM_06_Server
+ip route 10.2.40.244/32 10.3.240.186
+ip route 10.2.66.6/32 10.3.240.186 name Towards_Tech_Lan_ENM_03_Server
+ip route 10.2.66.20/32 10.3.240.186 name Towards_Tech_Lan_ENM_03_Server
+ip route 10.2.67.6/32 10.3.240.186 name Towards_Tech_Lan_ENM_04_Server
+ip route 10.2.67.20/32 10.3.240.186 name Towards_Tech_Lan_ENM_04_Server
+ip route 10.3.122.240/28 172.16.23.254 name NIAM_GUI_Reachability
+ip route 10.3.190.7/32 10.3.240.186 name AWS_POC_Towards_ENM-01_Server_Vimal
+ip route 10.3.190.30/32 10.3.240.186 name Towards_Tech_Lan_ENM_01_Server
+ip route 10.3.226.48/28 172.16.23.254 name NIAM_IPv4_towards_Comn_Mgmt_Reachability
+ip route 10.3.226.64/26 10.3.240.186 name Towards_Tech_Lan
+ip route 10.3.237.237/32 10.3.240.186 name Towards_Tech_Lan
+ip route 10.3.237.239/32 10.3.240.186 name Towards_Tech_Lan
+ip route 10.3.240.184/29 Vlan245
+ip route 10.3.240.214/32 10.3.240.186 name AWS_POC_Towards_AWS_VM_Server_Vimal
+ip route 10.3.240.216/29 10.3.240.187 name Toward_BareMetal_Server_Vimal
+ip route 10.3.241.96/27 172.16.23.254 name *IMS-vidya*
+ip route 10.3.241.128/27 172.16.23.254 name *IMS-vidya*
+ip route 10.3.244.7/32 10.3.240.186 name Towards_Tech_Lan_ENM_02_Server
+ip route 10.3.244.27/32 10.3.240.186 name Towards_Tech_Lan_ENM_02_Server
+ip route 10.3.244.28/32 10.3.240.186 name For_ESOA
+ip route 10.10.1.0/30 172.16.254.150 name Lavelle
+ip route 10.10.1.4/30 172.16.254.150 name Lavelle
+ip route 10.10.1.8/30 172.16.254.150 name lavelle
+ip route 10.10.1.16/30 172.16.254.150 name Lavelle
+ip route 10.10.1.20/30 172.16.254.150 name Lavelle
+ip route 10.10.20.0/24 10.10.21.82 name mavenier
+ip route 10.10.21.0/24 10.10.21.82 name mavenier
+ip route 10.10.22.0/24 10.10.22.82 name mavenier
+ip route 10.10.24.32/28 10.10.21.82 name mavenier_new_container
+ip route 10.10.30.1/32 172.16.254.153
+ip route 10.19.104.0/25 10.3.240.186 name Towards_Techlan_For_RAJ_Core_OSS
+ip route 10.19.105.0/25 10.3.240.186 name Towards_Techlan_For_RAJ_Core_OSS
+ip route 10.19.109.0/25 10.3.240.186 name Towards_Techlan_For_RAJ_Core_OSS
+ip route 10.19.126.128/25 10.3.240.186 name Towards_Techlan_For_JK_Core_OSS
+ip route 10.19.161.0/25 10.3.240.186 name Towards_Techlan_For_JK_Core_OSS
+ip route 10.19.182.0/25 10.3.240.186 name Towards_Techlan_For_RAJ_Core_OSS
+ip route 10.19.186.0/25 10.3.240.186 name Towards_Techlan_For_RAJ_Core_OSS
+ip route 10.19.193.0/25 10.3.240.186 name Towards_Techlan_For_JK_Core_OSS
+ip route 10.19.206.0/25 10.3.240.186 name Towards_Techlan_For_RAJ_Core_OSS
+ip route 10.20.1.0/30 172.16.254.150 name Lavelle
+ip route 10.20.1.4/30 172.16.254.150 name lavelle
+ip route 10.20.1.8/30 172.16.254.150 name lavelle
+ip route 10.20.1.16/30 172.16.254.150 name Lavelle
+ip route 10.20.1.20/30 172.16.254.150 name Lavelle
+ip route 10.20.10.0/25 10.3.240.186 name Towards_Techlan_For_JK_Core_OSS
+ip route 10.20.46.0/26 10.3.240.186 name Towards_Techlan_For_JK_Core_OSS
+ip route 10.35.136.0/25 10.3.240.186 name Towards_Techlan_For_UPW_Core_OSS
+ip route 10.35.138.128/26 10.3.240.186 name Towards_Techlan_For_UPW_Core_OSS
+ip route 10.35.139.0/26 10.3.240.186 name Towards_Techlan_For_UPW_Core_OSS
+ip route 10.45.6.128/26 10.3.240.186 name Towards_Techlan_For_RAJ_Core_OSS
+ip route 10.45.7.128/26 10.3.240.186 name Towards_Techlan_For_RAJ_Core_OSS
+ip route 10.50.55.0/24 172.16.253.100
+ip route 10.58.12.18/32 10.3.240.186 name DCGW_ESOVA_FW
+ip route 10.58.12.19/32 10.3.240.186 name DCGW_ESOVA_FW
+ip route 10.58.12.21/32 10.3.240.186 name DCGW_ESOVA_FW
+ip route 10.58.12.27/32 10.3.240.186 name DCGW_ESOVA_FW
+ip route 10.58.118.0/25 10.3.240.186 name Towards_Techlan_For_NESA_Core_OSS
+ip route 10.60.60.0/24 10.50.50.101
+ip route 10.60.61.0/24 10.50.50.101
+ip route 10.86.209.0/24 10.3.240.186
+ip route 10.86.212.0/24 10.3.240.186
+ip route 10.89.42.15/32 10.3.240.186 name Towards_Tech_Lan
+ip route 10.89.42.150/32 10.3.240.186
+ip route 10.89.66.0/25 10.3.240.186 name Towards_Techlan_For_KK_Core_OSS
+ip route 10.89.66.128/26 10.3.240.186 name Towards_Techlan_For_KK_Core_OSS
+ip route 10.89.67.192/26 10.3.240.186 name Towards_Techlan_For_KK_Core_OSS
+ip route 10.91.141.0/25 10.3.240.186 name Towards_Techlan_For_KK_Core_OSS
+ip route 10.99.108.0/25 10.3.240.186 name Towards_Techlan_For_NESA_Core_OSS
+ip route 10.99.113.0/25 10.3.240.186 name Towards_Techlan_For_NESA_Core_OSS
+ip route 10.99.165.6/32 10.3.240.186 name Towards_Tech_Lan_ENM_05_Server
+ip route 10.99.165.20/32 10.3.240.186 name Towards_Tech_Lan_ENM_05_Server
+ip route 10.102.144.128/26 10.3.240.186 name Towards_Techlan_For_NESA_Core_OSS
+ip route 10.102.148.0/26 10.3.240.186 name Towards_Techlan_For_NESA_Core_OSS
+ip route 10.102.220.0/25 10.3.240.186 name Towards_Techlan_For_NESA_Core_OSS
+ip route 10.106.20.0/26 10.3.240.186 name Towards_Techlan_For_AP_Core_OSS
+ip route 10.106.121.0/25 10.3.240.186 name Towards_Techlan_For_AP_Core_OSS
+ip route 10.106.127.0/25 10.3.240.186 name Towards_Techlan_For_AP_Core_OSS
+ip route 10.106.127.6/32 10.3.240.186 name DCGW_ESOVA_FW
+ip route 10.106.127.20/32 10.3.240.186 name DCGW_ESOVA_FW
+ip route 10.106.127.21/32 10.3.240.186 name DCGW_ESOVA_FW
+ip route 10.106.127.22/32 10.3.240.186 name DCGW_ESOVA_FW
+ip route 10.106.127.26/32 10.3.240.186 name DCGW_ESOVA_FW
+ip route 10.106.127.27/32 10.3.240.186 name DCGW_ESOVA_FW
+ip route 10.106.136.0/25 10.3.240.186 name Towards_Techlan_For_AP_Core_OSS
+ip route 10.106.139.249/32 10.3.240.186 name For_ESOA
+ip route 10.106.141.0/25 10.3.240.186 name Towards_Techlan_For_AP_Core_OSS
+ip route 10.106.157.0/26 10.3.240.186 name Towards_Techlan_For_AP_Core_OSS
+ip route 10.106.162.0/25 10.3.240.186 name Towards_Techlan_For_AP_Core_OSS
+ip route 10.106.165.0/25 10.3.240.186 name Towards_Techlan_For_AP_Core_OSS
+ip route 10.106.168.192/26 10.3.240.186 name Towards_Techlan_For_AP_Core_OSS
+ip route 10.113.125.0/25 10.3.240.186 name Towards_Techlan_For_ROTN_Core_OSS
+ip route 10.113.130.0/25 10.3.240.186 name Towards_Techlan_For_ROTN_Core_OSS
+ip route 10.113.138.0/25 10.3.240.186 name Towards_Techlan_For_CHN_Core_OSS
+ip route 10.113.138.6/32 10.3.240.186 name DCGW_ESOVA_FW
+ip route 10.113.138.20/32 10.3.240.186 name DCGW_ESOVA_FW
+ip route 10.113.138.21/32 10.3.240.186 name DCGW_ESOVA_FW
+ip route 10.113.138.22/32 10.3.240.186 name DCGW_ESOVA_FW
+ip route 10.113.138.26/32 10.3.240.186 name DCGW_ESOVA_FW
+ip route 10.113.138.27/32 10.3.240.186 name DCGW_ESOVA_FW
+ip route 10.113.153.0/25 10.3.240.186 name Towards_Techlan_For_ROTN_Core_OSS
+ip route 10.113.164.0/25 10.3.240.186 name Towards_Techlan_For_ROTN_Core_OSS
+ip route 10.113.165.0/25 10.3.240.186 name Towards_Techlan_For_CHN_Core_OSS
+ip route 10.113.165.6/32 10.3.240.186
+ip route 10.113.165.20/32 10.3.240.186
+ip route 10.121.29.0/26 10.3.240.186 name Towards_Techlan_For_ROTN_Core_OSS
+ip route 10.121.29.192/26 10.3.240.186 name Towards_Techlan_For_ROTN_Core_OSS
+ip route 10.140.41.77/32 10.3.240.186 name Towards_Techlan_For_Orissa_Nokia_Core_OSS
+ip route 10.140.41.85/32 10.3.240.186 name Towards_Techlan_For_Orissa_Nokia_Core_OSS
+ip route 10.140.41.95/32 10.3.240.186 name Towards_Techlan_For_Orissa_Nokia_Core_OSS
+ip route 10.140.41.122/32 10.3.240.186 name Towards_Techlan_For_Orissa_Nokia_Core_OSS
+ip route 10.142.22.0/25 10.3.240.186 name Towards_Techlan_For_NESA_Core_OSS
+ip route 10.142.41.30/32 10.3.240.186 name For_ESOA
+ip route 10.210.1.0/24 10.210.16.3
+ip route 10.210.1.46/32 10.210.16.3
+ip route 15.15.15.0/24 172.16.253.100
+ip route 100.1.1.0/24 6.6.6.1
+ip route 122.160.131.200/32 172.16.254.50
+ip route 172.16.0.0/16 Vlan23 172.16.23.254 name *IMS-vidya*
+ip route 172.16.24.0/24 172.16.254.132
+ip route 172.16.24.202/32 172.16.254.216
+ip route 172.16.24.203/32 172.16.254.216
+ip route 172.16.24.207/32 172.16.254.216
+ip route 172.16.24.208/32 172.16.254.216
+ip route 172.16.25.0/24 172.16.254.188
+ip route 172.16.137.32/30 172.16.251.198
+ip route 172.16.148.0/24 172.16.251.229 name MPBNAutomation_Rack:F-14_U32_Port:Gi1/0/4
+ip route 172.16.253.0/24 Vlan420
+ip route 172.16.253.0/24 172.16.253.1
+ip route 172.16.253.11/32 Vlan420
+ip route 172.16.254.0/24 Ethernet1/1 172.16.254.150
+ip route 172.16.254.221/32 172.16.254.216
+ip route 172.16.255.64/28 172.16.255.130
+ip route 172.16.255.70/32 172.16.255.130
+ip route 172.18.12.0/24 172.16.251.250
+ip route 172.18.16.0/24 172.16.251.250 name SAMSUNG-5G-MGMT
+ip route 172.18.21.17/32 172.16.251.250
+ip route 172.18.21.19/32 172.16.251.250
+ip route 172.18.21.22/32 172.16.251.250
+ip route 172.18.21.23/32 172.16.251.250
+ip route 172.18.21.25/32 172.16.251.250
+ip route 172.18.21.27/32 172.16.251.250
+ip route 172.18.228.31/32 10.3.240.186 name DCGW_ESOVA_FW
+ip route 172.21.166.192/26 172.16.254.167
+ip route 172.24.171.32/32 10.3.240.186 name DCGW_ESOVA_FW
+ip route 172.24.173.128/26 10.3.240.186 name Towards_Tech_Lan
+ip route 172.25.24.0/28 172.16.251.198 name Towards_DCGW_ESOVA_Core
+ip route 172.25.24.96/27 172.16.251.250
+ip route 172.25.24.112/28 172.16.251.250 name Towards_Samsung_SWH_Row_B15_DELL
+ip route 172.25.24.120/32 172.16.251.250
+ip route 172.25.245.16/32 10.3.240.186 name Towards_Tech_Lan_ENM_08_Server
+ip route 172.25.245.48/32 10.3.240.186 name Towards_Tech_Lan_ENM_08_Server
+ip route 172.25.245.76/32 10.3.240.186 name Towards_Tech_Lan_ENM_07_Server
+ip route 172.25.245.92/32 10.3.240.186 name Towards_Tech_Lan_ENM_07_Server
+ip route 172.27.197.64/26 10.3.240.186 name Towards_Techlan_For_NESA_Core_OSS
+ip route 172.30.60.0/24 172.16.253.100
+ip route 172.30.61.0/24 172.16.253.100
+ip route 172.31.149.18/32 10.3.240.186 name Towards_Tech_Lan
+ip route 172.31.226.24/32 10.3.240.186 name DCGW_ESOVA_FW
+ip route 184.89.89.0/24 172.16.253.100
+ip route 184.89.89.69/32 172.16.254.136
+ip route 184.89.89.70/32 172.16.254.137
+ip route 184.89.89.71/32 172.16.254.138
+ip route 185.1.1.0/24 172.16.254.157
+ip route 192.9.80.72/32 172.16.254.143
+ip route 192.9.80.73/32 172.16.254.144
+ip route 192.9.80.74/32 172.16.254.145
+ip route 192.168.0.0/24 172.16.251.211 name Vimal_AWS_Connectivity
+ip route 192.168.1.0/24 172.16.251.13
+ip route 192.168.2.3/32 172.16.253.1
+ip route 192.168.3.0/24 172.16.251.211 name Vimal_AWS_Connectivity
+ip route 192.168.99.0/28 172.16.251.198 name EIC_Reachability
+ip route 192.168.100.228/32 172.16.251.198 name EIC_Controller1_Reachability
+ip route 192.168.100.231/32 172.16.251.198 name EIC_Controller2_Reachability
+ip route 192.168.100.232/32 172.16.251.198 name EIC_Controller3_Reachability
+ip route 192.168.101.0/24 172.16.251.198 name EIC_Reachability
+ip route 192.168.101.123/32 172.16.251.198 name EIC_client_VM_Reachability
+ip route 192.168.128.0/24 172.16.253.92
+ipv6 route ::/0 fd00::1 vrf management
+ipv6 route ::/0 fd00::2 name Towards_Internet
+ipv6 route 2401:4900:0:1::1200/123 64:ff9b:1::1
+ipv6 route 2401:4900:24:2545::/64 2401:4900:0:1::2619 name NIAM_IPv6_towards_Comn_Mgmt_Reachability
+ipv6 route 2401:4900:24:400::3800/120 2401:4900:24:400::ed41 name Towards_Techlan
+ipv6 route 2401:4900:24:400::500/120 2401:4900:24:400::ed41 name DELENM2_towards_Techlan
+ipv6 route 2401:4900:24:400::ee00/120 fd00:0:0:1::11 name EIC_towards_ESOA
+ipv6 route 2401:4900:24:4ff:8000::/65 2401:4900:0:1::2619 name NIAM_IPv6_GUI_towards_Comn_Mgmt_Reachability
+ipv6 route 2401:4900:24:500::1300/120 2401:4900:24:400::ed41 name ENM_towards_Techlan
+ipv6 route 2401:4900:90:900::2a00/120 2401:4900:24:400::ed41 name Towards_Techlan
+ipv6 route 2401:4900:d4:1600::500/120 2401:4900:24:400::ed41 name APENM1_towards_Techlan
+ipv6 route 2401:4900:d4:1b00::500/120 2401:4900:24:400::ed41 name KKENM1_towards_Techlan
+ipv6 route 2401:4900:d4:1b00::900/120 2401:4900:24:400::ed41 name KKENM3_towards_Techlan
+ipv6 route 2401:4900:d4:1b00::a00/120 2401:4900:24:400::ed41 name KKENM2_towards_Techlan
+ipv6 route 2401:4900:d4:1b00::e00/120 2401:4900:24:400::ed41 name KKENM4_towards_Techlan
+ipv6 route 2401:4900:d4:300::f04/128 2401:4900:24:400::ed41 name Towards_Techlan
+ipv6 route fd00:0:0:4::/64 fd00::2
+system vlan long-name
+vlan 1,3,10-16,23-26,32,35-44,47-53,55-56,69,71-75,80-95,98-107,111-112,119,125,141,145,150-151,153,157,191,200-201,207-208,211,221-223,226-227,245,250,274,286,300-301,310,315,317,399-400,406-408,410-411,415,419-425,440,447-449,455,480,499-501,511-514,521,550,555,591-594,600,620,666,673,707-709,777,840,873,889,900-904,906,910-915,998,1105,1111
+vlan 1113-1114,1204-1205,1212-1213,1215,1226,1234,1435,1812,1921,1931,1933,1940,1999-2001,2124-2125,2160,2224-2225,2454-2458,2525,2975,3001-3003,3005-3008,3980,4005,4011,4092
+vlan 10
+  name INTERNET
+vlan 14
+  name ####INTERNET####
+vlan 16
+  name for_zscaler_test
+vlan 23
+  name Cloud_IMS-Vidya
+vlan 24
+  name #INTERNET#
+vlan 26
+  name ####INTERNET#####
+vlan 36
+  name ##INTERNET##
+vlan 39
+  name ###INTERNET###
+vlan 47
+  name for_cloud_setup
+vlan 48
+  name MGMT_NSO
+vlan 50
+  name LAB_MANAGEMENT
+vlan 51
+  name LABTRANSPORT2
+vlan 52
+  name LABTRANSPORT3
+vlan 53
+  name NSO
+vlan 56
+  name #####INTERNET######
+vlan 125
+  name Zeeshan_ONT_Test
+vlan 150
+  name for_Sdwan_setup
+vlan 200
+  name Jayant-Sir-MMwave-Testing-For-PGW
+vlan 201
+  name Agentic_AI
+vlan 250
+  name PDU_MANAGEMENT_VLAN
+vlan 420
+  name LABDHCP
+vlan 600
+  name #####INTERNET#####
+spanning-tree port type edge default
+no spanning-tree vlan 35,40,54,65,98,100,107,116,121,128,141,152,208-209,304,401,405,440-441,447-450,455,510,520-521,551,660-661,1000
+spanning-tree vlan 10,23,36,50,420 priority 24576
+spanning-tree mst configuration
+  name BHARTI
+  revision 1
+  instance 1 vlan 1-1024
+ip dhcp snooping
+service dhcp
+ip dhcp relay
+ip dhcp relay source-interface Vlan420
+ipv6 dhcp smart-relay global
+ipv6 dhcp relay
+ipv6 dhcp relay source-interface Vlan420
+vrf context IPv6_Pool
+vrf context UPE-CS-CP
+  address-family ipv4 unicast
+vrf context dummyinternet
+vrf context gnB
+vrf context justtest
+vrf context management
+  ip route 0.0.0.0/0 172.16.254.1
+vrf context tempinternet
+  ipv6 route 2401:4900:0:c003::/64 2401:4900:0:1::3001
+vrf context test1
+  address-family ipv4 unicast
+interface Vlan1
+  no shutdown
+interface Vlan2
+  vrf member UPE-CS-CP
+interface Vlan3
+  description ## Connected to Nokia Common Mgmt SWH ### For IPv6 Conenctivity ###
+  no shutdown
+  ipv6 address 2401:4900:0:1::261a/125
+interface Vlan10
+interface Vlan23
+  description *IMS-Vidya*
+  no shutdown
+  ip address 172.16.23.7/24
+  ipv6 address fc00:0:0:1::a01/125
+  vrrpv3 23 address-family ipv4
+    priority 150
+    address 172.16.23.1 primary
+interface Vlan35
+  no shutdown
+  ip address 10.24.25.7/24
+  vrrpv3 35 address-family ipv4
+    priority 150
+    address 10.24.25.9 primary
+interface Vlan36
+  no shutdown
+  ipv6 address 2404:a800:1480:2::3/126
+  ipv6 address 2404:a800:1480:2::5/126
+interface Vlan38
+  vrf member IPv6_Pool
+interface Vlan39
+  ipv6 address fd00:0:0:39::1/64
+interface Vlan42
+  no shutdown
+  ip address 172.16.255.132/29
+  vrrpv3 42 address-family ipv4
+    priority 150
+    address 172.16.255.131 primary
+interface Vlan47
+  no shutdown
+  ip address 172.16.248.7/24
+  vrrpv3 47 address-family ipv4
+    priority 200
+    address 172.16.248.1 primary
+interface Vlan48
+  description ## NSO Managemnet ##
+  no shutdown
+  ip address 172.16.249.130/25
+  vrrpv3 48 address-family ipv4
+    priority 250
+    address 172.16.249.129 primary
+interface Vlan50
+  description MANAGEMENT-VLAN
+  no shutdown
+  ip address 172.16.254.7/24
+  ipv6 address fd00::7/64
+  vrrpv3 50 address-family ipv4
+    priority 250
+    address 172.16.254.1 primary
+  vrrpv3 50 address-family ipv6
+    priority 250
+    address fe80::ee19:2eff:fe48:5427 primary
+    address fd00::1
+interface Vlan51
+  description ## For lab Infra Connectivity & ESOA DC-Gateway Connectivity - 172.16.251.198 & fd00:0:0:1::11 ###
+  no shutdown
+  ip address 172.16.251.7/24
+  ipv6 address fd00:0:0:1::7/64
+  vrrpv3 51 address-family ipv4
+    priority 150
+    address 172.16.251.1 primary
+  vrrpv3 51 address-family ipv6
+    priority 150
+    address fe80::ee19:2eff:fe48:5427 primary
+    address fd00:0:0:1::1
+interface Vlan52
+  no shutdown
+  ip address 10.10.10.7/24
+  vrrpv3 52 address-family ipv4
+    priority 150
+    address 10.10.10.1 primary
+interface Vlan53
+  description ## NSO Managemnet ##
+  no shutdown
+  ip address 172.16.249.7/25
+  vrrpv3 53 address-family ipv4
+    priority 150
+    address 172.16.249.1 primary
+interface Vlan54
+interface Vlan80
+  ip address 172.50.196.12/29
+interface Vlan98
+  no shutdown
+  ip address 10.62.62.7/24
+  vrrpv3 98 address-family ipv4
+    priority 150
+    address 10.62.62.2 primary
+interface Vlan99
+  no shutdown
+  ip address 60.60.60.7/24
+  vrrpv3 99 address-family ipv4
+    priority 150
+    address 60.60.60.2 primary
+interface Vlan100
+  no shutdown
+  ip address 45.45.45.7/24
+  vrrpv3 100 address-family ipv4
+    priority 150
+    address 45.45.45.1 primary
+interface Vlan111
+  no shutdown
+  ip address 10.50.50.7/24
+  vrrpv3 101 address-family ipv4
+    priority 150
+    address 10.50.50.1 primary
+interface Vlan119
+  no shutdown
+  ip address 19.11.11.1/24
+interface Vlan123
+interface Vlan141
+  no shutdown
+  ip address 100.100.100.7/24
+  vrrpv3 103 address-family ipv4
+    priority 150
+    address 100.100.100.2 primary
+interface Vlan145
+  no shutdown
+  ip address 192.168.10.7/24
+  vrrpv3 104 address-family ipv4
+    priority 150
+    address 192.168.10.2 primary
+interface Vlan150
+  no shutdown
+  ip address 172.16.150.7/24
+  vrrpv3 150 address-family ipv4
+    priority 250
+    address 172.16.150.1 primary
+interface Vlan200
+interface Vlan245
+  description ## For MSC Room Tech LAN Connectivity - 10.3.240.186 via MSC-Room-SWH-113, IPv6 provided by Techlan ##
+  no shutdown
+  ip address 10.3.240.189/29
+  ipv6 address 2401:4900:24:400::ed45/125
+  vrrpv3 105 address-family ipv4
+    priority 150
+    address 10.3.240.188 primary
+  vrrpv3 105 address-family ipv6
+    priority 150
+    address fe80::14c3:ec19:2e48:4527 primary
+    address 2401:4900:24:400::ed44
+interface Vlan250
+  no shutdown
+  ip address 172.16.250.7/24
+  vrrpv3 250 address-family ipv4
+    priority 150
+    address 172.16.250.1 primary
+interface Vlan286
+interface Vlan300
+  no shutdown
+  ip address 10.50.55.2/24
+  vrrpv3 106 address-family ipv4
+    priority 150
+    address 10.50.55.1 primary
+interface Vlan399
+  description ## IP POOL FOR Maveniar Decices ##
+  no shutdown
+  ip address 10.10.22.81/30
+interface Vlan420
+  description ENGINEER-BAY - AP Connectivity
+  no shutdown
+  ip address 172.16.253.7/24
+  ip dhcp relay address 172.16.253.11
+  vrrpv3 108 address-family ipv4
+    priority 250
+    address 172.16.253.2 primary
+interface Vlan421
+  no shutdown
+  ip address 192.168.50.1/30
+interface Vlan440
+  no shutdown
+  ip address 192.16.253.7/24
+  vrrpv3 110 address-family ipv4
+    priority 150
+    address 192.16.253.1 primary
+interface Vlan447
+  description AODC-Infosys
+  no shutdown
+  ip address 192.168.0.7/24
+  vrrpv3 111 address-family ipv4
+    priority 150
+    address 192.168.0.1 primary
+interface Vlan448
+  description AODC-Infosys
+  no shutdown
+  ip address 192.168.2.7/24
+  vrrpv3 112 address-family ipv4
+    priority 150
+    address 192.168.2.1 primary
+interface Vlan449
+  description AODC-Infosys
+  no shutdown
+  ip address 192.168.3.7/24
+  vrrpv3 113 address-family ipv4
+    priority 150
+    address 192.168.3.1 primary
+interface Vlan455
+  no shutdown
+  ip address 100.0.1.7/24
+  vrrpv3 114 address-family ipv4
+    priority 150
+    address 100.0.1.254 primary
+interface Vlan501
+  no shutdown
+  ip address 10.3.240.197/29
+  vrrpv3 115 address-family ipv4
+    priority 150
+    address 10.3.240.193 primary
+interface Vlan521
+  no shutdown
+  ip address 6.6.6.2/30
+interface Vlan709
+  no shutdown
+  ip address 10.20.30.12/29
+  vrrpv3 117 address-family ipv4
+    priority 150
+    address 10.20.30.9 primary
+interface Vlan777
+  description ### Vimal Baremetal Server Connectivity in Row I-7, via POC-SWH_2-ROW-I-3 for T-LAN reachability ###
+  no shutdown
+  ip address 192.168.20.1/30
+interface Vlan905
+  ipv6 address 64:ff9b:1::2/126
+interface Vlan906
+interface Vlan998
+  no shutdown
+  no ip redirects
+  ip address 12.12.12.7/24
+  ip address 172.17.1.1/28 secondary
+  vrrpv3 119 address-family ipv4
+    priority 150
+    address 12.12.12.12 primary
+interface Vlan1105
+  no shutdown
+  ip address 172.49.166.210/29
+interface Vlan1414
+interface Vlan1940
+  no shutdown
+  vrf member tempinternet
+  ipv6 address 16::1/120
+interface Vlan2000
+  description ## NOKIA OLT Testing ##
+  no shutdown
+  ip address 50.50.50.7/24
+  ipv6 address fc00::2/126
+  no ipv6 redirects
+  vrrpv3 150 address-family ipv4
+    priority 150
+    address 50.50.50.1 primary
+  vrrpv3 150 address-family ipv6
+    priority 150
+    address fe80::ee19:2eff:fe48:5427 primary
+    address fc00::1
+interface Vlan4005
+  no shutdown
+  ip address 172.30.60.7/24
+  vrrpv3 121 address-family ipv4
+    priority 150
+    address 172.30.60.253 primary
+interface Vlan4011
+  no shutdown
+  ip address 172.30.61.7/24
+  vrrpv3 122 address-family ipv4
+    priority 150
+    address 172.30.61.253 primary
+interface Vlan4092
+  no shutdown
+  ip address 10.210.16.4/29
+interface Ethernet1/1
+  description ***Towards LAB-FW-A | Port-Eth1/2 | From Inside to Outside ***
+  switchport
+  switchport access vlan 50
+  no shutdown
+interface Ethernet1/2
+  description ##connected to CORE-SWH-A-0011 @port Te1/1/4 ##
+  switchport
+  switchport mode trunk
+  switchport trunk allowed vlan 3,10-11,14-15,17-18,23-24,26,32,35-36,39,42,44-45,48-53,56,71-74,98-102,105,107,111,115,141,145,149,191,207-208,221-222,226,245,300,303,315-317,339,399,403,419-421,440,447-449,455,499-501,511,521,555,594,600,620,666,673,709,777,840,872-874,996-999,1001,1999-2000,2124,2525,3001-3003,3350,4005,4011,4092
+  no shutdown
+interface Ethernet1/3
+  description ** Towards LAB-FW-A | Port-Eth1/1 | From Outside to Inside |
+  switchport
+  switchport access vlan 36
+  speed 10000
+  no shutdown
+interface Ethernet1/4
+  description ##"Connected to Internet Router INTERNET-ROUTER-NEW @ Te0/0/15 "Trunk Data plane flow"##
+  switchport
+  switchport mode trunk
+  switchport trunk allowed vlan 10,14,16,24,26,36,38-39,56,200,600
+  speed 10000
+  no shutdown
+interface Ethernet1/5
+  description *** Connected to VAS-MGMT-SW-ROW-A-41 | TRUNK | Port-Gig1/25 | AR-07 U-23 | ***
+  switchport
+  switchport mode trunk
+  switchport trunk allowed vlan 5,10-11,25-26,32,36,44-45,71-74,101-102,105,111,115,145,151,191,222-223,226,274,286,303,315,317,339,400,403,419-420,511,673
+  speed 1000
+  no shutdown
+interface Ethernet1/6
+  description *** Connected to SERVICE-SWH-ROW-A141 | TRUNK | Port-Gig1/46 | AR-07 U-22 | ***
+  switchport
+  switchport mode trunk
+  switchport trunk allowed vlan 10-11,14-15,17-18,32,44-45,71-74,101-102,105,110-111,115,145,149,191,207,221-222,226,245,303,315-317,339,399,403,419-420,499,511,555,594,620,666,840,872-874,996-999,1001,1999,2124,2525,3001-3003,3350,4092-4093
+  speed 10000
+  no shutdown
+interface Ethernet1/7
+  description ** Juniper BNG testing ***
+  switchport
+  switchport mode trunk
+  switchport trunk allowed vlan 3001,3005-3008
+  no shutdown
+interface Ethernet1/8
+  description *** Connected to POC-SWH-ROW-B-50 | TRUNK | Port-Gig0/1 | BR-07 U-26 | ***
+  switchport
+  switchport mode trunk
+  switchport trunk allowed vlan 1,10-11,36,52,111-115,221,226,300-301,310,420-421,1111,3350
+  speed 1000
+  no shutdown
+interface Ethernet1/9
+  description *** Connected to POC-SWH-ROW-C-65 | TRUNK | Port-Gig1/0/49 | CR-07 U-28 | ***
+  switchport
+  switchport mode trunk
+  switchport trunk allowed vlan 36-37,39,41-42,221,286,420,709,902-903,911
+  no shutdown
+interface Ethernet1/10
+  description *** Connected to LAN_MGMT_SWH-251-249 | TRUNK | Port-Gig0/51 | DR-05 U-29 | ***
+  switchport
+  switchport mode trunk
+  switchport trunk allowed vlan 10,24,420
+  speed 1000
+  no shutdown
+interface Ethernet1/11
+  description *** Connected to POC-SWH-ROW-D-122 | TRUNK | Port-Gig1/1/1 | DR-07 U-20 | ***
+  switchport
+  switchport mode trunk
+  switchport trunk allowed vlan 1,36,98,111,153,157,300,420-421,445,910,2125
+  speed 1000
+  no shutdown
+interface Ethernet1/12
+  description conneted to AUTO-PE1 | H-1 on port-Te0/1/2 for ZSCALER throuput test connectivity| niranjan sir
+  switchport
+  switchport mode trunk
+  switchport trunk allowed vlan 16
+  speed 10000
+  no shutdown
+interface Ethernet1/13
+  description *** Connected to NEW-POC_SW-ROW_E-156 | TRUNK | Port-Te1/1/1 | ER-07 U-21 | ***
+  switchport
+  switchport mode trunk
+  switchport trunk allowed vlan 36,420,708,904
+  speed 10000
+  no shutdown
+interface Ethernet1/14
+  description *** Connected to POC-SWH2-ROW-F-6 | TRUNK | Port-Te1/1/1 | FR-07 U-12 | ***
+  switchport
+  switchport mode trunk
+  switchport trunk allowed vlan 10,14-15,36,274,420,501,707-708,1113-1114
+  no shutdown
+interface Ethernet1/15
+  description *** Connected to POC-SWH-G-150 | TRUNK | Port-Te1/1/1 | GR-07 U-29 | ***
+  switchport
+  switchport mode trunk
+  switchport trunk allowed vlan 10,14,24,26,36,274,420,501,600,673,709,900
+  no shutdown
+interface Ethernet1/16
+  description *** Connected to POC-SWH-ROW-H-147 | TRUNK | Port-Gig1/29 | HR-06 U-20 | ***
+  switchport
+  switchport mode trunk
+  switchport trunk allowed vlan 9-10,14,17-18,24,36,39,43,69,111,149,151,191,207,221,274,400,420,499,511-514,594,620,666,840,872-874,889,901,996-999,1001,1999,2525
+  no shutdown
+interface Ethernet1/17
+  description *** Connected to POC-SWH2-ROW-H-251-4 | TRUNK | Port-Te1/1/1 | HR-06 U-27 | ***
+  switchport
+  switchport mode trunk
+  switchport trunk allowed vlan 10,14,24,36,56,201,274,420-421
+  no shutdown
+interface Ethernet1/18
+  description *** Connected to POC-SWH-ROW-H-R06-93 | TRUNK | Port-Gig1/0/49 | HR-06 U-23 | ***
+  switchport
+  switchport mode trunk
+  switchport trunk allowed vlan 10,14,36,39,207,420
+  speed 1000
+  no shutdown
+interface Ethernet1/19
+  description #Connected to I-Row switch-251.3 | Port-Te1/1/1| I-08|##
+  switchport
+  switchport mode trunk
+  switchport trunk allowed vlan 10,14,23-24,26,36,39,47,49,100,102,107,208,245,420,500,600,673,777,1940,2124
+  no shutdown
+interface Ethernet1/20
+  description Connected to Cloud for IPv6 FTP/IPERF server (7 Gbps)
+  switchport
+  switchport access vlan 38
+  speed 10000
+  no shutdown
+interface Ethernet1/21
+  description connected to POC-SWH-G-96 | 172.16.251.96 @Port-Te1/1/1 | for trunk | G-14
+  switchport
+  switchport mode trunk
+  switchport trunk allowed vlan 10,14-15,24-26,39,47,55,69,80-95,101-107,207,211,221,227,245,274,410,415,420,422-425,499,511-514,550,591-594,600,620,673,840,873,910-915,1204-1205,1212-1213,1215,2224-2225,2454-2458
+  speed 10000
+  no shutdown
+interface Ethernet1/22
+  description **connected to Poc-switch-MSC | Msc room New-L3-SW-MSC-113 @port-te1/1/1 for trunk **
+  switchport
+  switchport mode trunk
+  switchport trunk allowed vlan 15,25,51,55,69,80-95,101-107,207,211,221,227,245,410,415,420,422-425,499,511-514,550,591-594,620,840,873,910-915,1204-1205,1212-1213,1215,2224-2225,2454-2458
+  speed 10000
+  no shutdown
+interface Ethernet1/23
+  description connected to gnB *Temporary*
+  switchport
+  switchport access vlan 1234
+  speed 25000
+  fec off
+  no shutdown
+interface Ethernet1/24
+  description ** Juniper BNG testing ***
+  switchport
+  switchport mode trunk
+  switchport trunk allowed vlan 3001,3005-3008
+  no shutdown
+interface Ethernet1/25
+  description *** Connected to VAS-MGMT-SW-ROW-A-41 | MGMT | Port-Gig1/1 | AR-07 U-23 | ***
+  switchport
+  switchport mode trunk
+  switchport trunk allowed vlan 200
+  speed 1000
+  no shutdown
+interface Ethernet1/26
+  description *** Connected to SERVICE-SWH-ROW-A141 | MGMT | Port-Gig1/1 | AR-07 U-23 | ***
+  switchport
+  switchport mode trunk
+  switchport trunk allowed vlan 48,50-53,250
+  speed 1000
+  no shutdown
+interface Ethernet1/27
+  switchport
+  switchport access vlan 36
+  no shutdown
+interface Ethernet1/28
+  description *** Connected to POC-SWH-ROW-B-50 | MGMT | Port-Fa0/1 | BR-07 U-26 | ***
+  switchport
+  switchport mode trunk
+  switchport trunk allowed vlan 48,50-53,250
+  speed 100
+  no shutdown
+interface Ethernet1/29
+  description *** Connected to POC-SWH-ROW-C-65 | MGMT | Port-Gig0/1 | CR-07 U-28 | ***
+  switchport
+  switchport mode trunk
+  switchport access vlan 50
+  switchport trunk allowed vlan 48,50-53,250
+  speed 1000
+  no shutdown
+interface Ethernet1/30
+  description *** Connected to LAN_MGMT_SWH-251-249 | MGMT | Port-Gig0/1 | DR-05 U-29 | ***
+  switchport
+  switchport mode trunk
+  switchport trunk allowed vlan 48,50-53,250,420
+  speed 1000
+  no shutdown
+interface Ethernet1/31
+  description *** Connected to POC-SWH-ROW-D-122 | MGMT | Port-Fa1/0/1 | DR-07 U-20 | ***
+  switchport
+  switchport mode trunk
+  switchport access vlan 50
+  switchport trunk allowed vlan 48,50-53,250
+  speed 100
+  no shutdown
+interface Ethernet1/32
+  description ** Connected to Core-SWH-A_9300L | MGMT | Port-Gig1/0/1 | DR10 U-28 | **
+  switchport
+  switchport mode trunk
+  switchport trunk allowed vlan 48,50-53,250
+  speed 1000
+  no shutdown
+interface Ethernet1/33
+  description *** Connected to NEW-POC_SW-ROW_E-156 | MGMT | Port-Gig1/0/1 | ER-07 U-21 | ***
+  switchport
+  switchport mode trunk
+  switchport access vlan 10
+  switchport trunk allowed vlan 48,50-53,250
+  speed 1000
+  no shutdown
+interface Ethernet1/34
+  description *** Connected to POC-SWH2-ROW-F-6 | MGMT | Port-Gig1/0/1 | FR-07 U-12 | ***
+  switchport
+  switchport mode trunk
+  switchport trunk allowed vlan 48,50-53,250
+  speed 1000
+  no shutdown
+interface Ethernet1/35
+  description *** Connected to POC-SWH-G-150 | MGMT | Port-Gig1/0/1 | GR-07 U-29 | ***
+  switchport
+  switchport mode trunk
+  switchport trunk allowed vlan 48,50-53,150,250
+  speed 1000
+  no shutdown
+interface Ethernet1/36
+  description *** Connected to POC-SWH-ROW-H-147 | MGMT | Port-Gig1/1 | HR-07 U-20 | ***
+  switchport
+  switchport mode trunk
+  switchport trunk allowed vlan 48,50-53,150,250
+  spanning-tree cost 100
+  speed 1000
+  no shutdown
+interface Ethernet1/37
+  description *** Connected to POC-SWH2-ROW-H-251-4 | MGMT | Port-Gig1/0/1 | HR-06 U-27 | ***
+  switchport
+  switchport mode trunk
+  switchport access vlan 50
+  switchport trunk allowed vlan 48,50-53,250
+  speed 1000
+  no shutdown
+interface Ethernet1/38
+  description *** Connected to POC-SWH-ROW-H-R06-93 | MGMT | Port-Gig1/0/2 | HR-06 U-23 | ***
+  switchport
+  switchport mode trunk
+  switchport trunk allowed vlan 48,50-53,250
+  speed 1000
+  no shutdown
+interface Ethernet1/39
+  description *** Connected to POC-SWH_2-ROW-I-251-3 | MGMT | Port-Gig1/0/1 | IR-08 U-23 | ***
+  switchport
+  switchport mode trunk
+  switchport trunk allowed vlan 48,50-53,250
+  spanning-tree cost 1000
+  speed 1000
+  no shutdown
+interface Ethernet1/40
+  description ##Connected to DEMO ROOM For AP Connectivity ##
+  switchport
+  switchport access vlan 420
+  no shutdown
+interface Ethernet1/41
+  description *** Towards OLD_CLOUD FR-02 | Port-09 | IMS-Vidya ***
+  switchport
+  switchport mode trunk
+  switchport trunk allowed vlan 3,23
+  spanning-tree port type edge
+  speed 1000
+  no shutdown
+interface Ethernet1/42
+  description ### Umang - Iperf ###
+  switchport
+  switchport access vlan 36
+interface Ethernet1/43
+  description ## Connected to Spirent Core port N6 ##
+  switchport
+  switchport access vlan 1931
+  no shutdown
+interface Ethernet1/44
+  description ## Connected to AMF Core ##
+  switchport
+  switchport access vlan 1234
+  no shutdown
+interface Ethernet1/45
+  description towards Tor-switch-A @PORT-19
+  switchport
+  switchport mode trunk
+  switchport trunk allowed vlan 1931
+  speed 1000
+  no shutdown
+interface Ethernet1/46
+  description *** Connected to LAB_Firewall-2 Port Ethernet 1/2 DR-11 U38 ***
+  switchport
+  switchport access vlan 50
+  no shutdown
+interface Ethernet1/47
+  description *** Connected to FTD.Firepower Ethernet1/2 ***
+  switchport
+  switchport access vlan 420
+  speed 1000
+  no shutdown
+interface Ethernet1/48
+  switchport
+  switchport mode trunk
+  switchport trunk allowed vlan 49-53,420
+  no shutdown
+interface Ethernet1/49
+interface Ethernet1/50
+  description ## Jayant Sir MMwave Testing For PGW Internet Connectivity ##
+  switchport
+  switchport mode trunk
+  switchport trunk allowed vlan 200
+  speed 100000
+  no negotiate auto
+  no shutdown
+interface Ethernet1/51
+  switchport
+  switchport mode trunk
+  switchport trunk allowed vlan 48,53
+  no shutdown
+interface Ethernet1/52
+  description ## Connected to 3rd Floor DC MAN-CISCO-AGENTIC-N9K-SW01 @ 1/1 ## vlan - 201
+  switchport
+  switchport mode trunk
+  switchport trunk allowed vlan 48,53
+  no shutdown
+interface Ethernet1/53/1
+  description *** Connected to INTERNET-ROUTER-A | Port-Te0/0/15 | TRUNK DATA PLANE FLOW ***
+  switchport
+  switchport mode trunk
+  switchport trunk allowed vlan 10,14,24,26,36,39,49-50,56,600
+interface Ethernet1/53/2
+  description *** Connected to LAB-FW-A | Port-Eth1/1 | FOR OUTSIDE |
+  switchport
+  switchport access vlan 36
+interface Ethernet1/53/3
+  description *** Connected to LAB-FW-A | INSIDE TO FW-OUTSIDE | Port-Eth1/2
+  switchport
+  switchport access vlan 50
+interface Ethernet1/53/4
+  description ##connected to CORE-SWH-A-0011 @port Te1/1/4 ##
+  switchport
+  switchport mode trunk
+  switchport trunk allowed vlan 3,10-11,14-15,17-18,23-24,32,35-36,39,42,44-45,48-53,56,71-74,98-102,105,107,111,115,141,145,149,191,207-208,221-222,226,245,300,303,315-317,339,399,403,419,421,440,447-449,455
+  no shutdown
+interface Ethernet1/54
+  description *** Connected to Nexus-Core-B_BACK to BACK | Port-Eth1/54 | DR 12 U 36 | ***
+  switchport
+  switchport mode trunk
+  switchport trunk allowed vlan 10-11,14-18,23-24,32,36,39,44-45,49,56,69,71-74,101-102,105,107,115,149,191,207-208,221-222,226,303,315-317,339,399,403,419,421,499-500,511,521,555,594,620,666,673,777,840,872-874,996-997,999,1001,1999-2000,2124,2525,3001-3003,3350,4092
+  no shutdown
+interface mgmt0
+  shutdown force
+  vrf member management
+  ip address 172.16.254.122/24
+  ipv6 address fd00::11/64
+interface loopback69
+  vrf member test1
+icam monitor scale
+line console
+line vty
+  exec-timeout 8
+boot nxos bootflash:/nxos64-cs.10.2.8.M.bin
+monitor session 1
+  source vlan 1234 both
+  destination interface Ethernet1/47
+Nexus-CORE-SWH-A#

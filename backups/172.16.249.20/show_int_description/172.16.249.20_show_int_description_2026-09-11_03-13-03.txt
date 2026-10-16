@@ -1,0 +1,393 @@
+show int description
+Fri Sep 11 03:55:54.021 IST
+Interface          Status      Protocol    Description
+--------------------------------------------------------------------------------
+BV3                down        down
+BV198386           down        down        TMKK-ML3-10-95422-IMS-P-NC-Telemedia-198386-29072026
+BV744512           down        down        TMKK-ML3-10-81921-IMS-P-NC-Telemedia-744512-19082026
+BV750925           down        down        #TESTING#PIML-ISP-73685#750925#2048k#2#170826#UMNG#
+BV810123           down        down        NEWS-ML3-1-199021-kjajj-2048k-My-New-VPN-810123-29072026
+BV810863           down        down        NEWS-ML3-1-81021-kjajj-2048k-My-New-VPN-810863-14082026
+BV810865           down        down        NEWS-ML3-1-81022-kjajj-20480k-My-New-VPN-7668512-17082026
+BV1708537          down        down        #TESTING#PIML-ISP-173046#1708537#2048k#2#290726#UMNG#
+BV2448643          down        down        #AMBITION PAPER TECH PRIVATE LIMITED#AMBIT-ILL-25041810015983#2448643#6144k#2#240425#UMNG#
+BV8010101          down        down        #SUPER SMELTERS LTD#PIML-ISP-8010101#8010101#30660k#2#200826#UMNG#
+BE1                down        down        #MPLS#BACK-TO-BACK##CONNECTED-TO-$LAB-2-Drivenets-Core-100.0$-$BE1$#CMR:#
+BE1.2              down        down        #MPLS#BACK-TO-BACK##CONNECTED-TO-$LAB-2-Drivenets-Core-100.0$-$BE1.2$#CMR:#
+BE2                down        down        #MPLS#BACK-TO-BACK##CONNECTED-TO-$LAB-2-KOL-ASR9903-100.6$-$BE2$#CMR:#
+BE2.2              down        down        #MPLS#BACK-TO-BACK##CONNECTED-TO-$LAB-2-KOL-ASR9903-100.6$-$BE2.2$#CMR:#
+BE2.6              down        down        connected to 9903(172.16.249.21) on Be4-6
+BE2.20             down        down        ### Dummy ###
+BE2.54             down        down        TEST_DESC
+BE2.76             down        down        TEST_COLO
+BE2.161            down        down        TMAP-ML2-25-201-GROUP TELEMEDIA-200001-01102024
+BE2.197            down        down        TMTN-ML2-27-90021-GROUP TELEMEDIA-900021-08112024
+BE2.234            down        down        TMAP-ML2-1-3333-GROUP TELEMEDIA-3333-11062026
+BE2.397            down        down        TMTN-ML2-27-90024-GROUP TELEMEDIA-900024-08112024
+BE2.636            down        down        test
+BE2.667            down        down        TMTN-ML2-27-90025-GROUP TELEMEDIA-900025-08112024
+BE2.697            down        down        \"TMTN-ML2-27-90026-GROUP TELEMEDIA-900026-08112024\"
+BE2.862            down        down        MANP-ML2-1-6008-GROUP TELEMEDIA-6008-17042026
+BE2.863            down        down        MANP-ML2-1-70013-GROUP TELEMEDIA-70013-20042026
+BE2.864            down        down        TMAP-ML2-1-70015-GROUP TELEMEDIA-70015-20042026
+BE2.865            down        down        MNAP-ML2-1-70016-Chennai-70016-20042026
+BE2.903            down        down
+BE2.991            down        down        TMAP-ML2-25-203-GROUP TELEMEDIA-200003-01102024
+BE2.1026           down        down        TMWB-ML2-2-74051-GROUP TELEMEDIA-156351-17022026
+BE2.1097           down        down        TMTN-ML2-2-17605-DYNAMIC-P-NC-GROUP TELEMEDIA-916901-08112024
+BE2.1107           down        down        TMTN-ML2-27-90007-GROUP TELEMEDIA-900007-08112024
+BE2.1187           down        down        TMTN-ML2-27-90019-GROUP TELEMEDIA-900019-08112024
+BE2.1197           down        down        TMTN-ML2-27-90004-GROUP TELEMEDIA-900004-08112024
+BE2.1427           down        down        TMTN-ML2-2-193602-DYNAMIC-P-NC-GROUP TELEMEDIA-916921-08112024
+BE2.1827           down        down        TMTN-ML2-2-193605-DYNAMIC-P-NC-GROUP TELEMEDIA-916921-08112024
+BE2.1863           down        down        TMTN-ML2-2-7203-GROUP TELEMEDIA-147203-30042026
+BE2.1866           down        down        TMTN-ML2-2-7206-GROUP TELEMEDIA-147206-21042026
+BE2.5001           down        down        connected to test
+BE2.5002           down        down        connect to test
+BE2.5003           down        down        test
+BE2.5004           down        down        test
+BE3                down        down        #MPLS#BACK-TO-BACK##CONNECTED-TO-$LAB-2-MUM-ASR9912-100.7$-$BE3$#CMR:#
+BE3.2              down        down        #MPLS#BACK-TO-BACK##CONNECTED-TO-$LAB-2-MUM-ASR9912-100.7$-$BE3.2$#CMR:#
+BE3.4              admin-down  admin-down  #MPLS#BACK-TO-BACK##CONNECTED-TO-$LAB-2-MUM-ASR9912-100.7$-$BE3.4$#CMR:#
+BE3.6              admin-down  admin-down  #MPLS#BACK-TO-BACK##CONNECTED-TO-$LAB-2-MUM-ASR9912-100.7$-$BE3.6$#CMR:#
+BE3.8              admin-down  admin-down  #MPLS#BACK-TO-BACK##CONNECTED-TO-$LAB-2-MUM-ASR9912-100.7$-$BE3.8$#CMR:#
+BE3.101            down        down        MANP-ML2-34-9001-GROUP TELEMEDIA-900001-01122025
+BE3.103            down        down        MANP-ML2-34-9003-GROUP TELEMEDIA-900003-01122025
+BE3.181            down        down        MANP-ML2-34-96764-GROUP TELEMEDIA-921212-16122025
+BE3.199            down        down        TMTN-ML2-27-90009-GROUP TELEMEDIA-900009-08112024
+BE3.1009           down        down        TMTN-ML2-27-90001-GROUP TELEMEDIA-900001-08112024
+BE3.1010           down        down        TMTN-ML2-27-90002-GROUP TELEMEDIA-900002-08112024
+BE3.1039           down        down        TMTN-ML2-27-90011-GROUP TELEMEDIA-900011-08112024
+BE3.1099           down        down        TMTN-ML2-27-90015-GROUP TELEMEDIA-9000018-08112024
+BE3.1709           down        down        MNAL-ML2-27-90012-B2B-900012-08112024
+BE3.1739           down        down        MNAL-ML2-27-90001-B2B-900001-08112024
+BE3.1789           down        down        MNAL-ML2-27-90013-B2B-900013-08112024
+BE3.3162           down        down        #DSLAM##TEMD-ML2-1-14091#456456#26062026##
+BE3.5000           down        down        ACLE-ML3-1-61465880-kjajj-5840k-ACLE-ML3-1-253757-29072026
+BE3.5001           down        down        ACLE-ML3-1-614652234-kjajj-11520k-ACLE-ML3-1-253757-29072026
+BE3.5002           down        down        ACLE-ML3-1-1212121-kjajj-51200k-ACLE-ML3-1-2928383-30072026
+BE3.5003           down        down        ACLE-ML3-1-120001-kjajj-4000k-ACLE-ML3-1-1200001-14082026
+BE3.5004           down        down        ACLE-ML3-1-120002-kjajj-5840k-ACLE-ML3-1-1200002-14082026
+BE3.5005           down        down        ACLE-ML3-1-120878-kjajj-5840k-ACLE-ML3-1-1200002-14082026
+BE4                down        down        #MPLS#BACK-TO-BACK##CONNECTED-TO-$LAB-2-DEL-ASR9903-100.5$-$BE4$#CMR:#
+BE4.2              down        down        #MPLS#BACK-TO-BACK##CONNECTED-TO-$LAB-2-DEL-ASR9903-100.5$-$BE4.2$#CMR:#
+BE4.16             down        down        #MOB#3G#CISCO-UP-3G-TEST5618#245811#25112022#
+BE4.39             down        down        #MOB#4G#CISCO-CP-4G-TEST7346#391655#25112022#
+BE4.41             down        down        #MOB#4G#CISCO-UP-4G-TEST9355#281327#25112022#
+BE4.56             down        down        #MOB#2G#CISCO-UP-2G-TEST7119#393044#25112022#
+BE4.91             down        down        #MOB#2G#CISCO-UP-2G-TEST6290#204807#25112022#
+BE4.97             down        down        #MOB#2G#CISCO-MP-2G-TEST8738#409974#25112022#
+BE4.121            down        down        #MOB#2G#CISCO-UP-2G-TEST7478#412264#25112022#
+BE4.133            down        down        #MOB#2G#CISCO-MP-2G-TEST7206#238355#25112022#
+BE4.144            down        down        #MOB#2G#CISCO-MP-2G-TEST9543#431136#25112022#
+BE4.149            down        down        #MOB#2G#CISCO-UP-2G-TEST8725#430379#25112022#
+BE4.151            down        down        #MOB#2G#CISCO-UP-2G-TEST5668#337966#25112022#
+BE4.153            down        down        #MOB#2G#CISCO-MP-2G-TEST8942#353176#25112022#
+BE4.168            down        down        #MOB#2G#CISCO-UP-2G-TEST8301#377443#24112022#
+BE4.204            down        down        #MOB#2G#CISCO-UP-2G-TEST6051#381810#25112022#
+BE4.222            down        down        #MOB#2G#CISCO-MP-2G-TEST5126#373383#25112022#
+BE4.249            down        down        #MOB#2G#CISCO-UP-2G-TEST7130#314698#25112022#
+BE4.260            down        down        #MOB#4G#CISCO-UP-4G-TEST6086#371159#25112022#
+BE4.264            down        down        #MOB#2G#CISCO-UP-2G-TEST7855#440451#25112022#
+BE4.339            down        down        #MOB#DCN#CISCO-MP-DCN-TEST5829#405495#25112022#
+BE4.392            down        down        #MOB#3G#CISCO-UP-3G-TEST8888#226049#23112022#
+BE4.460            down        down        #MOB#2G#CISCO-MP-2G-TEST6573#332508#25112022#
+BE4.531            down        down
+BE4.553            down        down        #MOB#4G#CISCO-CP-4G-TEST7078#470168#25112022#
+BE4.564            down        down        #MOB#3G#CISCO-UP-3G-TEST9800#307863#25112022#
+BE4.584            down        down        #MOB#2G#CISCO-UP-2G-TEST7716#231378#24112022#
+BE4.614            down        down        #MOB#DCN#CISCO-MP-DCN-TEST7586#208080#25112022#
+BE4.619            down        down        #MOB#4G#CISCO-MP-4G-TEST7079#436102#25112022#
+BE4.627            down        down        #MOB#3G#CISCO-UP-3G-TEST8446#413296#25112022#
+BE4.637            down        down        #MOB#4G#CISCO-UP-4G-TEST7288#437376#25112022#
+BE4.659            down        down        #MOB#DCN#CISCO-MP-DCN-TEST5573#213818#25112022#
+BE4.676            down        down        #MOB#4G#CISCO-MP-4G-TEST7627#394249#25112022#
+BE4.680            down        down        #MOB#2G#CISCO-MP-2G-TEST7128#363655#25112022#
+BE4.703            down        down        #MOB#4G#CISCO-CP-4G-TEST5247#386195#24112022#
+BE4.788            down        down        #MOB#DCN#CISCO-MP-DCN-TEST8169#484148#25112022#
+BE4.847            down        down        #MOB#4G#CISCO-MP-4G-TEST9351#233190#25112022#
+BE4.870            down        down        #MOB#2G#CISCO-UP-2G-TEST8399#376202#28112022#
+BE4.891            down        down        #MOB#2G#CISCO-UP-2G-TEST8380#266905#25112022#
+BE4.929            down        down        #MOB#2G#CISCO-UP-2G-TEST8794#370039#25112022#
+BE4.930            down        down        #MOB#2G#CISCO-UP-2G-TEST6559#486474#24112022#
+BE4.963            down        down        #MOB#4G#CISCO-UP-4G-TEST6483#325993#25112022#
+BE4.1024           down        down        #MOB#2G#CISCO-MP-2G-TEST9506#427795#25112022#
+BE4.1078           down        down        #MOB#4G#CISCO-UP-4G-TEST5538#251490#25112022#
+BE4.1169           down        down        #MOB#3G#CISCO-UP-3G-TEST9305#438809#25112022#
+BE4.1176           down        down        #MOB#2G#CISCO-UP-2G-TEST9523#360370#25112022#
+BE4.1193           down        down        #MOB#2G#CISCO-MP-2G-TEST9153#460009#25112022#
+BE4.1237           down        down        #MOB#2G#CISCO-MP-2G-TEST7424#286964#24112022#
+BE4.1331           down        down        #MOB#2G#CISCO-UP-2G-TEST7815#494389#25112022#
+BE4.1367           down        down        #MOB#3G#CISCO-UP-3G-TEST6990#218402#25112022#
+BE4.1389           down        down        #MOB#2G#CISCO-UP-2G-TEST7000#258940#26112022#
+BE4.1409           down        down        #MOB#2G#CISCO-UP-2G-TEST8975#319775#25112022#
+BE4.1429           down        down        #MOB#4G#CISCO-MP-4G-TEST8632#457442#25112022#
+BE4.1452           down        down        #MOB#4G#CISCO-CP-4G-TEST5027#423686#26112022#
+BE4.1478           down        down        #MOB#2G#CISCO-UP-2G-TEST6825#314310#25112022#
+BE4.1511           down        down        #MOB#4G#CISCO-MP-4G-TEST7847#425557#25112022#
+BE4.1525           down        down        #MOB#4G#CISCO-CP-4G-TEST9844#476843#25112022#
+BE4.1539           down        down        #MOB#2G#CISCO-UP-2G-TEST8979#324744#25112022#
+BE4.1559           down        down        #MOB#2G#CISCO-MP-2G-TEST5253#259859#25112022#
+BE4.1560           down        down        #MOB#2G#CISCO-MP-2G-TEST8256#215203#28112022#
+BE4.1601           down        down        #MOB#2G#CISCO-UP-2G-TEST5029#365637#25112022#
+BE4.1625           down        down        #MOB#2G#CISCO-MP-2G-TEST9899#465750#25112022#
+BE4.1661           down        down        #MOB#2G#CISCO-UP-2G-TEST8319#425583#24112022#
+BE4.1666           down        down        #MOB#2G#CISCO-UP-2G-TEST5813#215395#24112022#
+BE4.1691           down        down        #MOB#2G#CISCO-UP-2G-TEST7643#219488#25112022#
+BE4.1699           down        down        #MOB#2G#CISCO-MP-2G-TEST9346#489940#25112022#
+BE4.1712           down        down        #MOB#4G#CISCO-UP-4G-TEST7106#260267#25112022#
+BE4.1765           down        down        #MOB#2G#CISCO-UP-2G-TEST5789#214760#25112022#
+BE4.1790           down        down        #MOB#3G#CLONE-NCS540-QoS-04#1223#10092022#
+BE4.1809           down        down        #MOB#2G#CISCO-UP-2G-TEST8956#295749#25112022#
+BE4.1824           down        down        #MOB#2G#CISCO-MP-2G-TEST5200#371580#25112022#
+BE4.1827           down        down        #MOB#2G#CISCO-UP-2G-TEST6713#367163#25112022#
+BE4.1882           down        down        #MOB#4G#CISCO-MP-4G-TEST9082#277193#25112022#
+BE4.1889           down        down        #MOB#3G#CISCO-UP-3G-TEST7184#406133#25112022#
+BE4.1915           down        down        #MOB#2G#CISCO-MP-2G-TEST6313#434417#25112022#
+BE4.1945           down        down        #MOB#4G#CISCO-CP-4G-TEST7749#346216#28112022#
+BE4.1954           down        down        #MOB#2G#CISCO-UP-2G-TEST5403#215213#24112022#
+BE4.1971           down        down        #MOB#2G#CISCO-UP-2G-TEST5160#376441#25112022#
+BE4.2039           down        down        #MOB#2G#CISCO-MP-2G-TEST8441#379810#25112022#
+BE4.2052           down        down        #MOB#3G#CISCO-UP-3G-TEST5823#497834#23112022#
+BE4.2112           down        down        #MOB#3G#CISCO-UP-3G-TEST9289#416518#25112022#
+BE4.2113           down        down        #MOB#2G#CISCO-UP-2G-TEST6708#388214#24112022#
+BE4.2147           down        down        #MOB#2G#CISCO-UP-2G-TEST6974#223615#25112022#
+BE4.2158           down        down        #MOB#2G#CISCO-UP-2G-TEST7198#291069#25112022#
+BE4.2159           down        down        #MOB#4G#CISCO-UP-4G-TEST5602#289389#25112022#
+BE4.2204           down        down        #MOB#4G#CISCO-CP-4G-TEST7206#284482#24112022#
+BE4.2226           down        down        #MOB#2G#CISCO-UP-2G-TEST9528#315758#25112022#
+BE4.2252           down        down        #MOB#2G#CISCO-MP-2G-TEST7778#416834#25112022#
+BE4.2264           down        down        #MOB#4G#CISCO-UP-4G-TEST6839#280823#25112022#
+BE4.2273           down        down        #MOB#2G#CISCO-UP-2G-TEST5678#226253#25112022#
+BE4.2278           down        down        #MOB#DCN#CISCO-MP-DCN-TEST9734#314547#25112022#
+BE4.2348           down        down        #MOB#2G#CISCO-UP-2G-TEST5121#464546#24112022#
+BE4.2382           down        down        #MOB#3G#CISCO-UP-3G-TEST7573#492823#25112022#
+BE4.2464           down        down        #MOB#2G#CISCO-MP-2G-TEST7287#354882#25112022#
+BE4.2490           down        down        #MOB#2G#CISCO-UP-2G-TEST8110#421668#25112022#
+BE4.2510           down        down        #MOB#2G#CISCO-MP-2G-TEST9018#355999#25112022#
+BE4.2532           down        down        #MOB#3G#CISCO-UP-3G-TEST9731#316387#23112022#
+BE4.2538           down        down        #MOB#2G#CISCO-MP-2G-TEST5688#494813#25112022#
+BE4.2554           down        down        #MOB#2G#CISCO-UP-2G-TEST5656#214709#25112022#
+BE4.2557           down        down        #MOB#2G#CISCO-MP-2G-TEST8549#469546#25112022#
+BE4.2558           down        down        #MOB#4G#CISCO-MP-4G-TEST8824#245557#25112022#
+BE4.2638           down        down        #MOB#4G#CISCO-CP-4G-TEST9879#352656#25112022#
+BE4.2677           down        down        #MOB#2G#CISCO-MP-2G-TEST9622#368278#25112022#
+BE4.2680           down        down        #MOB#2G#CISCO-UP-2G-TEST7756#224086#25112022#
+BE4.2699           down        down        #MOB#3G#CISCO-UP-3G-TEST8190#442853#23112022#
+BE4.2721           down        down        #MOB#2G#CISCO-MP-2G-TEST9907#306306#25112022#
+BE4.2724           down        down        #MOB#3G#CISCO-UP-3G-TEST6009#237208#25112022#
+BE4.2752           down        down        #MOB#3G#CISCO-UP-3G-TEST7823#316647#23112022#
+BE4.2762           down        down        #MOB#2G#CISCO-UP-2G-TEST9014#215585#24112022#
+BE4.2785           down        down        #MOB#3G#CISCO-UP-3G-TEST7041#233679#25112022#
+BE4.2786           down        down        #MOB#2G#CISCO-MP-2G-TEST5829#328007#25112022#
+BE4.2824           down        down        #MOB#2G#CISCO-UP-2G-TEST8233#264806#25112022#
+BE4.2915           down        down        #MOB#4G#CISCO-CP-4G-TEST6323#398015#25112022#
+BE4.2979           down        down        #MOB#2G#CISCO-MP-2G-TEST5232#403592#25112022#
+BE4.2985           down        down        #MOB#2G#CISCO-UP-2G-TEST7718#399073#25112022#
+BE4.2994           down        down        #MOB#DCN#CISCO-MP-DCN-TEST5346#409506#25112022#
+BE4.2996           down        down        #MOB#3G#CISCO-UP-3G-TEST6470#204747#23112022#
+BE4.3015           down        down        #MOB#2G#CISCO-MP-2G-TEST8819#287595#25112022#
+BE4.3028           down        down        #MOB#2G#CISCO-UP-2G-TEST7794#290127#25112022#
+BE4.3041           down        down
+BE4.3043           down        down        #MOB#2G#CISCO-UP-2G-TEST8447#342074#25112022#
+BE4.3078           down        down        #MOB#2G#CISCO-MP-2G-TEST5878#325953#24112022#
+BE4.3079           down        down        #MOB#4G#CISCO-MP-4G-TEST8448#203952#25112022#
+BE4.3087           down        down        #MOB#2G#CISCO-MP-2G-TEST6113#240991#26112022#
+BE4.3102           down        down        #MOB#4G#CISCO-CP-4G-TEST9209#477209#25112022#
+BE4.3159           down        down        #MOB#2G#CISCO-MP-2G-TEST6193#445388#25112022#
+BE4.3161           down        down        #MOB#2G#CISCO-MP-2G-TEST5505#203692#25112022#
+BE4.3166           down        down        #MOB#2G#CISCO-MP-2G-TEST7904#487806#25112022#
+BE4.3183           down        down        #MOB#DCN#CISCO-MP-DCN-TEST5352#239316#25112022#
+BE4.3199           down        down        #MOB#4G#CISCO-MP-4G-TEST8340#400068#25112022#
+BE4.3240           down        down        #MOB#3G#CISCO-UP-3G-TEST6597#451483#23112022#
+BE4.3263           down        down        #MOB#2G#CISCO-UP-2G-TEST8171#325176#25112022#
+BE4.3287           down        down        #MOB#2G#CISCO-MP-2G-TEST6542#475801#25112022#
+BE4.3299           down        down        #MOB#4G#CISCO-MP-4G-TEST8401#366807#25112022#
+BE4.3316           down        down        #MOB#2G#CISCO-MP-2G-TEST5783#240853#24112022#
+BE4.3325           down        down        #MOB#2G#CISCO-MP-2G-TEST8300#370167#25112022#
+BE4.3326           down        down        #MOB#2G#CISCO-UP-2G-TEST6275#298946#28112022#
+BE4.3345           down        down        #MOB#4G#CISCO-UP-4G-TEST6238#356247#25112022#
+BE4.3368           down        down        #MOB#3G#CISCO-UP-3G-TEST9312#301568#23112022#
+BE4.3369           down        down        #MOB#2G#CISCO-UP-2G-TEST9307#417891#25112022#
+BE4.3384           down        down        #MOB#3G#CISCO-UP-3G-TEST5941#471601#25112022#
+BE4.3412           down        down        #MOB#2G#CISCO-UP-2G-TEST8019#273393#25112022#
+BE4.3445           down        down        #MOB#2G#CISCO-UP-2G-TEST8272#448878#25112022#
+BE4.3477           down        down        #MOB#2G#CISCO-MP-2G-TEST6172#275165#25112022#
+BE4.3512           down        down        #MOB#4G#CISCO-CP-4G-TEST8079#382543#25112022#
+BE4.3534           down        down        #MOB#4G#CISCO-CP-4G-TEST7944#462657#25112022#
+BE4.3559           down        down        #MOB#3G#CISCO-UP-3G-TEST9227#252343#25112022#
+BE4.3598           down        down        #MOB#3G#CISCO-UP-3G-TEST7158#487568#25112022#
+BE4.3603           down        down        #MOB#3G#CISCO-UP-3G-TEST5421#254506#25112022#
+BE4.3617           down        down        #MOB#2G#CISCO-UP-2G-TEST9091#330017#25112022#
+BE4.3627           down        down        #MOB#2G#CISCO-MP-2G-TEST7151#316825#25112022#
+BE4.3664           down        down        #MOB#2G#CISCO-MP-2G-TEST6864#428196#25112022#
+BE4.3699           down        down        MWRUE-ML3-11-429077-4G_P-Sig01-MWRUE-ML3-11-429077-26082026
+BE4.3711           down        down        #MOB#4G#CISCO-MP-4G-TEST6968#369614#25112022#
+BE4.3712           down        down        #MOB#3G#CISCO-UP-3G-TEST5333#424633#25112022#
+BE4.3771           down        down        #MOB#4G#CISCO-CP-4G-TEST7806#366326#25112022#
+BE4.3773           down        down        #MOB#2G#CISCO-MP-2G-TEST5851#416073#25112022#
+BE4.3799           down        down        #MOB#4G#CISCO-MP-4G-TEST8305#261746#25112022#
+BE4.3804           down        down        #MOB#2G#CISCO-UP-2G-TEST7544#258487#25112022#
+BE4.3811           down        down        #MOB#3G#CISCO-UP-3G-TEST7213#465122#25112022#
+BE4.3818           down        down        #MOB#2G#CISCO-UP-2G-TEST7345#302365#28112022#
+BE4.3819           down        down        #MOB#2G#CISCO-UP-2G-TEST7106#469204#25112022#
+BE4.3847           down        down        #MOB#2G#CISCO-MP-2G-TEST5385#208113#25112022#
+BE4.3857           down        down        #MOB#2G#CISCO-MP-2G-TEST7399#496157#25112022#
+BE4.3859           down        down        #MOB#4G#CISCO-CP-4G-TEST6867#266073#25112022#
+BE4.3874           down        down        #MOB#2G#CISCO-UP-2G-TEST7697#426053#25112022#
+BE4.3880           down        down        #MOB#4G#CISCO-UP-4G-TEST5452#347749#25112022#
+BE4.3930           down        down        #MOB#3G#CISCO-UP-3G-TEST6144#447880#23112022#
+BE4.4018           down        down        #MOB#2G#CISCO-UP-2G-TEST8465#342872#25112022#
+BE4.4043           down        down        #MOB#2G#CISCO-UP-2G-TEST8014#257795#25112022#
+BE4.4067           down        down        #MOB#2G#CISCO-MP-2G-TEST6312#328059#25112022#
+BE4.4089           down        down        #MOB#4G#CISCO-CP-4G-TEST9718#375818#25112022#
+BE5                down        down
+BE5.2              down        down        #MPLS#BACK-TO-BACK##CONNECTED-TO-$LAB-2-Drivenets-Core-100.0$-$BE1.2$#CMR:#
+BE5.3699           down        down        MWRUE-ML3-11-429077-4G_P-Sig-MWRUE-ML3-11-429077-25082026
+BE8                down        down
+BE8.511            down        down
+BE8.1101           down        down        SIT73-ML2-103-test orders-11991-29052023
+BE8.1217           down        down        MANP-ML2-34-900095-GROUP TELEMEDIA-900795-20122024
+BE8.1510           down        down        SIT73-ML2-T120318-test orders-443322-12032023
+BE8.1610           down        down        SIT73-ML2-T280318-test orders-443322-28032023
+BE8.1626           down        down        MANP-ML2-1-24077-GROUP TELEMEDIA-956077-24042024
+BE8.1878           down        down        #MOB#UP#MWRMP-ANG0071#2379001#1024000#060118#
+BE8.1879           down        down        #MOB#UP#MWRMP-ANG0071#2379001#1024000#060118#
+BE8.2001           down        down        SIT73-ML2-T090909-test orders-2-443321-28032023
+BE8.2233           down        down        SIT73-ML2-T1118-test orders-33333-29052023
+BE8.3610           down        down        SIT73-ML2-T110318-test orders-443322-28032023
+BE8.3611           down        down        SIT73-ML2-T080808-test orders-111111-29052023
+BE8.4092           down        down        SIT73-ML2-T120311-test orders-22222-12032023
+BE8.999911         down        down        SIT73-ML2-T11111-test orders-443322-19102022
+BE10               down        down        connected to Peyto(172.16.249.20) on portT-19-Terraform Test
+BE10.903           down        down
+BE14               down        down        <<HSRP with BL>>
+BE14.216           down        down        TMWB-ML2-2-24139-GROUP TELEMEDIA-121227-19032026
+BE14.226           down        down        TMWB-ML2-2-24032-GROUP TELEMEDIA-256453-17032026
+BE14.326           down        down        TMWB-ML2-2-24013-GROUP TELEMEDIA-256153-19032026
+BE14.502           down        down
+BE14.511           down        down
+BE14.512           down        down
+BE14.626           down        down        TMWB-ML2-2-114035-GROUP TELEMEDIA-1456455-03032026
+BE14.3023          down        down
+BE14.3801          down        down
+BE14.3802          down        down
+BE14.3803          down        down
+BE14.3804          down        down
+BE14.3805          down        down
+BE14.3826          down        down
+BE14.3827          down        down
+BE14.3829          down        down
+BE14.3830          down        down
+BE14.3840          down        down
+BE14.3850          down        down
+BE14.3851          down        down
+BE14.3852          down        down
+BE14.3877          down        down
+BE14.3878          down        down
+BE14.3879          down        down
+BE20               down        down        testing
+BE20.903           down        down
+BE20.1488          down        down        MSHB-ML3-1-944633-kjajj-6843k-ja lkghg-231359-28072026
+BE20.1489          down        down        MSHB-ML3-1-944644-kjajj-6843k-ja lkghg-231360-28072026
+BE21               up          up          Mobility bundle toward Spirent XXX
+BE21.2             up          up          PEERING-MPLS-ISP-INFRA-NNI-<INTERNET-OVER-MPLS-T4><KK><BLR-ISP-ACC-RTR-241><ae950.2>SECONDARY#PRIMARY##CONNECTED-TO-$BGL-WFD-MPL-LTE-PE-RTR-43-62$-$BE950$##CMR:2106169#
+BE21.101           up          up          for qos test
+BE21.975           up          up          VPWS_T2X_T2Y
+BE21.1000          up          up          ### Ciena QOS Test ##
+BE21.1488          up          up          DBS-BANK-SPOKE
+BE21.1849          up          up          HDFC-M
+BE21.2227          up          up          BCLT-ML3-11-30-LTE-2048k-Bharti-Cellular-Ltd-Merrut-1767151-050219
+BE21.3227          up          up          BCLT-ML3-12-31-MERRUT-315392k-BAL-IT-Primary-1766112-050219
+BE21.3727          up          up          BCLT-ML3-13-31-2048k-Bharti-Cellular-Ltd-Merrut-1765975-050219
+BE21.5010          up          up          #MOTHER DAIRY FRUIT & VEGETABLE PRIVATE LIMITED#XCTU-ILL-250730100187152#2651443#2048k#2#08082025#MNG#
+BE31               down        down        HDFC-M
+BE50               up          up          #MPLS#BACK-TO-BACK##CONNECTED-TO-$NCOR-T1-LAB-1$-$Bundle-Ether50$#CMR:CMR#
+BE50.2             up          up          #MPLS#BACK-TO-BACK##CONNECTED-TO-$NCOR-T1-LAB-1$-$te0/0/0/6$#CMR:CMR#
+BE50.4             up          up          #MPLS#BACK-TO-BACK##CONNECTED-TO-$NCOR-T1-LAB-1$-$te0/0/0/6$#CMR:CMR#
+BE51               up          up          #MPLS#BACK-TO-BACK##CONNECTED-TO-$X3-T3-LAB-1$-$Bundle-Ether51$#CMR:CMR#
+BE51.2             up          up          #MPLS#BACK-TO-BACK##CONNECTED-TO-$X3-T3-LAB-1$-$te0/0/0/4$#CMR:CMR#
+BE51.4             up          up          #MPLS#BACK-TO-BACK##CONNECTED-TO-$X3-T3-LAB-1$-$te0/0/0/4$#CMR:CMR#
+BE52               up          up          #MPLS#BACK-TO-BACK##CONNECTED-TO-$RRR-NR-LAB-1$-$Bundle-Ether52$#CMR:CMR#
+BE52.2             up          up          #MPLS#BACK-TO-BACK##CONNECTED-TO-$RRR-NR-LAB-1$-$te0/0/0/17$#CMR:CMR#
+BE52.4             up          up          #MPLS#BACK-TO-BACK##CONNECTED-TO-$RRR-NR-LAB-1$-$te0/0/0/17$#CMR:CMR#
+BE53               up          up          #MPLS#BACK-TO-BACK##CONNECTED-TO-$CRR_CIRCLE_X_LAB_254_12$-$Bundle-Ether53$#CMR:CMR#
+BE53.2             up          up          #MPLS#BACK-TO-BACK##CONNECTED-TO-$CRR_CIRCLE_X_LAB_254_12$-$Bundle-Ether53$#CMR:CMR#
+BE55               down        down        #MPLS#BACK-TO-BACK##CONNECTED-TO-$IND-GEE-MPL-LTE-PE-RTR-34-155$-$BE51$#CMR:1686985#
+BE55.2             down        down        #MPLS#BACK-TO-BACK##CONNECTED-TO-$IND-GEE-MPL-LTE-PE-RTR-34-155$-$BE51.2$#CMR:1686985#
+BE55.4             down        down        #MPLS#BACK-TO-BACK##CONNECTED-TO-$IND-GEE-MPL-LTE-PE-RTR-34-155$-$BE51.4$#CMR:1686985#
+BE56               admin-down  admin-down  #MPLS#BACK-TO-BACK##CONNECTED-TO-$SCOR-T1-LAB-1$-$BE56$#CMR:CMR#
+BE56.2             admin-down  admin-down  #MPLS#BACK-TO-BACK##CONNECTED-TO-$SCOR-T1-LAB-1$-$te0/0/0/19$#CMR:CMR#
+BE56.4             admin-down  admin-down  #MPLS#BACK-TO-BACK##CONNECTED-TO-$SCOR-T1-LAB-1$-$te0/0/0/19$#CMR:CMR#
+BE76               down        down        POI_10G_MPLS_L2_P_-CBT-MPL-LTE-PE-RTR-165-100GigabitEthernetBE76-_CBT_DMR_901_2NP_HCX6H8XR001-100GE6/1/0-CRQ000002269728
+BE76.320           down        down        "#DSLAM-TM#BNLT-ANG28100#2060526#PNR-H7#STA#300Mb#13042017#"
+BE101              admin-down  admin-down  ## Conncetdd---LAB-2-KHP-T4-NCS5540-100.12##
+BE102              down        down        ## Conncetdd---LAB-2-PTN-T4-NIXR6-100.14 ##
+BE103              down        down        ## Conncetdd---LAB-2-KHP-T4-NCS5540-100.12---T4-MIX PROCESS
+BE201              down        down        BUTTERFLY#Cisco_NP1BE201-Cisco_CR1BE201R001
+BE202              down        down        BUTTERFLY#Cisco_NP1BE202-Cisco_NP2BE202
+BE203              down        down        BUTTERFLY#Cisco_NP1BE3-Cisco_CR2BE201
+BE299              down        down        BUTTERFLY#Cisco_NP1BE299-Cisco_COLO1BE299
+BE400              down        down
+BE401              down        down        MCLAG_SERVICE_FOR_TESTING
+BE401.500          down        down        "#FTTB#ILP#KGSL-ANG1625961#3319216#102400#191219#"
+BE401.600          down        down        #DSLAM#ISP#BALTM-ISP-2605-FTTH-P-NC#675119#10012023#3TE-Z2#
+BE420              down        down
+BE420.320          down        down        "#DSLAM-TM#BNLT-ANG28100#2060526#PNR-H7#STA#300Mb#13042017#"
+BE1234             down        down        MCLAG_BUNDLE-(CEN-MPLS)
+BE1234.701         down        down
+Lo0                up          up          Core Infra Loopback
+Lo91               up          up
+Lo100              up          up          Infrastructure Loopback for T4 domain
+Lo101              up          up          Infrastructure Loopback for T4-Mix domain
+Lo102              up          up          Infrastructure Loopback for T4-NOKIA domain
+Lo103              admin-down  admin-down  TEST
+Lo200              up          up
+Lo777              up          up
+Lo7856             up          up
+Lo9999             up          up
+Nu0                up          up
+tt0                admin-down  admin-down
+tt1                admin-down  admin-down  Cisco_CR1
+tt2                down        down        Cisco_CR2
+tt3                down        down        Cisco_NPE2
+tt6                admin-down  admin-down
+Mg0/RP0/CPU0/0     up          up
+Mg0/RP1/CPU0/0     admin-down  admin-down
+Hu0/0/0/0          down        down        "Connected to LAB-2-MUM-ASR9912-100.7 p0/0/0/2"
+Hu0/0/0/1          err-disable admin-down  #MPLS#BACK-TO-BACK##CONNECTED-TO-$LAB-2-KHP-T4-NCS5540-100.12
+Hu0/0/0/2          down        down        CONNECTED-TO-$LAB-2-KHP-T4-NCS5540-100.12-T4-MIX-PROCESS
+Hu0/0/0/3          down        down        efg
+Hu0/0/0/4          down        down        COLO_DESC
+Hu0/0/0/5          down        down
+Hu0/0/0/6          down        down        #MPLS#BACK-TO-BACK##CONNECTED-TO-$LAB-2-DEL-ASR9903-100.5$-$Hu0/0/0/0$#CMR:#
+Hu0/0/0/7          down        down        NLD-KHP-ASN-100G-MPLS-OTN-BACKBONE-LINK-<CKT-ID:AESV-P2P-63126-ISP-P-C><LOCAL-ASL_BCLWB_UGM_R_H3055-port-64-T404-TX4/RX4><DEST-<KHP-JKP-MPL-COR-RTR-34-254$Hu0/1/0/6><CMR:2871686>
+Hu0/0/0/8          admin-down  admin-down
+Hu0/0/0/9          down        down        #Connect_BL-111_Port_1/1#
+Hu0/0/0/11         down        down        #Connected_BL-112_Port_1/1#
+Hu0/0/0/12         admin-down  admin-down
+Hu0/0/0/13         down        down        #MPLS#BACK-TO-BACK##CONNECTED-TO-$LAB-2-Drivenets-Core-100.1$-$BE1$#CMR:#
+Hu0/0/0/15         down        down        #MPLS#BACK-TO-BACK##CONNECTED-TO-$LAB-2-Drivenets-Core-100.0$-$BE1$#CMR:#
+Te0/0/0/16         up          up          #MPLS#BACK-TO-BACK##CONNECTED-TO-$T2_CIRCLE_X_LAB_249_20$-$te0/0/0/16$#CMR:CMR#
+Te0/0/0/17         up          up          #MPLS#BACK-TO-BACK##CONNECTED-TO-$RRR-NR-LAB-1$-$te0/0/0/17$#CMR:CMR#
+Te0/0/0/18         up          up          #MPLS#BACK-TO-BACK##CONNECTED-TO-$X3-T3-LAB-1$-$te0/0/0/4$#CMR:CMR#
+Te0/0/0/19         err-disable admin-down  #MPLS#BACK-TO-BACK##CONNECTED-TO-$SCOR-T1-LAB-1$-$te0/0/0/19$#CMR:CMR#
+Te0/0/0/20         up          up          toward_spirent_tester_te1/4/1
+Te0/0/0/21         admin-down  admin-down
+Te0/0/0/22         down        down
+Te0/0/0/23         down        down
+Te0/0/0/24         down        down
+Te0/0/0/24.1793    down        down        #MOB#3G#CENL3-UPGRADE-TEST05#4757501#14112022#
+Te0/0/0/25         err-disable admin-down  #MPLS#BACK-TO-BACK##CONNECTED-TO-$SCOR-T1-LAB-1$-$te0/0/0/19$#CMR:CMR#
+Te0/0/0/26         up          up          #MPLS#BACK-TO-BACK##CONNECTED-TO-$NCOR-T1-LAB-1$-$te0/1/0/17$#CMR:CMR#
+Te0/0/0/27         down        down        BUTTERFLY#Cisco_NP1Te0/0/0/17-Cisco_NP2Te0/0/0/17R001
+Te0/0/0/28         down        down        BUTTERFLY#Cisco_NP1Te0/0/0/18-Cisco_COLO1Te0/0/0/5R001
+Te0/0/0/29         down        down        BUTTERFLY#Cisco_NP1Te0/0/0/19-Cisco_CR2Te0/0/0/5R001
+Te0/0/0/30         admin-down  admin-down
+Te0/0/0/31         down        down        Towards-NPE-1(9912)
+Te0/0/0/32         down        down        Towards-NPE-2(9903)
+Te0/0/0/33         down        down
+Te0/0/0/33.701     down        down
+Te0/0/0/34         down        down
+Te0/0/0/35         admin-down  admin-down
+RP/0/RP1/CPU0:NOD-MPL-LTE-PE-RTR-37-196#

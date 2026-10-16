@@ -1,0 +1,132 @@
+show int description
+Thu Aug 20 03:15:10.314 IST
+Interface          Status      Protocol    Description
+--------------------------------------------------------------------------------
+BV14               down        down
+BV100              down        down        EVPN-Cisco-Nokia-T4
+BV500              down        down        EVPN-X2-Cisco-Nokia-T4
+BV600              down        down        EVPN-X2-Cisco-Nokia-T4-Issue
+BV1101             down        down
+BV1263             down        down        BACLA-ML3-13-728199-oss-P-C-bharti-Internal-Mobility-781991-04062022
+BV6529             down        down
+BV18197            down        down
+BE10               down        down
+BE10.309           down        down        ciena 5130-B port 8
+BE102              up          up          -- NCS55A-2 tenGigE 0/0/0/4 (ISIS-T4)
+BE102.4            up          up          --peyto to peyto for NPT-1100-- HundredGigE0/0/2/2/0
+BE102.5            admin-down  admin-down  -- NCS55A-2 tenGigE 0/0/0/4 (ISIS-T5)
+BE102.6            up          up
+BE102.15           up          up
+BE102.1100         admin-down  admin-down
+BE102.1163         up          up
+BE105              down        down        connected to ECI_1100H#63-P3
+BE105.1100         down        down
+BE105.1101         down        down
+BE110              down        down        connected to NPT#1100i-81-XSA-P16
+BE110.10           down        down
+BE111              down        down        ### Connected to ECI-NPT-1100#81 Port 23, Local port: TF0/0/0/26 For SFP Testing ###
+BE309              down        down
+BE356              down        down
+BE356.10           down        down
+BE700              down        down        connected towards ECi for nni testing
+BE700.50           down        down
+BE700.700          down        down
+BE1064             down        down        Te0/0/0/16-BE1064-PeytoNG
+BE1700             down        down        connected towards ECi for nni testing
+BE1700.70          down        down
+BE3869             down        down        to_Nokia_IXR-R6-38-1/1/5_Cisco-T4-69_TE0/0/0/19
+BE3869.100         admin-down  admin-down  To_Ring_clouser_for_T4_ring
+BE3869.101         down        down        To_Ring_clouser_for_T5_ring
+BE4100             down        down
+BE6810             up          up
+BE6810.1531        up          down
+BE6810.1551        up          up
+BE7268             admin-down  admin-down  -- ASR_9K_2>Te0/1/1/10
+BE9668             down        down        connected to 540-E-1-on T17-isis-T5
+BE9668.15          down        down
+BE9668.1100        admin-down  admin-down
+Lo0                up          up
+Lo4                up          up
+Lo5                up          up
+Lo6                up          up
+Lo10               up          up          -- router id for bgp multi-instance --
+Lo11               up          up
+Lo21               up          up
+Lo22               up          up
+Lo23               up          up
+Lo24               up          up
+Lo25               up          up
+Lo30               up          up
+Lo40               up          up
+Lo42               up          up          test for VPNV4-NPT
+Lo50               up          up
+Lo61               up          up
+Lo62               up          up
+Lo63               up          up
+Lo64               up          up
+Lo65               up          up
+Lo66               up          up
+Lo88               up          up
+Lo91               up          up
+Lo100              up          up
+Lo110              up          up          ECI_T5_Multicast
+Lo130              up          up
+Lo163              up          up          ECI_T5_NPT1100H
+Lo1022             admin-down  admin-down
+Nu0                up          up
+tt1                down        down
+Te0/0/0/0          down        down        -- ASR_9K_2 Te0/0/0/17 --
+Te0/0/0/1          down        down
+Te0/0/0/2          err-disable admin-down
+Te0/0/0/3          down        down
+Te0/0/0/4          up          up          towards tengig 0/0/0/4 peyto .69
+Te0/0/0/5          down        down
+Te0/0/0/6          down        down
+Te0/0/0/6.300      down        down
+Te0/0/0/7          up          up
+Te0/0/0/7.99       up          up
+Te0/0/0/8          down        down        connected to Nokia_IXR-R6-37-1/2/1
+Te0/0/0/9          down        down
+Te0/0/0/10         down        down
+Te0/0/0/11         up          up
+Te0/0/0/12         down        down
+Te0/0/0/13         up          up
+Te0/0/0/14         down        down
+Te0/0/0/15         down        down
+Te0/0/0/16         down        down        Te0/0/0/16-BE1064-PeytoNG
+Te0/0/0/17         err-disable admin-down  ## "Connected to NPT-1100H#63 ##
+Te0/0/0/18         err-disable admin-down  "connected towards 540E(1) port-ten17
+Te0/0/0/19         down        down
+Te0/0/0/20         err-disable admin-down  towards_npt-1100#81
+Te0/0/0/21         down        down
+Te0/0/0/22         down        down
+Te0/0/0/23         down        down
+Te0/0/0/23.40      down        down
+TF0/0/0/24         down        down
+TF0/0/0/24.1       down        down
+TF0/0/0/24.100     down        down
+TF0/0/0/25         down        down
+TF0/0/0/26         admin-down  admin-down  ### Connected to ECI-NPT-1100#81 Port 23 for SFP Testing ###
+TF0/0/0/27         admin-down  admin-down
+TF0/0/0/28         admin-down  admin-down
+TF0/0/0/29         admin-down  admin-down
+TF0/0/0/30         admin-down  admin-down
+TF0/0/0/31         admin-down  admin-down
+TF0/0/0/32         admin-down  admin-down
+TF0/0/0/33         admin-down  admin-down
+TF0/0/0/34         admin-down  admin-down
+TF0/0/0/35         admin-down  admin-down
+TF0/0/0/36         admin-down  admin-down
+TF0/0/0/37         admin-down  admin-down
+TF0/0/0/38         admin-down  admin-down
+TF0/0/0/39         admin-down  admin-down
+Hu0/0/1/0          down        down
+Hu0/0/1/1          admin-down  admin-down
+Hu0/0/1/2          admin-down  admin-down
+Hu0/0/1/3          admin-down  admin-down
+Hu0/0/2/0          down        down
+Hu0/0/2/0.1        down        down
+Hu0/0/2/1          down        down        towrards spirent @port -6/21
+Hu0/0/2/2/0        admin-down  admin-down  connected B2B with Peyto-2 CFP2-DCO
+Mg0/RP0/CPU0/0     up          up
+RP/0/RP0/CPU0:I-AM-PEYTO-1-UPPER#

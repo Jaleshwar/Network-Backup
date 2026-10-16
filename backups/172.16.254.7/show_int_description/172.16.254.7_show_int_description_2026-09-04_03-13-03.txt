@@ -1,0 +1,127 @@
+show int description
+-------------------------------------------------------------------------------
+Interface                Description
+-------------------------------------------------------------------------------
+mgmt0                    --
+-------------------------------------------------------------------------------
+Port          Type   Speed   Description
+-------------------------------------------------------------------------------
+Eth1/1        eth    10G     ***Towards LAB-FW-A | Port-Eth1/2 | From Inside to Outside ***
+Eth1/2        eth    10G     ##connected to CORE-SWH-A-0011 @port Te1/1/4 ##
+Eth1/3        eth    10G     ** Towards LAB-FW-A | Port-Eth1/1 | From Outside to Inside |
+Eth1/4        eth    10G     ##"Connected to Internet Router INTERNET-ROUTER-NEW @ Te0/0/15 "Trunk Data plane flow"##
+Eth1/5        eth    1000    *** Connected to VAS-MGMT-SW-ROW-A-41 | TRUNK | Port-Gig1/25 | AR-07 U-23 | ***
+Eth1/6        eth    10G     *** Connected to SERVICE-SWH-ROW-A141 | TRUNK | Port-Gig1/46 | AR-07 U-22 | ***
+Eth1/7        eth    10G     ** Juniper BNG testing ***
+Eth1/8        eth    1000    *** Connected to POC-SWH-ROW-B-50 | TRUNK | Port-Gig0/1 | BR-07 U-26 | ***
+Eth1/9        eth    1000    *** Connected to POC-SWH-ROW-C-65 | TRUNK | Port-Gig1/0/49 | CR-07 U-28 | ***
+Eth1/10       eth    1000    *** Connected to LAN_MGMT_SWH-251-249 | TRUNK | Port-Gig0/51 | DR-05 U-29 | ***
+Eth1/11       eth    1000    *** Connected to POC-SWH-ROW-D-122 | TRUNK | Port-Gig1/1/1 | DR-07 U-20 | ***
+Eth1/12       eth    25G     conneted to AUTO-PE1 | H-1 on port-Te0/1/2 for ZSCALER throuput test connectivity| niranjan sir
+Eth1/13       eth    10G     *** Connected to NEW-POC_SW-ROW_E-156 | TRUNK | Port-Te1/1/1 | ER-07 U-21 | ***
+Eth1/14       eth    10G     *** Connected to POC-SWH2-ROW-F-6 | TRUNK | Port-Te1/1/1 | FR-07 U-12 | ***
+Eth1/15       eth    10G     *** Connected to POC-SWH-G-150 | TRUNK | Port-Te1/1/1 | GR-07 U-29 | ***
+Eth1/16       eth    1000    *** Connected to POC-SWH-ROW-H-147 | TRUNK | Port-Gig1/29 | HR-06 U-20 | ***
+Eth1/17       eth    10G     *** Connected to POC-SWH2-ROW-H-251-4 | TRUNK | Port-Te1/1/1 | HR-06 U-27 | ***
+Eth1/18       eth    1000    *** Connected to POC-SWH-ROW-H-R06-93 | TRUNK | Port-Gig1/0/49 | HR-06 U-23 | ***
+Eth1/19       eth    10G     #Connected to I-Row switch-251.3 | Port-Te1/1/1| I-08|##
+Eth1/20       eth    10G     Connected to Cloud for IPv6 FTP/IPERF server (7 Gbps)
+Eth1/21       eth    10G     connected to POC-SWH-G-96 | 172.16.251.96 @Port-Te1/1/1 | for trunk | G-14
+Eth1/22       eth    10G     **connected to Poc-switch-MSC | Msc room New-L3-SW-MSC-113 @port-te1/1/1 for trunk **
+Eth1/23       eth    25G     connected to gnB *Temporary*
+Eth1/24       eth    10G     ** Juniper BNG testing ***
+Eth1/25       eth    1000    *** Connected to VAS-MGMT-SW-ROW-A-41 | MGMT | Port-Gig1/1 | AR-07 U-23 | ***
+Eth1/26       eth    1000    *** Connected to SERVICE-SWH-ROW-A141 | MGMT | Port-Gig1/1 | AR-07 U-23 | ***
+Eth1/27       eth    25G     --
+Eth1/28       eth    100     *** Connected to POC-SWH-ROW-B-50 | MGMT | Port-Fa0/1 | BR-07 U-26 | ***
+Eth1/29       eth    1000    *** Connected to POC-SWH-ROW-C-65 | MGMT | Port-Gig0/1 | CR-07 U-28 | ***
+Eth1/30       eth    1000    *** Connected to LAN_MGMT_SWH-251-249 | MGMT | Port-Gig0/1 | DR-05 U-29 | ***
+Eth1/31       eth    100     *** Connected to POC-SWH-ROW-D-122 | MGMT | Port-Fa1/0/1 | DR-07 U-20 | ***
+Eth1/32       eth    1000    ** Connected to Core-SWH-A_9300L | MGMT | Port-Gig1/0/1 | DR10 U-28 | **
+Eth1/33       eth    1000    *** Connected to NEW-POC_SW-ROW_E-156 | MGMT | Port-Gig1/0/1 | ER-07 U-21 | ***
+Eth1/34       eth    1000    *** Connected to POC-SWH2-ROW-F-6 | MGMT | Port-Gig1/0/1 | FR-07 U-12 | ***
+Eth1/35       eth    1000    *** Connected to POC-SWH-G-150 | MGMT | Port-Gig1/0/1 | GR-07 U-29 | ***
+Eth1/36       eth    1000    *** Connected to POC-SWH-ROW-H-147 | MGMT | Port-Gig1/1 | HR-07 U-20 | ***
+Eth1/37       eth    1000    *** Connected to POC-SWH2-ROW-H-251-4 | MGMT | Port-Gig1/0/1 | HR-06 U-27 | ***
+Eth1/38       eth    1000    *** Connected to POC-SWH-ROW-H-R06-93 | MGMT | Port-Gig1/0/2 | HR-06 U-23 | ***
+Eth1/39       eth    1000    *** Connected to POC-SWH_2-ROW-I-251-3 | MGMT | Port-Gig1/0/1 | IR-08 U-23 | ***
+Eth1/40       eth    25G     ##Connected to DEMO ROOM For AP Connectivity ##
+Eth1/41       eth    1000    *** Towards OLD_CLOUD FR-02 | Port-09 | IMS-Vidya ***
+Eth1/42       eth    25G     ### Umang - Iperf ###
+Eth1/43       eth    25G     ## Connected to Spirent Core port N6 ##
+Eth1/44       eth    25G     ## Connected to AMF Core ##
+Eth1/45       eth    1000    towards Tor-switch-A @PORT-19
+Eth1/46       eth    25G     *** Connected to LAB_Firewall-2 Port Ethernet 1/2 DR-11 U38 ***
+Eth1/47       eth    25G     *** Connected to FTD.Firepower Ethernet1/2 ***
+Eth1/48       eth    25G     --
+Eth1/49       eth    100G    --
+Eth1/50       eth    100G    ## Jayant Sir MMwave Testing For PGW Internet Connectivity ##
+Eth1/51       eth    100G    --
+Eth1/52       eth    100G    ## Connected to 3rd Floor DC MAN-CISCO-AGENTIC-N9K-SW01 @ 1/1 ## vlan - 201
+Eth1/53/1     eth    10G     *** Connected to INTERNET-ROUTER-A | Port-Te0/0/15 | TRUNK DATA PLANE FLOW ***
+Eth1/53/2     eth    10G     *** Connected to LAB-FW-A | Port-Eth1/1 | FOR OUTSIDE |
+Eth1/53/3     eth    10G     *** Connected to LAB-FW-A | INSIDE TO FW-OUTSIDE | Port-Eth1/2
+Eth1/53/4     eth    10G     ##connected to CORE-SWH-A-0011 @port Te1/1/4 ##
+Eth1/54       eth    100G    *** Connected to Nexus-Core-B_BACK to BACK | Port-Eth1/54 | DR 12 U 36 | ***
+-------------------------------------------------------------------------------
+Interface                Description
+-------------------------------------------------------------------------------
+Lo69                     --
+-------------------------------------------------------------------------------
+Interface                Description
+-------------------------------------------------------------------------------
+Vlan1                    --
+Vlan2                    --
+Vlan3                    ## Connected to Nokia Common Mgmt SWH ### For IPv6 Conenctivity ###
+Vlan10                   --
+Vlan23                   *IMS-Vidya*
+Vlan35                   --
+Vlan36                   --
+Vlan38                   --
+Vlan39                   --
+Vlan42                   --
+Vlan47                   --
+Vlan48                   ## NSO Managemnet ##
+Vlan50                   MANAGEMENT-VLAN
+Vlan51                   ## For lab Infra Connectivity & ESOA DC-Gateway Connectivity - 172.16.251.198 & fd00:0:0:1::11 ###
+Vlan52                   --
+Vlan53                   ## NSO Managemnet ##
+Vlan54                   --
+Vlan80                   --
+Vlan98                   --
+Vlan99                   --
+Vlan100                  --
+Vlan111                  --
+Vlan119                  --
+Vlan123                  --
+Vlan141                  --
+Vlan145                  --
+Vlan150                  --
+Vlan200                  --
+Vlan245                  ## For MSC Room Tech LAN Connectivity - 10.3.240.186 via MSC-Room-SWH-113, IPv6 provided by Techlan ##
+Vlan250                  --
+Vlan286                  --
+Vlan300                  --
+Vlan399                  ## IP POOL FOR Maveniar Decices ##
+Vlan420                  ENGINEER-BAY - AP Connectivity
+Vlan421                  --
+Vlan440                  --
+Vlan447                  AODC-Infosys
+Vlan448                  AODC-Infosys
+Vlan449                  AODC-Infosys
+Vlan455                  --
+Vlan501                  --
+Vlan521                  --
+Vlan709                  --
+Vlan777                  ### Vimal Baremetal Server Connectivity in Row I-7, via POC-SWH_2-ROW-I-3 for T-LAN reachability ###
+Vlan905                  --
+Vlan906                  --
+Vlan998                  --
+Vlan1105                 --
+Vlan1414                 --
+Vlan1940                 --
+Vlan2000                 ## NOKIA OLT Testing ##
+Vlan4005                 --
+Vlan4011                 --
+Vlan4092                 --
+Nexus-CORE-SWH-A#

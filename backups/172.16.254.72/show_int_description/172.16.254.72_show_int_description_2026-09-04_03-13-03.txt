@@ -1,0 +1,122 @@
+show int description
+Fri Sep  4 03:16:34.021 IST
+Interface          Status      Protocol    Description
+--------------------------------------------------------------------------------
+BV700              down        down        for nokia testing uni to nni-service vlan 700
+BV1000             down        down        for nokia testing uni to nni-mgmt vlan 52
+BV1001             down        down        for nokia testing uni to vpls_1001
+BV1002             down        down        for nokia testing uni to vpls_1002
+BV1100             down        down
+BV1250             down        down        for stag ctag
+BV1251             down        down        for stag ctag
+BV2444             down        down        for ios xr 2442
+BE2                down        down
+BE10               down        down        ## For Juniper testing ##
+BE10.10            down        down
+BE11               down        down        **towards Zeeshan OLT D-13 For Verizon link testing ##
+BE11.1199          down        down        VLAN-1199
+BE11.1200          down        down
+BE11.1234          down        down        ## AC for L2VPN service with New Nokia IXR-e3x ##
+BE11.1235          down        down        ## AC for L2VPN service with New Nokia IXR-e3x ##
+BE16               up          up          **connected to Nokia R6d 172.16.251.129 @port-1/4/c1/1 **
+BE17               down        down        **connected to Nokia R6d 172.16.251.210 @port-1/1/c36 **
+BE22               down        down
+BE102              up          up          connected between IGP domain
+BE102.2            up          up          ****connecting to ASR_9K_1 ****
+BE102.4            up          up          ****connecting to ASR_9K_1 ****
+BE102.5            up          up          ****connecting to ASR_9K_1 ****
+BE102.6            up          up          #$CEN-Topology$$Back-To-Back$Towards-9k1-lower$#
+BE102.14           up          up
+BE102.50           up          up
+BE404              down        down        for epnm
+BE404.10           down        down        for isis limit metric
+BE411              down        down        ACTIVE/STANDBY LAG toward CORE
+BE1036             up          up          Te0/0/0/17 BE1036 peto-ng
+BE4100             down        down
+BE7238             down        down
+BE7260             down        down        for juniper from .72 to .60
+BE7260.12          down        down        for juniper from .72 to .60 for IGP ring
+BE7260.17          down        down        for juniper from .72 to .60 for T4 ring
+BE7268             up          up          -- NCS55A-1 Te0/0/0/0 --
+BE7572             up          up          connected towards 9912 port ten0/7/1/17
+BE13197            down        down        towards 540 E2 bundle 13197 port T7 from 9K2 port T7 bundle 13197
+Lo0                up          up          @@@@ Router-ID & Management Interface @@@@
+Lo2                up          up          ** loopback for T4 Ring **
+Lo45               up          up
+Lo72               up          up
+Lo73               up          up
+Lo111              up          up
+Lo150              up          up          MPLS#$CEN-Topology$#$CEN-Infrastructure MGMT-Loopback$#
+Lo301              up          up
+Lo2001             up          up
+Nu0                up          up
+tt10               admin-down  admin-down
+tt15               admin-down  admin-down  towards 10.10.15.1 connected interface
+Mg0/RSP0/CPU0/0    up          up          Mgmt
+Gi0/1/0/0          up          up          ## Connected to NuvemLabs BGP MON Server ###
+Gi0/1/0/1          up          up          toward 4/11
+Gi0/1/0/1.10       up          up          ## Connected to OLT for Verizon Testing ##
+Gi0/1/0/1.20       up          up
+Gi0/1/0/1.1199     up          up          ## Connected to OLT for Verizon Testing ##
+Gi0/1/0/2          up          up          ** Conneted to BTS for  UBR Testing QinQ **
+Gi0/1/0/2.475      up          up
+Gi0/1/0/3          down        down        *** Connected to MSC-room fms:9,10  for UBR Testing QinQ ***
+Gi0/1/0/3.100      down        down
+Gi0/1/0/3.475      down        down
+Gi0/1/0/4          admin-down  admin-down
+Gi0/1/0/5          admin-down  admin-down
+Gi0/1/0/6          admin-down  admin-down
+Gi0/1/0/7          admin-down  admin-down
+Gi0/1/0/8          admin-down  admin-down
+Gi0/1/0/9          admin-down  admin-down
+Gi0/1/0/10         admin-down  admin-down
+Gi0/1/0/11         admin-down  admin-down
+Gi0/1/0/12         admin-down  admin-down
+Gi0/1/0/13         admin-down  admin-down
+Gi0/1/0/14         admin-down  admin-down
+Gi0/1/0/15         admin-down  admin-down
+Gi0/1/0/16         down        down
+Gi0/1/0/17         admin-down  admin-down
+Gi0/1/0/18         down        down
+Gi0/1/0/19         down        down
+Te0/1/1/0          up          up          Te0/0/0/17 BE1036 peto-ng
+Te0/1/1/1          up          up          ** connected to Juniper BNG ***
+Te0/1/1/1.3001     up          up          ## Juniper BNG to Nokia-ISAM-OLT Traffic flow testing ##
+Te0/1/1/2          up          up
+Te0/1/1/2.475      admin-down  admin-down
+Te0/1/1/3          up          up
+Te0/1/1/3.1527     admin-down  admin-down
+Te0/1/1/4          up          up          connected towards 9912 port ten0/7/1/17
+Te0/1/1/5          down        down        ## Connected to Spirent @ 0/4 ##
+Te0/1/1/6          down        down        ## Connected to Nokia-ISAM-OLT @ Port4 ##
+Te0/1/1/6.3001     down        down        ## Juniper BNG to Nokia-ISAM-OLT Traffic flow testing ##
+Te0/1/1/7          down        down        ## Port 9/0 ## OLT ##
+Te0/1/1/8          down        down        ### TWAMP TESTING ##
+Te0/1/1/9          down        down
+Te0/1/1/10         up          up          description -- NCS55A-1 Te0/0/0/2
+Te0/1/1/11         down        down        ### Connected to STC Port 2/7 for Automation ###
+Te0/1/1/12         down        down        for Ceina Testing
+Te0/1/1/13         down        down        ## Port 9/1 ##
+Te0/1/1/14         admin-down  admin-down
+Te0/1/1/15         down        down        To-Nokia-IXR-R6-37-1/2/1
+Te0/1/1/16         down        down
+Te0/1/1/17         down        down
+Te0/1/1/18         down        down        connected towards Nokia SR12-2 port T10
+Te0/1/1/19         admin-down  admin-down  ## towards 9903 172.16.249.22 << NSO >> T 19
+FH0/2/0/0          down        down
+FH0/2/0/8          admin-down  admin-down
+Hu0/2/0/4          up          up          towards 172.16.254.198 NCS540-SYS-ACC router
+Hu0/2/0/5          up          up
+Hu0/2/0/5.40       up          up
+Hu0/2/0/6          down        down
+Hu0/2/0/7          down        down
+Hu0/2/0/12         down        down        -reserved for ciena testing
+Hu0/2/0/12.100     down        down
+Hu0/2/0/13         up          up
+Hu0/2/0/14         up          up          **connected to Nokia R6d 172.16.251.129 @port-1/4/c1 **
+Hu0/2/0/15         down        down
+Hu0/2/0/16         down        down        to_IXR-R6D-129_1/4/c1/1
+Hu0/2/0/17         down        down
+Hu0/2/0/18         down        down
+Hu0/2/0/19         down        down        To-IXR-R6D-128
+RP/0/RSP0/CPU0:I-AM-9K2-UPPER#

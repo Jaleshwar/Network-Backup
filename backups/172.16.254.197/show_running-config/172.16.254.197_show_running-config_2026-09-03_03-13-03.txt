@@ -1,0 +1,3880 @@
+show running-config
+Thu Sep  3 02:49:02.820 +0530
+Building configuration...
+!! IOS XR Configuration 7.5.2
+!
+hostname NCS-540-E2_Lower
+clock timezone +0530 Asia/Colombo
+logging trap warning
+logging console debugging
+logging 172.16.251.209 vrf default
+tacacs source-interface MgmtEth0/RP0/CPU0/0 vrf default
+tacacs-server host 172.16.251.199 port 49
+ single-connection
+!
+tacacs-server key 7 096D471B0D001B325A5E57
+tacacs-server timeout 3
+username transportpoc
+ group root-lr
+ group cisco-support
+ secret 10 $6$sldcSQ8e5Wu/S...$WY2j7POyH8f3Khe5KF4nw70oIaf8xRbDdAmG/86/TBh.OFb32SHi42R8r5nM86ypULVd22drj2rr097tX3tO9.
+!
+username lab
+ group root-lr
+ group cisco-support
+ secret 10 $6$asYgi/C7fPmu4i/.$BiZ6Gqvz4KQG4gUGVTDOjZ3oNwIWKKximbcKHdhMtHs1M78WGSZt4EumZmu7yjcHwMbiN40fnIZMkffcSBm2H.
+!
+username admin
+ group root-lr
+ group cisco-support
+ secret 10 $6$JSJ.e1L3Uu/cCe1.$hKiNlNuMFEnasKgZ.OKdIWOiN.eFkI.itZfCXWQOl15CmlZU68JcMig.BIvpshhutDfVzQPTSW.f/smn8vAXB/
+!
+username airtelcisco
+ group root-lr
+ group netadmin
+ group sysadmin
+ group cisco-support
+ secret 5 $1$PruO$rpgh4ocNFu8PNKs6VkBMZ0
+!
+username ac
+ group root-lr
+ group netadmin
+ group sysadmin
+ group serviceadmin
+ group cisco-support
+ secret 10 $6$ALnAS/pAXLns3S/.$dogQGeZjtzdLh39wmj8Xn.dexY49BjgGhiPf6f/jaZRccTHSB8YQDnhp0mF62yIFmZPDzn6tns2V6mXEqYU310
+!
+username ciscotesting
+ group root-lr
+ group netadmin
+ group sysadmin
+ group serviceadmin
+ group cisco-support
+ password 7 072C285F4D06090404015A5E57
+!
+username labadmin
+ group root-lr
+ secret 10 $6$hwF0v0TYki7g9v0.$NPZTbL0WF/DwJq6Y2e8K9EbVTtzdNQUUjKCDGfRtBcYh3oR34b3gRvOcvqDWRsGM.1y8tjC.69p.zzPDhGPJL.
+!
+aaa accounting exec default start-stop group tacacs+
+aaa accounting commands default start-stop group tacacs+
+aaa authorization exec default group tacacs+ none
+aaa authorization commands default group tacacs+ none
+aaa authorization eventmanager default local
+aaa authentication login default group tacacs+ local
+ptp
+ clock
+  domain 24
+  profile g.8275.1 clock-type T-BC
+  time-source PTP
+ !
+ profile master
+  multicast target-address ethernet 01-1B-19-00-00-00
+  transport ethernet
+  port state master-only
+  sync frequency 16
+  announce frequency 8
+  delay-request frequency 16
+ !
+ physical-layer-frequency
+!
+vrf CPE
+ address-family ipv4 unicast
+  import route-target
+   2025:2025
+  !
+  export route-target
+   2025:2025
+  !
+ !
+!
+vrf NOKIA_TEST
+ address-family ipv4 unicast
+  import route-target
+   60012:4100
+  !
+  export route-target
+   60012:4100
+  !
+ !
+!
+vrf AIRTEL_IPTV
+ address-family ipv4 unicast
+  import route-target
+   65112:4100
+  !
+  export route-target
+   65112:4100
+  !
+ !
+!
+vrf AIRTEL_IPTV11
+ address-family ipv4 unicast
+  import route-target
+   65112:4111
+  !
+  export route-target
+   65112:4111
+  !
+ !
+!
+address-family ipv4 unicast
+!
+ethernet service-activation-test
+ profile PERF_TEST
+  duration 5 minutes
+  packet-size 1518
+  information-rate 10 gbps
+ !
+!
+line default
+ exec-timeout 10 0
+ session-limit 10
+ session-timeout 100
+!
+snmp-server ifmib ifalias long
+snmp-server ifindex persist
+snmp-server ifmib stats cache
+snmp-server interface subset 1 regular-expression Ten*
+ notification linkupdown
+!
+snmp-server interface subset 2 regular-expression Forty*
+ notification linkupdown
+!
+snmp-server interface subset 3 regular-expression Hun*
+ notification linkupdown
+!
+snmp-server interface subset 4 regular-expression TwoHun*
+ notification linkupdown
+!
+snmp-server interface subset 5 regular-expression FourHun*
+ notification linkupdown
+!
+snmp-server interface subset 6 regular-expression Loopb*
+ notification linkupdown
+!
+snmp-server vrf default
+ host 172.16.251.209 traps version 3 priv userv3priv
+!
+snmp-server host 172.16.251.209 traps version 3 priv ciscotesting
+snmp-server user ciscotesting groupv3priv v3 auth md5 encrypted 01300F175804160E325F1F5B4A priv aes 128 encrypted 05280F1C22435E080A16464058
+snmp-server view epnm 1.3.6 included
+snmp-server group groupv3priv v3 priv notify epnm read epnm
+snmp-server queue-length 1000
+snmp-server traps rf
+snmp-server traps bfd
+snmp-server traps ntp
+snmp-server traps copy-complete
+snmp-server traps snmp
+snmp-server traps snmp linkup
+snmp-server traps snmp linkdown
+snmp-server traps snmp coldstart
+snmp-server traps snmp warmstart
+snmp-server traps snmp authentication
+snmp-server traps flash removal
+snmp-server traps flash insertion
+snmp-server traps power
+snmp-server traps config
+snmp-server traps entity
+snmp-server traps selective-vrf-download role-change
+snmp-server traps syslog
+snmp-server traps system
+snmp-server traps frequency synchronization
+snmp-server traps bridgemib
+snmp-server traps optical
+snmp-server traps entity-state operstatus
+snmp-server traps entity-state switchover
+snmp-server traps entity-redundancy all
+snmp-server traps entity-redundancy status
+snmp-server traps entity-redundancy switchover
+snmp-server trap-source Loopback0
+bfd
+ multihop ttl-drop-threshold 10
+ multipath include location 0/RP0/CPU0
+ trap singlehop pre-mapped
+!
+alias config xx commit
+ipv4 unnumbered mpls traffic-eng Loopback0
+frequency synchronization
+ quality itu-t option 1
+ clock-interface timing-mode system
+!
+key chain bharti
+ key 100
+  accept-lifetime 00:00:00 january 01 2012 infinite
+  key-string password 060407205E5A00
+  send-lifetime 00:00:00 january 01 2012 infinite
+  cryptographic-algorithm HMAC-MD5
+ !
+!
+call-home
+ service active
+ contact smart-licensing
+ profile CiscoTAC-1
+  active
+  destination transport-method email disable
+  destination transport-method http
+ !
+!
+netconf-yang agent
+ ssh
+!
+ipv6 access-list IMS_ACCESS_BLOCKING_IPV6_942281
+ 10 permit icmpv6 any any nd-na
+ 20 permit icmpv6 any any nd-ns
+ 30 permit icmpv6 any any router-advertisement
+ 40 permit icmpv6 any any router-solicitation
+ 50 permit ipv6 2401:4900:110:50::4:3800/117 2401:4900:c4:4000::/55 log-input
+ 60 permit ipv6 2401:4900:110:50::4:3800/117 2401:4900:110:50::4:3800/117 log-input
+ 70 deny ipv6 any any
+!
+ipv4 access-list SSM-RANGE-BHARTI
+ 10 permit ipv4 232.0.0.0 0.0.0.255 any
+ 20 permit ipv4 239.192.0.0 0.0.255.255 any
+!
+interface Bundle-Ether55
+ description ##Towards-NCS540#Back-to-Back#
+ mtu 9216
+ ipv4 address 151.0.0.1 255.255.255.252
+ lldp
+  enable
+ !
+ load-interval 30
+!
+interface Bundle-Ether102
+ description connected to NCS-540-1 on Port-18 BE102
+ mtu 9216
+ ipv4 address 192.168.55.2 255.255.255.252
+ ipv6 address 2002:192:168:55:1::2/126
+ ipv6 enable
+ load-interval 30
+!
+interface Bundle-Ether107
+ mtu 9216
+ ipv4 address 11.0.0.13 255.255.255.254
+ load-interval 30
+!
+interface Bundle-Ether108
+ mtu 9216
+ ipv4 address 11.0.0.19 255.255.255.254
+ shutdown
+ load-interval 30
+!
+interface Bundle-Ether501
+ description connected to NCS-55a2-2-on-gig-22-in-ISIS-T5-Donot remove
+ mtu 9216
+ ipv4 address 192.168.51.1 255.255.255.252
+ load-interval 30
+!
+interface Bundle-Ether501.10
+!
+interface Bundle-Ether510
+!
+interface Bundle-Ether950
+ description " AC towards T4 Lower"
+ mtu 9216
+!
+interface Bundle-Ether950.500 l2transport
+ encapsulation dot1q 500
+ rewrite ingress tag pop 1 symmetric
+!
+interface Loopback0
+ ipv4 address 10.10.197.1 255.255.255.255
+ load-interval 30
+!
+interface Loopback10
+!
+interface MgmtEth0/RP0/CPU0/0
+ ipv4 address 172.16.254.197 255.255.255.0
+!
+interface GigabitEthernet0/0/0/0
+ l2transport
+ !
+!
+interface GigabitEthernet0/0/0/1
+ negotiation auto
+!
+interface GigabitEthernet0/0/0/2
+ negotiation auto
+!
+interface GigabitEthernet0/0/0/2.113
+ description ** Towards C1121 CPE Test H1 **
+ mtu 1500
+ vrf CPE
+ ipv4 address 113.113.113.0 255.255.255.254
+ encapsulation dot1q 113
+!
+interface GigabitEthernet0/0/0/3
+ ipv4 address 96.96.96.1 255.255.255.252
+ negotiation auto
+!
+interface GigabitEthernet0/0/0/4
+ shutdown
+!
+interface GigabitEthernet0/0/0/5
+ shutdown
+!
+interface GigabitEthernet0/0/0/7
+ shutdown
+!
+interface GigabitEthernet0/0/0/10
+ shutdown
+!
+interface TenGigE0/0/0/6
+ shutdown
+!
+interface TenGigE0/0/0/8
+ shutdown
+!
+interface TenGigE0/0/0/9
+ shutdown
+!
+interface TenGigE0/0/0/11
+ description NOKIA IXR-E3X PORT 1/1/C22/1
+ mtu 9216
+ ipv4 address 11.0.0.11 255.255.255.254
+ carrier-delay up 10000 down 0
+ load-interval 30
+!
+interface TenGigE0/0/0/12
+ loopback internal
+!
+interface TenGigE0/0/0/12.10 l2transport
+ encapsulation dot1q 10
+!
+interface TenGigE0/0/0/12.11 l2transport
+ encapsulation dot1q 11
+!
+interface TenGigE0/0/0/12.12 l2transport
+ encapsulation dot1q 12
+!
+interface TenGigE0/0/0/12.13 l2transport
+ encapsulation dot1q 13
+!
+interface TenGigE0/0/0/12.14 l2transport
+ encapsulation dot1q 14
+!
+interface TenGigE0/0/0/12.15 l2transport
+ encapsulation dot1q 15
+!
+interface TenGigE0/0/0/12.16 l2transport
+ encapsulation dot1q 16
+!
+interface TenGigE0/0/0/12.17 l2transport
+ encapsulation dot1q 17
+!
+interface TenGigE0/0/0/12.18 l2transport
+ encapsulation dot1q 18
+!
+interface TenGigE0/0/0/12.19 l2transport
+ encapsulation dot1q 19
+!
+interface TenGigE0/0/0/12.20 l2transport
+ encapsulation dot1q 20
+!
+interface TenGigE0/0/0/12.21 l2transport
+ encapsulation dot1q 21
+!
+interface TenGigE0/0/0/12.22 l2transport
+ encapsulation dot1q 22
+!
+interface TenGigE0/0/0/12.23 l2transport
+ encapsulation dot1q 23
+!
+interface TenGigE0/0/0/12.24 l2transport
+ encapsulation dot1q 24
+!
+interface TenGigE0/0/0/12.25 l2transport
+ encapsulation dot1q 25
+!
+interface TenGigE0/0/0/12.26 l2transport
+ encapsulation dot1q 26
+!
+interface TenGigE0/0/0/12.27 l2transport
+ encapsulation dot1q 27
+!
+interface TenGigE0/0/0/12.28 l2transport
+ encapsulation dot1q 28
+!
+interface TenGigE0/0/0/12.29 l2transport
+ encapsulation dot1q 29
+!
+interface TenGigE0/0/0/12.30 l2transport
+ encapsulation dot1q 30
+!
+interface TenGigE0/0/0/12.31 l2transport
+ encapsulation dot1q 31
+!
+interface TenGigE0/0/0/12.32 l2transport
+ encapsulation dot1q 32
+!
+interface TenGigE0/0/0/12.33 l2transport
+ encapsulation dot1q 33
+!
+interface TenGigE0/0/0/12.34 l2transport
+ encapsulation dot1q 34
+!
+interface TenGigE0/0/0/12.35 l2transport
+ encapsulation dot1q 35
+!
+interface TenGigE0/0/0/12.36 l2transport
+ encapsulation dot1q 36
+!
+interface TenGigE0/0/0/12.37 l2transport
+ encapsulation dot1q 37
+!
+interface TenGigE0/0/0/12.38 l2transport
+ encapsulation dot1q 38
+!
+interface TenGigE0/0/0/12.39 l2transport
+ encapsulation dot1q 39
+!
+interface TenGigE0/0/0/12.40 l2transport
+ encapsulation dot1q 40
+!
+interface TenGigE0/0/0/12.41 l2transport
+ encapsulation dot1q 41
+!
+interface TenGigE0/0/0/12.42 l2transport
+ encapsulation dot1q 42
+!
+interface TenGigE0/0/0/12.43 l2transport
+ encapsulation dot1q 43
+!
+interface TenGigE0/0/0/12.44 l2transport
+ encapsulation dot1q 44
+!
+interface TenGigE0/0/0/12.45 l2transport
+ encapsulation dot1q 45
+!
+interface TenGigE0/0/0/12.46 l2transport
+ encapsulation dot1q 46
+!
+interface TenGigE0/0/0/12.47 l2transport
+ encapsulation dot1q 47
+!
+interface TenGigE0/0/0/12.48 l2transport
+ encapsulation dot1q 48
+!
+interface TenGigE0/0/0/12.49 l2transport
+ encapsulation dot1q 49
+!
+interface TenGigE0/0/0/12.50 l2transport
+ encapsulation dot1q 50
+!
+interface TenGigE0/0/0/12.51 l2transport
+ encapsulation dot1q 51
+!
+interface TenGigE0/0/0/12.52 l2transport
+ encapsulation dot1q 52
+!
+interface TenGigE0/0/0/12.53 l2transport
+ encapsulation dot1q 53
+!
+interface TenGigE0/0/0/12.54 l2transport
+ encapsulation dot1q 54
+!
+interface TenGigE0/0/0/12.55 l2transport
+ encapsulation dot1q 55
+!
+interface TenGigE0/0/0/12.56 l2transport
+ encapsulation dot1q 56
+!
+interface TenGigE0/0/0/12.57 l2transport
+ encapsulation dot1q 57
+!
+interface TenGigE0/0/0/12.58 l2transport
+ encapsulation dot1q 58
+!
+interface TenGigE0/0/0/12.59 l2transport
+ encapsulation dot1q 59
+!
+interface TenGigE0/0/0/12.60 l2transport
+ encapsulation dot1q 60
+!
+interface TenGigE0/0/0/12.61 l2transport
+ encapsulation dot1q 61
+!
+interface TenGigE0/0/0/12.62 l2transport
+ encapsulation dot1q 62
+!
+interface TenGigE0/0/0/12.63 l2transport
+ encapsulation dot1q 63
+!
+interface TenGigE0/0/0/12.64 l2transport
+ encapsulation dot1q 64
+!
+interface TenGigE0/0/0/12.65 l2transport
+ encapsulation dot1q 65
+!
+interface TenGigE0/0/0/12.66 l2transport
+ encapsulation dot1q 66
+!
+interface TenGigE0/0/0/12.67 l2transport
+ encapsulation dot1q 67
+!
+interface TenGigE0/0/0/12.68 l2transport
+ encapsulation dot1q 68
+!
+interface TenGigE0/0/0/12.69 l2transport
+ encapsulation dot1q 69
+!
+interface TenGigE0/0/0/12.70 l2transport
+ encapsulation dot1q 70
+!
+interface TenGigE0/0/0/12.71 l2transport
+ encapsulation dot1q 71
+!
+interface TenGigE0/0/0/12.72 l2transport
+ encapsulation dot1q 72
+!
+interface TenGigE0/0/0/12.73 l2transport
+ encapsulation dot1q 73
+!
+interface TenGigE0/0/0/12.74 l2transport
+ encapsulation dot1q 74
+!
+interface TenGigE0/0/0/12.75 l2transport
+ encapsulation dot1q 75
+!
+interface TenGigE0/0/0/12.76 l2transport
+ encapsulation dot1q 76
+!
+interface TenGigE0/0/0/12.77 l2transport
+ encapsulation dot1q 77
+!
+interface TenGigE0/0/0/12.78 l2transport
+ encapsulation dot1q 78
+!
+interface TenGigE0/0/0/12.79 l2transport
+ encapsulation dot1q 79
+!
+interface TenGigE0/0/0/12.80 l2transport
+ encapsulation dot1q 80
+!
+interface TenGigE0/0/0/12.81 l2transport
+ encapsulation dot1q 81
+!
+interface TenGigE0/0/0/12.82 l2transport
+ encapsulation dot1q 82
+!
+interface TenGigE0/0/0/12.83 l2transport
+ encapsulation dot1q 83
+!
+interface TenGigE0/0/0/12.84 l2transport
+ encapsulation dot1q 84
+!
+interface TenGigE0/0/0/12.85 l2transport
+ encapsulation dot1q 85
+!
+interface TenGigE0/0/0/12.86 l2transport
+ encapsulation dot1q 86
+!
+interface TenGigE0/0/0/12.87 l2transport
+ encapsulation dot1q 87
+!
+interface TenGigE0/0/0/12.88 l2transport
+ encapsulation dot1q 88
+!
+interface TenGigE0/0/0/12.89 l2transport
+ encapsulation dot1q 89
+!
+interface TenGigE0/0/0/12.90 l2transport
+ encapsulation dot1q 90
+!
+interface TenGigE0/0/0/12.91 l2transport
+ encapsulation dot1q 91
+!
+interface TenGigE0/0/0/12.92 l2transport
+ encapsulation dot1q 92
+!
+interface TenGigE0/0/0/12.93 l2transport
+ encapsulation dot1q 93
+!
+interface TenGigE0/0/0/12.94 l2transport
+ encapsulation dot1q 94
+!
+interface TenGigE0/0/0/12.95 l2transport
+ encapsulation dot1q 95
+!
+interface TenGigE0/0/0/12.96 l2transport
+ encapsulation dot1q 96
+!
+interface TenGigE0/0/0/12.97 l2transport
+ encapsulation dot1q 97
+!
+interface TenGigE0/0/0/12.98 l2transport
+ encapsulation dot1q 98
+!
+interface TenGigE0/0/0/12.99 l2transport
+ encapsulation dot1q 99
+!
+interface TenGigE0/0/0/12.100 l2transport
+ encapsulation dot1q 100
+!
+interface TenGigE0/0/0/12.101 l2transport
+ encapsulation dot1q 101
+!
+interface TenGigE0/0/0/12.102 l2transport
+ encapsulation dot1q 102
+!
+interface TenGigE0/0/0/12.103 l2transport
+ encapsulation dot1q 103
+!
+interface TenGigE0/0/0/12.104 l2transport
+ encapsulation dot1q 104
+!
+interface TenGigE0/0/0/12.105 l2transport
+ encapsulation dot1q 105
+!
+interface TenGigE0/0/0/12.106 l2transport
+ encapsulation dot1q 106
+!
+interface TenGigE0/0/0/12.107 l2transport
+ encapsulation dot1q 107
+!
+interface TenGigE0/0/0/12.108 l2transport
+ encapsulation dot1q 108
+!
+interface TenGigE0/0/0/12.109 l2transport
+ encapsulation dot1q 109
+!
+interface TenGigE0/0/0/12.110 l2transport
+ encapsulation dot1q 110
+!
+interface TenGigE0/0/0/12.111 l2transport
+ encapsulation dot1q 111
+!
+interface TenGigE0/0/0/12.112 l2transport
+ encapsulation dot1q 112
+!
+interface TenGigE0/0/0/12.113 l2transport
+ encapsulation dot1q 113
+!
+interface TenGigE0/0/0/12.114 l2transport
+ encapsulation dot1q 114
+!
+interface TenGigE0/0/0/12.115 l2transport
+ encapsulation dot1q 115
+!
+interface TenGigE0/0/0/12.116 l2transport
+ encapsulation dot1q 116
+!
+interface TenGigE0/0/0/12.117 l2transport
+ encapsulation dot1q 117
+!
+interface TenGigE0/0/0/12.118 l2transport
+ encapsulation dot1q 118
+!
+interface TenGigE0/0/0/12.119 l2transport
+ encapsulation dot1q 119
+!
+interface TenGigE0/0/0/12.120 l2transport
+ encapsulation dot1q 120
+!
+interface TenGigE0/0/0/12.121 l2transport
+ encapsulation dot1q 121
+!
+interface TenGigE0/0/0/12.122 l2transport
+ encapsulation dot1q 122
+!
+interface TenGigE0/0/0/12.123 l2transport
+ encapsulation dot1q 123
+!
+interface TenGigE0/0/0/12.124 l2transport
+ encapsulation dot1q 124
+!
+interface TenGigE0/0/0/12.125 l2transport
+ encapsulation dot1q 125
+!
+interface TenGigE0/0/0/12.126 l2transport
+ encapsulation dot1q 126
+!
+interface TenGigE0/0/0/12.127 l2transport
+ encapsulation dot1q 127
+!
+interface TenGigE0/0/0/12.128 l2transport
+ encapsulation dot1q 128
+!
+interface TenGigE0/0/0/12.129 l2transport
+ encapsulation dot1q 129
+!
+interface TenGigE0/0/0/12.130 l2transport
+ encapsulation dot1q 130
+!
+interface TenGigE0/0/0/12.131 l2transport
+ encapsulation dot1q 131
+!
+interface TenGigE0/0/0/12.132 l2transport
+ encapsulation dot1q 132
+!
+interface TenGigE0/0/0/12.133 l2transport
+ encapsulation dot1q 133
+!
+interface TenGigE0/0/0/12.134 l2transport
+ encapsulation dot1q 134
+!
+interface TenGigE0/0/0/12.135 l2transport
+ encapsulation dot1q 135
+!
+interface TenGigE0/0/0/12.136 l2transport
+ encapsulation dot1q 136
+!
+interface TenGigE0/0/0/12.137 l2transport
+ encapsulation dot1q 137
+!
+interface TenGigE0/0/0/12.138 l2transport
+ encapsulation dot1q 138
+!
+interface TenGigE0/0/0/12.139 l2transport
+ encapsulation dot1q 139
+!
+interface TenGigE0/0/0/12.140 l2transport
+ encapsulation dot1q 140
+!
+interface TenGigE0/0/0/12.141 l2transport
+ encapsulation dot1q 141
+!
+interface TenGigE0/0/0/12.142 l2transport
+ encapsulation dot1q 142
+!
+interface TenGigE0/0/0/12.143 l2transport
+ encapsulation dot1q 143
+!
+interface TenGigE0/0/0/12.144 l2transport
+ encapsulation dot1q 144
+!
+interface TenGigE0/0/0/12.145 l2transport
+ encapsulation dot1q 145
+!
+interface TenGigE0/0/0/12.146 l2transport
+ encapsulation dot1q 146
+!
+interface TenGigE0/0/0/12.147 l2transport
+ encapsulation dot1q 147
+!
+interface TenGigE0/0/0/12.148 l2transport
+ encapsulation dot1q 148
+!
+interface TenGigE0/0/0/12.149 l2transport
+ encapsulation dot1q 149
+!
+interface TenGigE0/0/0/12.150 l2transport
+ encapsulation dot1q 150
+!
+interface TenGigE0/0/0/12.151 l2transport
+ encapsulation dot1q 151
+!
+interface TenGigE0/0/0/12.152 l2transport
+ encapsulation dot1q 152
+!
+interface TenGigE0/0/0/12.153 l2transport
+ encapsulation dot1q 153
+!
+interface TenGigE0/0/0/12.154 l2transport
+ encapsulation dot1q 154
+!
+interface TenGigE0/0/0/12.155 l2transport
+ encapsulation dot1q 155
+!
+interface TenGigE0/0/0/12.156 l2transport
+ encapsulation dot1q 156
+!
+interface TenGigE0/0/0/12.157 l2transport
+ encapsulation dot1q 157
+!
+interface TenGigE0/0/0/12.158 l2transport
+ encapsulation dot1q 158
+!
+interface TenGigE0/0/0/12.159 l2transport
+ encapsulation dot1q 159
+!
+interface TenGigE0/0/0/12.160 l2transport
+ encapsulation dot1q 160
+!
+interface TenGigE0/0/0/12.161 l2transport
+ encapsulation dot1q 161
+!
+interface TenGigE0/0/0/12.162 l2transport
+ encapsulation dot1q 162
+!
+interface TenGigE0/0/0/12.163 l2transport
+ encapsulation dot1q 163
+!
+interface TenGigE0/0/0/12.164 l2transport
+ encapsulation dot1q 164
+!
+interface TenGigE0/0/0/12.165 l2transport
+ encapsulation dot1q 165
+!
+interface TenGigE0/0/0/12.166 l2transport
+ encapsulation dot1q 166
+!
+interface TenGigE0/0/0/12.167 l2transport
+ encapsulation dot1q 167
+!
+interface TenGigE0/0/0/12.168 l2transport
+ encapsulation dot1q 168
+!
+interface TenGigE0/0/0/12.169 l2transport
+ encapsulation dot1q 169
+!
+interface TenGigE0/0/0/12.170 l2transport
+ encapsulation dot1q 170
+!
+interface TenGigE0/0/0/12.171 l2transport
+ encapsulation dot1q 171
+!
+interface TenGigE0/0/0/12.172 l2transport
+ encapsulation dot1q 172
+!
+interface TenGigE0/0/0/12.173 l2transport
+ encapsulation dot1q 173
+!
+interface TenGigE0/0/0/12.174 l2transport
+ encapsulation dot1q 174
+!
+interface TenGigE0/0/0/12.175 l2transport
+ encapsulation dot1q 175
+!
+interface TenGigE0/0/0/12.176 l2transport
+ encapsulation dot1q 176
+!
+interface TenGigE0/0/0/12.177 l2transport
+ encapsulation dot1q 177
+!
+interface TenGigE0/0/0/12.178 l2transport
+ encapsulation dot1q 178
+!
+interface TenGigE0/0/0/12.179 l2transport
+ encapsulation dot1q 179
+!
+interface TenGigE0/0/0/12.180 l2transport
+ encapsulation dot1q 180
+!
+interface TenGigE0/0/0/12.181 l2transport
+ encapsulation dot1q 181
+!
+interface TenGigE0/0/0/12.182 l2transport
+ encapsulation dot1q 182
+!
+interface TenGigE0/0/0/12.183 l2transport
+ encapsulation dot1q 183
+!
+interface TenGigE0/0/0/12.184 l2transport
+ encapsulation dot1q 184
+!
+interface TenGigE0/0/0/12.185 l2transport
+ encapsulation dot1q 185
+!
+interface TenGigE0/0/0/12.186 l2transport
+ encapsulation dot1q 186
+!
+interface TenGigE0/0/0/12.187 l2transport
+ encapsulation dot1q 187
+!
+interface TenGigE0/0/0/12.188 l2transport
+ encapsulation dot1q 188
+!
+interface TenGigE0/0/0/12.189 l2transport
+ encapsulation dot1q 189
+!
+interface TenGigE0/0/0/12.190 l2transport
+ encapsulation dot1q 190
+!
+interface TenGigE0/0/0/12.191 l2transport
+ encapsulation dot1q 191
+!
+interface TenGigE0/0/0/12.192 l2transport
+ encapsulation dot1q 192
+!
+interface TenGigE0/0/0/12.193 l2transport
+ encapsulation dot1q 193
+!
+interface TenGigE0/0/0/12.194 l2transport
+ encapsulation dot1q 194
+!
+interface TenGigE0/0/0/12.195 l2transport
+ encapsulation dot1q 195
+!
+interface TenGigE0/0/0/12.196 l2transport
+ encapsulation dot1q 196
+!
+interface TenGigE0/0/0/12.197 l2transport
+ encapsulation dot1q 197
+!
+interface TenGigE0/0/0/12.198 l2transport
+ encapsulation dot1q 198
+!
+interface TenGigE0/0/0/12.199 l2transport
+ encapsulation dot1q 199
+!
+interface TenGigE0/0/0/12.200 l2transport
+ encapsulation dot1q 200
+!
+interface TenGigE0/0/0/12.201 l2transport
+ encapsulation dot1q 201
+!
+interface TenGigE0/0/0/12.202 l2transport
+ encapsulation dot1q 202
+!
+interface TenGigE0/0/0/12.203 l2transport
+ encapsulation dot1q 203
+!
+interface TenGigE0/0/0/12.204 l2transport
+ encapsulation dot1q 204
+!
+interface TenGigE0/0/0/12.205 l2transport
+ encapsulation dot1q 205
+!
+interface TenGigE0/0/0/12.206 l2transport
+ encapsulation dot1q 206
+!
+interface TenGigE0/0/0/12.207 l2transport
+ encapsulation dot1q 207
+!
+interface TenGigE0/0/0/12.208 l2transport
+ encapsulation dot1q 208
+!
+interface TenGigE0/0/0/12.209 l2transport
+ encapsulation dot1q 209
+!
+interface TenGigE0/0/0/12.210 l2transport
+ encapsulation dot1q 210
+!
+interface TenGigE0/0/0/12.211 l2transport
+ encapsulation dot1q 211
+!
+interface TenGigE0/0/0/12.212 l2transport
+ encapsulation dot1q 212
+!
+interface TenGigE0/0/0/12.213 l2transport
+ encapsulation dot1q 213
+!
+interface TenGigE0/0/0/12.214 l2transport
+ encapsulation dot1q 214
+!
+interface TenGigE0/0/0/12.215 l2transport
+ encapsulation dot1q 215
+!
+interface TenGigE0/0/0/12.216 l2transport
+ encapsulation dot1q 216
+!
+interface TenGigE0/0/0/12.217 l2transport
+ encapsulation dot1q 217
+!
+interface TenGigE0/0/0/12.218 l2transport
+ encapsulation dot1q 218
+!
+interface TenGigE0/0/0/12.219 l2transport
+ encapsulation dot1q 219
+!
+interface TenGigE0/0/0/12.220 l2transport
+ encapsulation dot1q 220
+!
+interface TenGigE0/0/0/12.221 l2transport
+ encapsulation dot1q 221
+!
+interface TenGigE0/0/0/12.222 l2transport
+ encapsulation dot1q 222
+!
+interface TenGigE0/0/0/12.223 l2transport
+ encapsulation dot1q 223
+!
+interface TenGigE0/0/0/12.224 l2transport
+ encapsulation dot1q 224
+!
+interface TenGigE0/0/0/12.225 l2transport
+ encapsulation dot1q 225
+!
+interface TenGigE0/0/0/12.226 l2transport
+ encapsulation dot1q 226
+!
+interface TenGigE0/0/0/12.227 l2transport
+ encapsulation dot1q 227
+!
+interface TenGigE0/0/0/12.228 l2transport
+ encapsulation dot1q 228
+!
+interface TenGigE0/0/0/12.229 l2transport
+ encapsulation dot1q 229
+!
+interface TenGigE0/0/0/12.230 l2transport
+ encapsulation dot1q 230
+!
+interface TenGigE0/0/0/12.231 l2transport
+ encapsulation dot1q 231
+!
+interface TenGigE0/0/0/12.232 l2transport
+ encapsulation dot1q 232
+!
+interface TenGigE0/0/0/12.233 l2transport
+ encapsulation dot1q 233
+!
+interface TenGigE0/0/0/12.234 l2transport
+ encapsulation dot1q 234
+!
+interface TenGigE0/0/0/12.235 l2transport
+ encapsulation dot1q 235
+!
+interface TenGigE0/0/0/12.236 l2transport
+ encapsulation dot1q 236
+!
+interface TenGigE0/0/0/12.237 l2transport
+ encapsulation dot1q 237
+!
+interface TenGigE0/0/0/12.238 l2transport
+ encapsulation dot1q 238
+!
+interface TenGigE0/0/0/12.239 l2transport
+ encapsulation dot1q 239
+!
+interface TenGigE0/0/0/12.240 l2transport
+ encapsulation dot1q 240
+!
+interface TenGigE0/0/0/12.241 l2transport
+ encapsulation dot1q 241
+!
+interface TenGigE0/0/0/12.242 l2transport
+ encapsulation dot1q 242
+!
+interface TenGigE0/0/0/12.243 l2transport
+ encapsulation dot1q 243
+!
+interface TenGigE0/0/0/12.244 l2transport
+ encapsulation dot1q 244
+!
+interface TenGigE0/0/0/12.245 l2transport
+ encapsulation dot1q 245
+!
+interface TenGigE0/0/0/12.246 l2transport
+ encapsulation dot1q 246
+!
+interface TenGigE0/0/0/12.247 l2transport
+ encapsulation dot1q 247
+!
+interface TenGigE0/0/0/12.248 l2transport
+ encapsulation dot1q 248
+!
+interface TenGigE0/0/0/12.249 l2transport
+ encapsulation dot1q 249
+!
+interface TenGigE0/0/0/12.250 l2transport
+ encapsulation dot1q 250
+!
+interface TenGigE0/0/0/12.251 l2transport
+ encapsulation dot1q 251
+!
+interface TenGigE0/0/0/12.252 l2transport
+ encapsulation dot1q 252
+!
+interface TenGigE0/0/0/12.253 l2transport
+ encapsulation dot1q 253
+!
+interface TenGigE0/0/0/12.254 l2transport
+ encapsulation dot1q 254
+!
+interface TenGigE0/0/0/12.255 l2transport
+ encapsulation dot1q 255
+!
+interface TenGigE0/0/0/12.256 l2transport
+ encapsulation dot1q 256
+!
+interface TenGigE0/0/0/12.257 l2transport
+ encapsulation dot1q 257
+!
+interface TenGigE0/0/0/12.258 l2transport
+ encapsulation dot1q 258
+!
+interface TenGigE0/0/0/12.259 l2transport
+ encapsulation dot1q 259
+!
+interface TenGigE0/0/0/13.100
+ description 'towards Darwin-2 port-21"
+ ipv4 address 192.168.71.1 255.255.255.252
+ ipv6 address 2001:192:168:71:1::1/126
+ ipv6 enable
+ encapsulation dot1q 100
+!
+interface TenGigE0/0/0/14
+ bundle id 108 mode active
+ load-interval 30
+!
+interface TenGigE0/0/0/15.1309
+ ipv4 address 10.70.80.1 255.255.255.252
+ encapsulation dot1q 1309
+!
+interface TenGigE0/0/0/16
+ description connected towards peyto lower port-22
+ bundle id 501 mode active
+!
+interface TenGigE0/0/0/17
+ shutdown
+!
+interface TenGigE0/0/0/19
+ description TE0/0/0/18(E1-NC540)
+ bundle id 102 mode active
+ load-interval 30
+!
+interface TwentyFiveGigE0/0/0/20
+ shutdown
+!
+interface TwentyFiveGigE0/0/0/21
+ shutdown
+!
+interface TwentyFiveGigE0/0/0/22
+ shutdown
+!
+interface TwentyFiveGigE0/0/0/23
+ shutdown
+!
+interface TwentyFiveGigE0/0/0/24
+ bundle id 55 mode active
+ carrier-delay up 100000 down 0
+!
+interface TwentyFiveGigE0/0/0/25
+ shutdown
+!
+interface TwentyFiveGigE0/0/0/26
+ bundle id 107 mode active
+ carrier-delay up 10000 down 0
+ load-interval 30
+!
+interface TwentyFiveGigE0/0/0/27
+ shutdown
+!
+interface HundredGigE0/0/0/28
+ load-interval 30
+!
+interface HundredGigE0/0/0/29
+ mtu 9216
+ load-interval 30
+!
+interface HundredGigE0/0/0/29.10
+ description Towards STC-T11
+ mtu 9216
+ ipv4 address 10.10.10.1 255.255.255.0
+ load-interval 30
+ encapsulation dot1q 10
+!
+interface HundredGigE0/0/0/29.25
+ description Towards STC-Tw26
+ mtu 9216
+ vrf NOKIA_TEST
+ ipv4 address 25.25.25.1 255.255.255.0
+ load-interval 30
+ encapsulation dot1q 25
+!
+interface preconfigure GigabitEthernet0/0/0/15
+!
+interface preconfigure GigabitEthernet0/0/0/15.758
+ ipv4 address 10.116.116.2 255.255.255.252
+ encapsulation dot1q 758
+!
+interface preconfigure GigabitEthernet0/0/0/15.1309
+ ipv4 address 12.12.12.12 255.255.255.252
+!
+interface preconfigure GigabitEthernet0/0/0/16
+ ipv4 address 1.1.1.1 255.255.255.252
+!
+interface preconfigure TenGigE0/0/0/1
+!
+interface preconfigure TenGigE0/0/0/4
+ shutdown
+!
+interface preconfigure TenGigE0/0/0/5
+ shutdown
+!
+interface preconfigure TenGigE0/0/0/7
+ description towards 9K2 T7 bundle 13197
+ bundle id 13197 mode active
+ load-interval 30
+!
+interface preconfigure TenGigE0/0/0/18
+ shutdown
+!
+interface preconfigure TenGigE0/0/0/24
+ bundle id 55 mode active
+ carrier-delay up 100000 down 0
+!
+interface preconfigure TenGigE0/0/0/26
+ mtu 9216
+!
+!
+rd-set auto
+end-set
+!
+route-policy mpls
+  set community (1:100)
+end-policy
+!
+route-policy WEIGHT
+  set weight 200
+end-policy
+!
+route-policy SID0197
+  set label-index 197
+  set community (215:10)
+  set aigp-metric igp-cost
+end-policy
+!
+route-policy localsw
+  set community (0:9730)
+end-policy
+!
+route-policy passall
+  pass
+end-policy
+!
+route-policy SET_AIGP
+  set aigp-metric igp-cost
+end-policy
+!
+route-policy Profile-14
+  set core-tree mldp-partitioned-p2mp
+end-policy
+!
+route-policy ACCESS-PREF
+  set weight 1000
+end-policy
+!
+route-policy mldp-fa-frr
+  if mldp flex-algo any then
+    pass
+  endif
+end-policy
+!
+route-policy rpf-for-one
+  set core-tree mldp-partitioned-p2mp
+end-policy
+!
+route-policy CEN-CSR-DOWN
+  if destination in CEN-CSR-DOWN then
+    set tag 2
+  endif
+end-policy
+!
+route-policy nexthop_not_bgp
+  if not protocol is bgp 9730 then
+    pass
+  else
+    drop
+  endif
+end-policy
+!
+route-policy add-path-to-ibgp
+  set path-selection backup 1 advertise install
+end-policy
+!
+router static
+ address-family ipv4 unicast
+  0.0.0.0/0 172.16.254.1
+  20.10.10.0/24 183.12.13.2
+  50.0.50.0/24 151.0.0.2
+  95.95.95.0/30 10.116.116.1
+  96.96.96.0/30 10.116.116.1
+ !
+!
+router isis T5
+ is-type level-2-only
+ net 49.0001.0100.0197.0001.00
+ nsf cisco
+ log adjacency changes
+ lsp-gen-interval maximum-wait 5000 initial-wait 50 secondary-wait 200
+ lsp-refresh-interval 65000
+ lsp-refresh-interval 32767 level 2
+ max-lsp-lifetime 65535
+ max-lsp-lifetime 65535 level 2
+ lsp-password keychain bharti
+ address-family ipv4 unicast
+  metric-style wide
+  microloop avoidance segment-routing
+  mpls traffic-eng level-2-only
+  mpls traffic-eng router-id Loopback0
+  mpls traffic-eng multicast-intact
+  spf-interval maximum-wait 5000 initial-wait 50 secondary-wait 200
+  segment-routing mpls sr-prefer
+ !
+ address-family ipv6 unicast
+ !
+ interface Bundle-Ether102
+  circuit-type level-2-only
+  bfd minimum-interval 50
+  bfd multiplier 3
+  bfd fast-detect ipv4
+  point-to-point
+  hello-padding disable
+  address-family ipv4 unicast
+   fast-reroute per-prefix
+   fast-reroute per-prefix ti-lfa
+   metric 5000
+  !
+ !
+ interface Bundle-Ether107
+  circuit-type level-2-only
+  bfd minimum-interval 50
+  bfd multiplier 3
+  bfd fast-detect ipv4
+  point-to-point
+  hello-padding disable
+  hello-password keychain bharti
+  address-family ipv4 unicast
+   fast-reroute per-prefix
+   fast-reroute per-prefix ti-lfa
+   metric 1
+  !
+ !
+ interface Bundle-Ether108
+  circuit-type level-2-only
+  bfd minimum-interval 50
+  bfd multiplier 3
+  bfd fast-detect ipv4
+  point-to-point
+  hello-padding disable
+  hello-password keychain bharti
+  address-family ipv4 unicast
+   fast-reroute per-prefix
+   fast-reroute per-prefix ti-lfa
+  !
+ !
+ interface Bundle-Ether501
+  circuit-type level-2-only
+  bfd minimum-interval 50
+  bfd multiplier 3
+  bfd fast-detect ipv4
+  point-to-point
+  hello-padding disable
+  address-family ipv4 unicast
+   fast-reroute per-prefix
+   fast-reroute per-prefix ti-lfa
+  !
+ !
+ interface Loopback0
+  address-family ipv4 unicast
+   tag 5001
+   prefix-sid index 197
+  !
+ !
+ interface HundredGigE0/0/0/29.10
+  passive
+  circuit-type level-2-only
+  point-to-point
+  hello-padding disable
+  address-family ipv4 unicast
+   fast-reroute per-prefix
+   fast-reroute per-prefix ti-lfa
+  !
+ !
+ interface HundredGigE0/0/0/29.25
+  circuit-type level-2-only
+  point-to-point
+  hello-padding disable
+  address-family ipv4 unicast
+   fast-reroute per-prefix
+   fast-reroute per-prefix ti-lfa
+  !
+ !
+!
+snmp-server traps isis all
+snmp-server traps ospfv3 errors bad-packet
+snmp-server traps ospfv3 errors config-error
+snmp-server traps ospfv3 errors virt-bad-packet
+snmp-server traps ospfv3 state-change if-state-change
+snmp-server traps ospfv3 state-change neighbor-state-change
+snmp-server traps ospfv3 state-change virtif-state-change
+snmp-server traps ospfv3 state-change virtneighbor-state-change
+snmp-server traps ospfv3 state-change restart-status-change
+snmp-server traps ospfv3 state-change restart-virtual-helper-status-change
+snmp-server traps bgp cbgp2
+snmp-server traps bgp updown
+router bgp 9730
+ nsr
+ mvpn
+ bgp router-id 10.10.197.1
+ bgp graceful-restart restart-time 120
+ bgp graceful-restart graceful-reset
+ bgp graceful-restart stalepath-time 360
+ bgp redistribute-internal
+ bgp graceful-restart
+ bgp log neighbor changes detail
+ ibgp policy out enforce-modifications
+ address-family ipv4 unicast
+  maximum-paths eibgp 3
+  additional-paths receive
+  additional-paths send
+  segment-routing prefix-sid-map
+  additional-paths selection route-policy add-path-to-ibgp
+  nexthop resolution prefix-length minimum 32
+  nexthop trigger-delay critical 0
+  nexthop trigger-delay non-critical 0
+  network 10.10.197.1/32 route-policy SID0197
+  allocate-label all
+ !
+ address-family vpnv4 unicast
+  additional-paths receive
+  additional-paths send
+  additional-paths selection route-policy add-path-to-ibgp
+  nexthop trigger-delay critical 0
+  nexthop trigger-delay non-critical 0
+ !
+ address-family ipv6 unicast
+  additional-paths receive
+  additional-paths send
+  redistribute connected
+ !
+ address-family vpnv6 unicast
+  additional-paths receive
+  additional-paths send
+  additional-paths selection route-policy add-path-to-ibgp
+ !
+ address-family ipv4 mdt
+ !
+ address-family l2vpn vpls-vpws
+ !
+ address-family ipv4 rt-filter
+ !
+ address-family ipv4 mvpn
+ !
+ address-family l2vpn evpn
+ !
+ address-family link-state link-state
+ !
+ neighbor-group T4-RR
+  remote-as 9730
+  update-source Loopback0
+  graceful-restart
+  address-family ipv4 labeled-unicast
+   next-hop-self
+  !
+  address-family vpnv4 unicast
+  !
+  address-family vpnv6 unicast
+  !
+  address-family ipv4 mdt
+  !
+  address-family l2vpn vpls-vpws
+  !
+  address-family ipv4 rt-filter
+  !
+  address-family ipv4 mvpn
+  !
+  address-family l2vpn evpn
+  !
+ !
+ neighbor-group T5-CRR
+  remote-as 9730
+  description -- 920-1&-540-T5-Domain, --
+  update-source Loopback0
+  address-family ipv4 labeled-unicast
+   route-policy WEIGHT in
+   route-reflector-client
+   next-hop-self
+  !
+  address-family vpnv4 unicast
+   route-reflector-client
+  !
+  address-family vpnv6 unicast
+   route-reflector-client
+  !
+  address-family ipv4 mdt
+   route-reflector-client
+  !
+  address-family l2vpn vpls-vpws
+   route-reflector-client
+  !
+  address-family ipv4 mvpn
+   route-reflector-client
+  !
+  address-family l2vpn evpn
+   route-reflector-client
+  !
+ !
+ neighbor 10.10.170.1
+  use neighbor-group T4-RR
+  bfd fast-detect
+  bfd multiplier 3
+  bfd minimum-interval 100
+ !
+ neighbor 10.10.180.1
+  use neighbor-group T4-RR
+  bfd fast-detect
+  bfd multiplier 3
+  bfd minimum-interval 100
+ !
+ neighbor 10.73.249.135
+  use neighbor-group T4-RR
+  bfd fast-detect
+  bfd multiplier 3
+  bfd minimum-interval 100
+ !
+ neighbor 100.72.228.56
+  use neighbor-group T4-RR
+  bfd fast-detect
+  bfd multiplier 3
+  bfd minimum-interval 100
+ !
+ neighbor 38.141.141.141
+  use neighbor-group T4-RR
+  bfd fast-detect
+  bfd multiplier 3
+  bfd minimum-interval 100
+ !
+ neighbor 150.141.141.141
+  use neighbor-group T4-RR
+  bfd fast-detect
+  bfd multiplier 3
+  bfd minimum-interval 100
+ !
+ vrf CPE
+  rd auto
+  address-family ipv4 unicast
+   redistribute connected
+   redistribute static
+  !
+  neighbor 113.113.113.1
+   remote-as 64520
+   ebgp-multihop 255
+   address-family ipv4 unicast
+    route-policy passall in
+    route-policy passall out
+   !
+  !
+ !
+ vrf CPe
+ !
+ vrf scale1
+  rd auto
+  address-family ipv4 unicast
+   label mode per-vrf
+   redistribute connected
+   redistribute static
+  !
+ !
+ vrf NOKIA_TEST
+  rd 64:9730
+  address-family ipv4 unicast
+   label mode per-vrf
+   redistribute connected
+   redistribute static
+  !
+  address-family ipv6 unicast
+  !
+ !
+ vrf AIRTEL_IPTV
+  rd 9:9
+  address-family ipv4 unicast
+   label mode per-vrf
+   redistribute connected
+   redistribute static
+  !
+  address-family ipv4 mvpn
+  !
+ !
+ vrf AIRTEL_IPTV11
+  rd 11:11
+  address-family ipv4 unicast
+   label mode per-vrf
+   redistribute connected
+   redistribute static
+  !
+  address-family ipv4 mvpn
+  !
+ !
+ vrf Cisco-Automation-1
+  rd 9498:1
+  address-family ipv4 unicast
+   redistribute connected
+   redistribute static
+  !
+  address-family ipv6 unicast
+   redistribute connected
+   redistribute static
+  !
+ !
+!
+snmp-server traps hsrp
+snmp-server traps vrrp events
+snmp-server traps vpls all
+snmp-server traps vpls status
+snmp-server traps vpls full-clear
+snmp-server traps vpls full-raise
+snmp-server traps l2vpn all
+snmp-server traps l2vpn vc-up
+snmp-server traps l2vpn vc-down
+l2vpn
+ pw-class mpls
+  encapsulation mpls
+  !
+ !
+ xconnect group L2VPN
+  p2p L2VPN1
+   interface TenGigE0/0/0/12.10
+   neighbor ipv4 10.10.196.1 pw-id 1
+    pw-class mpls
+   !
+  !
+  p2p L2VPN2
+   interface TenGigE0/0/0/12.11
+   neighbor ipv4 10.10.196.1 pw-id 2
+    pw-class mpls
+   !
+  !
+  p2p L2VPN3
+   interface TenGigE0/0/0/12.12
+   neighbor ipv4 10.10.196.1 pw-id 3
+    pw-class mpls
+   !
+  !
+  p2p L2VPN4
+   interface TenGigE0/0/0/12.13
+   neighbor ipv4 10.10.196.1 pw-id 4
+    pw-class mpls
+   !
+  !
+  p2p L2VPN5
+   interface TenGigE0/0/0/12.14
+   neighbor ipv4 10.10.196.1 pw-id 5
+    pw-class mpls
+   !
+  !
+  p2p L2VPN6
+   interface TenGigE0/0/0/12.15
+   neighbor ipv4 10.10.196.1 pw-id 6
+    pw-class mpls
+   !
+  !
+  p2p L2VPN7
+   interface TenGigE0/0/0/12.16
+   neighbor ipv4 10.10.196.1 pw-id 7
+    pw-class mpls
+   !
+  !
+  p2p L2VPN8
+   interface TenGigE0/0/0/12.17
+   neighbor ipv4 10.10.196.1 pw-id 8
+    pw-class mpls
+   !
+  !
+  p2p L2VPN9
+   interface TenGigE0/0/0/12.18
+   neighbor ipv4 10.10.196.1 pw-id 9
+    pw-class mpls
+   !
+  !
+  p2p L2VPN10
+   interface TenGigE0/0/0/12.19
+   neighbor ipv4 10.10.196.1 pw-id 10
+    pw-class mpls
+   !
+  !
+  p2p L2VPN11
+   interface TenGigE0/0/0/12.20
+   neighbor ipv4 10.10.196.1 pw-id 11
+    pw-class mpls
+   !
+  !
+  p2p L2VPN12
+   interface TenGigE0/0/0/12.21
+   neighbor ipv4 10.10.196.1 pw-id 12
+    pw-class mpls
+   !
+  !
+  p2p L2VPN13
+   interface TenGigE0/0/0/12.22
+   neighbor ipv4 10.10.196.1 pw-id 13
+    pw-class mpls
+   !
+  !
+  p2p L2VPN14
+   interface TenGigE0/0/0/12.23
+   neighbor ipv4 10.10.196.1 pw-id 14
+    pw-class mpls
+   !
+  !
+  p2p L2VPN15
+   interface TenGigE0/0/0/12.24
+   neighbor ipv4 10.10.196.1 pw-id 15
+    pw-class mpls
+   !
+  !
+  p2p L2VPN16
+   interface TenGigE0/0/0/12.25
+   neighbor ipv4 10.10.196.1 pw-id 16
+    pw-class mpls
+   !
+  !
+  p2p L2VPN17
+   interface TenGigE0/0/0/12.26
+   neighbor ipv4 10.10.196.1 pw-id 17
+    pw-class mpls
+   !
+  !
+  p2p L2VPN18
+   interface TenGigE0/0/0/12.27
+   neighbor ipv4 10.10.196.1 pw-id 18
+    pw-class mpls
+   !
+  !
+  p2p L2VPN19
+   interface TenGigE0/0/0/12.28
+   neighbor ipv4 10.10.196.1 pw-id 19
+    pw-class mpls
+   !
+  !
+  p2p L2VPN20
+   interface TenGigE0/0/0/12.29
+   neighbor ipv4 10.10.196.1 pw-id 20
+    pw-class mpls
+   !
+  !
+  p2p L2VPN21
+   interface TenGigE0/0/0/12.30
+   neighbor ipv4 10.10.196.1 pw-id 21
+    pw-class mpls
+   !
+  !
+  p2p L2VPN22
+   interface TenGigE0/0/0/12.31
+   neighbor ipv4 10.10.196.1 pw-id 22
+    pw-class mpls
+   !
+  !
+  p2p L2VPN23
+   interface TenGigE0/0/0/12.32
+   neighbor ipv4 10.10.196.1 pw-id 23
+    pw-class mpls
+   !
+  !
+  p2p L2VPN24
+   interface TenGigE0/0/0/12.33
+   neighbor ipv4 10.10.196.1 pw-id 24
+    pw-class mpls
+   !
+  !
+  p2p L2VPN25
+   interface TenGigE0/0/0/12.34
+   neighbor ipv4 10.10.196.1 pw-id 25
+    pw-class mpls
+   !
+  !
+  p2p L2VPN26
+   interface TenGigE0/0/0/12.35
+   neighbor ipv4 10.10.196.1 pw-id 26
+    pw-class mpls
+   !
+  !
+  p2p L2VPN27
+   interface TenGigE0/0/0/12.36
+   neighbor ipv4 10.10.196.1 pw-id 27
+    pw-class mpls
+   !
+  !
+  p2p L2VPN28
+   interface TenGigE0/0/0/12.37
+   neighbor ipv4 10.10.196.1 pw-id 28
+    pw-class mpls
+   !
+  !
+  p2p L2VPN29
+   interface TenGigE0/0/0/12.38
+   neighbor ipv4 10.10.196.1 pw-id 29
+    pw-class mpls
+   !
+  !
+  p2p L2VPN30
+   interface TenGigE0/0/0/12.39
+   neighbor ipv4 10.10.196.1 pw-id 30
+    pw-class mpls
+   !
+  !
+  p2p L2VPN31
+   interface TenGigE0/0/0/12.40
+   neighbor ipv4 10.10.196.1 pw-id 31
+    pw-class mpls
+   !
+  !
+  p2p L2VPN32
+   interface TenGigE0/0/0/12.41
+   neighbor ipv4 10.10.196.1 pw-id 32
+    pw-class mpls
+   !
+  !
+  p2p L2VPN33
+   interface TenGigE0/0/0/12.42
+   neighbor ipv4 10.10.196.1 pw-id 33
+    pw-class mpls
+   !
+  !
+  p2p L2VPN34
+   interface TenGigE0/0/0/12.43
+   neighbor ipv4 10.10.196.1 pw-id 34
+    pw-class mpls
+   !
+  !
+  p2p L2VPN35
+   interface TenGigE0/0/0/12.44
+   neighbor ipv4 10.10.196.1 pw-id 35
+    pw-class mpls
+   !
+  !
+  p2p L2VPN36
+   interface TenGigE0/0/0/12.45
+   neighbor ipv4 10.10.196.1 pw-id 36
+    pw-class mpls
+   !
+  !
+  p2p L2VPN37
+   interface TenGigE0/0/0/12.46
+   neighbor ipv4 10.10.196.1 pw-id 37
+    pw-class mpls
+   !
+  !
+  p2p L2VPN38
+   interface TenGigE0/0/0/12.47
+   neighbor ipv4 10.10.196.1 pw-id 38
+    pw-class mpls
+   !
+  !
+  p2p L2VPN39
+   interface TenGigE0/0/0/12.48
+   neighbor ipv4 10.10.196.1 pw-id 39
+    pw-class mpls
+   !
+  !
+  p2p L2VPN40
+   interface TenGigE0/0/0/12.49
+   neighbor ipv4 10.10.196.1 pw-id 40
+    pw-class mpls
+   !
+  !
+  p2p L2VPN41
+   interface TenGigE0/0/0/12.50
+   neighbor ipv4 10.10.196.1 pw-id 41
+    pw-class mpls
+   !
+  !
+  p2p L2VPN42
+   interface TenGigE0/0/0/12.51
+   neighbor ipv4 10.10.196.1 pw-id 42
+    pw-class mpls
+   !
+  !
+  p2p L2VPN43
+   interface TenGigE0/0/0/12.52
+   neighbor ipv4 10.10.196.1 pw-id 43
+    pw-class mpls
+   !
+  !
+  p2p L2VPN44
+   interface TenGigE0/0/0/12.53
+   neighbor ipv4 10.10.196.1 pw-id 44
+    pw-class mpls
+   !
+  !
+  p2p L2VPN45
+   interface TenGigE0/0/0/12.54
+   neighbor ipv4 10.10.196.1 pw-id 45
+    pw-class mpls
+   !
+  !
+  p2p L2VPN46
+   interface TenGigE0/0/0/12.55
+   neighbor ipv4 10.10.196.1 pw-id 46
+    pw-class mpls
+   !
+  !
+  p2p L2VPN47
+   interface TenGigE0/0/0/12.56
+   neighbor ipv4 10.10.196.1 pw-id 47
+    pw-class mpls
+   !
+  !
+  p2p L2VPN48
+   interface TenGigE0/0/0/12.57
+   neighbor ipv4 10.10.196.1 pw-id 48
+    pw-class mpls
+   !
+  !
+  p2p L2VPN49
+   interface TenGigE0/0/0/12.58
+   neighbor ipv4 10.10.196.1 pw-id 49
+    pw-class mpls
+   !
+  !
+  p2p L2VPN50
+   interface TenGigE0/0/0/12.59
+   neighbor ipv4 10.10.196.1 pw-id 50
+    pw-class mpls
+   !
+  !
+  p2p L2VPN51
+   interface TenGigE0/0/0/12.60
+   neighbor ipv4 10.10.196.1 pw-id 51
+    pw-class mpls
+   !
+  !
+  p2p L2VPN52
+   interface TenGigE0/0/0/12.61
+   neighbor ipv4 10.10.196.1 pw-id 52
+    pw-class mpls
+   !
+  !
+  p2p L2VPN53
+   interface TenGigE0/0/0/12.62
+   neighbor ipv4 10.10.196.1 pw-id 53
+    pw-class mpls
+   !
+  !
+  p2p L2VPN54
+   interface TenGigE0/0/0/12.63
+   neighbor ipv4 10.10.196.1 pw-id 54
+    pw-class mpls
+   !
+  !
+  p2p L2VPN55
+   interface TenGigE0/0/0/12.64
+   neighbor ipv4 10.10.196.1 pw-id 55
+    pw-class mpls
+   !
+  !
+  p2p L2VPN56
+   interface TenGigE0/0/0/12.65
+   neighbor ipv4 10.10.196.1 pw-id 56
+    pw-class mpls
+   !
+  !
+  p2p L2VPN57
+   interface TenGigE0/0/0/12.66
+   neighbor ipv4 10.10.196.1 pw-id 57
+    pw-class mpls
+   !
+  !
+  p2p L2VPN58
+   interface TenGigE0/0/0/12.67
+   neighbor ipv4 10.10.196.1 pw-id 58
+    pw-class mpls
+   !
+  !
+  p2p L2VPN59
+   interface TenGigE0/0/0/12.68
+   neighbor ipv4 10.10.196.1 pw-id 59
+    pw-class mpls
+   !
+  !
+  p2p L2VPN60
+   interface TenGigE0/0/0/12.69
+   neighbor ipv4 10.10.196.1 pw-id 60
+    pw-class mpls
+   !
+  !
+  p2p L2VPN61
+   interface TenGigE0/0/0/12.70
+   neighbor ipv4 10.10.196.1 pw-id 61
+    pw-class mpls
+   !
+  !
+  p2p L2VPN62
+   interface TenGigE0/0/0/12.71
+   neighbor ipv4 10.10.196.1 pw-id 62
+    pw-class mpls
+   !
+  !
+  p2p L2VPN63
+   interface TenGigE0/0/0/12.72
+   neighbor ipv4 10.10.196.1 pw-id 63
+    pw-class mpls
+   !
+  !
+  p2p L2VPN64
+   interface TenGigE0/0/0/12.73
+   neighbor ipv4 10.10.196.1 pw-id 64
+    pw-class mpls
+   !
+  !
+  p2p L2VPN65
+   interface TenGigE0/0/0/12.74
+   neighbor ipv4 10.10.196.1 pw-id 65
+    pw-class mpls
+   !
+  !
+  p2p L2VPN66
+   interface TenGigE0/0/0/12.75
+   neighbor ipv4 10.10.196.1 pw-id 66
+    pw-class mpls
+   !
+  !
+  p2p L2VPN67
+   interface TenGigE0/0/0/12.76
+   neighbor ipv4 10.10.196.1 pw-id 67
+    pw-class mpls
+   !
+  !
+  p2p L2VPN68
+   interface TenGigE0/0/0/12.77
+   neighbor ipv4 10.10.196.1 pw-id 68
+    pw-class mpls
+   !
+  !
+  p2p L2VPN69
+   interface TenGigE0/0/0/12.78
+   neighbor ipv4 10.10.196.1 pw-id 69
+    pw-class mpls
+   !
+  !
+  p2p L2VPN70
+   interface TenGigE0/0/0/12.79
+   neighbor ipv4 10.10.196.1 pw-id 70
+    pw-class mpls
+   !
+  !
+  p2p L2VPN71
+   interface TenGigE0/0/0/12.80
+   neighbor ipv4 10.10.196.1 pw-id 71
+    pw-class mpls
+   !
+  !
+  p2p L2VPN72
+   interface TenGigE0/0/0/12.81
+   neighbor ipv4 10.10.196.1 pw-id 72
+    pw-class mpls
+   !
+  !
+  p2p L2VPN73
+   interface TenGigE0/0/0/12.82
+   neighbor ipv4 10.10.196.1 pw-id 73
+    pw-class mpls
+   !
+  !
+  p2p L2VPN74
+   interface TenGigE0/0/0/12.83
+   neighbor ipv4 10.10.196.1 pw-id 74
+    pw-class mpls
+   !
+  !
+  p2p L2VPN75
+   interface TenGigE0/0/0/12.84
+   neighbor ipv4 10.10.196.1 pw-id 75
+    pw-class mpls
+   !
+  !
+  p2p L2VPN76
+   interface TenGigE0/0/0/12.85
+   neighbor ipv4 10.10.196.1 pw-id 76
+    pw-class mpls
+   !
+  !
+  p2p L2VPN77
+   interface TenGigE0/0/0/12.86
+   neighbor ipv4 10.10.196.1 pw-id 77
+    pw-class mpls
+   !
+  !
+  p2p L2VPN78
+   interface TenGigE0/0/0/12.87
+   neighbor ipv4 10.10.196.1 pw-id 78
+    pw-class mpls
+   !
+  !
+  p2p L2VPN79
+   interface TenGigE0/0/0/12.88
+   neighbor ipv4 10.10.196.1 pw-id 79
+    pw-class mpls
+   !
+  !
+  p2p L2VPN80
+   interface TenGigE0/0/0/12.89
+   neighbor ipv4 10.10.196.1 pw-id 80
+    pw-class mpls
+   !
+  !
+  p2p L2VPN81
+   interface TenGigE0/0/0/12.90
+   neighbor ipv4 10.10.196.1 pw-id 81
+    pw-class mpls
+   !
+  !
+  p2p L2VPN82
+   interface TenGigE0/0/0/12.91
+   neighbor ipv4 10.10.196.1 pw-id 82
+    pw-class mpls
+   !
+  !
+  p2p L2VPN83
+   interface TenGigE0/0/0/12.92
+   neighbor ipv4 10.10.196.1 pw-id 83
+    pw-class mpls
+   !
+  !
+  p2p L2VPN84
+   interface TenGigE0/0/0/12.93
+   neighbor ipv4 10.10.196.1 pw-id 84
+    pw-class mpls
+   !
+  !
+  p2p L2VPN85
+   interface TenGigE0/0/0/12.94
+   neighbor ipv4 10.10.196.1 pw-id 85
+    pw-class mpls
+   !
+  !
+  p2p L2VPN86
+   interface TenGigE0/0/0/12.95
+   neighbor ipv4 10.10.196.1 pw-id 86
+    pw-class mpls
+   !
+  !
+  p2p L2VPN87
+   interface TenGigE0/0/0/12.96
+   neighbor ipv4 10.10.196.1 pw-id 87
+    pw-class mpls
+   !
+  !
+  p2p L2VPN88
+   interface TenGigE0/0/0/12.97
+   neighbor ipv4 10.10.196.1 pw-id 88
+    pw-class mpls
+   !
+  !
+  p2p L2VPN89
+   interface TenGigE0/0/0/12.98
+   neighbor ipv4 10.10.196.1 pw-id 89
+    pw-class mpls
+   !
+  !
+  p2p L2VPN90
+   interface TenGigE0/0/0/12.99
+   neighbor ipv4 10.10.196.1 pw-id 90
+    pw-class mpls
+   !
+  !
+  p2p L2VPN91
+   interface TenGigE0/0/0/12.100
+   neighbor ipv4 10.10.196.1 pw-id 91
+    pw-class mpls
+   !
+  !
+  p2p L2VPN92
+   interface TenGigE0/0/0/12.101
+   neighbor ipv4 10.10.196.1 pw-id 92
+    pw-class mpls
+   !
+  !
+  p2p L2VPN93
+   interface TenGigE0/0/0/12.102
+   neighbor ipv4 10.10.196.1 pw-id 93
+    pw-class mpls
+   !
+  !
+  p2p L2VPN94
+   interface TenGigE0/0/0/12.103
+   neighbor ipv4 10.10.196.1 pw-id 94
+    pw-class mpls
+   !
+  !
+  p2p L2VPN95
+   interface TenGigE0/0/0/12.104
+   neighbor ipv4 10.10.196.1 pw-id 95
+    pw-class mpls
+   !
+  !
+  p2p L2VPN96
+   interface TenGigE0/0/0/12.105
+   neighbor ipv4 10.10.196.1 pw-id 96
+    pw-class mpls
+   !
+  !
+  p2p L2VPN97
+   interface TenGigE0/0/0/12.106
+   neighbor ipv4 10.10.196.1 pw-id 97
+    pw-class mpls
+   !
+  !
+  p2p L2VPN98
+   interface TenGigE0/0/0/12.107
+   neighbor ipv4 10.10.196.1 pw-id 98
+    pw-class mpls
+   !
+  !
+  p2p L2VPN99
+   interface TenGigE0/0/0/12.108
+   neighbor ipv4 10.10.196.1 pw-id 99
+    pw-class mpls
+   !
+  !
+  p2p L2VPN100
+   interface TenGigE0/0/0/12.109
+   neighbor ipv4 10.10.196.1 pw-id 100
+    pw-class mpls
+   !
+  !
+  p2p L2VPN101
+   interface TenGigE0/0/0/12.110
+   neighbor ipv4 10.10.196.1 pw-id 101
+    pw-class mpls
+   !
+  !
+  p2p L2VPN102
+   interface TenGigE0/0/0/12.111
+   neighbor ipv4 10.10.196.1 pw-id 102
+    pw-class mpls
+   !
+  !
+  p2p L2VPN103
+   interface TenGigE0/0/0/12.112
+   neighbor ipv4 10.10.196.1 pw-id 103
+    pw-class mpls
+   !
+  !
+  p2p L2VPN104
+   interface TenGigE0/0/0/12.113
+   neighbor ipv4 10.10.196.1 pw-id 104
+    pw-class mpls
+   !
+  !
+  p2p L2VPN105
+   interface TenGigE0/0/0/12.114
+   neighbor ipv4 10.10.196.1 pw-id 105
+    pw-class mpls
+   !
+  !
+  p2p L2VPN106
+   interface TenGigE0/0/0/12.115
+   neighbor ipv4 10.10.196.1 pw-id 106
+    pw-class mpls
+   !
+  !
+  p2p L2VPN107
+   interface TenGigE0/0/0/12.116
+   neighbor ipv4 10.10.196.1 pw-id 107
+    pw-class mpls
+   !
+  !
+  p2p L2VPN108
+   interface TenGigE0/0/0/12.117
+   neighbor ipv4 10.10.196.1 pw-id 108
+    pw-class mpls
+   !
+  !
+  p2p L2VPN109
+   interface TenGigE0/0/0/12.118
+   neighbor ipv4 10.10.196.1 pw-id 109
+    pw-class mpls
+   !
+  !
+  p2p L2VPN110
+   interface TenGigE0/0/0/12.119
+   neighbor ipv4 10.10.196.1 pw-id 110
+    pw-class mpls
+   !
+  !
+  p2p L2VPN111
+   interface TenGigE0/0/0/12.120
+   neighbor ipv4 10.10.196.1 pw-id 111
+    pw-class mpls
+   !
+  !
+  p2p L2VPN112
+   interface TenGigE0/0/0/12.121
+   neighbor ipv4 10.10.196.1 pw-id 112
+    pw-class mpls
+   !
+  !
+  p2p L2VPN113
+   interface TenGigE0/0/0/12.122
+   neighbor ipv4 10.10.196.1 pw-id 113
+    pw-class mpls
+   !
+  !
+  p2p L2VPN114
+   interface TenGigE0/0/0/12.123
+   neighbor ipv4 10.10.196.1 pw-id 114
+    pw-class mpls
+   !
+  !
+  p2p L2VPN115
+   interface TenGigE0/0/0/12.124
+   neighbor ipv4 10.10.196.1 pw-id 115
+    pw-class mpls
+   !
+  !
+  p2p L2VPN116
+   interface TenGigE0/0/0/12.125
+   neighbor ipv4 10.10.196.1 pw-id 116
+    pw-class mpls
+   !
+  !
+  p2p L2VPN117
+   interface TenGigE0/0/0/12.126
+   neighbor ipv4 10.10.196.1 pw-id 117
+    pw-class mpls
+   !
+  !
+  p2p L2VPN118
+   interface TenGigE0/0/0/12.127
+   neighbor ipv4 10.10.196.1 pw-id 118
+    pw-class mpls
+   !
+  !
+  p2p L2VPN119
+   interface TenGigE0/0/0/12.128
+   neighbor ipv4 10.10.196.1 pw-id 119
+    pw-class mpls
+   !
+  !
+  p2p L2VPN120
+   interface TenGigE0/0/0/12.129
+   neighbor ipv4 10.10.196.1 pw-id 120
+    pw-class mpls
+   !
+  !
+  p2p L2VPN121
+   interface TenGigE0/0/0/12.130
+   neighbor ipv4 10.10.196.1 pw-id 121
+    pw-class mpls
+   !
+  !
+  p2p L2VPN122
+   interface TenGigE0/0/0/12.131
+   neighbor ipv4 10.10.196.1 pw-id 122
+    pw-class mpls
+   !
+  !
+  p2p L2VPN123
+   interface TenGigE0/0/0/12.132
+   neighbor ipv4 10.10.196.1 pw-id 123
+    pw-class mpls
+   !
+  !
+  p2p L2VPN124
+   interface TenGigE0/0/0/12.133
+   neighbor ipv4 10.10.196.1 pw-id 124
+    pw-class mpls
+   !
+  !
+  p2p L2VPN125
+   interface TenGigE0/0/0/12.134
+   neighbor ipv4 10.10.196.1 pw-id 125
+    pw-class mpls
+   !
+  !
+  p2p L2VPN126
+   interface TenGigE0/0/0/12.135
+   neighbor ipv4 10.10.196.1 pw-id 126
+    pw-class mpls
+   !
+  !
+  p2p L2VPN127
+   interface TenGigE0/0/0/12.136
+   neighbor ipv4 10.10.196.1 pw-id 127
+    pw-class mpls
+   !
+  !
+  p2p L2VPN128
+   interface TenGigE0/0/0/12.137
+   neighbor ipv4 10.10.196.1 pw-id 128
+    pw-class mpls
+   !
+  !
+  p2p L2VPN129
+   interface TenGigE0/0/0/12.138
+   neighbor ipv4 10.10.196.1 pw-id 129
+    pw-class mpls
+   !
+  !
+  p2p L2VPN130
+   interface TenGigE0/0/0/12.139
+   neighbor ipv4 10.10.196.1 pw-id 130
+    pw-class mpls
+   !
+  !
+  p2p L2VPN131
+   interface TenGigE0/0/0/12.140
+   neighbor ipv4 10.10.196.1 pw-id 131
+    pw-class mpls
+   !
+  !
+  p2p L2VPN132
+   interface TenGigE0/0/0/12.141
+   neighbor ipv4 10.10.196.1 pw-id 132
+    pw-class mpls
+   !
+  !
+  p2p L2VPN133
+   interface TenGigE0/0/0/12.142
+   neighbor ipv4 10.10.196.1 pw-id 133
+    pw-class mpls
+   !
+  !
+  p2p L2VPN134
+   interface TenGigE0/0/0/12.143
+   neighbor ipv4 10.10.196.1 pw-id 134
+    pw-class mpls
+   !
+  !
+  p2p L2VPN135
+   interface TenGigE0/0/0/12.144
+   neighbor ipv4 10.10.196.1 pw-id 135
+    pw-class mpls
+   !
+  !
+  p2p L2VPN136
+   interface TenGigE0/0/0/12.145
+   neighbor ipv4 10.10.196.1 pw-id 136
+    pw-class mpls
+   !
+  !
+  p2p L2VPN137
+   interface TenGigE0/0/0/12.146
+   neighbor ipv4 10.10.196.1 pw-id 137
+    pw-class mpls
+   !
+  !
+  p2p L2VPN138
+   interface TenGigE0/0/0/12.147
+   neighbor ipv4 10.10.196.1 pw-id 138
+    pw-class mpls
+   !
+  !
+  p2p L2VPN139
+   interface TenGigE0/0/0/12.148
+   neighbor ipv4 10.10.196.1 pw-id 139
+    pw-class mpls
+   !
+  !
+  p2p L2VPN140
+   interface TenGigE0/0/0/12.149
+   neighbor ipv4 10.10.196.1 pw-id 140
+    pw-class mpls
+   !
+  !
+  p2p L2VPN141
+   interface TenGigE0/0/0/12.150
+   neighbor ipv4 10.10.196.1 pw-id 141
+    pw-class mpls
+   !
+  !
+  p2p L2VPN142
+   interface TenGigE0/0/0/12.151
+   neighbor ipv4 10.10.196.1 pw-id 142
+    pw-class mpls
+   !
+  !
+  p2p L2VPN143
+   interface TenGigE0/0/0/12.152
+   neighbor ipv4 10.10.196.1 pw-id 143
+    pw-class mpls
+   !
+  !
+  p2p L2VPN144
+   interface TenGigE0/0/0/12.153
+   neighbor ipv4 10.10.196.1 pw-id 144
+    pw-class mpls
+   !
+  !
+  p2p L2VPN145
+   interface TenGigE0/0/0/12.154
+   neighbor ipv4 10.10.196.1 pw-id 145
+    pw-class mpls
+   !
+  !
+  p2p L2VPN146
+   interface TenGigE0/0/0/12.155
+   neighbor ipv4 10.10.196.1 pw-id 146
+    pw-class mpls
+   !
+  !
+  p2p L2VPN147
+   interface TenGigE0/0/0/12.156
+   neighbor ipv4 10.10.196.1 pw-id 147
+    pw-class mpls
+   !
+  !
+  p2p L2VPN148
+   interface TenGigE0/0/0/12.157
+   neighbor ipv4 10.10.196.1 pw-id 148
+    pw-class mpls
+   !
+  !
+  p2p L2VPN149
+   interface TenGigE0/0/0/12.158
+   neighbor ipv4 10.10.196.1 pw-id 149
+    pw-class mpls
+   !
+  !
+  p2p L2VPN150
+   interface TenGigE0/0/0/12.159
+   neighbor ipv4 10.10.196.1 pw-id 150
+    pw-class mpls
+   !
+  !
+  p2p L2VPN151
+   interface TenGigE0/0/0/12.160
+   neighbor ipv4 10.10.196.1 pw-id 151
+    pw-class mpls
+   !
+  !
+  p2p L2VPN152
+   interface TenGigE0/0/0/12.161
+   neighbor ipv4 10.10.196.1 pw-id 152
+    pw-class mpls
+   !
+  !
+  p2p L2VPN153
+   interface TenGigE0/0/0/12.162
+   neighbor ipv4 10.10.196.1 pw-id 153
+    pw-class mpls
+   !
+  !
+  p2p L2VPN154
+   interface TenGigE0/0/0/12.163
+   neighbor ipv4 10.10.196.1 pw-id 154
+    pw-class mpls
+   !
+  !
+  p2p L2VPN155
+   interface TenGigE0/0/0/12.164
+   neighbor ipv4 10.10.196.1 pw-id 155
+    pw-class mpls
+   !
+  !
+  p2p L2VPN156
+   interface TenGigE0/0/0/12.165
+   neighbor ipv4 10.10.196.1 pw-id 156
+    pw-class mpls
+   !
+  !
+  p2p L2VPN157
+   interface TenGigE0/0/0/12.166
+   neighbor ipv4 10.10.196.1 pw-id 157
+    pw-class mpls
+   !
+  !
+  p2p L2VPN158
+   interface TenGigE0/0/0/12.167
+   neighbor ipv4 10.10.196.1 pw-id 158
+    pw-class mpls
+   !
+  !
+  p2p L2VPN159
+   interface TenGigE0/0/0/12.168
+   neighbor ipv4 10.10.196.1 pw-id 159
+    pw-class mpls
+   !
+  !
+  p2p L2VPN160
+   interface TenGigE0/0/0/12.169
+   neighbor ipv4 10.10.196.1 pw-id 160
+    pw-class mpls
+   !
+  !
+  p2p L2VPN161
+   interface TenGigE0/0/0/12.170
+   neighbor ipv4 10.10.196.1 pw-id 161
+    pw-class mpls
+   !
+  !
+  p2p L2VPN162
+   interface TenGigE0/0/0/12.171
+   neighbor ipv4 10.10.196.1 pw-id 162
+    pw-class mpls
+   !
+  !
+  p2p L2VPN163
+   interface TenGigE0/0/0/12.172
+   neighbor ipv4 10.10.196.1 pw-id 163
+    pw-class mpls
+   !
+  !
+  p2p L2VPN164
+   interface TenGigE0/0/0/12.173
+   neighbor ipv4 10.10.196.1 pw-id 164
+    pw-class mpls
+   !
+  !
+  p2p L2VPN165
+   interface TenGigE0/0/0/12.174
+   neighbor ipv4 10.10.196.1 pw-id 165
+    pw-class mpls
+   !
+  !
+  p2p L2VPN166
+   interface TenGigE0/0/0/12.175
+   neighbor ipv4 10.10.196.1 pw-id 166
+    pw-class mpls
+   !
+  !
+  p2p L2VPN167
+   interface TenGigE0/0/0/12.176
+   neighbor ipv4 10.10.196.1 pw-id 167
+    pw-class mpls
+   !
+  !
+  p2p L2VPN168
+   interface TenGigE0/0/0/12.177
+   neighbor ipv4 10.10.196.1 pw-id 168
+    pw-class mpls
+   !
+  !
+  p2p L2VPN169
+   interface TenGigE0/0/0/12.178
+   neighbor ipv4 10.10.196.1 pw-id 169
+    pw-class mpls
+   !
+  !
+  p2p L2VPN170
+   interface TenGigE0/0/0/12.179
+   neighbor ipv4 10.10.196.1 pw-id 170
+    pw-class mpls
+   !
+  !
+  p2p L2VPN171
+   interface TenGigE0/0/0/12.180
+   neighbor ipv4 10.10.196.1 pw-id 171
+    pw-class mpls
+   !
+  !
+  p2p L2VPN172
+   interface TenGigE0/0/0/12.181
+   neighbor ipv4 10.10.196.1 pw-id 172
+    pw-class mpls
+   !
+  !
+  p2p L2VPN173
+   interface TenGigE0/0/0/12.182
+   neighbor ipv4 10.10.196.1 pw-id 173
+    pw-class mpls
+   !
+  !
+  p2p L2VPN174
+   interface TenGigE0/0/0/12.183
+   neighbor ipv4 10.10.196.1 pw-id 174
+    pw-class mpls
+   !
+  !
+  p2p L2VPN175
+   interface TenGigE0/0/0/12.184
+   neighbor ipv4 10.10.196.1 pw-id 175
+    pw-class mpls
+   !
+  !
+  p2p L2VPN176
+   interface TenGigE0/0/0/12.185
+   neighbor ipv4 10.10.196.1 pw-id 176
+    pw-class mpls
+   !
+  !
+  p2p L2VPN177
+   interface TenGigE0/0/0/12.186
+   neighbor ipv4 10.10.196.1 pw-id 177
+    pw-class mpls
+   !
+  !
+  p2p L2VPN178
+   interface TenGigE0/0/0/12.187
+   neighbor ipv4 10.10.196.1 pw-id 178
+    pw-class mpls
+   !
+  !
+  p2p L2VPN179
+   interface TenGigE0/0/0/12.188
+   neighbor ipv4 10.10.196.1 pw-id 179
+    pw-class mpls
+   !
+  !
+  p2p L2VPN180
+   interface TenGigE0/0/0/12.189
+   neighbor ipv4 10.10.196.1 pw-id 180
+    pw-class mpls
+   !
+  !
+  p2p L2VPN181
+   interface TenGigE0/0/0/12.190
+   neighbor ipv4 10.10.196.1 pw-id 181
+    pw-class mpls
+   !
+  !
+  p2p L2VPN182
+   interface TenGigE0/0/0/12.191
+   neighbor ipv4 10.10.196.1 pw-id 182
+    pw-class mpls
+   !
+  !
+  p2p L2VPN183
+   interface TenGigE0/0/0/12.192
+   neighbor ipv4 10.10.196.1 pw-id 183
+    pw-class mpls
+   !
+  !
+  p2p L2VPN184
+   interface TenGigE0/0/0/12.193
+   neighbor ipv4 10.10.196.1 pw-id 184
+    pw-class mpls
+   !
+  !
+  p2p L2VPN185
+   interface TenGigE0/0/0/12.194
+   neighbor ipv4 10.10.196.1 pw-id 185
+    pw-class mpls
+   !
+  !
+  p2p L2VPN186
+   interface TenGigE0/0/0/12.195
+   neighbor ipv4 10.10.196.1 pw-id 186
+    pw-class mpls
+   !
+  !
+  p2p L2VPN187
+   interface TenGigE0/0/0/12.196
+   neighbor ipv4 10.10.196.1 pw-id 187
+    pw-class mpls
+   !
+  !
+  p2p L2VPN188
+   interface TenGigE0/0/0/12.197
+   neighbor ipv4 10.10.196.1 pw-id 188
+    pw-class mpls
+   !
+  !
+  p2p L2VPN189
+   interface TenGigE0/0/0/12.198
+   neighbor ipv4 10.10.196.1 pw-id 189
+    pw-class mpls
+   !
+  !
+  p2p L2VPN190
+   interface TenGigE0/0/0/12.199
+   neighbor ipv4 10.10.196.1 pw-id 190
+    pw-class mpls
+   !
+  !
+  p2p L2VPN191
+   interface TenGigE0/0/0/12.200
+   neighbor ipv4 10.10.196.1 pw-id 191
+    pw-class mpls
+   !
+  !
+  p2p L2VPN192
+   interface TenGigE0/0/0/12.201
+   neighbor ipv4 10.10.196.1 pw-id 192
+    pw-class mpls
+   !
+  !
+  p2p L2VPN193
+   interface TenGigE0/0/0/12.202
+   neighbor ipv4 10.10.196.1 pw-id 193
+    pw-class mpls
+   !
+  !
+  p2p L2VPN194
+   interface TenGigE0/0/0/12.203
+   neighbor ipv4 10.10.196.1 pw-id 194
+    pw-class mpls
+   !
+  !
+  p2p L2VPN195
+   interface TenGigE0/0/0/12.204
+   neighbor ipv4 10.10.196.1 pw-id 195
+    pw-class mpls
+   !
+  !
+  p2p L2VPN196
+   interface TenGigE0/0/0/12.205
+   neighbor ipv4 10.10.196.1 pw-id 196
+    pw-class mpls
+   !
+  !
+  p2p L2VPN197
+   interface TenGigE0/0/0/12.206
+   neighbor ipv4 10.10.196.1 pw-id 197
+    pw-class mpls
+   !
+  !
+  p2p L2VPN198
+   interface TenGigE0/0/0/12.207
+   neighbor ipv4 10.10.196.1 pw-id 198
+    pw-class mpls
+   !
+  !
+  p2p L2VPN199
+   interface TenGigE0/0/0/12.208
+   neighbor ipv4 10.10.196.1 pw-id 199
+    pw-class mpls
+   !
+  !
+  p2p L2VPN200
+   interface TenGigE0/0/0/12.209
+   neighbor ipv4 10.10.196.1 pw-id 200
+    pw-class mpls
+   !
+  !
+  p2p L2VPN201
+   interface TenGigE0/0/0/12.210
+   neighbor ipv4 10.10.196.1 pw-id 201
+    pw-class mpls
+   !
+  !
+  p2p L2VPN202
+   interface TenGigE0/0/0/12.211
+   neighbor ipv4 10.10.196.1 pw-id 202
+    pw-class mpls
+   !
+  !
+  p2p L2VPN203
+   interface TenGigE0/0/0/12.212
+   neighbor ipv4 10.10.196.1 pw-id 203
+    pw-class mpls
+   !
+  !
+  p2p L2VPN204
+   interface TenGigE0/0/0/12.213
+   neighbor ipv4 10.10.196.1 pw-id 204
+    pw-class mpls
+   !
+  !
+  p2p L2VPN205
+   interface TenGigE0/0/0/12.214
+   neighbor ipv4 10.10.196.1 pw-id 205
+    pw-class mpls
+   !
+  !
+  p2p L2VPN206
+   interface TenGigE0/0/0/12.215
+   neighbor ipv4 10.10.196.1 pw-id 206
+    pw-class mpls
+   !
+  !
+  p2p L2VPN207
+   interface TenGigE0/0/0/12.216
+   neighbor ipv4 10.10.196.1 pw-id 207
+    pw-class mpls
+   !
+  !
+  p2p L2VPN208
+   interface TenGigE0/0/0/12.217
+   neighbor ipv4 10.10.196.1 pw-id 208
+    pw-class mpls
+   !
+  !
+  p2p L2VPN209
+   interface TenGigE0/0/0/12.218
+   neighbor ipv4 10.10.196.1 pw-id 209
+    pw-class mpls
+   !
+  !
+  p2p L2VPN210
+   interface TenGigE0/0/0/12.219
+   neighbor ipv4 10.10.196.1 pw-id 210
+    pw-class mpls
+   !
+  !
+  p2p L2VPN211
+   interface TenGigE0/0/0/12.220
+   neighbor ipv4 10.10.196.1 pw-id 211
+    pw-class mpls
+   !
+  !
+  p2p L2VPN212
+   interface TenGigE0/0/0/12.221
+   neighbor ipv4 10.10.196.1 pw-id 212
+    pw-class mpls
+   !
+  !
+  p2p L2VPN213
+   interface TenGigE0/0/0/12.222
+   neighbor ipv4 10.10.196.1 pw-id 213
+    pw-class mpls
+   !
+  !
+  p2p L2VPN214
+   interface TenGigE0/0/0/12.223
+   neighbor ipv4 10.10.196.1 pw-id 214
+    pw-class mpls
+   !
+  !
+  p2p L2VPN215
+   interface TenGigE0/0/0/12.224
+   neighbor ipv4 10.10.196.1 pw-id 215
+    pw-class mpls
+   !
+  !
+  p2p L2VPN216
+   interface TenGigE0/0/0/12.225
+   neighbor ipv4 10.10.196.1 pw-id 216
+    pw-class mpls
+   !
+  !
+  p2p L2VPN217
+   interface TenGigE0/0/0/12.226
+   neighbor ipv4 10.10.196.1 pw-id 217
+    pw-class mpls
+   !
+  !
+  p2p L2VPN218
+   interface TenGigE0/0/0/12.227
+   neighbor ipv4 10.10.196.1 pw-id 218
+    pw-class mpls
+   !
+  !
+  p2p L2VPN219
+   interface TenGigE0/0/0/12.228
+   neighbor ipv4 10.10.196.1 pw-id 219
+    pw-class mpls
+   !
+  !
+  p2p L2VPN220
+   interface TenGigE0/0/0/12.229
+   neighbor ipv4 10.10.196.1 pw-id 220
+    pw-class mpls
+   !
+  !
+  p2p L2VPN221
+   interface TenGigE0/0/0/12.230
+   neighbor ipv4 10.10.196.1 pw-id 221
+    pw-class mpls
+   !
+  !
+  p2p L2VPN222
+   interface TenGigE0/0/0/12.231
+   neighbor ipv4 10.10.196.1 pw-id 222
+    pw-class mpls
+   !
+  !
+  p2p L2VPN223
+   interface TenGigE0/0/0/12.232
+   neighbor ipv4 10.10.196.1 pw-id 223
+    pw-class mpls
+   !
+  !
+  p2p L2VPN224
+   interface TenGigE0/0/0/12.233
+   neighbor ipv4 10.10.196.1 pw-id 224
+    pw-class mpls
+   !
+  !
+  p2p L2VPN225
+   interface TenGigE0/0/0/12.234
+   neighbor ipv4 10.10.196.1 pw-id 225
+    pw-class mpls
+   !
+  !
+  p2p L2VPN226
+   interface TenGigE0/0/0/12.235
+   neighbor ipv4 10.10.196.1 pw-id 226
+    pw-class mpls
+   !
+  !
+  p2p L2VPN227
+   interface TenGigE0/0/0/12.236
+   neighbor ipv4 10.10.196.1 pw-id 227
+    pw-class mpls
+   !
+  !
+  p2p L2VPN228
+   interface TenGigE0/0/0/12.237
+   neighbor ipv4 10.10.196.1 pw-id 228
+    pw-class mpls
+   !
+  !
+  p2p L2VPN229
+   interface TenGigE0/0/0/12.238
+   neighbor ipv4 10.10.196.1 pw-id 229
+    pw-class mpls
+   !
+  !
+  p2p L2VPN230
+   interface TenGigE0/0/0/12.239
+   neighbor ipv4 10.10.196.1 pw-id 230
+    pw-class mpls
+   !
+  !
+  p2p L2VPN231
+   interface TenGigE0/0/0/12.240
+   neighbor ipv4 10.10.196.1 pw-id 231
+    pw-class mpls
+   !
+  !
+  p2p L2VPN232
+   interface TenGigE0/0/0/12.241
+   neighbor ipv4 10.10.196.1 pw-id 232
+    pw-class mpls
+   !
+  !
+  p2p L2VPN233
+   interface TenGigE0/0/0/12.242
+   neighbor ipv4 10.10.196.1 pw-id 233
+    pw-class mpls
+   !
+  !
+  p2p L2VPN234
+   interface TenGigE0/0/0/12.243
+   neighbor ipv4 10.10.196.1 pw-id 234
+    pw-class mpls
+   !
+  !
+  p2p L2VPN235
+   interface TenGigE0/0/0/12.244
+   neighbor ipv4 10.10.196.1 pw-id 235
+    pw-class mpls
+   !
+  !
+  p2p L2VPN236
+   interface TenGigE0/0/0/12.245
+   neighbor ipv4 10.10.196.1 pw-id 236
+    pw-class mpls
+   !
+  !
+  p2p L2VPN237
+   interface TenGigE0/0/0/12.246
+   neighbor ipv4 10.10.196.1 pw-id 237
+    pw-class mpls
+   !
+  !
+  p2p L2VPN238
+   interface TenGigE0/0/0/12.247
+   neighbor ipv4 10.10.196.1 pw-id 238
+    pw-class mpls
+   !
+  !
+  p2p L2VPN239
+   interface TenGigE0/0/0/12.248
+   neighbor ipv4 10.10.196.1 pw-id 239
+    pw-class mpls
+   !
+  !
+  p2p L2VPN240
+   interface TenGigE0/0/0/12.249
+   neighbor ipv4 10.10.196.1 pw-id 240
+    pw-class mpls
+   !
+  !
+  p2p L2VPN241
+   interface TenGigE0/0/0/12.250
+   neighbor ipv4 10.10.196.1 pw-id 241
+    pw-class mpls
+   !
+  !
+  p2p L2VPN242
+   interface TenGigE0/0/0/12.251
+   neighbor ipv4 10.10.196.1 pw-id 242
+    pw-class mpls
+   !
+  !
+  p2p L2VPN243
+   interface TenGigE0/0/0/12.252
+   neighbor ipv4 10.10.196.1 pw-id 243
+    pw-class mpls
+   !
+  !
+  p2p L2VPN244
+   interface TenGigE0/0/0/12.253
+   neighbor ipv4 10.10.196.1 pw-id 244
+    pw-class mpls
+   !
+  !
+  p2p L2VPN245
+   interface TenGigE0/0/0/12.254
+   neighbor ipv4 10.10.196.1 pw-id 245
+    pw-class mpls
+   !
+  !
+  p2p L2VPN246
+   interface TenGigE0/0/0/12.255
+   neighbor ipv4 10.10.196.1 pw-id 246
+    pw-class mpls
+   !
+  !
+  p2p L2VPN247
+   interface TenGigE0/0/0/12.256
+   neighbor ipv4 10.10.196.1 pw-id 247
+    pw-class mpls
+   !
+  !
+  p2p L2VPN248
+   interface TenGigE0/0/0/12.257
+   neighbor ipv4 10.10.196.1 pw-id 248
+    pw-class mpls
+   !
+  !
+  p2p L2VPN249
+   interface TenGigE0/0/0/12.258
+   neighbor ipv4 10.10.196.1 pw-id 249
+    pw-class mpls
+   !
+  !
+  p2p L2VPN250
+   interface TenGigE0/0/0/12.259
+   neighbor ipv4 10.10.196.1 pw-id 250
+    pw-class mpls
+   !
+  !
+ !
+ xconnect group bg-1716
+  p2p 500
+   neighbor ipv4 10.10.196.1 pw-id 500
+    pw-class mpls
+    backup neighbor 10.10.180.1 pw-id 500
+     pw-class mpls
+    !
+   !
+  !
+ !
+ xconnect group bg-1716test
+  p2p 500test
+   interface TenGigE0/0/0/16
+  !
+ !
+ bridge group bg-1817
+  bridge-domain bd_AIRTEL_IPTV
+   neighbor 10.10.18.1 pw-id 18197
+    pw-class mpls
+    backup neighbor 10.10.17.1 pw-id 17197
+     pw-class mpls
+    !
+   !
+  !
+ !
+ bridge group L2VPN_bridge
+  bridge-domain L2VPN_bridge260
+   neighbor 10.10.196.1 pw-id 260
+    pw-class mpls
+   !
+   neighbor 10.10.197.1 pw-id 260
+    pw-class mpls
+   !
+  !
+  bridge-domain L2VPN_bridge261
+   neighbor 10.10.196.1 pw-id 261
+    pw-class mpls
+   !
+   neighbor 10.10.197.1 pw-id 261
+    pw-class mpls
+   !
+  !
+  bridge-domain L2VPN_bridge262
+   neighbor 10.10.196.1 pw-id 262
+    pw-class mpls
+   !
+   neighbor 10.10.197.1 pw-id 262
+    pw-class mpls
+   !
+  !
+  bridge-domain L2VPN_bridge263
+   neighbor 10.10.196.1 pw-id 263
+    pw-class mpls
+   !
+   neighbor 10.10.197.1 pw-id 263
+    pw-class mpls
+   !
+  !
+  bridge-domain L2VPN_bridge264
+   neighbor 10.10.196.1 pw-id 264
+    pw-class mpls
+   !
+   neighbor 10.10.197.1 pw-id 264
+    pw-class mpls
+   !
+  !
+  bridge-domain L2VPN_bridge265
+   neighbor 10.10.196.1 pw-id 265
+    pw-class mpls
+   !
+   neighbor 10.10.197.1 pw-id 265
+    pw-class mpls
+   !
+  !
+  bridge-domain L2VPN_bridge266
+   neighbor 10.10.196.1 pw-id 266
+    pw-class mpls
+   !
+   neighbor 10.10.197.1 pw-id 266
+    pw-class mpls
+   !
+  !
+  bridge-domain L2VPN_bridge267
+   neighbor 10.10.196.1 pw-id 267
+    pw-class mpls
+   !
+   neighbor 10.10.197.1 pw-id 267
+    pw-class mpls
+   !
+  !
+  bridge-domain L2VPN_bridge268
+   neighbor 10.10.196.1 pw-id 268
+    pw-class mpls
+   !
+   neighbor 10.10.197.1 pw-id 268
+    pw-class mpls
+   !
+  !
+  bridge-domain L2VPN_bridge269
+   neighbor 10.10.196.1 pw-id 269
+    pw-class mpls
+   !
+   neighbor 10.10.197.1 pw-id 269
+    pw-class mpls
+   !
+  !
+  bridge-domain L2VPN_bridge270
+   neighbor 10.10.196.1 pw-id 270
+    pw-class mpls
+   !
+   neighbor 10.10.197.1 pw-id 270
+    pw-class mpls
+   !
+  !
+  bridge-domain L2VPN_bridge271
+   neighbor 10.10.196.1 pw-id 271
+    pw-class mpls
+   !
+   neighbor 10.10.197.1 pw-id 271
+    pw-class mpls
+   !
+  !
+  bridge-domain L2VPN_bridge272
+   neighbor 10.10.196.1 pw-id 272
+    pw-class mpls
+   !
+   neighbor 10.10.197.1 pw-id 272
+    pw-class mpls
+   !
+  !
+  bridge-domain L2VPN_bridge273
+   neighbor 10.10.196.1 pw-id 273
+    pw-class mpls
+   !
+   neighbor 10.10.197.1 pw-id 273
+    pw-class mpls
+   !
+  !
+  bridge-domain L2VPN_bridge274
+   neighbor 10.10.196.1 pw-id 274
+    pw-class mpls
+   !
+   neighbor 10.10.197.1 pw-id 274
+    pw-class mpls
+   !
+  !
+  bridge-domain L2VPN_bridge275
+   neighbor 10.10.196.1 pw-id 275
+    pw-class mpls
+   !
+   neighbor 10.10.197.1 pw-id 275
+    pw-class mpls
+   !
+  !
+  bridge-domain L2VPN_bridge276
+   neighbor 10.10.196.1 pw-id 276
+    pw-class mpls
+   !
+   neighbor 10.10.197.1 pw-id 276
+    pw-class mpls
+   !
+  !
+  bridge-domain L2VPN_bridge277
+   neighbor 10.10.196.1 pw-id 277
+    pw-class mpls
+   !
+   neighbor 10.10.197.1 pw-id 277
+    pw-class mpls
+   !
+  !
+  bridge-domain L2VPN_bridge278
+   neighbor 10.10.196.1 pw-id 278
+    pw-class mpls
+   !
+   neighbor 10.10.197.1 pw-id 278
+    pw-class mpls
+   !
+  !
+  bridge-domain L2VPN_bridge279
+   neighbor 10.10.196.1 pw-id 279
+    pw-class mpls
+   !
+   neighbor 10.10.197.1 pw-id 279
+    pw-class mpls
+   !
+  !
+  bridge-domain L2VPN_bridge280
+   neighbor 10.10.196.1 pw-id 280
+    pw-class mpls
+   !
+   neighbor 10.10.197.1 pw-id 280
+    pw-class mpls
+   !
+  !
+  bridge-domain L2VPN_bridge281
+   neighbor 10.10.196.1 pw-id 281
+    pw-class mpls
+   !
+   neighbor 10.10.197.1 pw-id 281
+    pw-class mpls
+   !
+  !
+  bridge-domain L2VPN_bridge282
+   neighbor 10.10.196.1 pw-id 282
+    pw-class mpls
+   !
+   neighbor 10.10.197.1 pw-id 282
+    pw-class mpls
+   !
+  !
+  bridge-domain L2VPN_bridge283
+   neighbor 10.10.196.1 pw-id 283
+    pw-class mpls
+   !
+   neighbor 10.10.197.1 pw-id 283
+    pw-class mpls
+   !
+  !
+  bridge-domain L2VPN_bridge284
+   neighbor 10.10.196.1 pw-id 284
+    pw-class mpls
+   !
+   neighbor 10.10.197.1 pw-id 284
+    pw-class mpls
+   !
+  !
+  bridge-domain L2VPN_bridge285
+   neighbor 10.10.196.1 pw-id 285
+    pw-class mpls
+   !
+   neighbor 10.10.197.1 pw-id 285
+    pw-class mpls
+   !
+  !
+  bridge-domain L2VPN_bridge286
+   neighbor 10.10.196.1 pw-id 286
+    pw-class mpls
+   !
+   neighbor 10.10.197.1 pw-id 286
+    pw-class mpls
+   !
+  !
+  bridge-domain L2VPN_bridge287
+   neighbor 10.10.196.1 pw-id 287
+    pw-class mpls
+   !
+   neighbor 10.10.197.1 pw-id 287
+    pw-class mpls
+   !
+  !
+  bridge-domain L2VPN_bridge288
+   neighbor 10.10.196.1 pw-id 288
+    pw-class mpls
+   !
+   neighbor 10.10.197.1 pw-id 288
+    pw-class mpls
+   !
+  !
+  bridge-domain L2VPN_bridge289
+   neighbor 10.10.196.1 pw-id 289
+    pw-class mpls
+   !
+   neighbor 10.10.197.1 pw-id 289
+    pw-class mpls
+   !
+  !
+  bridge-domain L2VPN_bridge290
+   neighbor 10.10.196.1 pw-id 290
+    pw-class mpls
+   !
+   neighbor 10.10.197.1 pw-id 290
+    pw-class mpls
+   !
+  !
+  bridge-domain L2VPN_bridge291
+   neighbor 10.10.196.1 pw-id 291
+    pw-class mpls
+   !
+   neighbor 10.10.197.1 pw-id 291
+    pw-class mpls
+   !
+  !
+  bridge-domain L2VPN_bridge292
+   neighbor 10.10.196.1 pw-id 292
+    pw-class mpls
+   !
+   neighbor 10.10.197.1 pw-id 292
+    pw-class mpls
+   !
+  !
+  bridge-domain L2VPN_bridge293
+   neighbor 10.10.196.1 pw-id 293
+    pw-class mpls
+   !
+   neighbor 10.10.197.1 pw-id 293
+    pw-class mpls
+   !
+  !
+  bridge-domain L2VPN_bridge294
+   neighbor 10.10.196.1 pw-id 294
+    pw-class mpls
+   !
+   neighbor 10.10.197.1 pw-id 294
+    pw-class mpls
+   !
+  !
+  bridge-domain L2VPN_bridge295
+   neighbor 10.10.196.1 pw-id 295
+    pw-class mpls
+   !
+   neighbor 10.10.197.1 pw-id 295
+    pw-class mpls
+   !
+  !
+  bridge-domain L2VPN_bridge296
+   neighbor 10.10.196.1 pw-id 296
+    pw-class mpls
+   !
+   neighbor 10.10.197.1 pw-id 296
+    pw-class mpls
+   !
+  !
+  bridge-domain L2VPN_bridge297
+   neighbor 10.10.196.1 pw-id 297
+    pw-class mpls
+   !
+   neighbor 10.10.197.1 pw-id 297
+    pw-class mpls
+   !
+  !
+  bridge-domain L2VPN_bridge298
+   neighbor 10.10.196.1 pw-id 298
+    pw-class mpls
+   !
+   neighbor 10.10.197.1 pw-id 298
+    pw-class mpls
+   !
+  !
+  bridge-domain L2VPN_bridge299
+   neighbor 10.10.196.1 pw-id 299
+    pw-class mpls
+   !
+   neighbor 10.10.197.1 pw-id 299
+    pw-class mpls
+   !
+  !
+  bridge-domain L2VPN_bridge300
+   neighbor 10.10.196.1 pw-id 300
+    pw-class mpls
+   !
+   neighbor 10.10.197.1 pw-id 300
+    pw-class mpls
+   !
+  !
+  bridge-domain L2VPN_bridge301
+   neighbor 10.10.196.1 pw-id 301
+    pw-class mpls
+   !
+   neighbor 10.10.197.1 pw-id 301
+    pw-class mpls
+   !
+  !
+  bridge-domain L2VPN_bridge302
+   neighbor 10.10.196.1 pw-id 302
+    pw-class mpls
+   !
+   neighbor 10.10.197.1 pw-id 302
+    pw-class mpls
+   !
+  !
+  bridge-domain L2VPN_bridge303
+   neighbor 10.10.196.1 pw-id 303
+    pw-class mpls
+   !
+   neighbor 10.10.197.1 pw-id 303
+    pw-class mpls
+   !
+  !
+  bridge-domain L2VPN_bridge304
+   neighbor 10.10.196.1 pw-id 304
+    pw-class mpls
+   !
+   neighbor 10.10.197.1 pw-id 304
+    pw-class mpls
+   !
+  !
+  bridge-domain L2VPN_bridge305
+   neighbor 10.10.196.1 pw-id 305
+    pw-class mpls
+   !
+   neighbor 10.10.197.1 pw-id 305
+    pw-class mpls
+   !
+  !
+  bridge-domain L2VPN_bridge306
+   neighbor 10.10.196.1 pw-id 306
+    pw-class mpls
+   !
+   neighbor 10.10.197.1 pw-id 306
+    pw-class mpls
+   !
+  !
+  bridge-domain L2VPN_bridge307
+   neighbor 10.10.196.1 pw-id 307
+    pw-class mpls
+   !
+   neighbor 10.10.197.1 pw-id 307
+    pw-class mpls
+   !
+  !
+  bridge-domain L2VPN_bridge308
+   neighbor 10.10.196.1 pw-id 308
+    pw-class mpls
+   !
+   neighbor 10.10.197.1 pw-id 308
+    pw-class mpls
+   !
+  !
+  bridge-domain L2VPN_bridge309
+   neighbor 10.10.196.1 pw-id 309
+    pw-class mpls
+   !
+   neighbor 10.10.197.1 pw-id 309
+    pw-class mpls
+   !
+  !
+  bridge-domain L2VPN_bridge310
+   neighbor 10.10.196.1 pw-id 310
+    pw-class mpls
+   !
+   neighbor 10.10.197.1 pw-id 310
+    pw-class mpls
+   !
+  !
+  bridge-domain L2VPN_bridge311
+   neighbor 10.10.196.1 pw-id 311
+    pw-class mpls
+   !
+   neighbor 10.10.197.1 pw-id 311
+    pw-class mpls
+   !
+  !
+  bridge-domain L2VPN_bridge312
+   neighbor 10.10.196.1 pw-id 312
+    pw-class mpls
+   !
+   neighbor 10.10.197.1 pw-id 312
+    pw-class mpls
+   !
+  !
+  bridge-domain L2VPN_bridge313
+   neighbor 10.10.196.1 pw-id 313
+    pw-class mpls
+   !
+   neighbor 10.10.197.1 pw-id 313
+    pw-class mpls
+   !
+  !
+  bridge-domain L2VPN_bridge314
+   neighbor 10.10.196.1 pw-id 314
+    pw-class mpls
+   !
+   neighbor 10.10.197.1 pw-id 314
+    pw-class mpls
+   !
+  !
+  bridge-domain L2VPN_bridge315
+   neighbor 10.10.196.1 pw-id 315
+    pw-class mpls
+   !
+   neighbor 10.10.197.1 pw-id 315
+    pw-class mpls
+   !
+  !
+  bridge-domain L2VPN_bridge316
+   neighbor 10.10.196.1 pw-id 316
+    pw-class mpls
+   !
+   neighbor 10.10.197.1 pw-id 316
+    pw-class mpls
+   !
+  !
+  bridge-domain L2VPN_bridge317
+   neighbor 10.10.196.1 pw-id 317
+    pw-class mpls
+   !
+   neighbor 10.10.197.1 pw-id 317
+    pw-class mpls
+   !
+  !
+  bridge-domain L2VPN_bridge318
+   neighbor 10.10.196.1 pw-id 318
+    pw-class mpls
+   !
+   neighbor 10.10.197.1 pw-id 318
+    pw-class mpls
+   !
+  !
+  bridge-domain L2VPN_bridge319
+   neighbor 10.10.196.1 pw-id 319
+    pw-class mpls
+   !
+   neighbor 10.10.197.1 pw-id 319
+    pw-class mpls
+   !
+  !
+  bridge-domain L2VPN_bridge320
+   neighbor 10.10.196.1 pw-id 320
+    pw-class mpls
+   !
+   neighbor 10.10.197.1 pw-id 320
+    pw-class mpls
+   !
+  !
+  bridge-domain L2VPN_bridge321
+   neighbor 10.10.196.1 pw-id 321
+    pw-class mpls
+   !
+   neighbor 10.10.197.1 pw-id 321
+    pw-class mpls
+   !
+  !
+  bridge-domain L2VPN_bridge322
+   neighbor 10.10.196.1 pw-id 322
+    pw-class mpls
+   !
+   neighbor 10.10.197.1 pw-id 322
+    pw-class mpls
+   !
+  !
+  bridge-domain L2VPN_bridge323
+   neighbor 10.10.196.1 pw-id 323
+    pw-class mpls
+   !
+   neighbor 10.10.197.1 pw-id 323
+    pw-class mpls
+   !
+  !
+  bridge-domain L2VPN_bridge324
+   neighbor 10.10.196.1 pw-id 324
+    pw-class mpls
+   !
+   neighbor 10.10.197.1 pw-id 324
+    pw-class mpls
+   !
+  !
+  bridge-domain L2VPN_bridge325
+   neighbor 10.10.197.1 pw-id 325
+    pw-class mpls
+   !
+  !
+  bridge-domain L2VPN_bridge326
+   neighbor 10.10.197.1 pw-id 326
+    pw-class mpls
+   !
+  !
+  bridge-domain L2VPN_bridge327
+   neighbor 10.10.197.1 pw-id 327
+    pw-class mpls
+   !
+  !
+  bridge-domain L2VPN_bridge328
+   neighbor 10.10.197.1 pw-id 328
+    pw-class mpls
+   !
+  !
+  bridge-domain L2VPN_bridge329
+   neighbor 10.10.197.1 pw-id 329
+    pw-class mpls
+   !
+  !
+  bridge-domain L2VPN_bridge330
+   neighbor 10.10.197.1 pw-id 330
+    pw-class mpls
+   !
+  !
+  bridge-domain L2VPN_bridge331
+   neighbor 10.10.197.1 pw-id 331
+    pw-class mpls
+   !
+  !
+  bridge-domain L2VPN_bridge332
+   neighbor 10.10.197.1 pw-id 332
+    pw-class mpls
+   !
+  !
+  bridge-domain L2VPN_bridge333
+   neighbor 10.10.197.1 pw-id 333
+    pw-class mpls
+   !
+  !
+  bridge-domain L2VPN_bridge334
+   neighbor 10.10.197.1 pw-id 334
+    pw-class mpls
+   !
+  !
+ !
+!
+cem class cem_tpop
+ payload best-match dejitter 810
+!
+mpls oam
+!
+snmp-server traps mpls traffic-eng up
+snmp-server traps mpls traffic-eng down
+snmp-server traps mpls traffic-eng reroute
+snmp-server traps mpls traffic-eng reoptimize
+snmp-server traps mpls frr all
+snmp-server traps mpls frr protected
+snmp-server traps mpls frr unprotected
+snmp-server traps mpls ldp up
+snmp-server traps mpls ldp down
+snmp-server traps mpls ldp threshold
+snmp-server traps mpls traffic-eng p2mp up
+snmp-server traps mpls traffic-eng p2mp down
+snmp-server traps rsvp all
+snmp-server traps rsvp new-flow
+snmp-server traps rsvp lost-flow
+snmp-server traps mpls l3vpn all
+snmp-server traps mpls l3vpn vrf-up
+snmp-server traps mpls l3vpn vrf-down
+snmp-server traps mpls l3vpn max-threshold-cleared
+snmp-server traps mpls l3vpn max-threshold-exceeded
+snmp-server traps mpls l3vpn mid-threshold-exceeded
+snmp-server traps mpls l3vpn max-threshold-reissue-notif-time 1
+rsvp
+ interface Bundle-Ether41
+ !
+ interface Bundle-Ether82
+  bandwidth
+ !
+ interface Bundle-Ether102
+ !
+ interface Bundle-Ether107
+  signalling refresh interval 10
+ !
+ interface Bundle-Ether501
+ !
+ interface TenGigE0/0/0/17
+  bandwidth
+ !
+ interface TenGigE0/0/0/19
+ !
+ interface TenGigE0/0/0/11.500
+  bandwidth
+ !
+ interface TenGigE0/0/0/17.500
+  bandwidth
+ !
+ interface Bundle-Ether13197.200
+  bandwidth
+ !
+!
+mpls traffic-eng
+ interface Bundle-Ether41
+ !
+ interface Bundle-Ether82
+ !
+ interface Bundle-Ether102
+ !
+ interface Bundle-Ether107
+ !
+ interface Bundle-Ether501
+ !
+ interface TenGigE0/0/0/17
+ !
+ interface TenGigE0/0/0/11.500
+ !
+ interface TenGigE0/0/0/17.500
+ !
+ interface Bundle-Ether13197.200
+ !
+!
+mpls ldp
+!
+snmp-server traps pim neighbor-change
+snmp-server traps pim invalid-message-received
+snmp-server traps pim rp-mapping-change
+snmp-server traps pim interface-state-change
+snmp-server traps msdp peer-state-change
+multicast-routing
+ address-family ipv4
+  interface all enable
+ !
+ vrf AIRTEL_IPTV
+  address-family ipv4
+   mdt source Loopback0
+   rate-per-route
+   interface all enable
+   accounting per-prefix
+   bgp auto-discovery mldp
+   !
+   mdt partitioned mldp ipv4 p2mp
+  !
+ !
+ vrf AIRTEL_IPTV11
+  address-family ipv4
+   mdt source Loopback0
+   rate-per-route
+   interface all enable
+   accounting per-prefix
+   bgp auto-discovery mldp
+   !
+   mdt partitioned mldp ipv4 p2mp
+  !
+ !
+!
+segment-routing
+ global-block 120000 382000
+ mapping-server
+  prefix-sid-map
+   address-family ipv4
+    84.84.84.84/32 4000 range 1
+    175.175.175.1/32 2001 range 1
+    192.168.110.251/32 3001 range 1
+   !
+  !
+ !
+!
+xml agent tty
+!
+snmp-server traps sensor
+snmp-server traps fru-ctrl
+netconf agent tty
+!
+snmp-server traps ospf lsa lsa-maxage
+snmp-server traps ospf lsa lsa-originate
+snmp-server traps ospf errors bad-packet
+snmp-server traps ospf errors authentication-failure
+snmp-server traps ospf errors config-error
+snmp-server traps ospf errors virt-bad-packet
+snmp-server traps ospf errors virt-authentication-failure
+snmp-server traps ospf errors virt-config-error
+snmp-server traps ospf retransmit packets
+snmp-server traps ospf retransmit virt-packets
+snmp-server traps ospf state-change if-state-change
+snmp-server traps ospf state-change neighbor-state-change
+snmp-server traps ospf state-change virtif-state-change
+snmp-server traps ospf state-change virtneighbor-state-change
+lldp
+!
+router pim
+ address-family ipv4
+  log neighbor changes
+ !
+ vrf AIRTEL_IPTV
+  address-family ipv4
+   rpf topology route-policy Profile-14
+   mdt c-multicast-routing bgp
+   !
+  !
+ !
+ vrf AIRTEL_IPTV11
+  address-family ipv4
+   rpf topology route-policy Profile-14
+   mdt c-multicast-routing bgp
+   !
+  !
+ !
+!
+hw-module profile qos hqos-enable
+hw-module profile qos max-classmap-size 8 location 0/0/CPU0
+hw-module profile load-balance algorithm ip-tunnel
+snmp-server traps ipsla
+ssh client source-interface Loopback0
+ssh server rate-limit 600
+ssh server session-limit 15
+ssh server v2
+end
+RP/0/RP0/CPU0:NCS-540-E2_Lower#

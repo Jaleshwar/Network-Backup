@@ -1,0 +1,253 @@
+show int description
+Sat Aug  8 03:25:00.813 IST
+Interface          Status      Protocol    Description
+--------------------------------------------------------------------------------
+BV100              down        down        MWRUE-ML3-11-290582-bharti-Internal-Mobility-290582-12022025
+BV101              down        down        MWRUE-ML3-11-401264-bharti-Internal-Mobility-401264-12022025
+BV102              down        down        MWRUE-ML3-11-394235-bharti-Internal-Mobility-394235-12022025
+BV103              down        down        MWRUE-ML3-11-479645-bharti-Internal-Mobility-479645-12022025
+BV104              down        down        MWRAP-ML3-11-220102-bharti-Internal-Mobility-220102-11062025
+BV105              down        down        MWRAP-ML3-11-900020-bharti-Internal-Mobility-772099-16062025
+BV106              down        down        MWRUE-ML3-11-634502-4G_P-Sig-bharti-Internal-Mobility-361034-01092025
+BV107              down        down        MWRUE-ML3-11-486386-4G_P-Sig-bharti-Internal-Mobility-241967-19012026
+BV108              down        down        MWRUE-ML3-11-600163-4G_P-Sig-bharti-Internal-Mobility-410558-20012026
+BV109              down        down        MWRUE-ML3-11-872409-4G_P-Sig-bharti-Internal-Mobility-306647-26052026
+BV110              down        down        MWRUE-ML3-11-333307-4G_P-Sig-bharti-Internal-Mobility-490994-26052026
+BV111              down        down        MWRUE-ML3-11-268990-4G_P-Sig-bharti-Internal-Mobility-424799-26052026
+BV2700             down        down        MWRUE-ML3-11-121150-4G_P-Sig-bharti-Internal-Mobility-285350-02022025
+BV3240             down        down        MWRUE-ML3-11-995953-4G_P-Sig-bharti-Internal-Mobility-356669-19012025
+BV3601             down        down        MWRUE-ML3-11-306500-bharti-Internal-Mobility-306500-29012025
+BV3627             down        down        MWRUE-ML3-11-366242-bharti-Internal-Mobility-366242-29012025
+BV3659             down        down        MWRUE-ML3-11-296492-bharti-Internal-Mobility-296492-29012025
+BV3676             down        down        MWRUE-ML3-11-251843-bharti-Internal-Mobility-251843-29012025
+BV3682             down        down        MWRUE-ML3-11-261029-bharti-Internal-Mobility-261029-29012025
+BV3695             down        down        MWRUE-ML3-11-360686-bharti-Internal-Mobility-360686-29012025
+BV3978             down        down        MWRUE-ML3-11-710124-4G_P-Sig-bharti-Internal-Mobility-322799-02022025
+BV35324            down        down        EnterpriseT4withL3onT3
+BV3807314          down        down        ENT-T5withL3-1
+BE21               up          up          mobility bundle toward spirent XXX
+BE21.475           up          up          VPLS_TEST_T3YtoT3X
+BE21.556           up          up          TEST-T3X-T3Y
+BE21.831           up          up          #Dharampal Satyapal Limited#DPSP-ISP-1550509#3735819#4096k#1#210221#MNG#
+BE21.1081          up          up          SBI-ML3-3-251224100222334-HYD-2048k-STATE-BANK-OF-INDIA-3-2851734-31122025
+BE21.1567          up          up          MULTICAST
+BE21.1849          up          up          HDFC-M
+BE21.2026          up          up          MWRUW-ML3-11-77524-4G-P-NC-bharti-Internal-Mobility-732962-24032023
+BE21.2027          up          up          MWRUW-ML3-12-77525-4G-P-NC-bharti-Internal-Mobility-732962-24032023
+BE21.2028          up          up          MWRUW-ML3-13-77526-4G-P-NC-bharti-Internal-Mobility-732962-24032023
+BE21.2096          up          up          NCDX-ML3-1-262-AGD-2048K-Ashlar-Commodities-Pvt-Lt-3361191-210220
+BE21.8549          up          up          DBS-BANK-SPOKE
+BE33               down        down        test
+BE33.1849          down        down        HDFC-M
+BE51               up          up          #MPLS#BACK-TO-BACK##CONNECTED-TO-$X2-T2-LAB-1$-$Bundle-Ether51$#CMR:CMR#
+BE51.2             up          up          #MPLS#BACK-TO-BACK##CONNECTED-TO-$X2-T2-LAB-1$-$te0/0/0/18$#CMR:CMR#
+BE51.4             up          up          #MPLS#BACK-TO-BACK##CONNECTED-TO-$X2-T2-LAB-1$-$te0/0/0/18$#CMR:CMR#
+BE100              up          up          towards_X4-T4-LAB-1_te1/4/1
+BE101              down        down        testing
+BE101.309          down        down        MWRUE-ML3-11-290582-bharti-Internal-Mobility-290582-12022025
+BE101.1026         down        down        TMWB-ML2-2-74051-GROUP TELEMEDIA-156351-17022026
+BE101.1818         down        down        MWRUE-ML3-11-872409-4G_P-Sig-bharti-Internal-Mobility-306647-26052026
+BE101.1883         down        down        MWRAP-ML3-11-220102-bharti-Internal-Mobility-220102-11062025
+BE101.2464         down        down        MWRUE-ML3-11-479645-bharti-Internal-Mobility-479645-12022025
+BE101.2700         down        down        MWRUE-ML3-11-121150-4G_P-Sig-bharti-Internal-Mobility-285350-02022025
+BE101.2884         down        down        MWRUE-ML3-11-333307-4G_P-Sig-bharti-Internal-Mobility-490994-26052026
+BE101.2958         down        down        MWRUE-ML3-11-486386-4G_P-Sig-bharti-Internal-Mobility-241967-19012026
+BE101.2966         down        down        MWRUE-ML3-11-634502-4G_P-Sig-bharti-Internal-Mobility-361034-01092025
+BE101.3076         down        down        MWRUE-ML3-11-394235-bharti-Internal-Mobility-394235-12022025
+BE101.3240         down        down        MWRUE-ML3-11-995953-4G_P-Sig-bharti-Internal-Mobility-356669-19012025
+BE101.3334         down        down        #SUPER SMELTERS LTD#SUYA-ISP-8981712252#3334#30720k#2#280525#MNG#
+BE101.3395         down        down        MWRUE-ML3-11-401264-bharti-Internal-Mobility-401264-12022025
+BE101.3601         down        down        MWRUE-ML3-11-306500-bharti-Internal-Mobility-306500-29012025
+BE101.3627         down        down        MWRUE-ML3-11-366242-bharti-Internal-Mobility-366242-29012025
+BE101.3659         down        down        MWRUE-ML3-11-296492-bharti-Internal-Mobility-296492-29012025
+BE101.3676         down        down        MWRUE-ML3-11-251843-bharti-Internal-Mobility-251843-29012025
+BE101.3682         down        down        MWRUE-ML3-11-261029-bharti-Internal-Mobility-261029-29012025
+BE101.3686         down        down        MWRUE-ML3-11-268990-4G_P-Sig-bharti-Internal-Mobility-424799-26052026
+BE101.3695         down        down        MWRUE-ML3-11-360686-bharti-Internal-Mobility-360686-29012025
+BE101.3926         down        down        MWRUE-ML3-11-600163-4G_P-Sig-bharti-Internal-Mobility-410558-20012026
+BE101.3978         down        down        MWRUE-ML3-11-710124-4G_P-Sig-bharti-Internal-Mobility-322799-02022025
+BE101.10003        down        down        TMKK-ML3-76-319987-Telemedia-232034-26052026
+BE101.10009        down        down        TMKK-ML3-76-604600-Telemedia-407072-27052026
+BE101.10010        down        down        TMUW-ML3-10-19324-IMS-P-NC-Telemedia-5166868-03062026
+BE101.10026        down        down        TMKK-ML3-76-930008-Telemedia-233675-19012025
+BE101.10027        down        down        TMKK-ML3-76-677788-Telemedia-373001-02022025
+BE101.10031        down        down        TMKK-ML3-76-596306-Telemedia-339845-02022025
+BE101.10032        down        down        TMKK-ML3-76-277949-Telemedia-277949-13022025
+BE101.10033        down        down        TMKK-ML3-76-292886-Telemedia-292886-13022025
+BE101.10034        down        down        TMKK-ML3-76-470390-Telemedia-470390-13022025
+BE101.10037        down        down        TMKK-ML3-76-377594-Telemedia-377594-13022025
+BE101.10038        down        down        TMKK-ML3-76-491006-Telemedia-491006-13022025
+BE101.10049        down        down        TMKK-ML3-76-493694-Telemedia-493694-13022025
+BE101.10050        down        down        TMKK-ML3-76-296417-Telemedia-296417-13022025
+BE101.10051        down        down        TMKK-ML3-76-356312-Telemedia-356312-13022025
+BE101.10052        down        down        TMKK-ML3-76-393554-Telemedia-393554-13022025
+BE101.10053        down        down        TMKK-ML3-76-229787-Telemedia-229787-13022025
+BE101.10054        down        down        TMKK-ML3-76-315329-Telemedia-315329-13022025
+BE101.10055        down        down        TMKK-ML3-76-389528-Telemedia-389528-13022025
+BE101.10056        down        down        TMKK-ML3-76-477131-Telemedia-477131-13022025
+BE101.10057        down        down        TMKK-ML3-76-345917-Telemedia-345917-13022025
+BE101.10058        down        down        TMKK-ML3-76-356411-Telemedia-356411-13022025
+BE101.10059        down        down        TMKK-ML3-76-347882-Telemedia-347882-13022025
+BE101.10060        down        down        TMKK-ML3-76-400025-Telemedia-400025-13022025
+BE101.10061        down        down        TMKK-ML3-76-377756-Telemedia-377756-13022025
+BE101.10062        down        down        TMKK-ML3-76-344645-Telemedia-344645-13022025
+BE101.10063        down        down        TMKK-ML3-76-369188-Telemedia-369188-13022025
+BE101.10064        down        down        TMKK-ML3-76-392837-Telemedia-392837-13022025
+BE101.10065        down        down        TMKK-ML3-76-351320-Telemedia-351320-13022025
+BE101.10066        down        down        TMKK-ML3-76-245771-Telemedia-245771-13022025
+BE101.10067        down        down        TMKK-ML3-76-201533-Telemedia-201533-13022025
+BE101.10068        down        down        TMKK-ML3-76-429266-Telemedia-429266-13022025
+BE101.10069        down        down        TMKK-ML3-76-306839-Telemedia-306839-13022025
+BE101.10070        down        down        TMKK-ML3-76-357752-Telemedia-357752-13022025
+BE101.10071        down        down        TMKK-ML3-76-427937-Telemedia-427937-13022025
+BE101.10072        down        down        TMKK-ML3-76-402764-Telemedia-402764-13022025
+BE101.10073        down        down        TMKK-ML3-76-206795-Telemedia-206795-13022025
+BE101.10074        down        down        TMKK-ML3-76-492509-Telemedia-492509-13022025
+BE101.10075        down        down        TMKK-ML3-76-297875-Telemedia-297875-13022025
+BE101.10076        down        down        TMKK-ML3-76-494111-Telemedia-494111-13022025
+BE101.10077        down        down        TMKK-ML3-76-431000-Telemedia-431000-14022025
+BE101.10078        down        down        TMKK-ML3-76-389615-Telemedia-389615-14022025
+BE101.10079        down        down        TMKK-ML3-76-492959-Telemedia-492959-14022025
+BE101.10080        down        down        TMKK-ML3-76-388529-Telemedia-388529-14022025
+BE101.10081        down        down        TMKK-ML3-76-363653-Telemedia-363653-14022025
+BE101.10082        down        down        TMKK-ML3-76-454940-Telemedia-454940-14022025
+BE101.10083        down        down        TMKK-ML3-76-441272-Telemedia-441272-14022025
+BE101.10084        down        down        TMKK-ML3-76-197129-Telemedia-397313-15052025
+BE101.10085        down        down        TMKK-ML3-76-917075-Telemedia-466994-15052025
+BE101.10088        down        down        TMKK-ML3-76-538016-Telemedia-291242-20052025
+BE101.10094        down        down        TMKK-ML3-76-692424-MGMT-P-NC-Telemedia-388610-24062026
+BE101.20006        down        down        HNSA-ML3-1-871969-kjajj-5103k-HNSA-ML3-1-200837-01092025
+BE101.20012        down        down        MSHA-ML3-1-860219-kjajj-5120k-MSHA-ML3-1-430430-26052026
+BE101.20013        down        down        MSHA-ML3-1-861259-kjajj-10010k-MSHA-ML3-1-359213-26052026
+BE101.20014        down        down        HNSA-ML3-1-395011-kjajj-4396k-HNSA-ML3-1-424364-26052026
+BE101.20015        down        down        BALW-ML3-1-126738-kjajj-6474k-WI-MAX-MANAGEMENT-202733-26052026
+BE101.20016        down        down        MLOL-ML3-51-878949-kjajj-5754k-Spoke-Mult-286406-26052026
+BE101.20017        down        down        MSHA-ML3-1-569044-kjajj-4684k-MSHA-ML3-1-462860-26052026
+BE101.20018        down        down        MSHA-ML3-1-219328-kjajj-4486k-MSHA-ML3-1-218417-26052026
+BE101.20019        down        down        MSHA-ML3-1-797174-kjajj-6246k-MSHA-ML3-1-339587-26052026
+BE101.20021        down        down        MSHA-ML3-1-776346-kjajj-1748k-MSHA-ML3-1-289466-26052026
+BE101.20022        down        down        MLOL-ML3-11-339509-kjajj-3707k-Mesh-Mult-437900-26052026
+BE101.20023        down        down        HNSA-ML3-1-123035-kjajj-5120k-HNSA-ML3-1-414674-26052026
+BE101.20122        down        down        HNSA-ML3-1-193902-kjajj-5120k-HNSA-ML3-1-365636-19012025
+BE101.20126        down        down        MSHA-ML3-1-560219-kjajj-2905k-MSHA-ML3-1-466286-20012025
+BE101.20128        down        down        HNSA-ML3-1-668296-kjajj-5120k-HNSA-ML3-1-216878-20012025
+BE101.20129        down        down        HNSA-ML3-1-784344-kjajj-10240k-HNSA-ML3-1-338684-02022025
+BE101.20130        down        down        MSHA-ML3-1-322834-kjajj-5120k-MSHA-ML3-1-328877-02022025
+BE101.20131        down        down        MSHA-ML3-1-573513-kjajj-7214k-MSHA-ML3-1-334658-02022025
+BE101.20136        down        down        HNSA-ML3-1-227298-kjajj-1541k-HNSA-ML3-1-283301-02022025
+BE101.20137        down        down        MSHA-ML3-1-131826-kjajj-8864k-MSHA-ML3-1-380447-02022025
+BE101.20138        down        down        BALW-ML3-1-772761-kjajj-1563k-WI-MAX-MANAGEMENT-315761-02022025
+BE101.20140        down        down        MLOL-ML3-5-759735-kjajj-5636k-Multicast-spoke-313142-02022025
+BE101.20141        down        down        HNSA-ML3-1-339714-kjajj-4700k-HNSA-ML3-1-441074-02022025
+BE101.20142        down        down        MSHA-ML3-1-673206-kjajj-4226k-MSHA-ML3-1-404075-02022025
+BE101.20143        down        down        MSHA-ML3-1-871387-kjajj-2634k-MSHA-ML3-1-266543-02022025
+BE101.20144        down        down        MSHA-ML3-1-360416-kjajj-8160k-MSHA-ML3-1-315956-02022025
+BE101.20150        down        down        MLOL-ML3-1-136784-kjajj-8067k-MLOL-ML-497297-03022025
+BE101.20151        down        down        HNSA-ML3-1-226163-kjajj-5120k-HNSA-ML3-1-337964-03022025
+BE101.20166        down        down        HNSA-ML3-1-696745-kjajj-4421k-HNSA-ML3-1-471368-13022025
+BE101.20171        down        down        BALW-ML3-1-499764-kjajj-2539k-WI-MAX-MANAGEMENT-497777-23042025
+BE101.20202        down        down        MSHA-ML3-1-207661-kjajj-7498k-MSHA-ML3-1-246863-23042025
+BE101.20262        down        down        MLOL-ML3-5-429939-kjajj-2340k-Multicast-spoke-291113-23042025
+BE101.20263        down        down        MSHA-ML3-1-751149-kjajj-7933k-MSHA-ML3-1-437528-23042025
+BE101.20264        down        down        MLOL-ML3-1-300743-kjajj-3251k-MLOL-ML-442028-23042025
+BE101.20265        down        down        MSHA-ML3-1-931567-kjajj-5120k-MSHA-ML3-1-331175-23042025
+BE101.20266        down        down        MSHA-ML3-1-691750-kjajj-1737k-MSHA-ML3-1-466031-23042025
+BE101.20267        down        down        HNSA-ML3-1-694861-kjajj-7549k-HNSA-ML3-1-491897-23042025
+BE101.20268        down        down        MSHA-ML3-1-206443-kjajj-9144k-MSHA-ML3-1-308843-23042025
+BE101.20270        down        down        MSHA-ML3-1-579538-kjajj-4567k-MSHA-ML3-1-340256-23042025
+BE101.20271        down        down        HNSA-ML3-1-511655-kjajj-10240k-HNSA-ML3-1-201020-23042025
+BE101.20272        down        down        HNSA-ML3-1-340533-kjajj-5120k-HNSA-ML3-1-223196-23042025
+BE101.20273        down        down        HNSA-ML3-1-861241-kjajj-5653k-HNSA-ML3-1-419489-23042025
+BE101.20274        down        down        MSHA-ML3-1-319704-kjajj-5120k-MSHA-ML3-1-236249-15052025
+BE101.20275        down        down        MSHA-ML3-1-732577-kjajj-7554k-MSHA-ML3-1-283721-15052025
+BE101.20276        down        down        BALW-ML3-1-821893-kjajj-8405k-WI-MAX-MANAGEMENT-410270-15052025
+BE101.20277        down        down        HNSA-ML3-1-989237-kjajj-9433k-HNSA-ML3-1-294155-15052025
+BE101.20278        down        down        HNSA-ML3-1-960862-kjajj-10240k-HNSA-ML3-1-203444-15052025
+BE101.20279        down        down        HNSA-ML3-1-499219-kjajj-5120k-HNSA-ML3-1-388304-15052025
+BE101.20283        down        down        HNSA-ML3-1-207825-kjajj-5120k-HNSA-ML3-1-288227-20052025
+BE101.20284        down        down        MLOL-ML3-5-974442-kjajj-3730k-Multicast-spoke-479744-20052025
+BE101.20287        down        down        MSHA-ML3-1-698723-kjajj-4379k-MSHA-ML3-1-219695-19012026
+BE101.20288        down        down        MSHA-ML3-1-553155-kjajj-8562k-MSHA-ML3-1-214307-20012026
+BE101.22120        down        down        #AMBITION PAPER TECH PRIVATE LIMITED#AMBIT-ILL-222120#22120#5414k#2#190525#UMNG#
+BE101.22221        down        down        #AMBITION PAPER TECH PRIVATE LIMITED#AMBIT-ILL-22221#22221#5412k#2#140525#UMNG#
+BE101.22222        down        down        #AMBITION PAPER TECH PRIVATE LIMITED#AMBIT-ILL-22222#22222#5414k#2#140525#UMNG#
+BE101.22223        down        down        #AMBITION PAPER TECH PRIVATE LIMITED#AMBIT-ILL-22223#22223#5414k#2#140525#UMNG#
+BE101.22224        down        down        #AMBITION PAPER TECH PRIVATE LIMITED#AMBIT-ILL-22224#22224#5414k#2#140525#UMNG#
+BE101.22231        down        down        #AMBITION PAPER TECH PRIVATE LIMITED#AMBIT-ILL-22231#22231#5412k#2#140525#UMNG#
+BE101.206399       down        down        #SUPER SMELTERS LTD#UNMAN-ISP-32613#206399#2048k#2#260526#UMNG#
+BE101.286910       down        down        #SUPER SMELTERS LTD#UNMAN-ISP-45989#286910#2048k#2#200126#UMNG#
+BE101.300365       down        down        #SUPER SMELTERS LTD#UNMAN-ISP-17880#300365#2048k#2#260526#UMNG#
+BE101.364391       down        down        #SUPER SMELTERS LTD#UNMAN-ISP-74490#364391#2048k#2#200126#UMNG#
+BE101.366461       down        down        #SUPER SMELTERS LTD#UNMAN-ISP-46968#366461#2048k#2#260526#UMNG#
+BE101.370070       down        down        #SUPER SMELTERS LTD#UNMAN-ISP-24346#370070#30720k#2#140525#UMNG#
+BE101.420095       down        down        #SUPER SMELTERS LTD#UNMAN-ISP-56461#420095#2048k#2#260526#UMNG#
+BE101.423836       down        down        #SUPER SMELTERS LTD#SUYA-ISP-28739#423836#30720k#2#140525#MNG#
+BE101.460718       down        down        #SUPER SMELTERS LTD#UNMAN-ISP-90969#460718#2048k#2#190126#UMNG#
+BE101.466862       down        down        #SUPER SMELTERS LTD#SUYA-ISP-37361#466862#2048k#2#200126#MNG#
+BE1234             down        down        MCLAG_BUNDLE-(CEN-MPLS)
+BE1234.701         down        down        MCLAG_BUNDLE-(CEN-MPLS)
+Lo0                up          up          Core Infra Loopback
+Lo1                admin-down  admin-down
+Lo10               admin-down  admin-down
+Lo20               admin-down  admin-down
+Lo22               admin-down  admin-down
+Lo30               admin-down  admin-down
+Lo40               admin-down  admin-down
+Lo100              up          up          Infrastructure Loopback for T4 domain
+Lo110              admin-down  admin-down  CEN-MPLS
+Lo200              up          up
+Lo300              up          up          RP for vrf HINDUSTAN-PETROLEUM-6-M
+Lo301              up          up
+Lo444              up          up
+Nu0                up          up
+tt4                down        down        towards 10.1.1.4
+tt5                down        down        towards 10.1.1.5
+tt54101            down        down        TO_HUAWEI_NPE2
+tt54102            admin-down  admin-down  TO_CISCO_AGG2
+Mg0/RP0/CPU0/0     up          up
+Gi0/0/0/0          admin-down  admin-down
+Gi0/0/0/1          admin-down  admin-down
+Gi0/0/0/2          down        down
+Gi0/0/0/3          down        down
+Gi0/0/0/3.1885     down        down        MWRAP-ML3-11-900020-bharti-Internal-Mobility-772099-16062025
+Gi0/0/0/5          up          up          towards_POC-SWH2-ROW-H-251-4_Gi1/0/33
+Gi0/0/0/5.201      up          up          for_AgenticAI_connectivity_towards3rdfloor
+Gi0/0/0/11         up          up          #MPLS#BACK-TO-BACK#$CEN-Topology$#CONNECTED-TO-$NCS540(172.16.249.25)$-$gigabitEthernet0/0/0/11$
+Gi0/0/0/19         down        down
+Gi0/0/0/19.602     down        down        MUMR-ML3-11-3322-Mobility-983322-22012024
+Gi0/0/0/19.698     down        down        MUMR-ML3-11-91301-Mobility-983102-23012024
+Gi0/0/0/19.1234    down        down        MWRUE-ML3-11-682524-4G_P-Sig-5001-398999-14072023
+Hu0/0/0/28         down        down
+Hu0/0/0/28.200     down        down
+Hu0/0/0/28.519     down        down
+Hu0/0/0/29         admin-down  admin-down
+Hu0/0/0/29.1200    admin-down  admin-down  Towards-Spirent_TESTER
+Te0/0/0/4          up          up          #MPLS#BACK-TO-BACK##CONNECTED-TO-$X2-T2-LAB-1$-$te0/0/0/18$#CMR:CMR#
+Te0/0/0/6          up          up          #MPLS#BACK-TO-BACK##CONNECTED-TO-$X4-T4-LAB-1_te1/4/1
+Te0/0/0/7          down        down        to_172.16.249.25_0/0/0/7
+Te0/0/0/7.198      down        down        MUMR-ML3-11-91198-Mobility-961198-24012024
+Te0/0/0/8          down        down
+Te0/0/0/8.1636     down        down        MUMR-ML3-11-101024-Mobility-901010-12032024
+Te0/0/0/9          down        down
+Te0/0/0/9.1636     down        down        MUMR-ML3-11-101024-Mobility-901010-12032024
+Te0/0/0/10         down        down
+Te0/0/0/10.902     down        down        MUMR-ML3-11-757528-Mobility-54542-31012024
+Te0/0/0/12         down        down
+Te0/0/0/12.20193   down        down        BOBA-ML3-10-99821-port enable-5120k-BOBA-ML3-10-924668-24012024
+Te0/0/0/13         up          up          towards_SPIRENTtester_te1/4/2
+Te0/0/0/14         down        down
+Te0/0/0/15         down        down        TO_HUAWIE_NPE2
+Te0/0/0/16         down        down        TO_HUAWEI_ACC3
+Te0/0/0/17         down        down
+Te0/0/0/17.300     down        down
+Te0/0/0/17.701     down        down        Towards-Spirent_TESTER
+Te0/0/0/18         down        down        Towards-NPE-2(9903)
+TF0/0/0/20         admin-down  admin-down
+TF0/0/0/21         admin-down  admin-down
+TF0/0/0/22         admin-down  admin-down
+TF0/0/0/23         admin-down  admin-down
+TF0/0/0/24         admin-down  admin-down
+TF0/0/0/25         admin-down  admin-down
+TF0/0/0/26         admin-down  admin-down
+TF0/0/0/27         admin-down  admin-down
+RP/0/RP0/CPU0:LAB-2-LKO-T5-NCS540-100.17#

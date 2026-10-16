@@ -1,0 +1,1420 @@
+show running-config
+Tue Sep 22 03:43:40.413 IST
+!! Building configuration...
+!! IOS XR Configuration 24.4.30
+!
+hw-module subslot all ejector-disable
+service unsupported-transceiver
+hostname RR_NORTH_LAB_254_20
+group LABEL-MODE-PER-VRF
+ router bgp '9730'
+  vrf '.*'
+   address-family ipv4 unicast
+    label mode per-vrf
+   !
+  !
+ !
+end-group
+usergroup priv15
+ taskgroup root-lr
+ taskgroup cisco-support
+ description TACACS PRIV 15
+!
+clock timezone IST Asia/Kolkata
+logging 172.16.249.123 vrf default severity info port 9514
+logging 172.16.249.124 vrf default severity info
+logging source-interface MgmtEth0/RP0/CPU0/0
+username NG-Peyto:T4
+ group root-lr
+ group cisco-support
+ secret 10 $6$eOhXj0KvsfCy8j0.$NQuW6jj7Lecy7cit./KCGYCITITS27l/Md0AWVo58aKxK/MaARlGJVyO9pLRPxnJRqxQnNd70Ds72d19zVPpQ0
+!
+username Cisco123
+ group root-lr
+ group cisco-support
+ secret 10 $6$7XnTM0sw5azV7M0.$JXFRYYhxECx2KAi5.JRFlFzJAsZbRzdeuadpFpH64gpPmqjQdGZkgw.YqB6eFQoNSVHFHSNahw8pCS1/7tnTJ1
+!
+username cisco123
+ group root-lr
+ group cisco-support
+ secret 10 $6$ITgU359M/0K3....$1BnIelodP6VI3ImeWsQmBDLyTqmi37VbS70jo.DsirwIGySUQIqMMcEQhAa5eW3Dc788iEWSNCGGAU/.K.5wx/
+!
+username ac
+ group root-lr
+ group cisco-support
+ secret 10 $6$lanc61tA8mXWA61.$bOt/7v8gnNqgckbunFZxTZQwGeWAeWZz/JDC4YHsyqJZXsmkCSGZzwSTu2XR1.OBpi8XtZr7vG6yEarnTh/tO.
+!
+username transportpoc
+ group root-lr
+ group cisco-support
+ secret 10 $6$q.Oap/UaNRNK5p/.$9tPZrH2WgK/HkuRWPtiaIirERKk6n0uEbC9QWJgLLiuP7vDumRF3mqDKevt5DaG/Xr7F/prQYEggtg8IvJHYR1
+!
+username cisco
+ group root-lr
+ secret 10 $6$SGRtr0ILyhZT9r0.$.RbSgf9R8GB/P39QaWbXnz9wIlBO/9uBo6J5JhWuYiTVzsYhDIFUfxtlNksmfFa9clJi/miLRs3mQfsyj4boB/
+!
+username local0824
+ group priv15
+ secret 8 $8$Il1e2/wU8FcG22$LCZMaRW702lRmLJXOnDOoJQQlxlzc6TacRxw12rqFvc
+!
+nsr process-failures switchover
+vrf 200g
+ address-family ipv4 unicast
+  import route-target
+   9730:999
+  !
+  export route-target
+   9730:999
+  !
+ !
+!
+vrf 2001g
+ address-family ipv4 unicast
+  import route-target
+   9731:1001
+  !
+  export route-target
+   9731:1001
+  !
+ !
+!
+vrf Nokia-EVPN-multi
+ address-family ipv4 unicast
+  import route-target
+   9100:111
+  !
+  export route-target
+   9100:111
+  !
+ !
+ address-family ipv6 unicast
+  import route-target
+   9100:111
+  !
+  export route-target
+   9100:111
+  !
+ !
+!
+tcp mss 1000
+tcp path-mtu-discovery
+line console
+ exec-timeout 0 0
+ absolute-timeout 0
+ escape-character 0x5a
+ session-limit 10
+ disconnect-character 0x59
+ session-timeout 100
+!
+line default
+ exec-timeout 0 0
+ session-limit 0
+ session-timeout 0
+!
+snmp-server vrf mgmt
+ host 172.16.251.209 traps version 2c encrypted 0831594C051006
+!
+snmp-server vrf default
+ host 172.16.249.123 traps version 3 priv bharti-ro udp-port 1062
+!
+snmp-server host 172.16.249.123 traps version 3 auth encrypted 045903071D3545031B16 udp-port 1062
+snmp-server user bharti-ro AGENTIC_AI v3 auth md5 encrypted 1124162B1E26041E240823053A073C7340 priv aes 128 encrypted 047604280615435C293B0D36003F055579
+snmp-server view fullView 1.3.6.1 included
+snmp-server community public RW
+snmp-server group AGENTIC_AI v3 auth notify fullView read fullView write fullView
+snmp-server traps bfd
+snmp-server traps ntp
+snmp-server traps snmp
+snmp-server traps snmp linkup
+snmp-server traps snmp linkdown
+snmp-server traps snmp coldstart
+snmp-server traps snmp warmstart
+snmp-server traps snmp authentication
+snmp-server traps flash removal
+snmp-server traps flash insertion
+snmp-server traps config
+snmp-server traps entity
+snmp-server traps syslog
+snmp-server traps system
+snmp-server traps entity-state operstatus
+snmp-server traps entity-state switchover
+snmp-server traps entity-redundancy all
+snmp-server traps entity-redundancy status
+snmp-server traps entity-redundancy switchover
+snmp-server trap-source MgmtEth0/RP0/CPU0/0
+monitor-session test ethernet
+ destination file size 1000 buffer-type linear
+!
+fpd auto-upgrade enable
+ipv4 conflict-policy static
+ipv6 conflict-policy static
+password6 encryption aes
+ntp
+ server 172.27.58.29
+ server 172.30.1.92
+ server 202.56.230.24
+ server 202.56.230.29 prefer
+ access-group ipv4 peer NTP-ACL-IPV4
+ source Loopback0
+ update-calendar
+!
+bfd
+ multipath include location 0/0/CPU0
+ echo disable
+ trap singlehop pre-mapped
+!
+alias xx commit
+alias commit xx
+ipv4 unnumbered mpls traffic-eng Loopback0
+key chain Airtel
+ key 100
+  accept-lifetime 00:00:00 november 11 2025 infinite
+  key-string password 070D294D5C1D10
+  send-lifetime 00:00:00 november 11 2025 infinite
+  cryptographic-algorithm HMAC-MD5
+ !
+!
+key chain bharti
+ key 100
+  accept-lifetime 00:00:00 january 01 2012 infinite
+  key-string password 011112175407
+  send-lifetime 00:00:00 january 01 2012 infinite
+  cryptographic-algorithm HMAC-MD5
+ !
+!
+call-home
+ service active
+ contact smart-licensing
+ source-interface Loopback0
+ profile CiscoTAC-1
+  active
+  destination address http http://100.64.68.27/Transportgateway/services/DeviceRequestHandler
+  destination transport-method email disable
+  destination transport-method http
+ !
+!
+netconf-yang agent
+ ssh
+!
+ipv4 access-list loopback_only
+ 10 permit ipv4 202.123.10.0 0.0.0.255 any
+!
+class-map match-any CORE_ONM
+ description [NETWORK - IP Prec=2 MPLS EXP = 2]
+ match mpls experimental topmost 2
+ end-class-map
+!
+class-map match-any CORE_SIGNAL
+ description [SIGNALING - MPLS EXP=1]
+ match mpls experimental topmost 1
+ end-class-map
+!
+class-map match-any CORE_NETWORK
+ description [NETWORK - IP Prec=6 -7, MPLS EXP = 6-7]
+ match precedence ipv4 6 7
+ match mpls experimental topmost 6 7
+ end-class-map
+!
+class-map match-any CORE_BUSINESS
+ description [NETWORK - IP Prec=3 MPLS EXP = 3]
+ match mpls experimental topmost 3
+ end-class-map
+!
+class-map match-any CORE_DATA_GOLD
+ description [MOBILITY DATA - MPLS EXP=4]
+ match precedence ipv4 4
+ match mpls experimental topmost 4
+ end-class-map
+!
+class-map match-any CORE_PREMIUM_RT
+ description [PREMIUM - MPLS EXP=5]
+ match mpls experimental topmost 5
+ end-class-map
+!
+policy-map CORE-MPLS-ASR9k-BHARTI_NEW
+ class CORE_NETWORK
+  bandwidth percent 5
+ !
+ class CORE_PREMIUM_RT
+  priority level 1
+  police rate percent 30
+  !
+ !
+ class CORE_SIGNAL
+  bandwidth percent 5
+ !
+ class CORE_DATA_GOLD
+  bandwidth percent 20
+ !
+ class CORE_BUSINESS
+  bandwidth percent 30
+ !
+ class CORE_ONM
+  bandwidth percent 5
+ !
+ class class-default
+  bandwidth percent 5
+  random-detect default
+ !
+ end-policy-map
+!
+policy-map CORE-MPLS-ASR9k-BHARTI_NEW_CHILD
+ class CORE_NETWORK
+  bandwidth percent 5
+ !
+ class CORE_PREMIUM_RT
+  priority level 1
+  police rate percent 30
+  !
+ !
+ class CORE_SIGNAL
+  bandwidth percent 5
+ !
+ class CORE_DATA_GOLD
+  bandwidth percent 20
+ !
+ class CORE_BUSINESS
+  bandwidth percent 30
+ !
+ class CORE_ONM
+  bandwidth percent 5
+ !
+ class class-default
+  bandwidth percent 5
+  random-detect default
+ !
+ end-policy-map
+!
+policy-map CORE-MPLS-ASR9k-BHARTI_NEW_PARENT
+ class class-default
+  service-policy CORE-MPLS-ASR9k-BHARTI_NEW_CHILD
+  shape average 10000000 kbps
+ !
+ end-policy-map
+!
+policy-map CORE-MPLS-ASR9k-BHARTI_NEW_CORE_INGRESS
+ class CORE_PREMIUM_RT
+  priority level 1
+ !
+ class CORE_SIGNAL
+  priority level 1
+ !
+ class CORE_ONM
+  priority level 1
+ !
+ class CORE_NETWORK
+  priority level 2
+ !
+ class CORE_BUSINESS
+  priority level 2
+ !
+ class class-default
+ !
+ end-policy-map
+!
+hw-module port-range 0 1 instance 2 location 0/0/CPU0 mode 400
+hw-module port-range 2 3 instance 2 location 0/0/CPU0 mode 400
+interface Bundle-Ether5
+ description ## Connected to Nokia IXR-e3x @ 1/1/C34 for SFP Testing ##
+ mtu 9216
+ ipv4 address 10.34.0.1 255.255.255.254
+ load-interval 30
+!
+interface Bundle-Ether6
+ description ## Connected to Nokia IXR-e3x @ 1/1/C35 for SFP Testing ##
+ mtu 9216
+ ipv4 address 10.34.0.3 255.255.255.254
+ load-interval 30
+!
+interface Bundle-Ether7
+ mtu 9216
+ lacp switchover suppress-flaps 300
+ bundle wait-while 200
+ load-interval 30
+!
+interface Bundle-Ether7.700 l2transport
+ description Nokia-A1
+ encapsulation dot1q 700
+ rewrite ingress tag pop 1 symmetric
+!
+interface Bundle-Ether7.701 l2transport
+ description Nokia-A2
+ encapsulation dot1q 701
+ rewrite ingress tag pop 1 symmetric
+!
+interface Bundle-Ether16
+ description Nokia-testing
+ mtu 9216
+ ipv4 address 10.34.0.1 255.255.255.254
+ load-interval 30
+!
+interface Bundle-Ether17
+ description Nokia-testing
+ mtu 9216
+ ipv4 address 10.34.0.3 255.255.255.254
+ load-interval 30
+!
+interface Bundle-Ether22
+ mtu 9216
+ ipv4 address 22.23.24.3 255.255.255.254
+ load-interval 30
+!
+interface Bundle-Ether52
+ description #MPLS#BACK-TO-BACK##CONNECTED-TO-$X2-T2-LAB-1$-$Bundle-Ether52$#CMR:CMR#
+ bfd mode ietf
+ bfd address-family ipv4 timers start 60
+ bfd address-family ipv4 multiplier 3
+ bfd address-family ipv4 destination 100.72.10.142
+ bfd address-family ipv4 fast-detect
+ bfd address-family ipv4 minimum-interval 100
+ mtu 9216
+ ipv4 address 100.72.10.143 255.255.255.254
+ load-interval 30
+!
+interface Bundle-Ether52.2
+ description #MPLS#BACK-TO-BACK##CONNECTED-TO-$X2-T2-LAB-1$-$te0/0/0/17$#CMR:CMR#
+ ipv4 address 116.119.10.143 255.255.255.254
+ ipv6 address 2404:a800:0:2d:116:119:10:143/127
+ shutdown
+ load-interval 30
+ encapsulation dot1q 2
+!
+interface Bundle-Ether52.4
+ description #MPLS#BACK-TO-BACK##CONNECTED-TO-$X2-T2-LAB-1$-$te0/0/0/17$#CMR:CMR#
+ ipv4 address 100.72.10.15 255.255.255.254
+ ipv6 address 2404:a800:0:2c:100:72:10:15/127
+ load-interval 30
+ encapsulation dot1q 4
+!
+interface Bundle-Ether190
+ mtu 9216
+ load-interval 30
+!
+interface Bundle-Ether190.0
+ mtu 9216
+ ipv4 address 138.12.13.1 255.255.255.252
+ ipv6 address 2410::10/127
+ load-interval 30
+ encapsulation dot1q 38
+!
+interface Bundle-Ether1021
+ mtu 9216
+ ipv4 address 179.168.12.1 255.255.255.252
+ load-interval 30
+!
+interface Bundle-Ether1036
+ description Te0/1/1/0-BE1036-9KUpper
+ mtu 9216
+ ipv4 address 10.36.36.1 255.255.255.252
+ load-interval 30
+!
+interface Bundle-Ether1064
+ description to Te0/0/0/16-BE1064-PeytoUpper
+ mtu 9216
+ ipv4 address 10.64.64.1 255.255.255.252
+ load-interval 30
+!
+interface Bundle-Ether2013
+ description towards 9K2 port T0
+ load-interval 30
+!
+interface Bundle-Ether2013.100
+ ipv4 address 173.202.22.2 255.255.255.252
+ load-interval 30
+ encapsulation dot1q 100
+!
+interface Bundle-Ether4100
+ mtu 9216
+ ipv4 address 51.52.53.55 255.255.255.0
+ load-interval 30
+!
+interface Bundle-Ether6920
+ description towards Peyto .69 port T9
+ mtu 9216
+ load-interval 30
+!
+interface Bundle-Ether6920.100
+ ipv4 address 174.202.22.2 255.255.255.252
+ load-interval 30
+ encapsulation dot1q 100
+!
+interface Bundle-Ether7268
+ description to Te0/0/0/2-BE7268-Peyto Upper
+ mtu 9216
+ ipv4 address 192.168.7.1 255.255.255.252
+ load-interval 30
+!
+interface Bundle-Ether9620
+ mtu 9216
+ ipv4 address 192.168.20.10 255.255.255.254
+ ipv6 address 2002:abcd:20::10/127
+ ipv6 address 2002:abcd:20::12/127
+ load-interval 30
+!
+interface Loopback0
+ description Core Infra Loopback
+ ipv4 address 202.123.10.230 255.255.255.255
+ ipv6 address 2404:a800:0:2f:202:123:10:230/128
+ ipv6 address 2405:200:201:c00:10:10:202:1/128
+!
+interface Loopback100
+ ipv4 address 10.10.200.1 255.255.255.255
+ ipv6 address 2405:200:201:c00:10:10:200:1/128
+!
+interface MgmtEth0/RP0/CPU0/0
+ ipv4 address 172.16.254.20 255.255.255.0
+ ipv6 address fd00::20/64
+!
+interface MgmtEth0/RP1/CPU0/0
+ ipv4 address 172.16.254.20 255.255.255.0
+!
+interface GigabitEthernet0/0/0/4
+ mtu 9216
+ ipv4 address 192.165.67.1 255.255.255.240
+ load-interval 30
+!
+interface TenGigE0/0/0/0
+ description Te0/1/1/0-BE1036-9KUpper
+ bundle id 1036 mode active
+ load-interval 30
+!
+interface TenGigE0/0/0/1
+ bundle id 7 mode active
+ carrier-delay up 10000 down 0
+ load-interval 30
+!
+interface TenGigE0/0/0/2
+ description ##Towards NCS540(MPLS_T5-RTR)##172.16.254.196##
+ bundle id 9620 mode active
+ load-interval 30
+!
+interface TenGigE0/0/0/3
+ mtu 9216
+ load-interval 30
+!
+interface TenGigE0/0/0/13
+ shutdown
+!
+interface TenGigE0/0/0/17
+ description #MPLS#BACK-TO-BACK##CONNECTED-TO-$X2-T2-LAB-1$-$te0/0/0/17$#CMR:CMR#
+ bundle id 52 mode active
+ lldp
+  enable
+ !
+ carrier-delay up 1000 down 0
+ load-interval 30
+!
+interface TenGigE0/0/0/20
+ description ## Connected to Spirent for Nokia IXR-e3x testing ##
+ mtu 9216
+ load-interval 30
+!
+interface TenGigE0/0/0/20.10
+ ipv4 address 11.1.1.1 255.255.255.0
+ encapsulation dot1q 10
+!
+interface TenGigE0/0/0/20.20
+ ipv4 address 21.1.1.1 255.255.255.0
+ encapsulation dot1q 20
+!
+interface TenGigE0/0/0/23
+ shutdown
+!
+controller Optics0/0/2/0
+ dwdm-carrier 50GHz-grid frequency 19365
+!
+controller Optics0/0/2/2
+ dwdm-carrier 100MHz-grid frequency 1931000
+!
+controller Optics0/0/3/2
+ dwdm-carrier 50GHz-grid frequency 19400
+ port-mode speed 200G mod 8qam fec 15sdfec diff disable
+!
+interface BVI700
+ host-routing
+ mtu 9216
+ vrf Nokia-EVPN-multi
+ ipv4 address 193.171.70.1 255.255.255.0
+ ipv4 address 193.172.70.1 255.255.255.0 secondary
+ ipv4 address 193.173.70.1 255.255.255.0 secondary
+ arp timeout 300
+ ipv6 address 2401::193:171:70:1/120
+ ipv6 address 2401::193:172:70:1/120
+ ipv6 address 2401::193:173:70:1/120
+ mac-address 944f.dbf7.3005
+ load-interval 30
+!
+interface BVI701
+ host-routing
+ mtu 9216
+ vrf Nokia-EVPN-multi
+ ipv4 address 193.171.71.1 255.255.255.0
+ arp timeout 300
+ ipv6 address 2401::193:171:71:1/120
+ mac-address 944f.dbf7.3005
+ load-interval 30
+!
+interface TwentyFiveGigE0/0/0/5
+ shutdown
+!
+interface TwentyFiveGigE0/0/0/6
+ shutdown
+!
+interface TwentyFiveGigE0/0/0/7
+ shutdown
+!
+interface TwentyFiveGigE0/0/0/8
+ shutdown
+!
+interface TwentyFiveGigE0/0/0/9
+ shutdown
+!
+interface TwentyFiveGigE0/0/0/10
+ shutdown
+!
+interface TwentyFiveGigE0/0/0/11
+ shutdown
+!
+interface TwentyFiveGigE0/0/0/12
+ shutdown
+!
+interface TwentyFiveGigE0/0/0/14
+ mtu 9216
+ ipv4 address 147.4.6.2 255.255.255.252
+ load-interval 30
+!
+interface TwentyFiveGigE0/0/0/15
+ shutdown
+!
+interface TwentyFiveGigE0/0/0/16
+ shutdown
+!
+interface TwentyFiveGigE0/0/0/18
+ shutdown
+!
+interface TwentyFiveGigE0/0/0/19
+ shutdown
+!
+interface TwentyFiveGigE0/0/0/21
+ shutdown
+!
+interface TwentyFiveGigE0/0/0/22
+ shutdown
+!
+interface HundredGigE0/0/0/24
+ fec none
+!
+interface HundredGigE0/0/0/25
+ description Noika-testing
+ bundle id 5 mode active
+ load-interval 30
+!
+interface HundredGigE0/0/0/26
+ mtu 9216
+ ipv4 address 192.169.67.1 255.255.255.240
+ load-interval 30
+!
+interface HundredGigE0/0/0/28
+ shutdown
+!
+interface HundredGigE0/0/0/29
+ fec none
+!
+interface HundredGigE0/0/0/30
+ shutdown
+!
+interface HundredGigE0/0/0/31
+ shutdown
+!
+interface TwentyFiveGigE0/0/0/32
+ shutdown
+!
+interface TwentyFiveGigE0/0/0/33
+ shutdown
+!
+interface TwentyFiveGigE0/0/0/34
+ shutdown
+!
+interface TwentyFiveGigE0/0/0/35
+ shutdown
+!
+interface TwentyFiveGigE0/0/0/36
+ shutdown
+!
+interface TwentyFiveGigE0/0/0/37
+ shutdown
+!
+interface TwentyFiveGigE0/0/0/38
+ shutdown
+!
+interface TwentyFiveGigE0/0/0/39
+ shutdown
+!
+interface TwentyFiveGigE0/0/0/40
+ shutdown
+!
+interface TwentyFiveGigE0/0/0/41
+ shutdown
+!
+interface TwentyFiveGigE0/0/0/42
+ shutdown
+!
+interface TwentyFiveGigE0/0/0/43
+ shutdown
+!
+interface TwentyFiveGigE0/0/0/44
+ shutdown
+!
+interface TwentyFiveGigE0/0/0/45
+ shutdown
+!
+interface TwentyFiveGigE0/0/0/46
+ shutdown
+!
+interface TwentyFiveGigE0/0/0/47
+ shutdown
+!
+interface TwentyFiveGigE0/0/0/48
+ shutdown
+!
+interface TwentyFiveGigE0/0/0/49
+ shutdown
+!
+interface TwentyFiveGigE0/0/0/50
+ shutdown
+!
+interface TwentyFiveGigE0/0/0/51
+ shutdown
+!
+interface TwentyFiveGigE0/0/0/52
+ shutdown
+!
+interface TwentyFiveGigE0/0/0/53
+ shutdown
+!
+interface TwentyFiveGigE0/0/0/54
+ shutdown
+!
+interface TwentyFiveGigE0/0/0/55
+ shutdown
+!
+interface FourHundredGigE0/0/2/0
+ bundle id 16 mode active
+ load-interval 30
+!
+interface FourHundredGigE0/0/2/2
+ bundle id 17 mode active
+ load-interval 30
+!
+interface HundredGigE0/0/3/0
+ shutdown
+!
+interface HundredGigE0/0/3/1
+ shutdown
+!
+interface HundredGigE0/0/3/2/0
+ bundle id 1021 mode active
+ load-interval 30
+!
+interface HundredGigE0/0/3/2/1
+ bundle id 1021 mode active
+ load-interval 30
+!
+interface preconfigure GigabitEthernet0/0/0/1
+ description connected to Laptop
+ ipv4 address 172.16.255.10 255.255.255.0
+ speed 1000
+!
+interface preconfigure GigabitEthernet0/0/0/9
+ shutdown
+!
+interface preconfigure TenGigE0/0/0/9
+ description connected to peyto .69 Tengig-9-in-ISIS-T4-Donot remove
+ bundle id 6920 mode active
+ load-interval 30
+!
+interface preconfigure TenGigE0/0/0/11
+ shutdown
+!
+interface preconfigure TenGigE0/0/0/12
+ shutdown
+!
+interface preconfigure TenGigE0/0/0/14
+ shutdown
+!
+interface preconfigure TenGigE0/0/0/16
+ description Te0/0/0/16-BE1064-PeytoUpper
+ bundle id 1064 mode active
+!
+interface preconfigure TenGigE0/0/0/32
+!
+interface preconfigure TenGigE0/0/0/34
+!
+interface preconfigure TenGigE0/0/0/37
+ shutdown
+!
+controller preconfigure Optics0/0/1/0
+ dwdm-carrier 100MHz-grid frequency 1936000
+!
+controller preconfigure Optics0/0/1/1
+ dwdm-carrier 50GHz-grid frequency 19400
+!
+controller preconfigure Optics0/0/3/2/0
+ dwdm-carrier 50GHz-grid frequency 19400
+ port-mode speed 200G mod 8qam fec 15sdfec diff disable
+!
+interface preconfigure TwentyFiveGigE0/0/0/0
+ shutdown
+!
+interface preconfigure TwentyFiveGigE0/0/0/1
+!
+interface preconfigure TwentyFiveGigE0/0/0/2
+ shutdown
+!
+interface preconfigure TwentyFiveGigE0/0/0/3
+ shutdown
+!
+interface preconfigure TwentyFiveGigE0/0/0/4
+ shutdown
+!
+interface preconfigure TwentyFiveGigE0/0/0/13
+ shutdown
+!
+interface preconfigure TwentyFiveGigE0/0/0/17
+ shutdown
+!
+interface preconfigure TwentyFiveGigE0/0/0/20
+ shutdown
+!
+interface preconfigure TwentyFiveGigE0/0/0/23
+ shutdown
+!
+interface preconfigure TwentyFiveGigE0/0/0/24
+!
+interface preconfigure TwentyFiveGigE0/0/0/25
+ loopback internal
+!
+interface preconfigure TwentyFiveGigE0/0/0/26
+!
+interface preconfigure TwentyFiveGigE0/0/0/27
+!
+interface preconfigure TwentyFiveGigE0/0/0/28
+!
+interface preconfigure TwentyFiveGigE0/0/0/29
+!
+interface preconfigure TwentyFiveGigE0/0/0/30
+!
+interface preconfigure TwentyFiveGigE0/0/0/31
+!
+interface preconfigure HundredGigE0/0/1/0
+ mtu 9216
+ ipv4 address 17.17.17.1 255.255.255.0
+!
+interface preconfigure HundredGigE0/0/1/0/0
+ shutdown
+!
+interface preconfigure HundredGigE0/0/1/1
+ mtu 9216
+ ipv4 address 192.168.125.2 255.255.255.252
+ fec standard
+!
+interface preconfigure HundredGigE0/0/1/1/0
+ bundle id 190 mode active
+ shutdown
+ load-interval 30
+!
+interface preconfigure HundredGigE0/0/1/1.10
+ description ** Towards 9K2 Upper Port- Hu0/2/0/14.10 | 100G ZR SFP TEST | **
+ ipv4 address 15.15.15.0 255.255.255.254
+ encapsulation dot1q 10
+!
+interface preconfigure HundredGigE0/0/1/2
+!
+interface preconfigure HundredGigE0/0/1/2/0
+ shutdown
+!
+interface preconfigure HundredGigE0/0/1/3
+ shutdown
+!
+interface preconfigure FourHundredGigE0/0/2/1
+ negotiation auto
+!
+interface preconfigure FourHundredGigE0/0/2/3
+ negotiation auto
+!
+prefix-set LABEL
+  202.123.10.0/24 le 32,
+  116.119.0.0/16 le 32,
+  172.23.10.0/24 le 32,
+  100.73.0.0/16 le 32,
+  202.123.37.0/24 le 32,
+  202.123.39.0/24 le 32,
+  202.123.42.0/24 le 32,
+  202.123.43.0/24 le 32,
+  202.123.47.0/24 le 32,
+  116.119.0.0/16 le 32,
+  202.123.34.0/24 le 32
+end-set
+!
+prefix-set switch-mgmt
+end-set
+!
+prefix-set BLOCK-CONNECTED-LOOPBACK-100
+  10.10.200.1/32
+end-set
+!
+community-set Block_juniper
+  300:300
+end-set
+!
+route-policy NONE
+  drop
+end-policy
+!
+route-policy PASS
+  pass
+end-policy
+!
+route-policy LABEL
+  if destination in LABEL then
+    pass
+  else
+    drop
+  endif
+end-policy
+!
+route-policy SID10020
+  set label-index 3820
+  set community (14:100)
+end-policy
+!
+route-policy SID10200
+  set label-index 37200
+  set community (15:10)
+end-policy
+!
+route-policy path-select
+  set path-selection all advertise
+end-policy
+!
+route-policy switch-mgmt
+  if destination in switch-mgmt then
+    pass
+  endif
+end-policy
+!
+route-policy Block_juniper_LU
+  if community matches-any Block_juniper then
+    drop
+  else
+    pass
+  endif
+end-policy
+!
+route-policy add-path-to-ibgp
+  set path-selection backup 1 advertise install
+end-policy
+!
+route-policy drop_connected_loopback
+  if community matches-any (15:10) then
+    drop
+  else
+    pass
+  endif
+end-policy
+!
+route-policy BLOCK-CONNECTED-LOOPBACK-100
+  if destination in BLOCK-CONNECTED-LOOPBACK-100 then
+    drop
+  else
+    pass
+  endif
+end-policy
+!
+router static
+ address-family ipv4 unicast
+  0.0.0.0/0 172.16.254.1
+  10.1.1.0/24 10.34.0.0
+  18.18.18.0/24 15.15.15.1
+  20.1.1.0/24 10.34.0.2
+  137.124.5.0/30 147.4.6.1
+ !
+!
+router isis T4
+ is-type level-2-only
+ net 47.0001.0100.1001.2025.00
+ nsf cisco
+ log adjacency changes
+ lsp-gen-interval initial-wait 50 secondary-wait 200 maximum-wait 5000
+ lsp-refresh-interval 65000
+ max-lsp-lifetime 65535
+ lsp-password keychain Airtel
+ address-family ipv4 unicast
+  metric-style wide
+  fast-reroute per-prefix tiebreaker node-protecting index 100
+  microloop avoidance segment-routing
+  mpls traffic-eng level-2-only
+  mpls traffic-eng router-id Loopback0
+  mpls traffic-eng multicast-intact
+  spf-interval initial-wait 50 secondary-wait 200 maximum-wait 5000
+  maximum-paths 8
+  segment-routing mpls sr-prefer
+ !
+ address-family ipv6 unicast
+  metric-style wide
+  spf-interval initial-wait 50 secondary-wait 200 maximum-wait 5000
+ !
+ interface Bundle-Ether5
+  circuit-type level-2-only
+  bfd minimum-interval 100
+  bfd multiplier 3
+  bfd fast-detect ipv4
+  point-to-point
+  hello-padding disable
+  hello-password keychain Airtel
+  address-family ipv4 unicast
+   fast-reroute per-prefix
+   fast-reroute per-prefix ti-lfa
+  !
+ !
+ interface Bundle-Ether22
+  circuit-type level-2-only
+  bfd minimum-interval 100
+  bfd multiplier 3
+  bfd fast-detect ipv4
+  point-to-point
+  hello-padding disable
+  address-family ipv4 unicast
+   fast-reroute per-prefix
+   fast-reroute per-prefix ti-lfa
+  !
+ !
+ interface Bundle-Ether190.0
+  circuit-type level-2-only
+  bfd minimum-interval 100
+  bfd multiplier 3
+  bfd fast-detect ipv4
+  point-to-point
+  hello-padding disable
+  address-family ipv4 unicast
+   fast-reroute per-prefix
+   fast-reroute per-prefix ti-lfa
+  !
+ !
+ interface Bundle-Ether1036
+  circuit-type level-2-only
+  bfd minimum-interval 50
+  bfd multiplier 3
+  bfd fast-detect ipv4
+  bfd fast-detect ipv6
+  point-to-point
+  hello-padding disable
+  address-family ipv4 unicast
+   fast-reroute per-prefix
+   fast-reroute per-prefix ti-lfa
+  !
+ !
+ interface Bundle-Ether1064
+  circuit-type level-2-only
+  bfd minimum-interval 50
+  bfd multiplier 3
+  bfd fast-detect ipv4
+  bfd fast-detect ipv6
+  point-to-point
+  hello-padding disable
+  address-family ipv4 unicast
+   fast-reroute per-prefix
+   fast-reroute per-prefix ti-lfa
+  !
+ !
+ interface Bundle-Ether2013
+ !
+ interface Bundle-Ether2013.100
+  circuit-type level-2-only
+  bfd minimum-interval 100
+  bfd multiplier 3
+  bfd fast-detect ipv4
+  point-to-point
+  hello-padding disable
+  address-family ipv4 unicast
+   fast-reroute per-prefix
+   fast-reroute per-prefix ti-lfa
+  !
+ !
+ interface Bundle-Ether4100
+  circuit-type level-2-only
+  bfd minimum-interval 100
+  bfd multiplier 3
+  bfd fast-detect ipv4
+  point-to-point
+  hello-padding disable
+  address-family ipv4 unicast
+   fast-reroute per-prefix
+   fast-reroute per-prefix ti-lfa
+  !
+ !
+ interface Bundle-Ether6920
+ !
+ interface Bundle-Ether6920.100
+  circuit-type level-2-only
+  bfd minimum-interval 100
+  bfd multiplier 3
+  bfd fast-detect ipv4
+  point-to-point
+  hello-padding disable
+  address-family ipv4 unicast
+   fast-reroute per-prefix
+   fast-reroute per-prefix ti-lfa
+   metric 1000 level 2
+  !
+ !
+ interface Loopback0
+  passive
+  address-family ipv4 unicast
+   tag 10000
+   prefix-sid index 3820
+  !
+ !
+!
+router isis IGP
+ set-overload-bit
+ is-type level-2-only
+ net 49.0001.2021.2301.0230.00
+ nsr
+ nsf cisco
+ log adjacency changes
+ lsp-gen-interval initial-wait 50 secondary-wait 200 maximum-wait 5000
+ lsp-refresh-interval 65000
+ max-lsp-lifetime 65535
+ lsp-password keychain bharti
+ address-family ipv4 unicast
+  metric-style wide
+  mpls traffic-eng level-2-only
+  mpls traffic-eng router-id 172.16.254.20
+  mpls traffic-eng multicast-intact
+  spf-interval initial-wait 50 secondary-wait 200 maximum-wait 5000
+  redistribute static route-policy switch-mgmt
+  segment-routing mpls
+  spf prefix-priority level 2 critical tag 3001
+ !
+ interface Bundle-Ether52.2
+  circuit-type level-2-only
+  point-to-point
+  hello-padding disable
+  hello-password keychain bharti
+  address-family ipv4 unicast
+   fast-reroute per-prefix level 2
+   fast-reroute per-prefix remote-lfa tunnel mpls-ldp
+   metric 10 level 2
+   mpls ldp sync
+  !
+ !
+ interface Loopback0
+  passive
+  address-family ipv4 unicast
+   tag 3001
+   prefix-sid index 60315
+  !
+ !
+!
+router isis bharti
+ address-family ipv4 unicast
+ !
+ interface Bundle-Ether10121
+  address-family ipv4 unicast
+  !
+ !
+ interface Loopback0
+  address-family ipv4 unicast
+  !
+ !
+!
+snmp-server traps isis all
+snmp-server traps bgp cbgp2 updown
+snmp-server traps bgp updown
+router bgp 9730
+ nsr
+ bgp router-id 202.123.10.230
+ bgp cluster-id 202.123.10.230
+ bgp graceful-restart restart-time 120
+ bgp graceful-restart graceful-reset
+ bgp graceful-restart stalepath-time 360
+ bgp graceful-restart
+ bgp log neighbor changes detail
+ ibgp policy out enforce-modifications
+ address-family ipv4 unicast
+  additional-paths receive
+  additional-paths send
+  additional-paths selection route-policy path-select
+  nexthop trigger-delay critical 0
+  nexthop trigger-delay non-critical 0
+  network 202.123.10.230/32 route-policy SID10020
+  allocate-label all
+ !
+ address-family vpnv4 unicast
+  nexthop trigger-delay critical 0
+  nexthop trigger-delay non-critical 0
+ !
+ address-family ipv6 unicast
+ !
+ address-family vpnv6 unicast
+  nexthop trigger-delay critical 0
+  nexthop trigger-delay non-critical 0
+ !
+ address-family ipv4 mdt
+ !
+ address-family l2vpn vpls-vpws
+ !
+ address-family ipv4 rt-filter
+ !
+ address-family l2vpn evpn
+  nexthop trigger-delay critical 0
+  nexthop trigger-delay non-critical 0
+ !
+ neighbor-group PE_Routers
+  remote-as 9730
+  description *** RR Client ***
+  update-source Loopback0
+  address-family ipv4 labeled-unicast
+   route-reflector-client
+  !
+  address-family vpnv4 unicast
+   route-reflector-client
+  !
+  address-family vpnv6 unicast
+   route-reflector-client
+  !
+  address-family ipv4 mdt
+   route-reflector-client
+  !
+  address-family l2vpn vpls-vpws
+   route-reflector-client
+  !
+  address-family ipv4 rt-filter
+   route-reflector-client
+   default-originate
+  !
+  address-family l2vpn evpn
+   route-reflector-client
+  !
+ !
+ neighbor-group RR_Routers
+  remote-as 9730
+  password encrypted 121B11041D07
+  description *** national RR ***
+  update-source Loopback0
+  address-family ipv4 labeled-unicast
+  !
+  address-family vpnv4 unicast
+  !
+  address-family vpnv6 unicast
+  !
+  address-family ipv4 mdt
+  !
+  address-family ipv4 rt-filter
+  !
+  address-family l2vpn evpn
+   route-reflector-client
+  !
+ !
+ neighbor 10.10.130.1
+  use neighbor-group PE_Routers
+  bfd fast-detect
+  bfd multiplier 3
+  bfd minimum-interval 100
+  address-family ipv4 labeled-unicast
+  !
+  address-family ipv6 labeled-unicast
+  !
+ !
+ neighbor 10.10.140.1
+  use neighbor-group PE_Routers
+  bfd fast-detect
+  bfd multiplier 3
+  bfd minimum-interval 100
+  address-family ipv4 labeled-unicast
+  !
+  address-family ipv6 labeled-unicast
+  !
+ !
+ neighbor 202.123.10.3
+  use neighbor-group PE_Routers
+ !
+ neighbor 202.123.10.6
+  use neighbor-group PE_Routers
+ !
+ neighbor 192.168.1.200
+  use neighbor-group PE_Routers
+ !
+ neighbor 202.123.10.240
+  use neighbor-group RR_Routers
+ !
+ vrf Nokia-EVPN-multi
+  rd 9730:23001
+  address-family ipv4 unicast
+   label mode per-vrf
+   redistribute connected
+   redistribute static
+  !
+  address-family ipv6 unicast
+   label mode per-vrf
+   redistribute connected
+   redistribute static
+  !
+ !
+!
+evpn
+ evi 700
+  bgp
+   route-target 193.171.70.1:3010
+  !
+ !
+ evi 701
+  bgp
+   route-target 193.171.71.1:3010
+  !
+ !
+ group 1
+  core interface Bundle-Ether5
+  core interface Bundle-Ether1036
+ !
+ interface Bundle-Ether7
+  ethernet-segment
+   load-balancing-mode single-flow-active
+  !
+  core-isolation-group 1
+ !
+!
+l2vpn
+ bridge group 700
+  bridge-domain 700
+   interface Bundle-Ether7.700
+   !
+   routed interface BVI700
+   !
+   evi 700
+   !
+  !
+  bridge-domain 701
+   interface Bundle-Ether7.701
+   !
+   routed interface BVI701
+   !
+   evi 701
+   !
+  !
+ !
+!
+mpls oam
+!
+snmp-server traps mpls traffic-eng up
+snmp-server traps mpls traffic-eng down
+snmp-server traps mpls ldp up
+snmp-server traps mpls ldp down
+mpls ldp
+ log
+  neighbor
+  nsr
+  graceful-restart
+  session-protection
+ !
+ nsr
+ graceful-restart
+ igp sync delay on-session-up 5
+ discovery
+  targeted-hello interval 1
+ !
+ mldp
+  logging notifications
+  address-family ipv4
+   make-before-break delay 0 60
+   forwarding recursive
+  !
+ !
+ router-id 202.123.10.230
+ session protection
+ address-family ipv4
+  discovery targeted-hello accept
+  label
+   local
+    allocate for loopback_only
+    advertise
+     for loopback_only
+    !
+   !
+  !
+ !
+ interface Bundle-Ether51.2
+ !
+ interface Bundle-Ether52.2
+ !
+ interface Bundle-Ether1064
+ !
+!
+multicast-routing
+ address-family ipv4
+  interface Loopback0
+   enable
+  !
+  interface Bundle-Ether51.2
+   enable
+  !
+  interface Bundle-Ether52.2
+   enable
+  !
+  mdt source Loopback0
+  mdt mtu 9000
+  log-traps
+  multipath
+  ssm range SSM-RANGE
+  rate-per-route
+  interface all enable
+  accounting per-prefix
+ !
+!
+segment-routing
+ global-block 120000 519999
+!
+xml agent tty
+!
+snmp-server traps sensor
+snmp-server traps fru-ctrl
+netconf agent tty
+!
+router pim
+ address-family ipv4
+  rp-address 10.10.20.1
+  interface Loopback0
+   enable
+  !
+  interface Bundle-Ether51.2
+   enable
+  !
+  interface Bundle-Ether52.2
+   enable
+  !
+ !
+!
+mpls ip-ttl-propagate disable forwarded
+license smart flexible-consumption enable
+ssh client source-interface MgmtEth0/RP0/CPU0/0
+ssh server rate-limit 600
+ssh server session-limit 15
+ssh server v2
+ssh server vrf mgmt
+track 1
+ type route reachability
+  route 10.10.15.1/32
+ !
+!
+track T2-GW
+ type list boolean or
+  object 1
+ !
+ action
+  track-down error-disable interface Bundle-Ether7 auto-recover
+ !
+!
+telnet vrf mgmt ipv4 server max-servers 10
+end
+RP/0/RP0/CPU0:RR_NORTH_LAB_254_20#

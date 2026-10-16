@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Register</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial;
+        }
+
+        body{
+
+            height:100vh;
+
+            display:flex;
+
+            justify-content:center;
+
+            align-items:center;
+
+            background:
+            linear-gradient(
+                135deg,
+                #111827,
+                #2563eb
+            );
+        }
+
+        .register-box{
+
+            width:420px;
+
+            background:white;
+
+            padding:40px;
+
+            border-radius:20px;
+
+            box-shadow:0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        h1{
+
+            text-align:center;
+
+            margin-bottom:25px;
+
+            color:#111827;
+        }
+
+        .input-box{
+
+            margin-bottom:18px;
+        }
+
+        .input-box input{
+
+            width:100%;
+
+            padding:14px;
+
+            border:1px solid #ccc;
+
+            border-radius:10px;
+
+            outline:none;
+        }
+
+        .input-box input:focus{
+
+            border-color:#2563eb;
+        }
+
+        .register-btn{
+
+            width:100%;
+
+            padding:14px;
+
+            border:none;
+
+            border-radius:10px;
+
+            background:#2563eb;
+
+            color:white;
+
+            font-size:16px;
+
+            cursor:pointer;
+        }
+
+        .register-btn:hover{
+
+            background:#1d4ed8;
+        }
+
+        .bottom{
+
+            margin-top:20px;
+
+            text-align:center;
+        }
+
+        .bottom a{
+
+            text-decoration:none;
+
+            color:#2563eb;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="register-box">
+
+    <h1>Create Account</h1>
+
+    <form method="POST">
+
+        <div class="input-box">
+
+            <input type="text"
+                   name="fullname"
+                   placeholder="Full Name"
+                   required>
+
+        </div>
+
+        <div class="input-box">
+
+            <input type="text"
+                   name="username"
+                   placeholder="Username"
+                   required>
+
+        </div>
+
+        <div class="input-box">
+
+            <input type="email"
+                   name="email"
+                   placeholder="Email Address"
+                   required>
+
+        </div>
+
+        <div class="input-box">
+
+            <input type="password"
+                   name="password"
+                   placeholder="Password"
+                   required>
+
+        </div>
+
+        <div class="input-box">
+
+            <input type="password"
+                   name="confirm_password"
+                   placeholder="Confirm Password"
+                   required>
+
+        </div>
+
+        <button class="register-btn"
+                type="submit">
+
+            Register
+
+        </button>
+
+    </form>
+
+    <div class="bottom">
+
+        <a href="/login">
+            Already have account? Login
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>

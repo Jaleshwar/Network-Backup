@@ -1,0 +1,68 @@
+show int description
+Thu Oct  8 18:19:56.555 IST
+Interface          Status      Protocol    Description
+--------------------------------------------------------------------------------
+BV100              down        down        MWROB-ML3-11-888881-4G-P-NC-bharti-Internal-Mobility-888881-06062025
+BV755              down        down        MWRBJ-ML3-11-87611-4G-P-NC-bharti-internal-mobility-311898-13092023
+BV1991             down        down
+BE13               down        down
+BE13.881           down        down        MWROB-ML3-11-888881-4G-P-NC-bharti-Internal-Mobility-888881-06062025
+BE13.10002         down        down        TMKK-ML3-76-290001-Telemedia-290001-07102026
+BE13.10003         down        down        #DSLAM#TMKK-ML3-76-290002#290002##05102026#MOBILE_SITE_ID#
+BE13.20020         down        down        BOBA-ML3-10-658677-kjajj-5120k-test-address-492653-31072026
+BE13.20024         down        down        BOBA-ML3-11-90003-kjajj-5120k-BOBA-ML3-11-900003-12082026
+BE13.20025         down        down        BOBA-ML3-11-90004-kjajj-5120k-BOBA-ML3-11-900004-14082026
+BE13.20030         down        down        POLS-ML3-10-50001-kjajj-3000k-POLS-ML3-10-500001-18082026
+BE13.20031         down        down        HDFC-ML3-1-30001-multi-50220k-HDFC-ML3-1-99001-18082026
+BE21               down        down        mobility bundle toward spirent XXX
+BE21.35            down        down        JHAR-P2P-1030-IROW-P-NC-795979-01082023
+BE21.755           down        down        MWRBJ-ML3-11-87611-4G-P-NC-bharti-internal-mobility-311898-13092023
+BE21.756           down        down        MWRBJ-ML3-12-87612-4G-P-NC-bharti-internal-mobility-311898-13092023
+BE21.757           down        down        MWRBJ-ML3-13-87613-4G-P-NC-bharti-internal-mobility-311898-13092023
+BE21.2007          down        down        VPLS-TEST
+BE98               down        down
+BE411              down        down        ACTIVE/STANDBY LAG toward CORE
+BE500              up          up          towards_Y4_T4_LAB_1_16_te1/2/1
+BE500.500          admin-down  admin-down  towards_Y4_T4_LAB_1_16_te1/2/1
+BE500.511          up          up          MANP-ML2-1105368-manesar-678368-16052026
+BE500.514          up          up          MANP-ML2-111011-manesar-2988211-16052026
+Lo0                admin-down  admin-down  Core Infra Loopback
+Lo100              up          up
+Lo110              admin-down  admin-down  MPLS#$CEN-Topology$#$CEN-Infrastructure MGMT-Loopback$#
+Lo111              up          up
+Lo200              up          up
+Nu0                up          up
+Mg0/RP0/CPU0/0     up          up
+Gi0/0/0/0          down        down
+Gi0/0/0/1          admin-down  admin-down
+Gi0/0/0/2          admin-down  admin-down
+Gi0/0/0/3          admin-down  admin-down
+Gi0/0/0/16         down        down
+Hu0/0/0/28         down        down        Towards-Spirent-Tester
+Hu0/0/0/29         down        down        towards 9K2 upper router AGG
+Te0/0/0/4          up          up          Towards-NPT1
+Te0/0/0/4.100      up          up
+Te0/0/0/5          down        down
+Te0/0/0/6          admin-down  admin-down  to_172.16.249.24_0/0/0/6
+Te0/0/0/7          down        down        toward_spirent_te1/4/13
+Te0/0/0/8          down        down        Towards STC/CE1
+Te0/0/0/8.701      down        down
+Te0/0/0/9          down        down        #MPLS#BACK-TO-BACK#$CEN-Topology$#CONNECTED-TO-$NCS540(172.16.249.25)$-$TenGigE0/0/0/10$
+Te0/0/0/10         up          up          towards_Y4_T4_LAB_1_16_te1/2/1
+Te0/0/0/11         admin-down  admin-down
+Te0/0/0/12         admin-down  admin-down
+Te0/0/0/13         admin-down  admin-down
+Te0/0/0/14         admin-down  admin-down
+Te0/0/0/15         admin-down  admin-down
+Te0/0/0/17         admin-down  admin-down
+Te0/0/0/18         admin-down  admin-down
+Te0/0/0/19         down        down        for isis limit metric
+TF0/0/0/20         admin-down  admin-down
+TF0/0/0/21         admin-down  admin-down
+TF0/0/0/22         admin-down  admin-down
+TF0/0/0/23         admin-down  admin-down
+TF0/0/0/24         admin-down  admin-down
+TF0/0/0/25         admin-down  admin-down
+TF0/0/0/26         admin-down  admin-down
+TF0/0/0/27         admin-down  admin-down
+RP/0/RP0/CPU0:LAB-2-AGR-T5-NCS540-100.20#

@@ -1,0 +1,108 @@
+show int description
+-------------------------------------------------------------------------------
+Interface                Description
+-------------------------------------------------------------------------------
+mgmt0                    --
+-------------------------------------------------------------------------------
+Port          Type   Speed   Description
+-------------------------------------------------------------------------------
+Eth1/1        eth    10G     **connected LAB FIREWALL  B @port-Eth1/2 | INSIDE TO OUTSIDE ***
+Eth1/2        eth    10G     ##connected to Internet Router B @port Te0/0/15 ##
+Eth1/3        eth    10G     **Connected to LAB FIREWALL B @port-Eth1/1 | OUTSIDE TO INSIDE ***
+Eth1/4        eth    25G     ## Connected to C-ROW-SWH 254.65 ## MGMT ##
+Eth1/5        eth    1000    *** Connected to VAS-MGMT-SW-ROW-A-41 | TRUNK | Port-Gig1/28 | AR-07 U-23 | ***
+Eth1/6        eth    10G     *** Connected to SERVICE-SWH-ROW-A141 | TRUNK | Port-Gig1/47 | AR-07 U-23 | ***
+Eth1/7        eth    25G     --
+Eth1/8        eth    1000    *** Connected to POC-SWH-ROW-B-50 | TRUNK | Port-Gig0/2 | BR-07 U-26 | ***
+Eth1/9        eth    1000    *** Connected to POC-SWH-ROW-C-65 | TRUNK | Port-Gig0/50 | CR-07 U-28 | ***
+Eth1/10       eth    1000    *** Connected to LAN_MGMT_SWH-251-249 | TRUNK | Port-Gig0/52 | DR-05 U-29 | ***
+Eth1/11       eth    1000    *** Connected to POC-SWH-ROW-D-122 | TRUNK | Port-Gig1/1/2 | DR-07 U-20 | ***
+Eth1/12       eth    10G     ## connected to CORE-SWH-A-0011 @port G1/0/11 for Trunk ##
+Eth1/13       eth    10G     *** Connected to NEW-POC_SW-ROW_E-156 | TRUNK | Port-Te1/1/2 | ER-07 U-21 | ***
+Eth1/14       eth    25G     *** Connected to POC-SWH2-ROW-F-6 | TRUNK | Port-Te1/1/3 | FR-07 U-12 | ***
+Eth1/15       eth    10G     *** Connected to POC-SWH-G-150 | TRUNK | Port-Te1/0/2 | GR-07 U-29 | ***
+Eth1/16       eth    1000    *** Connected to POC-SWH-ROW-H-147 | TRUNK | Port-Gig1/32 | HR-06 U-20 | ***
+Eth1/17       eth    10G     *** Connected to POC-SWH2-ROW-H-251-4 | TRUNK | Port-Te1/0/2 | HR-06 U-27 | ***
+Eth1/18       eth    1000    *** Connected to POC-SWH-ROW-H-R06-93 | TRUNK | Port-Gig1/0/50 | HR-06 U-23 | ***
+Eth1/19       eth    10G     *** Connected to POC-SWH_2-ROW-I-3 | TRUNK | Port-Te1/1/4 | IR-08 U-23 | ***
+Eth1/20       eth    1000    --
+Eth1/21       eth    25G     connected to POC-SWH-G-96 | 172.16.251.96 @Port-Te1/1/2 | for trunk | G-14
+Eth1/22       eth    10G     **connected to Poc-switch-MSC | Msc room @port-te1/1/2 for trunk **
+Eth1/23       eth    10G     **connected to ZTE OLT 1/1/4 for Nokia BNG testing ***
+Eth1/24       eth    10G     **connecte to Nokia BNG @PORT- 1/1/C6 **
+Eth1/25       eth    1000    *** Connected to VAS-MGMT-SW-ROW-A-41 | MGMT | Port-Gig1/2 | AR-07 U-23 | ***
+Eth1/26       eth    1000    *** Connected to SERVICE-SWH-ROW-A141 | MGMT | Port-Gig1/2 | AR-07 U-23 | ***
+Eth1/27       eth    1000    --
+Eth1/28       eth    100     *** Connected to POC-SWH-ROW-B-50 | MGMT | Port-fa0/2 | BR-07 U-26 | ***
+Eth1/29       eth    1000    *** Connected to POC-SWH-ROW-C-65 | MGMT | Port-Gig0/2 | CR-07 U-28 | ***
+Eth1/30       eth    1000    *** Connected to LAN_MGMT_SWH-251-249 | MGMT | Port-Gig0/2 | DR-05 U-29 | ***
+Eth1/31       eth    100     *** Connected to POC-SWH-ROW-D-122 | MGMT | Port-Fa1/0/2 | DR-07 U-20 | ***
+Eth1/32       eth    1000    ** Connected to CORE_A_254.11 | MGMT | Port-Gig1/0/2 |
+Eth1/33       eth    1000    *** Connected to NEW-POC_SW-ROW_E-156 | MGMT | Port-Gig1/0/2 | ER-07 U-21 | ***
+Eth1/34       eth    1000    *** Connected to POC-SWH2-ROW-F-6 | MGMT | Port-Gig1/0/2 | FR-07 U-12 | ***
+Eth1/35       eth    1000    *** Connected to POC-SWH-G-150 | MGMT | Port-Gig1/0/2 | GR-07 U-29 | ***
+Eth1/36       eth    1000    *** Connected to POC-SWH-ROW-H-147 | MGMT | Port-Gig1/0/2 | HR-07 U-20 | ***
+Eth1/37       eth    1000    *** Connected to POC-SWH2-ROW-H-251-4 | MGMT | Port-Gig1/0/2 | HR-06 U-27 | ***
+Eth1/38       eth    1000    *** Connected to POC-SWH-ROW-H-R06-93 | MGMT | Port-Gig1/0/8 | HR-06 U-23 | ***
+Eth1/39       eth    1000    *** Connected to POC-SWH_2-ROW-I-3 | MGMT | Port-Gig1/1/2 |  IR-08 U-23 | ***
+Eth1/40       eth    1000    *** Connected to POC-SWH2-ROW-F-6 251.6 | MGMT | Port-Gig1/0/2 | FR-07 U-12 | ***
+Eth1/41       eth    1000    *** Towards OLD_CLOUD FR-02 | Port-08 |_BACKUP ***
+Eth1/42       eth    1000    **connected to New-L3-SW-MSC-113  @Port-G1/0/17 | for trunk **
+Eth1/43       eth    25G     --
+Eth1/44       eth    25G     --
+Eth1/45       eth    25G     --
+Eth1/46       eth    25G     --
+Eth1/47       eth    25G     --
+Eth1/48       eth    25G     --
+Eth1/49       eth    100G    **connected to Cloud Server 172.16.248.2 | I ROW **
+Eth1/50       eth    100G    --
+Eth1/51       eth    100G    --
+Eth1/52       eth    100G    ## Connected to 3rd Floor DC MAN-CISCO-AGENTIC-N9K-SW02 @ 1/1 ##  vlan - 202
+Eth1/53/1     eth    10G     *** Connected to INTERNET-ROUTER-B | Port-Te0/0/15 | TRUNK DATA PLANE FLOW ***
+Eth1/53/2     eth    10G     *** Connected to LAB-FW-B | Port-Eth1/1 | FOR OUTSIDE |
+Eth1/53/3     eth    10G     *** Connected to LAB-FW-B | INSIDE TO FW-OUTSIDE | Port-Eth1/2
+Eth1/53/4     eth    10G     ##Connected to CORE-SWH-A-0011 | Port-Te1/1/1 ##
+Eth1/54       eth    100G    *** Connected to Nexus-Core-A_BACK to BACK | Port-Eth1/54 | DR 11 U 29 | ***
+-------------------------------------------------------------------------------
+Interface                Description
+-------------------------------------------------------------------------------
+Lo1                      --
+-------------------------------------------------------------------------------
+Interface                Description
+-------------------------------------------------------------------------------
+Vlan1                    --
+Vlan11                   --
+Vlan23                   *IMS-Vidya*
+Vlan35                   --
+Vlan42                   --
+Vlan47                   --
+Vlan48                   --
+Vlan50                   --
+Vlan51                   ## For lab Infra Connectivity & ESOA DC-Gateway Connectivity - 172.16.251.198 ###
+Vlan52                   --
+Vlan53                   --
+Vlan98                   --
+Vlan99                   --
+Vlan100                  --
+Vlan111                  --
+Vlan141                  --
+Vlan145                  --
+Vlan150                  --
+Vlan202                  --
+Vlan245                  ## For MSC Room Tech LAN Connectivity - 10.3.240.186 ###
+Vlan250                  --
+Vlan300                  --
+Vlan420                  --
+Vlan440                  --
+Vlan447                  --
+Vlan448                  --
+Vlan449                  --
+Vlan455                  --
+Vlan501                  --
+Vlan709                  --
+Vlan998                  --
+Vlan2000                 --
+Vlan4005                 --
+Vlan4011                 --
+Vlan4092                 --
+Nexus-CORE-SWH-B#

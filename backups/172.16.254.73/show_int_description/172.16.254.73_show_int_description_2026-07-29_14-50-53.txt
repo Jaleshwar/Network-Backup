@@ -1,0 +1,34 @@
+show int description
+Wed Jul 29 14:54:57.902 IST
+Interface          Status      Protocol    Description
+--------------------------------------------------------------------------------
+BE16               down        down        ## Connected to Nokia IXR-e3x @ 1/1/C33/1 ##
+BE102              up          up          ## Back to Back connected to I-AM-9K2-UPPER ###
+BE102.2            up          up          ****connecting to ASR_9K_2  ****
+BE102.4            up          up          ****connecting to ASR_9K_2  ****
+BE102.6            up          up          #$CEN-Topology$$Back-To-Back$Towards-9k2-Upper$#
+BE9069             down        down        towards peyto lower .69 port hund 0/0/1/1
+Lo0                up          up
+Lo2                up          up          ****connecting to ASR_9K_2 145555 ****
+Lo99               up          up
+Lo150              up          up          MPLS#$CEN-Topology$#$CEN-Infrastructure MGMT-Loopback$#
+Nu0                up          up
+tt10               admin-down  admin-down
+Mg0/RSP1/CPU0/0    up          up          connected towards MGMT
+Hu0/2/0/0          down        down
+Hu0/2/0/1          admin-down  admin-down
+Hu0/2/0/2          down        down
+Hu0/2/0/3          down        down
+Hu0/2/0/4          up          up          #MPLS#CEN-Topology#CONNECTED-TO-$NCS540(172.16.249.25)$-$HundredGigE0/0/0/29$
+Hu0/2/0/5          down        down        **to_Nokia T4 E3X 172.16.254.210 @Port- 1/1/c33**
+Hu0/2/0/6          up          up          #MPLS#CEN-Topology#CONNECTED-TO-NPE-2$ASR-9903(172.16.249.22)$-$HundredGigE0/0/0/6$
+Hu0/2/0/7          down        down
+Hu0/2/0/12         admin-down  admin-down
+Hu0/2/0/13         up          up          Towards_Cisco_9k2-Uppe_Router
+Hu0/2/0/14         down        down        towards peyto lower .69 port hund 0/0/1/1
+Hu0/2/0/15         down        down        #MPLS#CEN-Topology#CONNECTED-TO-$NCS540(172.16.249.26)$-$HundredGigE0/0/0/29$
+Hu0/3/1/0          admin-down  admin-down
+Hu0/3/1/1          up          up          connected towards I-AM-ONENONLY-9912-T2
+Hu0/3/1/1.1234     up          up
+Hu0/3/1/1.1235     up          up
+RP/0/RSP1/CPU0:I-AM-9K1-LOWER#
